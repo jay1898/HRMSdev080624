@@ -1,0 +1,104 @@
+<template>
+    <div class="resume">
+        <div class="container">
+            <div class="header">
+                <div class="full-name">
+                    <span class="first-name">{employeeData.FirstName}</span>
+                    <span class="last-name">{employeeData.LastName}</span>
+                </div>
+                <div class="contact-info">
+                    <span class="email">Email: </span>
+                    <span class="email-val">{employeeData.Email}</span>
+                    <span class="separator"></span>
+                    <span class="phone">Phone: </span>
+                    <span class="phone-val">{employeeData.Phone}</span>
+                </div>
+
+                <div class="about">
+                    <span class="position">{employeeData.Position}</span>
+                    <span class="desc">{employeeData.Description}</span>
+                </div>
+            </div>
+            <div class="details">
+                <div class="section">
+                    <div class="section__title">Experience</div>
+                    <div class="section__list">
+                        <template for:each={employeeData.Experience} for:item="exp">
+                            <div key={exp.Id} class="section__list-item">
+                                <div class="left">
+                                    <div class="name">{exp.Company}</div>
+                                    <div class="addr">{exp.Location}</div>
+                                    <div class="duration">{exp.StartDate} - {exp.EndDate}</div>
+                                </div>
+                                <div class="right">
+                                    <div class="name">{exp.JobTitle}</div>
+                                    <div class="desc">{exp.Description}</div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section__title">Education</div>
+                    <div class="section__list">
+                        <template for:each={employeeData.Education} for:item="edu">
+                            <div key={edu.Id} class="section__list-item">
+                                <div class="left">
+                                    <div class="name">{edu.Institute}</div>
+                                    <div class="addr">{edu.Location}</div>
+                                    <div class="duration">{edu.StartDate} - {edu.EndDate}</div>
+                                </div>
+                                <div class="right">
+                                    <div class="name">{edu.Degree}</div>
+                                    <div class="desc">{edu.Description}</div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section__title">Projects</div>
+                    <div class="section__list">
+                        <template for:each={employeeData.Projects} for:item="proj">
+                            <div key={proj.Id} class="section__list-item">
+                                <div class="name">{proj.Name}</div>
+                                <div class="text">{proj.Description}</div>
+                                <!-- You can add a link here if needed -->
+                            </div>
+                        </template>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section__title">Skills</div>
+                    <div class="skills">
+                        <template for:each={employeeData.Skills} for:item="skill">
+    <div key={skill.Id} class="skills__item">
+        <div class="left">
+            <div class="name">{skill.Category}</div>
+        </div>
+        <div class="right">
+            <template for:each={skill.Experience} for:item="exp">
+                <input key={exp.Id} type="checkbox" checked={exp.Level} id={exp.Id} />
+                <label key={exp.Id} for={exp.Id}></label>
+            </template>
+        </div>
+    </div>
+</template>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <div class="section__title">Interests</div>
+                    <div class="section__list">
+                        <div class="section__list-item">{employeeData.Interests}</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <lightning-button label="Open VF Page" onclick={handleClick}></lightning-button>
+</template>

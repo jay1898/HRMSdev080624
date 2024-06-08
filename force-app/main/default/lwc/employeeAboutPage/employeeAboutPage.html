@@ -1,0 +1,371 @@
+<template>
+	<div class="overrideStyle"></div>
+	<div class="slds-grid slds-wrap" style = "height 100%;">
+		<!-- First Box -->
+		<div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 " style = "height:100%;">
+			<div class="slds-box slds-box_small style_f_card">
+				<div class="slds-var-m-around_small">
+					<!--<div class="slds-var-m-top_small">
+
+						 About ME -->
+					<div class="About_section">
+
+						<div class="slds-grid">
+							<div class="slds-col slds-size_11-of-12">
+								<div class="details_title">About</div>
+							</div>
+							<div class="slds-col slds-size_1-of-12">
+								<button class="slds-button editButton" onclick={editAboutbutton}>Edit</button>
+							</div>
+						</div>
+						<template if:true={viewAbout}>
+							<template if:true={empData}>
+								<div class="slds-grid slds-wrap slds-var-m-top_small">
+									<div class="slds-col slds-size_6-of-6">
+										<div class="details_name">
+											<lightning-formatted-rich-text value={empData.About_Me__c}>
+											</lightning-formatted-rich-text>
+										</div>
+									</div>
+								</div>
+							</template>
+						</template>
+					</div>
+
+
+					
+				</div>
+			</div>
+		</div>
+		
+
+		<!-- Second Box -->
+
+		<div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 ">
+			<div class="style_f_card slds-box slds-box_small">
+				<div class="slds-var-m-around_small">
+					<!--<div class="slds-var-m-top_small">-->
+
+				
+						<!--Primary Details-->
+					<div class="Primary_section slds-var-m-bottom_x-large">
+						<div class="details_title">Primary Details</div>
+						<template if:true={viewMode}>
+							<template if:true={empData}>
+								<div class="slds-grid slds-wrap slds-var-m-top_small">
+									<div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+										<div class="details_name">First Name</div>
+										<div class="details_value">{empData.First_Name__c}</div>
+									</div>
+									<div class="slds-col slds-size_6-of-12">
+										<div class="details_name">Last Name</div>
+										<div class="details_value">{empData.Last_Name__c}</div>
+									</div>
+								</div>
+								<div class="slds-grid slds-wrap slds-var-m-top_small">
+									<div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+										<div class="details_name">Gender</div>
+										<div class="details_value">{empData.Gender__c}</div>
+									</div>
+									<div class="slds-col slds-size_6-of-12">
+										<div class="details_name">Date of Birth</div>
+										<div class="details_value">{empData.Date_of_Birth__c}</div>
+									</div>
+								</div>
+							</template>
+						</template>
+					</div>
+		
+					<!--Contact Details-->
+					<div class="Contact_section">
+						<div class="details_title">Contact Details</div>
+						<template if:true={viewMode}>
+							<template if:true={empData}>
+								<div class="slds-grid slds-wrap slds-var-m-top_small">
+									<div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+										<div class="details_name">Email</div>
+										<div class="details_value">{empData.Email__c}</div>
+									</div>
+									<div class="slds-col slds-size_6-of-12">
+										<div class="details_name">Skype</div>
+										<div class="details_value">{empData.Skype_Id__c}</div>
+									</div>
+								</div>
+							</template>
+						</template>
+					</div>
+				</div>
+				<!--</div>-->
+			</div>
+		</div>
+
+		<!-- Third Box -->
+
+
+		<div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 ">
+			<div class="style_f_card slds-box slds-box_small">
+				<div class="slds-var-m-around_small">
+
+					<!-- About My Job--> 
+
+					<div class="AboutMyJob_section">
+						<div class="slds-grid">
+							<div class="slds-col slds-size_11-of-12">
+								<div class="details_title">What I love about my job?</div>
+							</div>
+							<div class="slds-col slds-size_1-of-12">
+								<button class="slds-button editButton" onclick={editAboutMebutton}>Edit</button>
+							</div>
+						</div>
+						<template if:true={viewAboutMe}>
+							<template if:true={empData}>
+								<div class="slds-grid slds-wrap slds-var-m-top_small">
+									<div class="slds-col slds-size_6-of-6">
+										<div class="details_name">
+											<lightning-formatted-rich-text value={empData.About_My_Job__c}>
+											</lightning-formatted-rich-text>
+										</div>
+									</div>
+								</div>
+							</template>
+						</template>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Fourth Box -->
+
+		<div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 ">
+			<div class="style_f_card slds-box slds-box_small">
+				<div class="slds-var-m-around_small">
+					<!--Experiance-->
+
+					<div class="experience_section">
+						<div class="details_title">
+							Experience
+						</div>
+						<template if:true={viewMode}>
+							<template for:each={empExpData} for:item="expItem">
+								<div key={expItem.Id} >
+								
+									<div class="experience_data">
+										<div class="experience_data_info">
+											<div class="experience_data_left slds-var-m-top_small">
+												<div class="experience_data_left_top details_value">{expItem.Position__c}, {expItem.Company_Name__c}</div>
+												<div class="experience_data_left_bottom details_subValue">{expItem.FRMT_Join_Date__c} - {expItem.FRMT_Leave_Date__c} : {expItem.Company_Location__c}</div>
+											</div>
+										</div>
+									</div>
+									<hr class="divider">
+								</div> 
+								
+							</template>
+						</template>
+					</div>	
+				</div>
+			
+			</div>
+		</div>
+
+		
+
+		<!-- Fifth Box -->
+
+		<div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 ">
+			<div class="style_f_card slds-box slds-box_small">
+				<div class="slds-var-m-around_small">
+					<!-- Hobbies--> 
+
+					<div class="Hobbies_section">
+						<div class="slds-grid">
+							<div class="slds-col slds-size_11-of-12">
+								<div class="details_title">My interests and hobbies</div>
+							</div>
+							<div class="slds-col slds-size_1-of-12">
+								<button class="slds-button editButton" onclick={editHobbiesbutton}>Edit</button>
+							</div>
+						</div>
+						<template if:true={viewHobbies}>
+							<template if:true={empData}>
+								<div class="slds-grid slds-wrap slds-var-m-top_small">
+									<div class="slds-col slds-size_6-of-6">
+										<div class="details_name">
+											<lightning-formatted-rich-text value={empData.Hobbies__c}>
+											</lightning-formatted-rich-text>
+										</div>
+									</div>
+								</div>
+							</template>
+						</template>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Sixth Box -->
+
+		<div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 ">
+			<div class="style_f_card slds-box slds-box_small">
+				<div class="slds-var-m-around_small">
+
+					<!--Education-->
+
+				<div class="education_sectionl">
+					<div class="details_title">
+						Education Information
+					</div>
+					<template if:true={viewMode}>
+						<!-- <template if:true={empEduData}>
+							<div class="education_data">
+								<div class="education_data_info">
+									<div class="education_data_left slds-var-m-top_small">
+										<div class="education_data_left_top details_name">{empEduData.Degree_Name__c}</div>
+										<div class="education_data_left_bottom details_value">{empEduData.University_Name__c}</div>
+									</div>
+									<div class="education_data_right slds-var-m-top_small details_value">{empEduData.FRMT_Start_Date__c}-{empEduData.FRMT_End_Date__c}</div>
+								</div>
+							</div>
+						</template> -->
+						<template for:each={empEduData} for:item="eduItem">
+                            <div key={eduItem.Id} >
+                                <!-- <div class="slds-grid slds-var-m-around_small">
+                                    <div class="slds-col slds-size_5-of-6">
+                                        <p class="value">{eduItem.Degree_Name__c}</p>
+                                        <p class="subValue">{eduItem.University_Name__c}</p>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-6">
+                                        <p class="value">{eduItem.FRMT_Start_Date__c}-{eduItem.FRMT_End_Date__c}</p>
+                                    </div>
+                                </div> -->
+								<div class="education_data_info">
+									<div class="education_data_left slds-var-m-top_small">
+										<div class="education_data_left_top details_value">{eduItem.Degree_Name__c}</div>
+										<div class="education_data_left_bottom details_subValue">{eduItem.University_Name__c}</div>
+									</div>
+									<div class="education_data_right slds-var-m-top_small details_value">{eduItem.FRMT_Start_Date__c}-{eduItem.FRMT_End_Date__c}</div>
+								</div>
+                                <hr class="divider">
+
+                            </div>
+                        </template>
+                	</template>
+
+				</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Edit About -->
+		<template if:true={editAbout}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="about-modal slds-modal__container">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideAboutModal}>
+                    <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">About</h2>
+            </header>
+
+			<!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                <div class="slds-grid slds-var-m-around_small">
+                        
+						<lightning-input-rich-text value={empData.About_Me__c} onchange={handleEmpChange} data-field="About_Me__c"> </lightning-input-rich-text>
+                </div>    
+            </div>
+			<!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={hideAboutModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveEmpDetails}>Save</button>
+            </footer>
+        
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+	<!-- Edit About My Job>-->
+
+	<template if:true={editAboutMe}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideAboutMeModal}>
+                    <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">What I love about my job?</h2>
+            </header>
+
+			<!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    
+                <div class="slds-grid slds-var-m-around_small">
+                        
+						<lightning-input-rich-text value={empData.About_My_Job__c} onchange={handleEmpChange} data-field="About_My_Job__c"> </lightning-input-rich-text>
+                </div>    
+            </div>
+			<!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={hideAboutMeModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveEmpDetails}>Save</button>
+            </footer>
+        
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+	<!-- Edit Hobbies -->
+
+		<template if:true={editHobbies}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideHobbiesModal}>
+                    <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-03" class="slds-text-heading_medium slds-hyphenate">My interests and hobbies</h2>
+            </header>
+
+			<!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+                    
+                <div class="slds-grid slds-var-m-around_small">
+                        
+						<lightning-input-rich-text value={empData.Hobbies__c} onchange={handleEmpChange} data-field="Hobbies__c"> </lightning-input-rich-text>
+                </div>    
+            </div>
+			<!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={hideHobbiesModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveEmpDetails}>Save</button>
+            </footer>
+        
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+	</div>
+	
+</template>

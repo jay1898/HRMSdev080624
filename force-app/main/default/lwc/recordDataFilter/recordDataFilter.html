@@ -1,0 +1,54 @@
+<template>
+    <lightning-card title="Timesheet Data" style="background:#EAECF1;" icon-name="custom:custom14">
+        <div class="overrideStyle"></div>
+        <div if:true={loaded}>
+            <lightning-spinner variant="brand" size="medium"></lightning-spinner>
+          </div>
+        <div class="slds-p-around_medium">
+            <div class="selection_Sec slds-grid slds-gutters slds-m-bottom_large">
+                <div class="slds-col">
+                    <lightning-input label="From Date" type="date" value={selectedDate} 
+                                onchange={handleDateChange}></lightning-input>
+                    <lightning-input label="To Date" type="date" value={selectedToDate}
+                                onchange={handleToDateChange}></lightning-input>
+                    <lightning-input label="Merge Ticket Number" type="checkbox" checked={mergeTicket}
+                                onchange={handleToMergeChange}></lightning-input>
+                </div>
+                <div class="slds-col">
+                    <lightning-dual-listbox  label="Select Project"  options={projectOptions}  value={selectedProjectName}
+                        onchange={handleProjectNameChange}>
+                    </lightning-dual-listbox>
+                </div>  
+                <div class="slds-col">
+                    <lightning-dual-listbox  label="Select Employee" options={employeeOptions}
+                        value={selectedEmployeName}  onchange={handleDualListboxChange}>
+                    </lightning-dual-listbox>
+                </div>
+            </div>
+            
+            <div class="without_copy">
+               
+                <div class="btn_Section">
+                    <button onclick={handleReset} class="reset">Clear All</button>
+                    <button onclick={handleUpdateRecords} class="save_default">Save Default</button>
+                    <button onclick={handleSubmit} class="submit">Submit</button>
+                </div>
+             </div>
+
+            <template if:true={hasData}>
+                <div>
+                   <div class="slds-m-bottom_large" style="position: sticky;top: 135px;z-index: 10;">
+                        <button class="copy" title="Copy data to clipboard" onclick={handleCopyClick}>Copy</button>                   
+                    </div>
+                    <lightning-datatable  key-field="Id"  data={timesheetData} columns={columns}
+                        hide-checkbox-column="true"  onrowaction={handleRowAction}>
+                    </lightning-datatable>
+                    <template if:false={hasData}>
+                        <p style="padding: 10px 0px;text-align: center;font-size: 16px;">No Data Available.</p>
+                    </template>
+                </div>
+            </template>
+            
+        </div>
+    </lightning-card>
+</template>

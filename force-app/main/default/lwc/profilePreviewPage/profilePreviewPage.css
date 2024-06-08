@@ -1,0 +1,36 @@
+.dummy{
+	color : black;
+}
+
+.footerButtons{
+    justify-content: space-between;
+    display: flex;
+    width: 59%;
+    margin: 40px auto;
+}
+.previewButton{
+    color: white;
+    background-color: #37a000;
+    border: none;
+    border-radius: 8px;
+    height: 34px;
+}
+.previewButton:hover{
+    background-color: #256203;
+}
+.backButton{
+    color: #07334A;
+    border: 2px solid #07334A;
+    padding-inline: 25px;
+    border-radius: 8px;
+}
+.disableButton{
+    color: white;
+    background-color: #d3d3d3;
+    border: none;
+    border-radius: 8px;
+    height: 34px;
+}
+.disableButton:hover{
+    cursor: auto;
+}

@@ -1,0 +1,256 @@
+<!-- resumeTemplate1.page -->
+<apex:page showHeader="false" contentType="application/msword#FileName.doc"  sidebar="false" standardStylesheets="false" applyHtmlTag="false" applyBodyTag="false">
+    <head>
+        <style>
+           	.resume-container {
+            font-family: 'Lato', sans-serif;
+            font-weight: 400;
+            color: #222;
+            font-size: 14px;
+            line-height: 26px;
+            padding-bottom: 50px;
+            min-height: 100%;
+            background: #eee;
+            }
+            
+            .container {
+            max-width: 700px;
+            background: #fff;
+            margin: 0px auto 0px;
+            box-shadow: 1px 1px 2px #DAD7D7;
+            border-radius: 3px;
+            padding: 40px;
+            margin-top: 50px;
+            }
+            
+            .header {
+            margin-bottom: 30px;
+            }
+            
+            .full-name {
+            font-size: 40px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+            }
+            
+            .first-name {
+            font-weight: 700;
+            }
+            
+            .last-name {
+            font-weight: 300;
+            }
+            
+            .contact-info {
+            margin-bottom: 20px;
+            }
+            
+            .email,
+            .phone {
+            color: #999;
+            font-weight: 300;
+            }
+            
+            .separator {
+            height: 10px;
+            display: inline-block;
+            border-left: 2px solid #999;
+            margin: 0px 10px;
+            }
+            
+            .position {
+            font-weight: bold;
+            display: inline-block;
+            margin-right: 10px;
+            text-decoration: underline;
+            }
+            
+            .details {
+            line-height: 0px;
+            }
+            
+            .section {
+            margin-bottom: 40px;
+            }
+            
+            .section:last-of-type {
+            margin-bottom: 0px;
+            }
+            
+            .section-title {
+            letter-spacing: 1px;
+            color: #54AFE4;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            }
+            
+            .section-list-item {
+            margin-bottom: 10px;
+            }
+            
+            .section-list-item:last-of-type {
+            margin-bottom: 0;
+            }
+            
+            .left,
+            .right {
+            vertical-align: top;
+            display: inline-block;
+            }
+            
+            .left {
+            width: 60%;
+            }
+            
+            .right {
+            text-align: right;
+            width: 9%;
+            }
+            
+            .name {
+            font-weight: bold;
+            }
+            
+            a {
+            text-decoration: none;
+            color: #000;
+            font-style: italic;
+            }
+            
+            a:hover {
+            text-decoration: underline;
+            color: #000;
+            }
+            
+            .skills {
+            }
+            
+            .skills-item {
+            margin-bottom: 10px;
+            }
+            
+            .skills-item .right {
+            input {
+            display: none;
+            }
+            
+            label {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            background: #C3DEF3;
+            border-radius: 20px;
+            margin-right: 3px;
+            }
+            
+            input:checked + label {
+            background: #79A9CE;
+            }
+            }
+        </style>
+    </head>
+    
+    
+    <div class="resume-container">
+        <div class="container">
+            <div class="header">
+                <div class="full-name">
+                    <span class="first-name">John</span>
+                    <span class="last-name">Doe</span>
+                </div>
+                <div class="contact-info">
+                    <span class="email">Email: </span>
+                    <span class="email-val">john.doe@example.com</span>
+                    <span class="separator"></span>
+                    <span class="phone">Phone: </span>
+                    <span class="phone-val">111-222-3333</span>
+                </div>
+                <div class="about">
+                    <span class="position">Front-End Developer</span>
+                    <span class="desc">I am a front-end developer with more than 3 years of experience writing HTML, CSS, and JS. I'm motivated, result-focused, and seeking a successful team-oriented company with the opportunity to grow.</span>
+                </div>
+            </div>
+            <div class="details">
+                <!-- Experience Section -->
+                <div class="section">
+                    <div class="section-title">Experience</div>
+                    <ul class="section-list">
+                        <li class="section-list-item">
+                            <div class="left">
+                                <div class="name">KlowdBox</div>
+                                <div class="addr">San Francisco, CA</div>
+                                <div class="duration">Jan 2011 - Feb 2015</div>
+                            </div>
+                            <div class="right">
+                                <div class="name">Front-end Developer</div>
+                                <div class="desc">Did this and that</div>
+                            </div>
+                        </li>
+                        <!-- Repeat similar static entries for other experiences -->
+                    </ul>
+                </div>
+                
+                <!-- Education Section -->
+                <div class="section">
+                    <div class="section-title">Education</div>
+                    <ul class="section-list">
+                        <li class="section-list-item">
+                            <div class="left">
+                                <div class="name">Sample Institute of Technology</div>
+                                <div class="addr">San Francisco, CA</div>
+                                <div class="duration">Jan 2011 - Feb 2015</div>
+                            </div>
+                            <div class="right">
+                                <div class="name">Bachelor's in Computer Science</div>
+                                <div class="desc">Did this and that</div>
+                            </div>
+                        </li>
+                        <!-- Repeat similar static entries for other education experiences -->
+                    </ul>
+                </div>
+                
+                <!-- Projects Section -->
+                <div class="section">
+                    <div class="section-title">Projects</div>
+                    <ul class="section-list">
+                        <li class="section-list-item">
+                            <div class="name">DSP</div>
+                            <div class="text">I am a front-end developer with more than 3 years of experience writing HTML, CSS, and JS. I'm motivated, result-focused and seeking a successful team-oriented company with the opportunity to grow.</div>
+                        </li>
+                        <!-- Repeat similar static entries for other projects -->
+                    </ul>
+                </div>
+                
+                <!-- Skills Section -->
+                <div class="section">
+                    <div class="section-title">Skills</div>
+                    <div class="skills">
+                        <div class="skills-item">
+                            <ul class="left">
+                                <li class="name">Javascript</li>
+                            </ul>
+                            <div class="right">
+                                <input type="checkbox" checked="Intermediate" id="exp1" />
+                                <label for="exp1"></label>
+                                <!-- Repeat similar static entries for other skills -->
+                            </div>
+                        </div>
+                        <!-- Repeat similar static entries for other skills -->
+                    </div>
+                </div>
+                
+                <!-- Interests Section -->
+                <div class="section">
+                    <div class="section-title">Interests</div>
+                    <ul class="section-list">
+                        <li class="section-list-item">Football</li>
+                        <li class="section-list-item">programming</li>
+                    </ul>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    
+</apex:page>

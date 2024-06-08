@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FlexiPage xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>actorId</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>contextObjectType</name>
+                    <value>Leave_Request__c</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>fieldNames</name>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>fieldSetName</name>
+                    <value>Leave_Approval_Field</value>
+                </componentInstanceProperties>
+                <componentName>itemsToApproveTable</componentName>
+                <identifier>c_itemsToApproveTable</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>main</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <masterLabel>Leave Approval</masterLabel>
+    <template>
+        <name>flexipage:defaultAppHomeTemplate</name>
+    </template>
+    <type>AppPage</type>
+</FlexiPage>

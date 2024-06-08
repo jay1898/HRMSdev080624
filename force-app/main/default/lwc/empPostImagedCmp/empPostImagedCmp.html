@@ -1,0 +1,15 @@
+<template>
+   
+    <lightning-spinner if:true={isUploading} alternative-text="Uploading" size="small"></lightning-spinner>
+    
+    
+    <template if:true={contentVersion}>
+        <template if:true={isPostPic}><img src={base64StringResponse} alt="Loading..." /> </template>
+        <template if:true={isProfilePic}><img src={base64StringResponse} alt="Loading..." class="profile-image" /> </template>
+        
+    </template>
+    
+    <template if:true={error}>
+        <div>Error: {error}</div>
+    </template>
+</template>

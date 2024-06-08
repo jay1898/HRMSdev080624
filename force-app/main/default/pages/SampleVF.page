@@ -1,0 +1,19 @@
+<apex:page controller="ProfileBuilderController">
+<!-- Begin Default Content REMOVE THIS -->
+<h1>Congratulations</h1>
+This is your new Page
+<!-- End Default Content REMOVE THIS -->
+<p id="messageFromLWC" style="font-weight:bold; font-size:x-large"> </p>
+<script>
+    //var lexOrigin ="https://itechcloudsolution--itechdev.sandbox.lightning.force.com";
+    var lexOrigin = '{!lexOrigin}'
+    window.addEventListener("message",function(event){
+        console.log('test');
+        if(event.origin !== lexOrigin){
+            //Not the expected origin
+            return;
+        }
+        document.getElementById("messageFromLWC").innerHTML = 'Text from LWC : '+event.data;
+    },false);
+</script>
+</apex:page>

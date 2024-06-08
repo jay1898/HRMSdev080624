@@ -1,0 +1,289 @@
+<apex:page renderAs="pdf" applyBodyTag="false" standardController="Candidate__c" showHeader="false"
+    extensions="SendOfferLetterWithAttachment">
+
+    <head>
+        <style type="text/css" media="print">
+            @page {
+             
+ 			padding-top: 100px;
+            margin-bottom: 120px;
+
+                @top-center {
+                    content: element(header);
+                }
+
+                @bottom-left {
+                    content: element(footer);
+                }
+            }
+
+            div.header {
+                padding: 10px;
+                position: running(header);
+            }
+
+            div.footer {
+                position: running(footer);
+                <!--margin-bottom: 50px;-->
+            }
+
+           
+
+            .pagenumber:before {
+                content: counter(page);
+            }
+
+            .pagecount:before {
+                content: counter(pages);
+            }
+
+            body {
+                font-family: sans-serif;
+            }
+
+            .salary-breakdown {
+                margin-top: 10px;
+            }
+        </style>
+    </head>
+    <div class="header">
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 65%;"></td>
+                <td style="width: 25%;">
+                    <apex:image url="{!URLFOR($Resource.iTechlogo)}" height="170" width="170" />
+                </td>
+            </tr>
+
+        </table>
+    </div>
+
+
+    <div class="footer">
+        <table style="width: 100%;font-size: 15px;">
+
+            <tr>
+                <td style="width: 65%;">
+                    <b> iTechCloud Solution </b>
+                    <div><b>Address:</b> 209-210-211, Western Plaza</div>
+                    <div>
+                        Simada Naka, Varachha Road,
+                    </div>
+                    <div>
+                        Surat, Gujarat, India 395006
+                    </div>
+                </td>
+                <td style="width: 35%;">
+                    <div style="display: inline-block;">
+                        <b>Contact Details</b>
+                        <div>
+                            <b>Mobile:</b> +91 99799 33595
+                        </div>
+                        <div>
+                            <b>Web:</b> www.itechcloudsolution.com
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+
+            <div>
+                <div>
+
+                </div>
+                <div>
+
+
+                </div>
+            </div>
+        </table>
+    </div>
+    <div class="content">
+        <table style="width: 100%;">
+            <tr>
+                <td style="width: 70%;"></td>
+                <td style="width: 30%;text-align: end;">
+                    <p><b>Date: {!formattedTodayDate}</b></p>
+                </td>
+            </tr>
+
+        </table>
+        <div class="headersub">
+            <h1 style="text-align: center;font-family: sans-serif;font-size: 18px;"><u>OFFER LETTER</u></h1>
+        </div>
+        <div>
+            <p style="font-family: sans-serif;"><b>To,</b></p>
+            <p><b>Dear {!candidate.Full_Name__c},</b></p>
+                <!-- <p style="white-space:pre-wrap;text-align: justify;">{!candidate.Offer_Letter_Description__c}</p>
+            	<p style="white-space:pre-wrap;text-align: justify;">{!candidate.Description__c}</p>-->
+
+            <apex:outputText value="{!candidate.Description__c}" escape="false"/>
+            <!-- <div> {!candidate.Offer_Letter_Description__c}</div>  
+            <p style="text-align: justify;">As per the discussion you had with us you are required to join us on <b> {!formattedJoiningDate}</b> at
+                our
+                office.</p>
+            <p style="text-align: justify;">The role for which you have been offered a position is very important, which may require dealing
+                with important, sensitive, confidential, and classified information and records of the company. You
+                will therefore be required to acknowledge and execute an <b>“Confidential Agreement”</b> as part of
+                joining formalities.</p>
+            <p style="text-align: justify;">Kindly confirm your acceptance within <b>2</b> (two) working days, your failure to accept the offer will
+                result in automatic disqualification.</p>
+            <p style="text-align: justify;">We are confident you will be able to make a significant contribution to the success of our
+                organization and look forward to working with you. Kindly print this letter, sign below and submit to
+                management on the first day of the joining.</p>-->
+            <table width="100%">
+                <tr>
+                    <td style="width: 65%;"></td>
+                    <td style="width: 35%;">
+                        <p>For, iTechCloud Solution</p><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <p><b>Signature:</b></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <p><b>Date of Acceptance:</b></p> <br />
+                    </td>
+                </tr>
+            </table>
+
+			<div style="page-break-after: always"/>
+            <!-- Salary breakdown -->
+            <div class="salary-breakdown" style="page-break-inside: avoid;margin-top: 100px;">
+                <div class="headersub">
+                    <h1 style="text-align: center;font-family: sans-serif;font-size: 18px;">Annexure-A</h1>
+                </div>
+                <h1 style="text-align: center;font-family: sans-serif;font-size: 16px;margin-top: 30px;">Salary
+                    Structure</h1>
+                <table style="margin-left: auto;margin-right: auto;border-collapse:collapse;border-color: none;">
+                    <tr style="background-color: #26860C;color: white;">
+                        <th style="padding: 10px;">Earnings &amp; Reimbursements</th>
+                        <th style="padding: 10px;text-align:right;">Amount</th>
+                        <th style="padding: 10px;"></th>
+                        <th style="padding: 10px;">Deductions &amp; Recoveries</th>
+                        <th style="padding: 10px;text-align:right;">Amount</th>
+                        <th style="padding: 10px;"></th>
+                    </tr>
+                    <tr style="background-color: #F5F5F5;">
+                        <th style="padding: 10px;">BASIC SALARY</th>
+                        <td style="padding: 10px;text-align: right;">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.Salary__c * 0.45}" />
+                            </apex:outputText>
+                        </td>
+                        <td></td>
+                        <th style="padding: 10px;">PROV. FUND</th>
+                        <td style="padding: 10px;text-align: right;">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.provident_fund__c}" />
+                            </apex:outputText></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="padding: 10px;">H.R.A</th>
+                        <td style="padding: 10px;text-align: right;">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.Salary__c * 0.34}" />
+                            </apex:outputText>
+                        </td>
+                        <td></td>
+                        <th style="padding: 10px;">P.TAX</th>
+                        <td style="padding: 10px;text-align: right;">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.profession_tax__c}" />
+                            </apex:outputText>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr style="background-color: #F5F5F5;">
+                        <th style="padding: 10px;">MEDICAL ALLOWANCE</th>
+                        <td style="padding: 10px;text-align: right;">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.Salary__c * 0.12}" />
+                            </apex:outputText>
+                        </td>
+                        <td></td>
+                        <th style="padding: 10px;">TDS</th>
+                        <td style="padding: 10px;text-align: right;">
+                        	<apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.TDS__c }" />
+                            </apex:outputText>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="padding: 10px;">TRANSPORT ALLOWANCE</th>
+                        <td style="padding: 10px;text-align: right;">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.Salary__c * 0.09}" />
+                            </apex:outputText>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr style="background-color: #F5F5F5;">
+                        <th style="padding: 10px;">SPECIAL ALLOWANCE</th>
+                        <td style="padding: 10px;text-align: right;">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.Salary__c - (candidate.Salary__c * 0.45 +
+                                    candidate.Salary__c * 0.34 +
+                                    candidate.Salary__c * 0.12 + candidate.Salary__c * 0.09)}" />
+                            </apex:outputText>
+                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="height: 37px;"> </th>
+                        <td style="height: 37px;"> </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr style="background-color: #F5F5F5;">
+                        <th style="padding: 10px;">TOTAL EARNINGS</th>
+                        <td style="padding: 10px;text-align: right;">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.Salary__c}" />
+                            </apex:outputText>
+                        </td>
+                        <td></td>
+                        <th style="padding: 10px;">TOTAL DEDUCTIONS</th>
+                        <td style="padding: 10px;text-align: right;">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.provident_fund__c +
+                                    candidate.profession_tax__c +
+                                    candidate.TDS__c}" />
+                            </apex:outputText>
+                        </td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th style="padding: 10px;"></th>
+                        <td style="padding: 10px;text-align: right;"></td>
+                        <td></td>
+                        <th style="padding: 10px;">NET PAYMENT</th>
+                        <td style="padding: 10px;text-align: right;font-weight: bold;">
+                            <apex:outputText value="{0,number,#,##0.00}">
+                                <apex:param value="{!candidate.Salary__c - (candidate.provident_fund__c +
+                                    candidate.profession_tax__c +
+                                    candidate.TDS__c)}" />
+                            </apex:outputText>
+                        </td>
+                        <td style="padding: 10px;text-align: right;"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</apex:page>

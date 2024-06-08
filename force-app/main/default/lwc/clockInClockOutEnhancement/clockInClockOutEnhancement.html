@@ -1,0 +1,1385 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-05-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+	<div class="overrideStyle"></div>
+	<div class="font">
+		<div class="slds-col slds-size_12-of-12">
+			<div>
+				<div class="Box">
+					<span>
+						<article class="slds-card Body">
+
+							<!-- responsive code for mobile -->
+							<template if:true={mobileView}>
+
+								<div style="padding: 10px; height:100%;">
+									<!-- <div class="slds-p-bottom_small">
+										<div class="clock_Time">
+											<div>
+												<span>
+													<label
+														style="font-size: 16px; color: #194051; font-weight: bold;">Online
+														Attendance</label><br />
+												</span>
+											</div>
+										</div>
+									</div> -->
+
+									<div class="colTwo slds-grid">
+										<div class="slds-size_6-of-12"
+											style="border-radius: 8.74px 8.74px 8.74px 8.74px; border: 1.64px solid rgba(126, 144, 154, 1);">
+											<div class="colTwoLeft" style="justify-content: center;">
+												<span style="padding: 5px;">
+													<label
+														style="font-size: 18px; color: #194051;"><B>{time}</b></label><br />
+												</span>
+											</div>
+										</div>
+										<div class="boxes slds-size_6-of-12">
+											<div class="OnTimeBox">
+												<div>
+													<div class="onTimeDate" style="margin-bottom: 10px;">
+														<span>
+															<svg width="25" height="20" viewBox="0 0 25 20" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M22.4805 16.0229C22.4805 15.4037 22.5379 14.7853 22.4695 14.1799C22.2622 12.3678 21.3377 10.9137 19.8599 9.78236C18.1084 8.44178 16.1069 7.82921 13.8448 7.96366C12.1037 8.06729 10.4013 8.32242 8.74382 8.91597C8.86611 8.2647 8.5628 7.74329 8.21527 7.21073C8.33825 7.07497 8.47298 6.93986 8.59251 6.79295C9.76084 5.37071 10.4861 3.66621 10.686 1.87268C10.7159 1.5544 10.7015 1.23377 10.6431 0.919062C10.5222 0.197615 9.9764 -0.12507 9.22814 0.0441425C8.69269 0.165477 8.28091 0.473731 7.92301 0.848228C7.6653 1.11779 7.43938 1.41424 7.19134 1.70544C7.15126 1.46539 7.13054 1.22863 7.07043 1.00104C6.81825 0.0447992 5.81573 -0.251651 5.01842 0.390437C4.62875 0.70525 4.42286 1.12828 4.28191 1.58082C3.93645 2.68202 3.93645 3.81075 3.99104 4.94474C4.0014 5.16576 4.04285 5.38613 4.03802 5.60584C4.0253 5.70485 3.97494 5.79604 3.89638 5.86228C3.20547 6.45256 2.46343 7.00283 1.81881 7.63835C0.989717 8.4549 0.536477 9.46427 0.693314 10.6127C0.860515 11.8424 2.08136 12.4753 3.30427 12.0346C3.49289 11.969 3.67253 11.8752 3.89085 11.7795C3.40722 12.5291 3.32016 13.3358 3.2863 14.1589C3.25936 14.8108 3.48805 15.3644 3.9254 15.8491C4.68126 16.6873 5.67478 17.191 6.71875 17.6199C6.83344 17.6671 6.95021 17.7098 7.07043 17.7557C6.74708 17.9 6.43134 18.0075 6.1529 18.1715C5.65337 18.4653 5.49998 18.9283 5.68239 19.4524C5.80191 19.796 6.07344 19.9902 6.4569 19.9915C7.25974 19.9915 8.06327 20.0145 8.86542 19.9849C9.47756 19.9626 9.88796 19.5914 10.1236 19.0903C10.2617 18.8011 10.4331 18.744 10.7267 18.7572C11.1724 18.7775 11.6201 18.7624 12.0699 18.7624C12.1016 18.9375 12.1182 19.0903 12.1597 19.2399C12.291 19.7068 12.6723 19.9908 13.1808 19.9908C15.7022 19.9935 18.2234 19.9935 20.7443 19.9908C21.1167 19.9908 21.2721 19.7488 21.1892 19.2851C21.431 19.3153 21.6659 19.3507 21.9015 19.373C23.2661 19.5134 24.5408 18.7513 24.9139 17.574C25.2732 16.4426 24.4952 15.6136 23.2668 15.8268C23.0035 15.8747 22.7493 15.9553 22.4805 16.0229Z"
+																	fill="#3889F4" />
+															</svg>
+														</span>
+														<span>{arrivalPercentage.onTime}%</span>
+													</div>
+													<div class="onTimeDate">
+														<span>
+															<svg width="30" height="14" viewBox="0 0 30 14" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M13.5621 11.5128H13.8607C16.1139 11.5128 18.3666 11.5128 20.6186 11.5128C20.8239 11.5128 21.0644 11.47 21.1577 11.7153C21.2511 11.9605 21.1181 12.122 20.9217 12.2835C20.5693 12.5698 20.4724 12.9671 20.4601 13.4311H20.8063C22.6737 13.4311 24.542 13.4242 26.4103 13.4388C26.6878 13.4388 26.8014 13.3362 26.8754 13.1064C27.0102 12.6877 26.9124 12.3066 26.6992 11.9409C26.6199 11.8033 26.523 11.6743 26.4702 11.5991C27.0507 11.3615 27.6532 11.165 28.2055 10.8762C28.9102 10.5062 29.4246 9.91657 29.85 9.25263C30.0368 8.9604 30.0606 8.65877 29.8562 8.41866C29.569 8.07686 29.2537 7.72054 28.8679 7.51461C28.2883 7.20614 27.6444 7.00191 27.0119 6.79684C26.9146 6.77472 26.8256 6.72669 26.755 6.65815C26.6843 6.5896 26.6348 6.50328 26.612 6.4089C26.1082 4.86399 25.3224 3.47288 24.1526 2.30736C22.6023 0.758175 20.6997 0.000244141 18.4834 0.000244141C15.8717 0.000244141 13.5947 0.817135 11.7598 2.66625C11.0221 3.40187 10.4255 4.25924 9.99813 5.19809C9.91005 5.38523 9.81668 5.44675 9.61144 5.44077C9.06266 5.42624 8.51301 5.43649 7.9378 5.43649C7.90521 5.25192 7.88583 5.07505 7.84355 4.90329C7.64712 4.1146 7.12653 3.54722 6.48174 3.0764C5.00454 1.99804 3.38464 1.60925 1.58153 2.15697C0.769376 2.40306 0.179199 2.87132 0.0382618 3.72837C-0.113246 4.64866 0.182724 5.41171 0.970212 5.97055C1.47582 6.32943 2.04838 6.53109 2.65441 6.66525C2.83221 6.69898 2.99669 6.78039 3.1292 6.90023C4.29915 8.12713 5.77632 9.03964 7.41722 9.54914C8.17387 9.7884 8.65042 10.3455 8.52005 10.9719C8.43901 11.3598 8.16771 11.7119 7.98097 12.0767C7.94698 12.1174 7.89978 12.1457 7.84708 12.157C7.17234 12.3766 6.92393 12.7236 6.95917 13.4388H7.28068C9.3692 13.4388 11.4568 13.4328 13.5445 13.4465C13.8219 13.4465 13.9356 13.3439 14.0096 13.1141C14.1382 12.7201 14.0562 12.3553 13.8677 12.0032C13.7964 11.8477 13.6916 11.7127 13.5621 11.5128Z"
+																	fill="#DC2727" />
+															</svg>
+														</span>
+														<span>{arrivalPercentage.late}%</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div>
+										<p style="font-size: 14PX;font-weight: 500;margin: 10PX; text-align: center;">
+											{formattedDate}</p>
+									</div>
+
+									<div class="textBox">
+										<div class="slds-grid slds-wrap">
+											<!-- <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12"
+												style="margin-bottom: 7px;">
+												<span>
+													<label class="Break">Arrival </label><br />
+												</span>
+											</div>
+											<div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+												<span> -->
+											<!-- <label style="margin-left: 120px;">{arrivalStatus}</label><br /> -->
+											<!-- <template for:each={attendanceData} for:item="record">
+														<div key={record.Id}>
+															<label class={record.arrivalStatusClass}>{record.arrivalStatus}</label>
+														</div>
+													</template>
+												</span>
+											</div> -->
+
+											<!-- <template if:true={noData}>
+
+											</template> -->
+											<template if:false={noData}>
+												<div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12"
+													style=" display: flex; justify-content: space-between;">
+													<span>
+														<label class="Break">Arrival </label>
+													</span>
+													<span>
+														<template for:each={attendanceData} for:item="record">
+															<div key={record.Id}>
+																<label
+																	class={record.arrivalStatusClass}>{record.arrivalStatus}</label>
+															</div>
+														</template>
+													</span>
+												</div>
+											</template>
+											<!-- <template if:false={noData}>	
+												<div class="slds-col slds-text-align_right slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+													<span>
+														<template for:each={attendanceData} for:item="record">
+															<div key={record.Id}>
+																<label class={record.arrivalStatusClass}>{record.arrivalStatus}</label>
+															</div>
+														</template>
+													</span>
+												</div>
+											</template> -->
+
+
+											<div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12"
+												style="margin-bottom: 3px; margin-top: 3px; display: flex; justify-content: space-between;">
+												<span>
+													<label class="Break">Break Time: </label>
+												</span>
+												<span>
+													<label class="Timer">01:00 PM - 01:45 PM</label>
+												</span>
+											</div>
+
+											<!-- <div class="slds-col slds-text-align_right slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+												<span>
+													<label class="Timer">01:00 PM - 01:45 PM</label><br />
+												</span>
+											</div> -->
+
+											<div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12"
+												style="display: flex; justify-content: space-between;">
+												<template if:false={isClockinorout}>
+													<span>
+														<label class="Sincelogin">
+															Since Last Login
+														</label>
+													</span>
+													<span>
+														<label class="Timedifference">
+															{timeDifference}
+														</label>
+													</span>
+												</template>
+											</div>
+
+											<!-- <div class="slds-col slds-text-align_right slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+												<template if:false={isClockinorout}>
+													<span>
+														<label class="Timedifference">
+															{timeDifference}
+														</label>
+													</span>
+												</template>
+											</div> -->
+
+										</div>
+									</div>
+									<!-- </div><br> -->
+									<div>
+										<div class="clock_in_box">
+											<div class="">
+												<span>
+													<template if:true={isClockinorout}>
+														<button class="clockinButtonStyle clockinButtonStyle hover-grow"
+															name="clockin" onclick={handleClockinoutBtn}
+															style="width:110px;">Clock-in</button>
+													</template>
+													<template if:false={isClockinorout}>
+														<template if:false={isDisableClockoutFor1min}>
+															<button
+																class="clockoutButtonStyle clockoutButtonStyle hover-grow"
+																name="clockout" style="width:110px;"
+																onclick={handleClockinoutBtn}>Clock-out</button>
+														</template>
+														<template if:true={isDisableClockoutFor1min}>
+															<button
+																class="clockoutButtonDisable clockoutButtonDisable hover-grow"
+																style="width:110px;" name="clockout"
+																disabled>Clock-out</button>
+														</template>
+													</template>
+													<!-- <template if:false={isClockinorout}>
+														<template if:false={isDisableClockoutFor1min}>
+															<button
+																class="slds-button slds-button_destructive clockinButtonStyle"
+																name="clockout" onclick={handleClockinoutBtn}>Clock-out</button>
+														</template>
+														<template if:true={isDisableClockoutFor1min}>
+															<button
+																class="slds-button slds-button_destructive clockinButtonStyle"
+																name="clockout" disabled>Clock-out</button>
+														</template>
+													</template> -->
+												</span>
+											</div>
+
+											<div class="" style="text-align: center;">
+												<span class="custom-button-menu">
+													<lightning-button-menu name="Other" alternative-text="Other"
+														class="leaveApply" label="Other">
+														<lightning-menu-item value="WorkFromHome" label="Work from Home"
+															style="font-size: 16px;"
+															onclick={workFromHomeSelect}></lightning-menu-item>
+														<lightning-menu-item value="ApplyLeave" label="Apply Leave"
+															style="font-size: 16px;"
+															onclick={leaveOptionSelect}></lightning-menu-item>
+													</lightning-button-menu>
+												</span>
+												<!-- Modal Popup  -->
+												<div>
+													<!-- <lightning-button  class="slds-m-left_small" variant="brand" label="Create Contact" title="createContact" onclick={handleCreateContactRecords}></lightning-button>                         -->
+													<template if:true={isModalOpenWFH}>
+														<section role="dialog" tabindex="-1"
+															aria-labelledby="modal-heading-04" aria-modal="true"
+															aria-describedby="modal-content-id-4"
+															class="slds-modal slds-fade-in-open custom-modal-right">
+															<div class="slds-modal__container">
+																<header class="slds-modal__header">
+																	<!-- in future we need to remove header  -->
+																	<button
+																		class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+																		title="Close" onclick={closeModal}>
+																		<lightning-icon icon-name="utility:close"
+																			alternative-text="close" variant="inverse"
+																			size="small"></lightning-icon>
+																		<span class="slds-assistive-text">Close</span>
+																	</button>
+
+																	<h2 id="modal-heading-04"
+																		class="slds-text-heading_medium slds-hyphenate Workfromhome">
+																		Work From Home Request </h2>
+																</header>
+																<div class="slds-modal__content slds-p-around_medium"
+																	id="modal-content-id-4">
+																	<div class="">
+																		<div class="slds-form-element">
+																			<div class="slds-grid slds-gutters">
+																				<div class="slds-col"
+																					style="width:20%;">
+																					<div class="startDate">
+
+																						<label> Start Date</label>
+																					</div>
+																					<div class=""
+																						style="display: flex;flex-direction: row;align-items: center;margin-top: 10px;background:#DEF5E4;border-radius:6px;">
+																						<span
+																							style="font-size: 17px;color: #00A129;font-weight: bold;margin: 3px;">
+																						</span>
+																						<lightning-icon
+																							icon-name='utility:date_input'
+																							alternative-text='date_input'
+																							variant='success'
+																							size='x-small'
+																							title='date_input'></lightning-icon>
+																						&nbsp;
+																						<lightning-input type="date"
+																							name="FromDate"
+																							placeholder="Select Date"
+																							class="remove_border hide-date-icon"
+																							style="width:120px"
+																							onchange={WFHHandleSelection}>
+																						</lightning-input></b>
+																					</div>
+																				</div>
+																				<!-- <div class="slds-col" style="width:20%;">
+																				</div> -->
+																				<div class="slds-col"
+																					style="width:20%;">
+																					<div class="endDate">
+																						<label> End Date</label>
+																					</div>
+																					<div class=""
+																						style="display: flex; flex-direction: row; align-items: center; margin-top: 10px; background:#DEF5E4; border-radius:6px; margin-bottom: 10px;margin-bottom: 23px;">
+																						<span
+																							style="font-size: 17px;color: #00A129;font-weight: bold;margin: 3px;">
+																						</span>
+																						<lightning-icon
+																							icon-name='utility:date_input'
+																							alternative-text='date_input'
+																							variant='success'
+																							size='x-small'
+																							title='date_input'></lightning-icon>
+																						&nbsp;
+																						<lightning-input type="date"
+																							name="ToDate"
+																							placeholder="Select Date"
+																							class="hide-date-icon"
+																							style="width:120px"
+																							onchange={WFHHandleSelection}>
+																						</lightning-input></b>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="slds-grid slds-gutters">
+																				<div class="slds-col">
+																					<div class="totalDays1">
+																						<label> Total Day's</label>
+																					</div>
+																					<div class="total-days Days">
+																						{totalDays}&nbsp;Days</div>
+																				</div>
+
+																			</div>
+																		</div>
+
+																		<!-- work from home type -->
+
+																		<template if:true={isOnedayLeave}>
+
+																			<div
+																				style="padding-top: 20px; width: 120px;">
+																				<article id="midnight-series3"
+																					class="series">
+																					<article id="switch4"
+																						class="switch-toggle three-way">
+
+																						<input id="s1-op_one2"
+																							name="wfhType" type="radio"
+																							value="Full Day WFH"
+																							checked=""
+																							onchange={WFHHandleSelection}>
+																						<label for="s1-op_one2;">Full
+																							Day</label>
+
+																						<!-- need add condition here if we want to hide first half or second half   -->
+
+																						<!-- <input id="s1-op_two1"
+																							name="wfhType" type="radio"
+																							value="First Half WFH"
+																							onchange={WFHHandleSelection}>
+																						<label for="s1-op_two1">First
+																							Half</label>
+
+																						<input id="s1-op_three1"
+																							name="wfhType" type="radio"
+																							value="Second Half WFH"
+																							onchange={WFHHandleSelection}>
+																						<label for="s1-op_three1">Second
+																							Half</label> -->
+																						<div class="slider"></div>
+																					</article>
+																				</article>
+																			</div>
+																		</template>
+																		<!-- Reason -->
+																		<div class="slds-col">
+																			<div class="reason">
+																				<label>Reason</label>
+																			</div>
+																			<div class="textarea">
+																				<lightning-textarea type="text"
+																					data-index={index} class=""
+																					name="Reason" placeholder=""
+																					onchange={handleReasonChange}
+																					onblur={WFHHandleSelection}>
+																				</lightning-textarea>
+																			</div>
+																		</div>
+
+																		<!-- Button -->
+																		<div class="slds-form-element">
+																			<div class="">
+																				<div class="">
+																					<div class="apply_btn">
+																						<span
+																							style=" margin-right: 10px;">
+																							<button onclick={closeModal}
+																								class="canclebtn">Cancel</button>
+																						</span>
+																						<span>
+																							<button
+																								onclick={handleSaveClickWFH}
+																								class="savebtn">Save</button>
+																						</span>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																	</div>
+																</div>
+															</div>
+														</section>
+														<div class="slds-backdrop slds-backdrop_open"></div>
+													</template>
+
+													<template if:true={isModalOpenLEAVE}>
+														<section role="dialog" tabindex="-1"
+															aria-labelledby="modal-heading-05" aria-modal="true"
+															aria-describedby="modal-content-id-4"
+															class="slds-modal slds-fade-in-open">
+															<div class="slds-modal__container">
+																<header class="slds-modal__header">
+																	<button
+																		class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+																		title="Close" onclick={closeModal}>
+																		<lightning-icon icon-name="utility:close"
+																			alternative-text="close" variant="inverse"
+																			size="small"></lightning-icon>
+																		<span class="slds-assistive-text">Close</span>
+																	</button>
+																	<h2 id="modal-heading-05"
+																		class="slds-text-heading_medium slds-hyphenate Workfromhome">
+																		Request Leave</h2>
+																</header>
+																<div class="slds-modal__content slds-p-around_medium"
+																	id="modal-content-id-5">
+																	<div class="slds-p-horizontal_x-small">
+																		<div
+																			class="slds-form-element slds-p-right_medium slds-p-bottom_small">
+																			<div class="slds-form-element">
+
+
+																				<div class="slds-grid slds-gutters">
+																					<div class="slds-col"
+																						style="width:20%;">
+																						<div class="startDate">
+																							<label> Start Date</label>
+																						</div>
+																						<div class=""
+																							style="display: flex;flex-direction: row;align-items: center;margin-top: 10px;background:#DEF5E4;border-radius:6px; padding-left:3px;">
+																							<!-- <span
+																								style="font-size: 17px;color: #00A129;font-weight: bold;margin: 10px;">
+																							</span> -->
+																							<lightning-icon
+																								icon-name='utility:date_input'
+																								alternative-text='date_input'
+																								variant='success'
+																								size='x-small'
+																								title='date_input'></lightning-icon>
+																							&nbsp;
+																							<lightning-input type="date"
+																								name="FromDate"
+																								placeholder="Select	 Date"
+																								class="remove_border hide-date-icon"
+																								style="width:120px"
+																								onchange={leaveHandleSelection}>
+																							</lightning-input></b>
+																						</div>
+																					</div>
+
+																					<!-- <div class="slds-col"
+																						style="width:20%;">
+																					</div> -->
+
+																					<div class="slds-col"
+																						style="width:20%;">
+																						<div class="endDate">
+																							<label> End Date</label>
+																						</div>
+																						<div class=""
+																							style="display: flex; flex-direction: row; align-items: center; margin-top: 10px; background:#DEF5E4; border-radius:6px; margin-bottom: 10px; padding-left:3px;">
+																							<!-- <span
+																								style="font-size: 17px;color: #00A129;font-weight: bold;margin: 10px;">
+																							</span> -->
+																							<lightning-icon
+																								icon-name='utility:date_input'
+																								alternative-text='date_input'
+																								variant='success'
+																								size='x-small'
+																								title='date_input'></lightning-icon>
+																							&nbsp;
+																							<lightning-input type="date"
+																								name="ToDate"
+																								placeholder="Select Date"
+																								class="hide-date-icon"
+																								style="width:120px"
+																								onchange={leaveHandleSelection}>
+																							</lightning-input></b>
+																						</div>
+																					</div>
+
+																				</div>
+																				<div class="slds-grid slds-gutters">
+																					<div class="slds-col"
+																						style="width:40%;">
+																						<div class="totalDays1">
+																							<label> Total Day's</label>
+																						</div>
+																						<div class="total-days Days">
+																							{totalDays}&nbsp;Days</div>
+
+																					</div>
+																					<div class="slds-col"
+																						style="width:20%; text-align: right; padding-top: 10px; font-size: large;">
+																						{numberOfAvailableLeaves} days
+																						available
+																					</div>
+
+																				</div>
+
+
+																			</div>
+																		</div>
+																	</div>
+																	<!-- Leave type -->
+																	<template if:true={isOnedayLeave}>
+																		<article id="midnight-series4" class="series1 ">
+																			<article id="switch5"
+																				class="switch-toggle three-way">
+
+																				<input id="s1-op_one3"
+																					name="leaveDuration" type="radio"
+																					value="Full Day" checked=""
+																					onchange={leaveHandleSelection}>
+																				<label for="s1-op_one3">Full Day</label>
+
+																				<input id="s1-op_two1"
+																					name="leaveDuration" type="radio"
+																					value="First Half"
+																					onchange={leaveHandleSelection}>
+																				<label for="s1-op_two1">First
+																					Half</label>
+
+																				<input id="s1-op_three1"
+																					name="leaveDuration" type="radio"
+																					value="Second Half"
+																					onchange={leaveHandleSelection}>
+																				<label for="s1-op_three1">Second
+																					Half</label>
+																				<div class="slider"></div>
+																			</article>
+																		</article>
+																	</template>
+
+																	<template if:true={ismultipledayLeave}>
+																		<article id="midnight-series5" class="series2 ">
+																			<article id="switch6"
+																				class="switch-toggle three-way">
+
+																				<input id="s2-op_one1"
+																					name="leaveDuration" type="radio"
+																					value="Full Day"
+																					checked={fullDayValue}
+																					onchange={handleRadioChange}>
+																				<label for="s2-op_one1">Full Day</label>
+
+																				<input id="s2-op_two1"
+																					name="leaveDuration" type="radio"
+																					value="custom" checked={customValue}
+																					onchange={handleRadioChange}>
+																				<label for="s2-op_two1">Custom</label>
+																				<div class="slider"></div>
+																			</article>
+																		</article>
+																	</template>
+
+																	<template if:true={showLeaveDuration}>
+																		<div class="slds-grid slds-gutters">
+																			<div class="slds-col" style="width:40%;">
+																				<div class="leaveDuration">
+																					<label><abbr title="required"
+																							class="slds-required">*</abbr>
+																						From {formattedFromDate}</label>
+																				</div>
+																				<lightning-combobox class="remove_label"
+																					options={fromDateleaveDurationOption}
+																					name="fromDateLeaveDurationOption"
+																					onchange={leaveHandleSelection}
+																					data-index={index}>
+																				</lightning-combobox>
+																			</div>
+
+																			<!-- <div class="slds-col" style="width:20%;">
+
+																			</div> -->
+
+																			<div class="slds-col" style="width:40%;">
+																				<div class="leaveDuration1">
+																					<label> <abbr title="required"
+																							class="slds-required">*</abbr>
+																						To {formattedToDate}</label>
+																				</div>
+																				<div style="margin-bottom: 10px;">
+																					<!-- <lightning-combobox  options={leaveDurationOption} name="leaveType" onchange={leaveHandleSelection} data-index={index} >
+								</lightning-combobox> -->
+																					<lightning-combobox
+																						class="remove_label"
+																						options={toDateleaveDurationOption}
+																						name="toDateleaveDurationOption"
+																						onchange={leaveHandleSelection}
+																						data-index={index}>
+																					</lightning-combobox>
+																				</div>
+																			</div>
+																		</div>
+																	</template>
+																	<!-- Note -->
+																	<div class="slds-col">
+																		<div class="reason">
+																			<label>Reason</label>
+																		</div>
+																		<div class="textarea">
+																			<lightning-textarea type="text"
+																				data-index={index} class=""
+																				name="Reason" placeholder=""
+																				onchange={handleReasonChange}
+																				onblur={leaveHandleSelection}>
+																			</lightning-textarea>
+																		</div>
+																	</div>
+																	<!-- Button -->
+																	<div class="slds-form-element">
+																		<div class="slds-grid slds-gutters">
+																			<div class="slds-col">
+																				<div class="apply_btn">
+																					<span style="margin-right: 10px;">
+																						<button onclick={closeModal}
+																							class="canclebtn">Cancel</button>
+																					</span>
+																					<span>
+																						<template
+																							if:false={isDisableSave}>
+																							<button
+																								onclick={handleSaveClickLEAVE}
+																								class="savebtn">Save</button>
+																						</template>
+																						<template
+																							if:true={isDisableSave}>
+																							<button
+																								onclick={handleSaveClickLEAVE}
+																								class="savebtn"
+																								disabled>Save</button>
+																						</template>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</section>
+														<div class="slds-backdrop slds-backdrop_open"></div>
+													</template>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</template>
+
+
+							<!-- desktop code -->
+							<template if:false={mobileView}>
+
+								<div style="padding: 10px; height:283px;">
+									<!-- <div class="slds-p-bottom_small">
+										<div class="clock_Time">
+											<div>
+												<span>
+													<label
+														style="font-size: 16px; color: #194051; font-weight: bold;">Online
+														Attendance</label><br />
+												</span>
+											</div>
+										</div>
+									</div> -->
+
+									<div class="colTwo slds-grid">
+										<div class="slds-box slds-col slds-size_6-of-12">
+											<div class="colTwoLeft">
+												<span style="padding: 10px;">
+													<label
+														style="font-size: 22px; color: #194051;"><B>{time}</b></label><br />
+												</span>
+											</div>
+										</div>
+										<div class="boxes slds-col slds-size_6-of-12">
+											<div class="OnTimeBox">
+												<div>
+													<div class="onTimeDate">
+														<span>
+															<svg width="25" height="20" viewBox="0 0 25 20" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M22.4805 16.0229C22.4805 15.4037 22.5379 14.7853 22.4695 14.1799C22.2622 12.3678 21.3377 10.9137 19.8599 9.78236C18.1084 8.44178 16.1069 7.82921 13.8448 7.96366C12.1037 8.06729 10.4013 8.32242 8.74382 8.91597C8.86611 8.2647 8.5628 7.74329 8.21527 7.21073C8.33825 7.07497 8.47298 6.93986 8.59251 6.79295C9.76084 5.37071 10.4861 3.66621 10.686 1.87268C10.7159 1.5544 10.7015 1.23377 10.6431 0.919062C10.5222 0.197615 9.9764 -0.12507 9.22814 0.0441425C8.69269 0.165477 8.28091 0.473731 7.92301 0.848228C7.6653 1.11779 7.43938 1.41424 7.19134 1.70544C7.15126 1.46539 7.13054 1.22863 7.07043 1.00104C6.81825 0.0447992 5.81573 -0.251651 5.01842 0.390437C4.62875 0.70525 4.42286 1.12828 4.28191 1.58082C3.93645 2.68202 3.93645 3.81075 3.99104 4.94474C4.0014 5.16576 4.04285 5.38613 4.03802 5.60584C4.0253 5.70485 3.97494 5.79604 3.89638 5.86228C3.20547 6.45256 2.46343 7.00283 1.81881 7.63835C0.989717 8.4549 0.536477 9.46427 0.693314 10.6127C0.860515 11.8424 2.08136 12.4753 3.30427 12.0346C3.49289 11.969 3.67253 11.8752 3.89085 11.7795C3.40722 12.5291 3.32016 13.3358 3.2863 14.1589C3.25936 14.8108 3.48805 15.3644 3.9254 15.8491C4.68126 16.6873 5.67478 17.191 6.71875 17.6199C6.83344 17.6671 6.95021 17.7098 7.07043 17.7557C6.74708 17.9 6.43134 18.0075 6.1529 18.1715C5.65337 18.4653 5.49998 18.9283 5.68239 19.4524C5.80191 19.796 6.07344 19.9902 6.4569 19.9915C7.25974 19.9915 8.06327 20.0145 8.86542 19.9849C9.47756 19.9626 9.88796 19.5914 10.1236 19.0903C10.2617 18.8011 10.4331 18.744 10.7267 18.7572C11.1724 18.7775 11.6201 18.7624 12.0699 18.7624C12.1016 18.9375 12.1182 19.0903 12.1597 19.2399C12.291 19.7068 12.6723 19.9908 13.1808 19.9908C15.7022 19.9935 18.2234 19.9935 20.7443 19.9908C21.1167 19.9908 21.2721 19.7488 21.1892 19.2851C21.431 19.3153 21.6659 19.3507 21.9015 19.373C23.2661 19.5134 24.5408 18.7513 24.9139 17.574C25.2732 16.4426 24.4952 15.6136 23.2668 15.8268C23.0035 15.8747 22.7493 15.9553 22.4805 16.0229Z"
+																	fill="#3889F4" />
+															</svg>
+														</span>
+														<span>{arrivalPercentage.onTime}%</span>
+													</div>
+													<div class="onTimeDate">
+														<span>
+															<svg width="30" height="14" viewBox="0 0 30 14" fill="none"
+																xmlns="http://www.w3.org/2000/svg">
+																<path
+																	d="M13.5621 11.5128H13.8607C16.1139 11.5128 18.3666 11.5128 20.6186 11.5128C20.8239 11.5128 21.0644 11.47 21.1577 11.7153C21.2511 11.9605 21.1181 12.122 20.9217 12.2835C20.5693 12.5698 20.4724 12.9671 20.4601 13.4311H20.8063C22.6737 13.4311 24.542 13.4242 26.4103 13.4388C26.6878 13.4388 26.8014 13.3362 26.8754 13.1064C27.0102 12.6877 26.9124 12.3066 26.6992 11.9409C26.6199 11.8033 26.523 11.6743 26.4702 11.5991C27.0507 11.3615 27.6532 11.165 28.2055 10.8762C28.9102 10.5062 29.4246 9.91657 29.85 9.25263C30.0368 8.9604 30.0606 8.65877 29.8562 8.41866C29.569 8.07686 29.2537 7.72054 28.8679 7.51461C28.2883 7.20614 27.6444 7.00191 27.0119 6.79684C26.9146 6.77472 26.8256 6.72669 26.755 6.65815C26.6843 6.5896 26.6348 6.50328 26.612 6.4089C26.1082 4.86399 25.3224 3.47288 24.1526 2.30736C22.6023 0.758175 20.6997 0.000244141 18.4834 0.000244141C15.8717 0.000244141 13.5947 0.817135 11.7598 2.66625C11.0221 3.40187 10.4255 4.25924 9.99813 5.19809C9.91005 5.38523 9.81668 5.44675 9.61144 5.44077C9.06266 5.42624 8.51301 5.43649 7.9378 5.43649C7.90521 5.25192 7.88583 5.07505 7.84355 4.90329C7.64712 4.1146 7.12653 3.54722 6.48174 3.0764C5.00454 1.99804 3.38464 1.60925 1.58153 2.15697C0.769376 2.40306 0.179199 2.87132 0.0382618 3.72837C-0.113246 4.64866 0.182724 5.41171 0.970212 5.97055C1.47582 6.32943 2.04838 6.53109 2.65441 6.66525C2.83221 6.69898 2.99669 6.78039 3.1292 6.90023C4.29915 8.12713 5.77632 9.03964 7.41722 9.54914C8.17387 9.7884 8.65042 10.3455 8.52005 10.9719C8.43901 11.3598 8.16771 11.7119 7.98097 12.0767C7.94698 12.1174 7.89978 12.1457 7.84708 12.157C7.17234 12.3766 6.92393 12.7236 6.95917 13.4388H7.28068C9.3692 13.4388 11.4568 13.4328 13.5445 13.4465C13.8219 13.4465 13.9356 13.3439 14.0096 13.1141C14.1382 12.7201 14.0562 12.3553 13.8677 12.0032C13.7964 11.8477 13.6916 11.7127 13.5621 11.5128Z"
+																	fill="#DC2727" />
+															</svg>
+														</span>
+														<span>{arrivalPercentage.late}%</span>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+									<div>
+										<p style="font-size: 14PX;font-weight: 500;margin: 10PX; text-align: center;">
+											{formattedDate}</p>
+									</div>
+
+									<div class="textBox">
+										<div class="slds-grid slds-wrap">
+											<!-- <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12"
+												style="margin-bottom: 7px;">
+												<span>
+													<label class="Break">Arrival </label><br />
+												</span>
+											</div>
+											<div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+												<span> -->
+											<!-- <label style="margin-left: 120px;">{arrivalStatus}</label><br /> -->
+											<!-- <template for:each={attendanceData} for:item="record">
+														<div key={record.Id}>
+															<label class={record.arrivalStatusClass}>{record.arrivalStatus}</label>
+														</div>
+													</template>
+												</span>
+											</div> -->
+
+											<!-- <template if:true={noData}>
+
+											</template> -->
+											<template if:false={noData}>
+												<div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12"
+													style="margin-bottom: 7px;">
+													<span>
+														<label class="Break">Arrival </label><br />
+													</span>
+												</div>
+											</template>
+											<template if:false={noData}>
+												<div
+													class="slds-col slds-text-align_right slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+													<span>
+														<template for:each={attendanceData} for:item="record">
+															<div key={record.Id}>
+																<label
+																	class={record.arrivalStatusClass}>{record.arrivalStatus}</label>
+															</div>
+														</template>
+													</span>
+												</div>
+											</template>
+
+
+											<div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12"
+												style="margin-bottom: 7px;">
+												<span>
+													<label class="Break">Break Time: </label><br />
+												</span>
+											</div>
+											<div
+												class="slds-col slds-text-align_right slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+												<span>
+													<label class="Timer">01:00 PM - 01:45 PM</label><br />
+												</span>
+											</div>
+											<div
+												class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+												<template if:false={isClockinorout}>
+													<span>
+														<label class="Sincelogin">
+															Since Last Login
+														</label><br />
+													</span>
+												</template>
+											</div>
+											<div
+												class="slds-col slds-text-align_right slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-size_12-of-12">
+												<template if:false={isClockinorout}>
+													<span>
+														<label class="Timedifference">
+															{timeDifference}
+														</label><br />
+													</span>
+												</template>
+											</div>
+										</div>
+									</div>
+									<!-- </div><br> -->
+									<div class="slds-p-bottom_small">
+										<div class="clock_in_box">
+											<div class="">
+												<span>
+													<template if:true={isClockinorout}>
+														<button class="clockinButtonStyle clockinButtonStyle hover-grow"
+															name="clockin"
+															onclick={handleClockinoutBtn}>Clock-in</button>
+													</template>
+													<template if:false={isClockinorout}>
+														<template if:false={isDisableClockoutFor1min}>
+															<button
+																class="clockoutButtonStyle clockoutButtonStyle hover-grow"
+																name="clockout"
+																onclick={handleClockinoutBtn}>Clock-out</button>
+														</template>
+														<template if:true={isDisableClockoutFor1min}>
+															<button
+																class="clockoutButtonDisable clockoutButtonDisable hover-grow"
+																name="clockout" disabled>Clock-out</button>
+														</template>
+													</template>
+													<!-- <template if:false={isClockinorout}>
+														<template if:false={isDisableClockoutFor1min}>
+															<button
+																class="slds-button slds-button_destructive clockinButtonStyle"
+																name="clockout" onclick={handleClockinoutBtn}>Clock-out</button>
+														</template>
+														<template if:true={isDisableClockoutFor1min}>
+															<button
+																class="slds-button slds-button_destructive clockinButtonStyle"
+																name="clockout" disabled>Clock-out</button>
+														</template>
+													</template> -->
+												</span>
+											</div>
+
+											<div class="" style="text-align: center;">
+												<span class="custom-button-menu">
+													<lightning-button-menu name="Other" alternative-text="Other"
+														class="leaveApply" label="Other">
+														<lightning-menu-item value="WorkFromHome" label="Work from Home"
+															style="font-size: 16px;"
+															onclick={workFromHomeSelect}></lightning-menu-item>
+														<lightning-menu-item value="ApplyLeave" label="Apply Leave"
+															style="font-size: 16px;"
+															onclick={leaveOptionSelect}></lightning-menu-item>
+													</lightning-button-menu>
+												</span>
+												<!-- Modal Popup  -->
+												<div>
+													<!-- <lightning-button  class="slds-m-left_small" variant="brand" label="Create Contact" title="createContact" onclick={handleCreateContactRecords}></lightning-button>                         -->
+													<template if:true={isModalOpenWFH}>
+														<section role="dialog" tabindex="-1"
+															aria-labelledby="modal-heading-01" aria-modal="true"
+															aria-describedby="modal-content-id-1"
+															class="slds-modal slds-fade-in-open custom-modal-right">
+															<div class="slds-modal__container">
+																<header class="slds-modal__header">
+																	<!-- in future we need to remove header  -->
+																	<button
+																		class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+																		title="Close" onclick={closeModal}>
+																		<lightning-icon icon-name="utility:close"
+																			alternative-text="close" variant="inverse"
+																			size="small"></lightning-icon>
+																		<span class="slds-assistive-text">Close</span>
+																	</button>
+
+																	<h2 id="modal-heading-01"
+																		class="slds-text-heading_medium slds-hyphenate Workfromhome">
+																		Work From Home Request </h2>
+																</header>
+																<div class="slds-modal__content slds-p-around_medium"
+																	id="modal-content-id-1">
+																	<div class="slds-p-horizontal_x-small">
+																		<div class="slds-form-element">
+																			<div class="slds-grid slds-gutters">
+																				<div class="slds-col"
+																					style="width:20%;">
+																					<div class="startDate">
+
+
+
+
+
+
+
+
+																						<label> Start Date</label>
+																					</div>
+																					<div class=""
+																						style="display: flex;flex-direction: row;align-items: center;margin-top: 10px;background:#DEF5E4;border-radius:6px;">
+																						<span
+																							style="font-size: 17px;color: #00A129;font-weight: bold;margin: 10px;">
+																						</span>
+																						<lightning-icon
+																							icon-name='utility:date_input'
+																							alternative-text='date_input'
+																							variant='success'
+																							size='x-small'
+																							title='date_input'></lightning-icon>
+																						&nbsp;
+																						<lightning-input type="date"
+																							name="FromDate"
+																							placeholder="Select Date"
+																							class="remove_border hide-date-icon"
+																							style="width:120px"
+																							onchange={WFHHandleSelection}>
+																						</lightning-input></b>
+																					</div>
+																				</div>
+																				<div class="slds-col"
+																					style="width:20%;">
+																				</div>
+																				<div class="slds-col"
+																					style="width:20%;">
+																					<div class="endDate">
+																						<label> End Date</label>
+																					</div>
+																					<div class=""
+																						style="display: flex; flex-direction: row; align-items: center; margin-top: 10px; background:#DEF5E4; border-radius:6px; margin-bottom: 10px;margin-bottom: 23px;">
+																						<span
+																							style="font-size: 17px;color: #00A129;font-weight: bold;margin: 10px;">
+																						</span>
+																						<lightning-icon
+																							icon-name='utility:date_input'
+																							alternative-text='date_input'
+																							variant='success'
+																							size='x-small'
+																							title='date_input'></lightning-icon>
+																						&nbsp;
+																						<lightning-input type="date"
+																							name="ToDate"
+																							placeholder="Select Date"
+																							class="hide-date-icon"
+																							style="width:120px"
+																							onchange={WFHHandleSelection}>
+																						</lightning-input></b>
+																					</div>
+																				</div>
+																			</div>
+																			<div class="slds-grid slds-gutters">
+																				<div class="slds-col">
+																					<div class="totalDays1">
+																						<label> Total Day's</label>
+																					</div>
+																					<div class="total-days Days">
+																						{totalDays}&nbsp;Days</div>
+																				</div>
+
+																			</div>
+																		</div>
+
+																		<!-- work from home type -->
+
+																		<template if:true={isOnedayLeave}>
+
+																			<div
+																				style="padding-top: 20px; width: 120px;">
+																				<article id="midnight-series1"
+																					class="series">
+																					<article id="switch1"
+																						class="switch-toggle three-way">
+
+																						<input id="s1-op_one1"
+																							name="wfhType" type="radio"
+																							value="Full Day WFH"
+																							checked=""
+																							onchange={WFHHandleSelection}>
+																						<label for="s1-op_one1;">Full
+																							Day</label>
+
+																						<!-- need add condition here if we want to hide first half or second half   -->
+
+																						<!-- <input id="s1-op_two1"
+																							name="wfhType" type="radio"
+																							value="First Half WFH"
+																							onchange={WFHHandleSelection}>
+																						<label for="s1-op_two1">First
+																							Half</label>
+
+																						<input id="s1-op_three1"
+																							name="wfhType" type="radio"
+																							value="Second Half WFH"
+																							onchange={WFHHandleSelection}>
+																						<label for="s1-op_three1">Second
+																							Half</label> -->
+																						<div class="slider"></div>
+																					</article>
+																				</article>
+																			</div>
+																		</template>
+																		<!-- Reason -->
+																		<div class="slds-col">
+																			<div class="reason">
+																				<label>Reason</label>
+																			</div>
+																			<div class="textarea">
+																				<lightning-textarea type="text"
+																					data-index={index} class=""
+																					name="Reason" placeholder=""
+																					onchange={handleReasonChange}
+																					onblur={WFHHandleSelection}>
+																				</lightning-textarea>
+																			</div>
+																		</div>
+
+																		<!-- Button -->
+																		<div class="slds-form-element">
+																			<div class="">
+																				<div class="">
+																					<div class="apply_btn">
+																						<span
+																							style=" margin-right: 10px;">
+																							<button onclick={closeModal}
+																								class="canclebtn">Cancel</button>
+																						</span>
+																						<span>
+																							<button
+																								onclick={handleSaveClickWFH}
+																								class="savebtn">Save</button>
+																						</span>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																	</div>
+																</div>
+															</div>
+														</section>
+														<div class="slds-backdrop slds-backdrop_open"></div>
+													</template>
+
+													<template if:true={isModalOpenLEAVE}>
+														<section role="dialog" tabindex="-1"
+															aria-labelledby="modal-heading-02" aria-modal="true"
+															aria-describedby="modal-content-id-1"
+															class="slds-modal slds-fade-in-open">
+															<div class="slds-modal__container">
+																<header class="slds-modal__header">
+																	<button
+																		class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+																		title="Close" onclick={closeModal}>
+																		<lightning-icon icon-name="utility:close"
+																			alternative-text="close" variant="inverse"
+																			size="small"></lightning-icon>
+																		<span class="slds-assistive-text">Close</span>
+																	</button>
+																	<h2 id="modal-heading-02"
+																		class="slds-text-heading_medium slds-hyphenate Workfromhome">
+																		Request Leave</h2>
+																</header>
+																<div class="slds-modal__content slds-p-around_medium"
+																	id="modal-content-id-2">
+																	<div class="slds-p-horizontal_x-small">
+																		<div
+																			class="slds-form-element slds-p-right_medium slds-p-bottom_small">
+																			<div class="slds-form-element">
+
+
+																				<div class="slds-grid slds-gutters">
+																					<div class="slds-col"
+																						style="width:20%;">
+																						<div class="startDate">
+																							<label> Start Date</label>
+																						</div>
+																						<div class=""
+																							style="display: flex;flex-direction: row;align-items: center;margin-top: 10px;background:#DEF5E4;border-radius:6px;">
+																							<span
+																								style="font-size: 17px;color: #00A129;font-weight: bold;margin: 10px;">
+																							</span>
+																							<lightning-icon
+																								icon-name='utility:date_input'
+																								alternative-text='date_input'
+																								variant='success'
+																								size='x-small'
+																								title='date_input'></lightning-icon>
+																							&nbsp;
+																							<lightning-input type="date"
+																								name="FromDate"
+																								placeholder="Select	 Date"
+																								class="remove_border hide-date-icon"
+																								style="width:120px"
+																								onchange={leaveHandleSelection}>
+																							</lightning-input></b>
+																						</div>
+																					</div>
+																					<div class="slds-col"
+																						style="width:20%;">
+
+																					</div>
+																					<div class="slds-col"
+																						style="width:20%;">
+																						<div class="endDate">
+																							<label> End Date</label>
+																						</div>
+																						<div class=""
+																							style="display: flex; flex-direction: row; align-items: center; margin-top: 10px; background:#DEF5E4; border-radius:6px; margin-bottom: 10px;">
+																							<span
+																								style="font-size: 17px;color: #00A129;font-weight: bold;margin: 10px;">
+																							</span>
+																							<lightning-icon
+																								icon-name='utility:date_input'
+																								alternative-text='date_input'
+																								variant='success'
+																								size='x-small'
+																								title='date_input'></lightning-icon>
+																							&nbsp;
+																							<lightning-input type="date"
+																								name="ToDate"
+																								placeholder="Select Date"
+																								class="hide-date-icon"
+																								style="width:120px"
+																								onchange={leaveHandleSelection}>
+																							</lightning-input></b>
+																						</div>
+																					</div>
+
+																				</div>
+																				<div class="slds-grid slds-gutters">
+																					<div class="slds-col"
+																						style="width:40%;">
+																						<div class="totalDays1">
+																							<label> Total Day's</label>
+																						</div>
+																						<div class="total-days Days">
+																							{totalDays}&nbsp;Days</div>
+
+																					</div>
+																					<div class="slds-col"
+																						style="width:20%; text-align: end; padding-top: 55px; font-size: large;">
+																						{numberOfAvailableLeaves} days
+																						available
+																					</div>
+
+																				</div>
+
+
+																			</div>
+																		</div>
+																	</div>
+																	<!-- Leave type -->
+																	<template if:true={isOnedayLeave}>
+																		<article id="midnight-series" class="series1 ">
+																			<article id="switch2"
+																				class="switch-toggle three-way">
+
+																				<input id="s1-op_one"
+																					name="leaveDuration" type="radio"
+																					value="Full Day" checked=""
+																					onchange={leaveHandleSelection}>
+																				<label for="s1-op_one">Full Day</label>
+
+																				<input id="s1-op_two"
+																					name="leaveDuration" type="radio"
+																					value="First Half"
+																					onchange={leaveHandleSelection}>
+																				<label for="s1-op_two">First
+																					Half</label>
+
+																				<input id="s1-op_three"
+																					name="leaveDuration" type="radio"
+																					value="Second Half"
+																					onchange={leaveHandleSelection}>
+																				<label for="s1-op_three">Second
+																					Half</label>
+																				<div class="slider"></div>
+																			</article>
+																		</article>
+																	</template>
+
+																	<template if:true={ismultipledayLeave}>
+																		<article id="midnight-series2" class="series2 ">
+																			<article id="switch3"
+																				class="switch-toggle three-way">
+
+																				<input id="s2-op_one"
+																					name="leaveDuration" type="radio"
+																					value="Full Day"
+																					checked={fullDayValue}
+																					onchange={handleRadioChange}>
+																				<label for="s2-op_one">Full Day</label>
+
+																				<input id="s2-op_two"
+																					name="leaveDuration" type="radio"
+																					value="custom" checked={customValue}
+																					onchange={handleRadioChange}>
+																				<label for="s2-op_two">Custom</label>
+																				<div class="slider"></div>
+																			</article>
+																		</article>
+																	</template>
+
+																	<template if:true={showLeaveDuration}>
+																		<div class="slds-grid slds-gutters">
+																			<div class="slds-col" style="width:40%;">
+																				<div class="leaveDuration">
+																					<label><abbr title="required"
+																							class="slds-required">*</abbr>
+																						From {formattedFromDate}</label>
+																				</div>
+																				<lightning-combobox class="remove_label"
+																					options={fromDateleaveDurationOption}
+																					name="fromDateLeaveDurationOption"
+																					onchange={leaveHandleSelection}
+																					data-index={index}>
+																				</lightning-combobox>
+																			</div>
+																			<div class="slds-col" style="width:20%;">
+
+																			</div>
+																			<div class="slds-col" style="width:40%;">
+																				<div class="leaveDuration1">
+																					<label> <abbr title="required"
+																							class="slds-required">*</abbr>
+																						To {formattedToDate}</label>
+																				</div>
+																				<div style="margin-bottom: 10px;">
+																					<!-- <lightning-combobox  options={leaveDurationOption} name="leaveType" onchange={leaveHandleSelection} data-index={index} >
+								</lightning-combobox> -->
+																					<lightning-combobox
+																						class="remove_label"
+																						options={toDateleaveDurationOption}
+																						name="toDateleaveDurationOption"
+																						onchange={leaveHandleSelection}
+																						data-index={index}>
+																					</lightning-combobox>
+																				</div>
+																			</div>
+																		</div>
+																	</template>
+																	<!-- Note -->
+																	<div class="slds-col">
+																		<div class="reason">
+																			<label>Reason</label>
+																		</div>
+																		<div class="textarea">
+																			<lightning-textarea type="text"
+																				data-index={index} class=""
+																				name="Reason" placeholder=""
+																				onchange={handleReasonChange}
+																				onblur={leaveHandleSelection}>
+																			</lightning-textarea>
+																		</div>
+																	</div>
+																	<!-- Button -->
+																	<div class="slds-form-element">
+																		<div class="slds-grid slds-gutters">
+																			<div class="slds-col">
+																				<div class="apply_btn">
+																					<span style="margin-right: 10px;">
+																						<button onclick={closeModal}
+																							class="canclebtn">Cancel</button>
+																					</span>
+																					<span>
+																						<template
+																							if:false={isDisableSave}>
+																							<button
+																								onclick={handleSaveClickLEAVE}
+																								class="savebtn">Save</button>
+																						</template>
+																						<template
+																							if:true={isDisableSave}>
+																							<button
+																								onclick={handleSaveClickLEAVE}
+																								class="savebtn"
+																								disabled>Save</button>
+																						</template>
+																					</span>
+																				</div>
+																			</div>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</section>
+														<div class="slds-backdrop slds-backdrop_open"></div>
+													</template>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+							</template>
+
+						</article>
+					</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<template if:true={isClockOutForget}>
+		<div if:true={isSpinnerLoad}>
+			<div class="demo-only demo-only_viewport demo--inverse"
+				style="height:6rem;background-color:#16325c;position:relative">
+				<div class="slds-spinner_container slds-is-fixed">
+					<div role="status" class="slds-spinner slds-spinner_medium">
+						<span class="slds-assistive-text">Loading</span>
+						<div class="slds-spinner__dot-a"></div>
+						<div class="slds-spinner__dot-b"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-03" aria-modal="true"
+			aria-describedby="modal-content-id-3" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<header class="slds-modal__header">
+					<h2 id="modal-heading-03" class="slds-text-heading_medium slds-hyphenate">Reminder: Clock Out</h2>
+				</header>
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3"> -->
+
+		<!-- responsive code for mobile -->
+		<template if:true={mobileView}>
+			<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-06" aria-modal="true"
+				aria-describedby="modal-content-id-6" class="slds-modal slds-fade-in-open">
+				<div class="slds-modal__container">
+					<header class="slds-modal__header">
+						<h2 id="modal-heading-06" class="slds-text-heading_medium slds-hyphenate">Reminder: Clock Out
+						</h2>
+					</header>
+					<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-6">
+						<div class="slds-p-horizontal_x-small">
+							<div style="font-size: 20px; text-align: center; margin-bottom: 15px;">
+								<p> You Forgot to Clock Out. Please Clock Out Now. </p>
+							</div>
+							<lightning-input type="date" name="clockOutDate"
+								onchange={handleDateTimeChange} value={lastForgetClockinDate} disabled="true"
+								style="margin-bottom: 10px;">
+							</lightning-input>
+							<label for="clockOutTime"><span style="color: red;">*</span>Clock Out Time</label>
+							<lightning-input type="time" name="clockOutTime"
+								onchange={handleDateTimeChange} required="true"></lightning-input>
+						</div>
+					</div>
+					<footer class="slds-modal__footer">
+						<button class="slds-button slds-button_brand" onclick={handleClockOut}
+							disabled={isClockOutDateTimeNotFilled}>Clock Out</button>
+					</footer>
+				</div>
+			</section>
+		</template>
+		
+
+		<!-- desktop code -->
+		<template if:false={mobileView}>
+			<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-03" aria-modal="true"
+				aria-describedby="modal-content-id-3" class="slds-modal slds-fade-in-open">
+				<div class="slds-modal__container">
+					<header class="slds-modal__header">
+						<h2 id="modal-heading-03" class="slds-text-heading_medium slds-hyphenate">Reminder: Clock Out
+						</h2>
+					</header>
+					<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+						<div class="slds-p-horizontal_x-small">
+							<div style="font-size: 20px; text-align: center;">
+								<p> You Forgot to Clock Out. Please Clock Out Now. </p>
+								<br /><br />
+							</div>
+							<lightning-input type="date" label="Clock Out Date" name="clockOutDate"
+								onchange={handleDateTimeChange} value={lastForgetClockinDate} disabled required="true">
+							</lightning-input>
+							<lightning-input type="time" label="Clock Out Time" name="clockOutTime"
+								onchange={handleDateTimeChange} required="true"></lightning-input>
+						</div>
+					</div>
+					<footer class="slds-modal__footer">
+						<button class="slds-button slds-button_brand" onclick={handleClockOut}
+							disabled={isClockOutDateTimeNotFilled}>Clock Out</button>
+					</footer>
+				</div>
+			</section>
+		</template>
+
+		<!-- </div>
+				<footer class="slds-modal__footer">
+					<button class="slds-button slds-button_brand" onclick={handleClockOut}
+						disabled={isClockOutDateTimeNotFilled}>Clock Out</button>
+				</footer>
+			</div>
+		</section> -->
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+</template>

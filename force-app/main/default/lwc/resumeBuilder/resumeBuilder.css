@@ -1,0 +1,39 @@
+.container {
+		 display: flex; /* Use flexbox for layout */
+		 width: 100%; /* Ensure full width */
+		 margin-bottom: 30px;
+		 padding: 30px;
+		 height: 100vh;
+		 justify-content: space-evenly;
+}
+
+.left-div {
+		/* Set width to 30% */
+	width: 30%;
+	overflow-y: scroll;
+	box-shadow: 0px 5px 5px silver;
+    border-radius: 15px 15px 0px 0px;
+	border: 1px solid #A9A6BB;
+	background-color: #F5F7FA;
+}
+.left-div::-webkit-scrollbar {
+    display: none;
+}
+
+.right-div {
+		/* Set width to 70% */
+		width: 70%;
+		overflow-y: scroll;
+		overflow-x: hidden;
+		margin-right: 16px;
+		box-shadow: 0px 5px 5px silver;
+		border-radius: 15px;
+    	border: 1px solid #A9A6BB;
+}
+.right-div::-webkit-scrollbar {
+    display: none;
+}
+
+.docx{
+		background-color:white !important
+}

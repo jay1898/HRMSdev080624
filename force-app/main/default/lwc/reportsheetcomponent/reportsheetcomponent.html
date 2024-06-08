@@ -1,0 +1,306 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 05-20-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:true={isLoading}>
+        <lightning-spinner alternative-text="Loading" if:true={isLoading} size="large"
+            variant="brand"></lightning-spinner>
+    </template>
+
+    <template if:false={isLoading}>
+        <!-- //All Repoert Sheet Dashboard -->
+        <div class="slds-var-m-around_small dashboard_Main">
+            <!-- //Header -->
+            <div class="title_Dashboard">DASHBOARD</div>
+
+            <!-- //table view -->
+            <div class="slds-col slds-size_12-of-12 slds-var-m-top_small">
+                <div class="dashboard_table" style="position: relative; width: 100%;">
+                    <template if:true={isBLoading}>
+                        <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+                    </template>
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"
+                        aria-label="Custom Table">
+                        <thead class="table__header">
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col" colspan="2"
+                                    style="background-color: #274E13; color: aliceblue; padding: 9px; text-align: center;">
+                                    <div class="slds-truncate" title="Project Hourse">PROJECT HOURS</div>
+                                </th>
+                                <th class="" scope="col" colspan="2"
+                                    style="background-color: #741B47; color: aliceblue; text-align: center;">
+                                    <div class="slds-truncate" title="Task Type Hours">TASK TYPE HOURS</div>
+                                </th>
+                                <th class="" scope="col" colspan="5"
+                                    style="background-color: #FF6D01; color: aliceblue; text-align: center;">
+                                    <div class="slds-truncate" title="Unique Ticket Hours">UNIQUE TICKET HOURS</div>
+                                </th>
+                            </tr>
+
+                            <tr>
+                                <th style="background-color: #38761D; color: aliceblue; width: 12%;">Project Name</th>
+                                <th style="background-color: #38761D; color: aliceblue; width: 12%;">Total Hours</th>
+
+                                <th style="background-color: #A64D79; color: aliceblue; width: 14%;">Task Type</th>
+                                <th style="background-color: #A64D79; color: aliceblue; width: 13%;">Total Hours</th>
+
+                                <th style="background-color: #F6B26B; color: aliceblue; width: 13%;">Sr No.</th>
+                                <th style="background-color: #F6B26B; color: aliceblue; width: 13%;">Ticket No</th>
+                                <th style="background-color: #F6B26B; color: aliceblue; width: 13%;">Total Hours</th>
+                                <th style="background-color: #F6B26B; color: aliceblue; width: 12%;">Project Name</th>
+
+                            </tr>
+                        </thead>
+                        <tbody class="table__body">
+                            <template if:true={isAllData}>
+                                <template for:each={allDataDashboard} for:item="event" for:index="index">
+                                    <tr key={event}>
+                                        <td style="background-color: #D9EAD3;  width: 12%; padding: 8px;">
+                                            {event.taskType}</td>
+                                        <td style="background-color: #D9EAD3; width: 12%;">{event.totalHours}</td>
+
+                                        <td style="background-color: #EAD1DC; width: 14%;">{event.label}</td>
+                                        <td style="background-color: #EAD1DC; width: 13%;">{event.count}</td>
+
+                                        <td style="background-color: #FCE5CD; width: 13%">{event.index}</td>
+                                        <td style="background-color: #FCE5CD; width: 13%">{event.Ticket_No__c}</td>
+                                        <td style="background-color: #FCE5CD; width: 13%">{event.hours}</td>
+                                        <td style="background-color: #FCE5CD; width: 12%;">{event.Project_Name__c}</td>
+                                    </tr>
+                                </template>
+                            </template>
+                            <template if:false={isAllData}>
+                                <tr>
+                                    <td colspan="8"><strong>No Data Found</strong></td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="slds-var-m-around_small dashboard_Main" style="display: flex;">
+
+            <!-- //Tickit Wise Report Sheet -->
+            <div class="slds-var-m-left_medium">
+
+                <div class="title_Dashboard">TICKET DASHBOARD</div>
+                <div class="slds-var-m-around_small" style="display: flex;">
+                    <lightning-combobox placeholder="" name="enterTicket" value={selectedValues.ticketNumber}
+                        label="Enter Ticket Number" options={ticketNumbers}
+                        onchange={handleOnChange}></lightning-combobox>
+                </div>
+
+                <div class="slds-col slds-size_3-of-12 slds-var-m-top_small" style="position: relative; width: 100%;">
+                    <template if:true={isNLoading}>
+                        <lightning-spinner alternative-text="Loading" size="medium" variant="brand"></lightning-spinner>
+                    </template>
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"
+                        aria-label="Custom Table">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col" colspan="2"
+                                    style="background-color: #990000; color: aliceblue;  text-align: center;">
+                                    <div class="slds-truncate" title="On Ticket Task Wise Hours">ON TICKET TASK WISE
+                                        HOURS</div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="background-color: #CC0000; color: aliceblue; text-align: center;">Task Type
+                                </th>
+                                <th style="background-color: #CC0000; color: aliceblue; text-align: center;">Total Hours
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <template if:true={isTicketData}> -->
+                            <template for:each={allDataTicketTaskDetails} for:item="event" for:index="index">
+                                <tr key={event}>
+                                    <td style="background-color: #F4CCCC; text-align: center;">{event.Task_Type__c}</td>
+                                    <td style="background-color: #F4CCCC; text-align: center;">{event.totalTaskHours}
+                                    </td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- //Month Wise Report Sheet -->
+            <div class="slds-var-m-left_medium" style="position: relative; width: 100%;">
+                <div class="title_Dashboard">MONTH WISE DASHBOARD</div>
+                <div class="slds-var-m-around_small" style="display: flex;">
+                    <lightning-combobox class="inputMonth slds-var-m-right_small" placeholder="Enter the month"
+                        name="enterMonth" label="Enter Month" value={selectedValues.month} options={monthOptions}
+                        onchange={handleOnChange}></lightning-combobox>
+                    <lightning-combobox class="inputYear" placeholder="Enter the year" name="enterYear"
+                        label="Enter Year" value={selectedValues.year} options={yearOptions}
+                        onchange={handleOnChange}></lightning-combobox>
+                </div>
+
+                <div class="slds-col slds-size_12-of-12 slds-var-m-top_small">
+                    <div class="dashboard_table">
+                        <template if:true={isSLoading}>
+                            <lightning-spinner alternative-text="Loading" size="medium"
+                                variant="brand"></lightning-spinner>
+                        </template>
+                        <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"
+                            aria-label="Custom Table">
+                            <thead class="table__header">
+                                <tr class="slds-line-height_reset">
+                                    <th class="" scope="col" colspan="4"
+                                        style="background-color: #0B5394; color: aliceblue;  text-align: center;">
+                                        <div class="slds-truncate" title="On Ticket Task Wise Hours">ON TICKET TASK WISE
+                                            HOURS</div>
+                                    </th>
+                                    <th class="" scope="col" colspan="2"
+                                        style="background-color: #351C75; color: aliceblue;  text-align: center;">
+                                        <div class="slds-truncate" title="On Ticket Task Wise Hours">PROJECT HOURS</div>
+                                    </th>
+                                    <th class="" scope="col" colspan="2"
+                                        style="background-color: #124A56; color: aliceblue;  text-align: center;">
+                                        <div class="slds-truncate" title="On Ticket Task Wise Hours">TASK TYPE HOURS
+                                        </div>
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th style="background-color: #3D85C6; color: aliceblue; text-align: center;">Sr No
+                                    </th>
+                                    <th style="background-color: #3D85C6; color: aliceblue; text-align: center;">Ticket
+                                        No</th>
+                                    <th style="background-color: #3D85C6; color: aliceblue; text-align: center;">Total
+                                        Hours</th>
+                                    <th style="background-color: #3D85C6; color: aliceblue; text-align: center;">Project
+                                        Name</th>
+
+                                    <th style="background-color: #8E7CC3; color: aliceblue; text-align: center;">Project
+                                        Name</th>
+                                    <th style="background-color: #8E7CC3; color: aliceblue; text-align: center;">Total
+                                        Hours</th>
+
+                                    <th style="background-color: #76A5AF; color: aliceblue; text-align: center;">Project
+                                        Name</th>
+                                    <th style="background-color: #76A5AF; color: aliceblue; text-align: center;">Total
+                                        Hours</th>
+                                </tr>
+                            </thead>
+
+                            <tbody class="table__body">
+                                <template if:true={isMonthData}>
+                                    <template for:each={allDataMonthWiseDetails} for:item="event" for:index="index">
+                                        <tr key={event}>
+                                            <td style="background-color: #CFE2F3; text-align: center;">{event.index}
+                                            </td>
+                                            <td style="background-color: #CFE2F3; text-align: center;">
+                                                {event.Ticket_No__c}</td>
+                                            <td style="background-color: #CFE2F3; text-align: center;">
+                                                {event.monthwisetotalHours}</td>
+                                            <td style="background-color: #CFE2F3; text-align: center;">
+                                                {event.TicketWiseProjectName}</td>
+
+                                            <td style="background-color: #D9D2E9; text-align: center;">
+                                                {event.ProjectWiseProjectName}</td>
+                                            <td style="background-color: #D9D2E9; text-align: center;">
+                                                {event.monthWiseProjectHours}</td>
+
+                                            <td style="background-color: #D0E0E3; text-align: center;">
+                                                {event.Task_Type__c}</td>
+                                            <td style="background-color: #D0E0E3; text-align: center;">
+                                                {event.monthWiseTaskHours}</td>
+                                        </tr>
+                                    </template>
+                                </template>
+                                <template if:false={isMonthData}>
+                                    <tr>
+                                        <td colspan="8"><strong>No Data Found</strong></td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- //Monthly Report Sheet Full Year -->
+        <div class="slds-var-m-around_small dashboard_Main" style="display: flex;">
+            <!-- //Header -->
+            <div>
+                <div class="title_Dashboard">MONTHLY REPORT</div>
+                <div class="slds-col slds-size_12-of-12 slds-var-m-top_small">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"
+                        aria-label="Custom Table">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th class="" scope="col" colspan="2"
+                                    style="background-color: #C27BA0; color: aliceblue;  text-align: center;">
+                                    <div class="slds-truncate" title="On Ticket Task Wise Hours">Monthly Hours Report
+                                    </div>
+                                </th>
+                            </tr>
+                            <tr>
+                                <th style="background-color: #D5A6BD; color: aliceblue; text-align: center;">Month</th>
+                                <th style="background-color: #D5A6BD; color: aliceblue; text-align: center;">Total Hours
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template if:true={isYearData}>
+                                <template for:each={allDataYearMonthTotal} for:item="event" for:index="index">
+                                    <tr key={event}>
+                                        <td style="background-color: #EAD1DC; text-align: center;">{event.monthName}
+                                        </td>
+                                        <td style="background-color: #EAD1DC; text-align: center;">
+                                            {event.monthTotalHours}</td>
+                                    </tr>
+                                </template>
+                            </template>
+                            <template if:false={isYearData}>
+                                <tr>
+                                    <td colspan="2" style="text-align: center;"><strong>No Data Found</strong></td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="slds-var-m-left_small">
+                <div class="title_Dashboard">TOTAL HOURS</div>
+                <div class="slds-col slds-size_12-of-12 slds-var-m-top_small">
+                    <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered"
+                        aria-label="Custom Table">
+                        <thead>
+                            <tr class="slds-line-height_reset">
+                                <th style="background-color: #434343; color: aliceblue;  text-align: center;">
+                                    Total Hours
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template if:true={isYearData}>
+                                <template for:each={allYearTotalHours} for:item="event" for:index="index">
+                                    <tr key={event}>
+                                        <td style="background-color: #F3F3F3; text-align: center;">
+                                            <strong>{event.allTotalHours}</strong>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </template>
+                            <template if:false={isYearData}>
+                                <tr>
+                                    <td style="text-align: center;"><strong>No Data Found</strong></td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </template>
+</template>

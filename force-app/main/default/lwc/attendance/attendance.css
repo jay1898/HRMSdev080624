@@ -1,0 +1,609 @@
+.summary{
+    display: flex;
+}
+
+.divtag{
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: white;
+    margin-right: 10px;
+}
+
+.div-summary{
+    border-radius: 5px;
+    border: 1px solid white;
+    background-color: white;    
+}
+
+.month-change-main{
+    margin-top: -15px; 
+    display: flex; 
+    align-items: center;
+}
+
+.month-change{
+    height: 25px;
+    width: 12px;
+    cursor: pointer;
+}
+
+.month-year{
+    font-size: 22px;
+    padding: 15px;
+}
+
+.present-day{
+    font-size: 13px; 
+}
+
+.date{
+    display: flex;
+    justify-content: right;
+}   
+
+.first-row{
+    display: flex;
+    justify-content: space-between;
+}
+
+.row-date{
+    display: flex;
+    justify-content: right;
+}
+
+.date-round{
+    width: 32px; 
+    height: 32px; 
+    border-radius: 50%; 
+    text-align: center; 
+    color: #FCFCFC;
+    font-size:18px;
+}
+
+.day-list{
+    font-size: 18px;
+    color: #194051;
+}
+
+.date-list{
+    display: inline-block;
+    background-color:#F5FFF6;
+}
+
+.clockin-out{
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+}
+
+.note{
+    display: flex; 
+    justify-content: space-around;
+}
+
+.P{
+    background-color: #F5FFF6;
+    padding: 9px; 
+    border-style: solid; 
+    border-width: 0.3px; 
+    border-color: #FFFFED;
+}
+
+.P-dateround{
+    width: 32px; 
+    height: 32px; 
+    line-height: 32px;
+    border-radius: 50%; 
+    text-align: center;
+    color: #FCFCFC;
+    font-size:18px;
+    background-color: #00A129;
+}
+
+.P-status{
+    color: #00A129 ;
+    font-size: 13px;
+}
+
+.FHL{
+    background-color: #FDF2D5; 
+    padding: 9px; 
+    border-style: solid; 
+    border-width: 0.3px; 
+    border-color: #FFFFED;
+}
+
+.FHL-dateround{
+    width: 32px; 
+    height: 32px; 
+    line-height: 32px;
+    border-radius: 50%; 
+    text-align: center;
+    color: #FCFCFC;
+    font-size:18px;
+    background-color: #F9AA35;
+}
+.FHL-status{
+    color:#F9AA35;
+    font-size: 13px;
+}
+
+.SHL{
+    background-color: #FDF2D5;
+    padding: 9px; 
+    border-style: solid; 
+    border-width: 0.3px; 
+    border-color: #FFFFED;
+}
+
+.SHL-dateround{
+    width: 32px; 
+    height: 32px; 
+    line-height: 32px;
+    border-radius: 50%; 
+    text-align: center;
+    color: #FCFCFC;
+    font-size:18px;
+    background-color: #F9AA35;
+}
+
+.SHL-status{
+    color:#F9AA35;
+    font-size: 13px;
+}
+
+.FO{
+    background-color: #EDEAFF;
+    height: 110px;
+    padding: 9px; 
+    border-style: solid; 
+    border-width: 0.3px; 
+    border-color: #FFFFED;
+}
+
+.FO-dateround{
+    width: 32px; 
+    height: 32px; 
+    line-height: 32px;
+    border-radius: 50%; 
+    text-align: center;
+    color: #FCFCFC;
+    font-size:18px;
+    background-color: #5E44EF;
+}
+
+.FO-status{
+    color: #5E44EF ;
+    font-size: 13px;
+}
+
+.FDL{
+    background-color: #FEEAEA;
+    height: 110px;
+    padding: 9px; 
+    border-style: solid; 
+    border-width: 0.3px; 
+    border-color: #FFFFED;
+}
+
+.FDL-dateround{
+    width: 32px; 
+    height: 32px; 
+    line-height: 32px;
+    border-radius: 50%; 
+    text-align: center;
+    color: #FCFCFC;
+    font-size:18px;
+    background-color: #DA0E0E;
+}
+
+.FDL-status{
+    color:#DA0E0E;
+    font-size: 13px;
+}
+
+.WO{
+    background-color: #EAECF1;
+    height: 110px;
+    padding: 9px; 
+    border-style: solid; 
+    border-width: 0.3px; 
+    border-color: #FFFFED;
+}
+
+.WO-dateround{
+    width: 32px; 
+    height: 32px; 
+    line-height: 32px;
+    border-radius: 50%; 
+    text-align: center;
+    color: #EAECF1;
+    font-size:18px;
+    background-color: #C2C8D7;
+}
+
+.WO-status{
+    color:#5F6675;
+    font-size: 13px;
+}
+
+.DA {
+    background-color: #FCFCFC;
+    height: 110px;
+    padding: 9px; 
+    border-style: solid; 
+    border-width: 0.3px; 
+    border-color: #FFFFED;
+}
+
+.DA-dateround{
+    width: 32px; 
+    height: 32px; 
+    line-height: 32px;
+    border-radius: 50%; 
+    text-align: center;
+    color: #CACACA;
+    font-size:18px;
+    background-color: #F0F0F0;
+}
+
+.DA-status{ 
+    visibility: hidden;
+}
+
+.CMD {
+    background-color: #F3F3F3;
+    height: 110px;
+    padding: 9px; 
+    border-style: solid; 
+    border-width: 0.3px; 
+    border-color: #FFFFED;
+}
+
+.CMD-dateround{
+    width: 32px; 
+    height: 32px; 
+    line-height: 32px;
+    border-radius: 50%; 
+    text-align: center;
+    color: #9F9F9F;
+    font-size:18px;
+    background-color: #D0D0D0;
+}
+
+.CMD-status{ 
+    visibility: hidden;
+}
+
+.TODAY {
+    background-color: #F5FFF6;
+    height: 110px;
+    padding: 9px; 
+    border-style: solid; 
+    border-width: 2px;  
+    border-color: #00A129;
+}
+
+.TODAY-dateround{
+    width: 32px; 
+    height: 32px; 
+    line-height: 32px;
+    border-radius: 50%; 
+    text-align: center;
+    color: #FCFCFC;
+    font-size:18px;
+    background-color: #00A129;
+}
+
+.TODAY-status{ 
+    color: #00A129;
+    font-size: 13px;
+}
+
+@media screen and (min-width: 768px) and (max-width: 821px) {
+    .present-day{
+        font-size: 9px; 
+    }
+    .day-list{
+        font-size: 14px;
+    }
+    .P{
+        padding: 6px; 
+    }
+    .P-dateround{
+        width: 20px; 
+        height: 20px; 
+        font-size:12px;
+        line-height: 20px;
+    }
+    .P-status{
+        font-size: 10px;
+    }
+    .FHL{
+        padding: 6px; 
+    }
+    .FHL-dateround{
+        width: 20px; 
+        height: 20px; 
+        font-size:12px;
+        line-height: 20px;
+    }
+    .FHL-status{
+        font-size: 10px;
+    }
+    .SHL{
+        padding: 6px; 
+    }
+    .SHL-dateround{
+        width: 20px; 
+        height: 20px; 
+        font-size:12px;
+        line-height: 20px;
+    }
+    .SHL-status{
+        font-size: 10px;
+    }
+    .FDL{
+        padding: 6px; 
+        height: 95px;
+    }
+    .FDL-dateround{
+        width: 20px; 
+        height: 20px; 
+        font-size:12px;
+        line-height: 20px;
+    }
+    .FDL-status{
+        font-size: 10px;
+    }
+    .WO{
+        padding: 6px; 
+        height: 95px;
+    }
+    .WO-dateround{
+        width: 20px; 
+        height: 20px; 
+        font-size:12px;
+        line-height: 20px;
+    }
+    .WO-status{
+        font-size: 10px;
+    }
+    .FO{
+        padding: 6px; 
+        height: 95px;
+    }
+    .FO-dateround{
+        width: 20px; 
+        height: 20px; 
+        font-size:12px;
+        line-height: 20px;
+    }
+    .FO-status{
+        font-size: 10px;
+    }
+    .DA{
+        padding: 6px; 
+        height: 95px;
+    }
+    .DA-dateround{
+        width: 20px; 
+        height: 20px; 
+        font-size:12px;
+        line-height: 20px;
+    }
+    .DA-status{
+        font-size: 10px;
+    }
+    .CMD{
+        padding: 6px; 
+        height: 95px;
+    }
+    .CMD-dateround{
+        width: 20px; 
+        height: 20px; 
+        font-size:12px;
+        line-height: 20px;
+    }
+    .CMD-status{
+        font-size: 10px;
+    }
+    .TODAY{
+        padding: 6px; 
+        height: 95px;
+    }
+    .TODAY-dateround{
+        width: 20px; 
+        height: 20px; 
+        font-size:12px;
+        line-height: 20px;
+    }
+    .TODAY-status{
+        font-size: 10px;
+    }
+    .divtag{
+        font-size: 12px;
+        padding-left: 5px;
+        padding-right: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        margin-right: 5px;
+    }
+    .footer{
+        font-size: 10px;
+    }
+    .note{
+        font-size: 8px;
+    }
+    .month-change{
+        height: 16px;
+        width: 8px;
+    }
+    .month-year{
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+ @media screen and (max-width: 480px) {
+    .present-day{
+        font-size: 12px; 
+    }
+    .day-list{
+        font-size: 16px;
+    }
+    .P{
+        padding: 9px; 
+    }
+    .P-dateround{
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .P-status{
+        font-size: 14px;
+    }
+
+    .FHL{
+        padding: 9px; 
+    }
+    .FHL-dateround{
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .FHL-status{
+        font-size: 14px;
+    }
+    .SHL{
+        padding: 9px; 
+    }
+    .SHL-dateround{
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .SHL-status{
+        font-size: 14px;
+    }
+    .FDL{
+        padding: 9px; 
+        height: 95px;
+    }
+    .FDL-dateround{
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .FDL-status{
+        font-size: 14px;
+    }
+    .WO{
+        padding: 9px; 
+        height: 95px;
+    }
+    .WO-dateround{
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .WO-status{
+        font-size: 14px;
+    }
+    .FO{
+        padding: 9px; 
+        height: 95px;
+    }
+    .FO-dateround{
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .FO-status{
+        font-size: 14px;
+    }
+    .DA{
+        padding: 9px; 
+        height: 95px;
+    }
+    .DA-dateround{
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .DA-status{
+        font-size: 14px;
+    }
+    .CMD{
+        padding: 9px; 
+        height: 95px;
+    }
+    .CMD-dateround{
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .CMD-status{
+        font-size: 14px;
+    }
+    .TODAY{
+        padding: 9px; 
+        height: 95px;
+    }
+    .TODAY-dateround{
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+        line-height: 24px;
+    }
+    .TODAY-status{
+        font-size: 14px;
+    }
+    .divtag{
+        font-size: 14px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        margin-right: 1px;
+        margin-bottom: 5px;
+    }
+    .footer{
+        font-size: 8px;
+    }
+    .note{
+        font-size: 8px;
+    }
+    .month-change{
+        height: 20px;
+        width: 10px;
+    }
+    .month-year{
+        font-size: 18px;
+        padding: 8px;
+    }
+    .row-date{
+        display: flex;
+        justify-content: space-between;
+    }
+    .summary{
+        display: block;
+    }
+}

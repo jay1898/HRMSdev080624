@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Leave Request</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Leave Requests</value>
+    </caseValues>
+    <fieldSets>
+        <label></label>
+        <name>Leave_Approval_Field</name>
+    </fieldSets>
+    <layouts>
+        <layout>Leave Request Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label></label>
+        <name>Paid_Leave</name>
+    </recordTypes>
+    <recordTypes>
+        <label></label>
+        <name>Unpaid_Leave</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

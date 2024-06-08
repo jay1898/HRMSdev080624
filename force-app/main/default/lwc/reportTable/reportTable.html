@@ -1,0 +1,194 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 01-04-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+   
+    <div class="slds-grid slds-wrap">
+        <!-- Date Picker -->
+        <div class="slds-col slds-large-size_3-of-12 slds-medium-size_5-of-12 slds-size_7-of-12">
+            <div class="slds-form-element slds-p-right_medium slds-p-bottom_large">
+				<lightning-input
+				type="date"
+				label="Date"
+				placeholder="Date"
+				class="slds-m-left_medium"
+				name="Date__c"
+				onchange={handleDateChange}
+				value={selectedDate} 
+			></lightning-input>
+        </div>
+
+            <!-- <template if:true={showDateError}>
+                <div class="slds-text-color_error">Please select a date.</div>
+            </template> -->
+            <template if:true={showDateError}>
+                <div class="slds-text-color_error">Please select a date.</div>
+            </template>
+
+            </div>
+        
+<template if:true={selectedDate}>
+        <!-- Add Button -->
+        <div class="slds-col slds-large-size_9-of-12 slds-medium-size_3-of-12 slds-size_4-of-12">
+            <div align="right" class="slds-p-right_medium slds-p-top_large">
+                <button class="slds-button slds-button_brand slds-button_brand-color" onclick={addEvents}>
+                    <span>+ Add</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Table -->
+        <div class="slds-col slds-size_12-of-12">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered" aria-label="Custom Table">
+                <thead>
+                    <tr class="slds-line-height_reset">
+
+                        <th class="" scope="col" style="background-color: #1D4354; color: aliceblue; padding: 9px; text-align: center;">
+                            <div class="slds-truncate" title="Project">Project Name</div>
+                        </th>
+                        <th class="" scope="col" style="background-color: #1D4354; color: aliceblue; text-align: center;">
+                            <div class="slds-truncate" title="No of QA & Dev">No of QA & Dev</div>
+                        </th>
+                        <th class="" scope="col" style="background-color: #1D4354; color: aliceblue; text-align: center;">
+                            <div class="slds-truncate" title="Alloted Hours">Alloted Hours</div>
+                        </th>
+                        <th class="" scope="col" style="background-color: #1D4354; color: aliceblue; text-align: center;">
+                            <div class="slds-truncate" title="PM Billable Hours">PM Billable Hours</div>
+                        </th>
+                        <th class="" scope="col" style="background-color: #1D4354; color: aliceblue; text-align: center;">
+                            <div class="slds-truncate" title="Total">Total</div>
+                        </th>
+                        <th class="" scope="col" style="background-color: #1D4354; color: aliceblue; text-align: center;">
+                            <div class="slds-truncate" title="Sum Of Actual Hours" >Sum Of Actual Hours</div>
+                        </th>
+                        <th class="" scope="col" style="background-color: #1D4354; color: aliceblue; text-align: center;">
+                            <div class="slds-truncate" title="Delete">Delete</div>
+                        </th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    <template for:each={events} for:item="event" for:index="index">
+                        <tr key={event.Id}>
+
+                            <td data-label="Project">
+                                <lightning-combobox
+                                    label="Project"
+                                    value={event.Project__c}
+                                    options={projectOptions}
+                                    onchange={handleProjectChange}
+                                    data-index={index}
+                                    
+                                ></lightning-combobox>
+                                <span class="error-message" style="color: red;font-weight:bolder;">{event.projectError}</span>
+                            </td>
+
+                            <td data-label="No of QA & Dev">
+                                <lightning-input
+                                    type="text"
+                                    label="No of QA & Dev"
+                                    value={event.No_of_Dev_QA_s__c}
+                                    onblur={handleNoOfDevAndQAChange}
+                                    data-index={index}
+                                    onchange={handleTextChange}
+                                    
+                                ></lightning-input>
+                                <span class="error-message" style="color: red;font-weight:bolder;">{event.NoOfDevError}</span>
+                            </td>
+
+                            <td data-label="Alloted Hours">
+                                <lightning-input
+                                    type="text"
+                                    name="decimal"
+                                    label="Alloted Hours"
+                                    value={event.Alloted_Hours__c}
+                                    onblur={handleAllotedHoursChange}
+                                    data-index={index}
+                                    onchange={handleTextChange}
+                                    
+                                ></lightning-input>
+                                <span class="error-message" style="color: red;font-weight:bolder;">{event.hourError}</span>
+                            </td>
+
+                            <td data-label="Alloted Hours">
+                                <lightning-input
+                                    type="text"
+                                    name="decimal"
+                                    label="PM Billable Hours"
+                                    value={event.PM_Billable_Hours__c}
+                                    onblur={handlePMBillableChange}
+                                    data-index={index}
+                                    onchange={handleTextChange}
+                                    
+                                ></lightning-input>
+                                <span class="error-message" style="color: red;font-weight:bolder;">{event.PMError}</span>
+                            </td>
+                            
+                            <td data-label="Alloted Hours">
+                                <lightning-input
+                                    type="text"
+                                    label="Total"
+                                    value={event.TotalHR__c}
+                                    onblur={handleTotalChange}
+                                    data-index={index}
+                                    readonly
+                                ></lightning-input>
+                            </td>
+                            <td data-label="Alloted Hours">
+                                <lightning-input
+                                    type="text"
+                                    label="Sum Of Actual Hours"
+                                    value={event.Sum_Of_Actual_Hours__c}
+                                    onblur={handleSumActualHoursChange}
+                                    data-index={index}
+                                    readonly
+                                ></lightning-input>
+                            </td>
+                            
+                            <td data-label="Delete" style="text-align: center;vertical-align: bottom;">
+                                <lightning-button-icon
+                                    icon-name="utility:delete"
+                                    size="large"
+                                    alternative-text="Delete"
+                                    title="Delete"
+                                    data-id={event.Id}
+                                    data-index={index}
+                                    onclick={deleteEvent}
+                                    class="deleteRecord deleteBtn button-border large-svg"
+                                    style="color: black;"  >
+                                </lightning-button-icon>
+                               
+                            </td>
+                            
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Save Button -->
+        <div class="slds-col slds-size_12-of-12">
+            <div align="right" class="slds-p-right_medium slds-p-top_large" style="display: flex;justify-content: space-between;">
+                <div class="slds-p-left_medium" style="font-size: 16px;">
+                    Total Billable Hours: {computedTotalAllottedHours}
+                </div>
+                <button class="slds-button slds-button_brand slds-button_brand-color" onclick={handleSaveClick} disabled={isSaveButtonDisabled}>
+                    <span>Save</span>
+                </button>
+
+            </div>
+        </div>
+        
+        <!-- Footer row for Total Alloted Hours -->
+            <!-- <tr>
+                <td style="text-align: center; background-color: #1D4354; color: aliceblue; padding: 9px;" colspan="3">
+                    <div class="slds-truncate" title="Total Alloted Hours">Total Alloted Hours: {computedTotalAllottedHours}</div>
+                </td>
+            </tr> -->
+        </template>
+    </div>
+</template>

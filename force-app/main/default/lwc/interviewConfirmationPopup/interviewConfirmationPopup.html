@@ -1,0 +1,220 @@
+<template>
+    <header>
+		<div class="container navbar">
+			<div class="">
+				<div class="">
+					<a href="https://www.itechcloudsolution.com/">
+						<img class="Carrer_logo" src={imgURL} />
+                    </a>
+				</div>
+			</div>
+			<div class="">
+				<p class="home"><a href="https://www.itechcloudsolution.com/"> <span class="home-span">Home</span> </a>
+				</p>
+			</div>
+		</div>
+	</header>
+
+    <div class="overrideStyle"></div>
+    <div>
+         
+        <template if:true={showDescriptionOfConfirmation}>
+           <div class="hero_section">
+                <div class="hero_section_items">
+                    <div class="job_title">
+                        <span class="overlay-text">
+                            <span style="color: #00A129;"> Verified </span> <span style="color:#FCFCFC;">Our Interview With HR. </span>
+                        </span>
+                    </div>
+                    <!-- <div class="job-metadata">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id varius velit, ac molestie metus. Nam a ex eu velit feugiat eleifend.
+                    </div> -->
+                </div>
+            <!-- Display the length of the data array on top of the image -->
+            </div>
+            <!-- <h2>Please Confirm Your Interview With Our HR</h2> -->
+        <div class="confirmationContainer">
+            <div class="detailsSection">
+                <div class="boxtitle">
+               <div style="padding-bottom: 29px;">
+                    <span style="color:#194051;"> Dear </span> <span style="color:#00A129;">{fullname}</span>,
+               </div>
+               <div style="padding-bottom: 25px;">
+                    <span style="color:#194051;"> We are pleased to confirm your interview for the </span> <span style="color:#00A129;">{role}</span> <span style="color:#194051;"> position at </span>
+                    <span style="color:#00A129;">iTechCloud Solution Pvt Ltd</span>. <span style="color:#194051;">Please review the interview details
+                        below:</span>
+                </div>
+                <div style="color:#194051;"><strong>Interview Date & Time:</strong> {formattedDate.date}/{formattedDate.month}/{formattedDate.year},
+                {formattedDate.hour}:{formattedDate.minutes} {formattedDate.ampm}</div>
+                <div style="color:#194051; padding-bottom: 26px;"><strong>Interview Location:</strong> Surat</div>
+                <!-- <div style="color:#194051; "><strong>Interviewer(s):</strong> [List of Interviewers]</div>
+                <div style="color:#194051; padding-bottom: 26px;"><strong>Agenda:</strong> [Provide a brief agenda or any specific details for the interview.]</div> -->
+                <div style="color:#194051; padding-bottom: 25px;">To confirm your attendance at the interview, please select your decision below:</div>
+            </div>
+        </div>
+            <div style="display: flex; align-items: center;">
+                <div class="confirmSection" style="flex: 1;">
+                    <label class="confirm" style="">Confirm<span aria-hidden="true" style="color: #FF0101;">*</span></label>
+                        <lightning-radio-group name="Confirm" options={options} type="radio" onchange={handleRadioChange} value={value}></lightning-radio-group>
+                        <span class="errorText">{errorMessage}</span>
+                </div>
+                
+                <div class="Btn">
+                    <button class="Acceptbtn" onclick={handleSubmitClick}>Submit</button>
+                </div>
+            </div>
+
+            <!-- <div class="confirmSection">
+                
+                <label style="font-size: 19px;font-weight: bold; color:#194051;">Confirm<span aria-hidden="true"
+                    style="color: #FF0101;">*</span></label>
+                <lightning-radio-group name="Confirm" options={options} type="radio"
+                    onchange={handleRadioChange} value={value} ></lightning-radio-group>
+                <span class="errorText">{errorMessage}</span>
+            </div>
+
+            <lightning-button style="display: flex;justify-content: center;" class="submitBtn" variant="brand"
+                label="Submit" title="Submit" onclick={handleSubmitClick}></lightning-button> -->
+        
+        </div>
+        </template>
+
+        <template if:true={showFinalSubmit}>
+            <div class="Yesinterview">
+                    <img class="Interiewyes" src={InterviewYesURL} />
+            </div>
+            <div style="font-size: 26px; text-align: center; padding-bottom:64px; padding-top:69px;">
+                <span style="color:#00A129;">Thank You! </span>
+                <span style="color:#194051"> for confirming your interview.</span>
+            </div>
+            <!-- <div class="thanksMessage">Thank You for confirming your interview.</div> -->
+        </template>
+
+        <template if:true={showNoSubmit}>
+             <div class="Nointerview">
+                    <img class="Interiewno" src={InterviewNoURL} />
+            </div>
+            <div style="font-size: 26px; text-align: center; padding-bottom:64px; padding-top:69px;">
+                <span style="color:#00A129;">Thank You! </span>
+                <span style="color:#194051"> for letting us know.</span>
+            </div>
+            <!-- <div class="thanksMessage">Thank You for letting us know.</div> -->
+        </template>
+
+        <template if:true={showExpiredLink}>
+            <div class="link">
+                    <img class="Linkexpire" src={ExpirelinkURL} />
+            </div>
+            <div style="text-align: center; padding-bottom:47px; padding-top:39px;">
+                <span style="color:#194051; font-size: 26px;">Your form has already been submitted or the</span><br>
+                <span style="color:#FF0101; font-size: 26px;">link has expired.</span>
+            </div>
+            <!-- <div class="errorMsg">Your form has already been submitted or the link has expired.</div> -->
+        </template>
+
+        <lightning-spinner if:true={isDataLoding} size="large" variant="brand"></lightning-spinner>
+    </div>
+
+    <footer class="footer-section">
+
+			<div class="footer-outer footer-background">
+				<div class="container">
+					<div class="footer_top_menu_border">
+						<div class="footer_top_menu slds-grid slds-wrap" style="color:white; font-family: 'Poppins', sans-serif;">
+
+							<!-- Reach Us -->
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+								<div class="reach_us">
+									<div class="footer_top_menu_heading"><strong class="footer-title-size-Reachus">Reach
+                                Us</strong></div>
+								<ul class="content_ul">
+										<li style="display:flex">
+											<lightning-icon icon-name="utility:dialing" alternative-text="Phone"
+												size="small" variant="inverse"></lightning-icon>
+											<div><a href="tel:+91 997 9933 595" class="Reachus_Phone">+91 997 9933 595</a> </div>
+										</li>
+										<li style="display:flex">
+											<lightning-icon icon-name="utility:email" alternative-text="Email"
+												size="small" variant="inverse"></lightning-icon>
+											<div ><a href="mailto: contact@itechcloudsolution.com" class="Reachus_Email">contact@itechcloudsolution.com</a> </div>
+										</li>
+										<li style="display:flex">
+											<lightning-icon icon-name="utility:checkin" alternative-text="Address"
+												size="small" variant="inverse"></lightning-icon>
+											<div class="Reachus_Add">Western Plaza, 209-210-211, Simada Naka, Simada Gam,
+												Nana Varachha, Surat, Gujarat 395006</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+		
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+								<div class="useful_links">
+									<div class="footer_top_menu_heading"><strong class="footer-title-size-Ourservice" >Our Services</strong></div>
+									<ul class="content_ul">
+										<a href="https://www.itechcloudsolution.com/salesforce-consulting/" style="color:white"><li class="Ourservice_First Ourservice ">Salesforce Consulting</li></a>
+										<a href="https://www.itechcloudsolution.com/salesforce-implementation/" style="color:white"><li class="Ourservice_Second Ourservice" >Salesforce Implementation</li></a>
+										<a href="https://www.itechcloudsolution.com/salesforce-integration/" style="color:white"><li class="Ourservice_Third Ourservice" >Salesforce Integration</li></a>
+										<a href="https://www.itechcloudsolution.com/salesforce-development-and-customization/" style="color:white"><li class="Ourservice_Four Ourservice">Salesforce Development and Customization</li></a>
+									</ul>
+								</div>
+							</div>
+
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12 top-space">
+								<div class="our_services">
+									<div class="footer_top_menu_headingc "><strong class="footer-title-size">  </strong></div>
+									<ul class="content_ul">
+										<a href="https://www.itechcloudsolution.com/salesforce-appexchange-app-development/" style="color:white"><li class="Ourservice_First1 Ourservice">Salesforce AppExchange App Development</li></a>
+										<a href="https://www.itechcloudsolution.com/salesforce-managed-services/" style="color:white"><li class="Ourservice_Second1 Ourservice" >Salesforce Managed Services</li></a>
+										<a href="https://www.itechcloudsolution.com/salesforce-qa-services/" style="color:white"><li class="Ourservice_Third1 Ourservice">Salesforce QA Services</li></a>
+										<a href="https://www.itechcloudsolution.com/middleware-development-using-heroku/" style="color:white"><li class="Ourservice_Four1 Ourservice">Middleware Development Using Heroku</li></a>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Our Social Networks -->
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+								<div class="social_image">
+									<div class="footer_top_menu_heading"><strong class="footer-title-size-Socialnetwork" style="margin-left: 4px;">Our Social
+                                Networks</strong></div>
+									<!-- <div class="">Icon coming soon</div> -->
+
+									<ul>
+										<!-- <li><img src={linkedInFooterIcon} /></li>
+                            <li class="icon"><a
+                                    href="https://in.linkedin.com/company/itechcloud-solution"><img
+                                        src={skypeFooterIcon} /></a></li>
+                            <li class="icon"><img src={InstagramFooterIcon} /></li>
+                            <li class="icon"><img src={twitterFooterIcon} /></li>
+                            <li class="icon"><img src={facebookFooterIcon} /></li> -->
+
+										<li><a href="skype:subhash.panchani?chat" target="_blank"><img
+                                        src={skypeFooterIcon} /></a></li>
+										<li class="icon"><a href="https://in.linkedin.com/company/itechcloud-solution"
+												target="_blank"><img src={linkedInFooterIcon} /></a></li>
+										<li class="icon"><a href="https://www.instagram.com/itechcloudsolution/"
+												target="_blank"><img src={InstagramFooterIcon} /></a></li>
+										<li class="icon"><a href="https://twitter.com/itechcloud_" target="_blank"><img
+                                        src={twitterFooterIcon} /></a></li>
+										<li class="icon"><a href="https://www.facebook.com/itechcloudsolution/"
+												target="_blank"><img src={facebookFooterIcon} /></a></li>
+									</ul>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Footer Bottom -->
+			<div class="footer_bottom">
+				© Copyright iTechCloud Solution {currentYear}. All Rights Reserved.
+				<!-- © Copyright <b> iTechCloud </b>. All Rights Reserved -->
+			</div>
+	</footer>
+
+</template>

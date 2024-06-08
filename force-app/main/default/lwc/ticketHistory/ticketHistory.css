@@ -1,0 +1,80 @@
+.entire_time_sheet {
+    margin-top: 15px;
+    
+}
+.btn_Section {
+    display: flex;
+    margin-top: 15px;
+}
+.submit {
+    border-radius: 8px;
+    border: 0px;
+    background: #00a129;
+    color: white;
+    padding: 8px 16px;
+    width: 80px;
+    font-size: 15px;
+}
+.submit:hover {
+    box-shadow: 0 0px 4px 1px #1d8337
+}
+.copy_data,.export_data {
+    border-radius: 8px;
+    border: 0px;
+    background: #194051;
+    color: white;
+    padding: 0px;
+    width: 100px;
+    font-size: 14px;
+}
+.copy_data:hover,.export_data:hover {
+    box-shadow: 0 0px 4px 1px #30677e;
+    transition: box-shadow 0.2s;
+}
+.export_data {
+    width: 140px !important;
+}
+
+.total_hour {
+    font-size: 20px;
+    margin-bottom: 10px 
+
+}
+
+.tab-container {
+  position: relative;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background-color: #3AD67B;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.tab-list {
+  width: max-content;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  border-block: none;
+  /* border-radius: 10px; */
+  background-color: white;
+}
+
+.tab {
+  padding: 10px 39px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tab:hover {
+  background-color: white;
+}
+
+.active-tab {
+  border-bottom: 4px solid #3AD67B;
+}

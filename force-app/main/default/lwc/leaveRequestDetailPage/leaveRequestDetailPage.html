@@ -1,0 +1,213 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 02-23-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+	<div class="overrideStyle"></div>
+	<lightning-card title="Leave Request Records" style="font-family:'Montserrat'">
+		<div class="slds-m-around_xx-small">
+			
+
+			<div class="slds-grid slds-wrap leaveBox">
+				&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="slds-col slds-size_1-of-5 leaveBoxBorder" >
+					<span class="requestRecordTitles">
+                        Leave Balances :
+                    </span>
+					<span style="font-size: 18px;color: #00A129;">
+                      {numberOfAvailableLeaves}
+                    </span>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;
+				<!-- <div class="slds-col slds-size_1-of-5 leaveBoxBorder">
+					<span class="requestRecordTitles">
+                        Total Used Leave :
+                    </span>
+					<span style="font-size: 18px;color: red;">
+                       {totalUsedLeaves}
+                    </span>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp; -->
+				<div class="slds-col slds-size_1-of-5 leaveBoxBorder">
+					<span class="requestRecordTitles">
+                        Total Used Paid Leave :
+                    </span>
+					<span style="font-size: 18px;color: #F9AA35;">
+                        {totalPaidLeaves}
+                    </span>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;
+				<div class="slds-col slds-size_1-of-5 leaveBoxBorder">
+					<span class="requestRecordTitles">
+                        Total Used Unpaid Leave :
+                    </span>
+					<span style="font-size: 18px;color: #F9AA35;">
+                        {totalUnPaidLeaves}
+                    </span>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp;
+				<!-- <div class="slds-col slds-size_1-of-5 leaveBoxBorder">
+					<span class="requestRecordTitles">
+                        Total Used Paid Leave :
+                    </span>
+					<span style="font-size: 18px;color: #194051;">
+                        {totalWFHDays}
+                    </span>
+				</div>&nbsp;&nbsp;&nbsp;&nbsp; -->
+			</div>
+
+        <div class="table-block">
+			<div class=" slds-p-around_small">
+				<table class="slds-table slds-table_bordered slds-table_cell-buffer"
+					aria-label="Example table of Opportunities with vertical borders" style="width: 100%;table-layout: fixed;">
+					<thead>
+						<tr class="slds-line-height_reset slds-border_bottom">
+							<th scope="col"
+								style="width: 10%; color: #9D9D9D; padding: 9px; text-align: center;font-weight: bold;font-size: 17px; padding-top: 15px; padding-bottom: 15px;">
+								<div class="slds-truncate">Apply Date</div>
+							</th>
+							<th scope="col"
+								style="width: 10%; color: #9D9D9D; padding: 9px; text-align: center;font-weight: bold;font-size: 17px; padding-top: 15px; padding-bottom: 15px;">
+								<div class="slds-truncate">Start Date</div>
+							</th>
+							<th scope="col"
+								style="width: 10%; color: #9D9D9D; padding: 9px; text-align: center;font-weight: bold;font-size: 17px; padding-top: 15px; padding-bottom: 15px;">
+								<div class="slds-truncate">End Date</div>
+							</th>
+
+							<th scope="col"
+								style="width: 6%; color: #9D9D9D; padding: 0px; text-align: center;font-weight: bold;font-size: 17px;">
+								<div class="slds-truncate">Days</div>
+							</th>
+
+							<th scope="col"
+								style="width: 10%; color: #9D9D9D; padding: 9px; text-align: center;font-weight: bold;font-size: 17px; padding-top: 15px; padding-bottom: 15px;">
+								<div class="slds-truncate"> Type</div>
+							</th>
+							<!-- <th scope="col"
+								style="width: 10%; color: #9D9D9D; padding: 9px; text-align: center;font-weight: bold;font-size: 17px; padding-top: 15px; padding-bottom: 15px;">
+								<div class="slds-truncate"> Duration</div>
+							</th> -->
+							<th scope="col"
+								style="width: 30%; color: #9D9D9D; padding: 9px; text-align: center;font-weight: bold;font-size: 17px; padding-top: 15px; padding-bottom: 15px;">
+								<div class="slds-truncate">Reason</div>
+							</th>
+							<th scope="col" style="width: 7%; color: #9D9D9D; padding: 9px; text-align: center;font-weight: bold;font-size: 17px; padding-top: 15px; padding-bottom: 15px;">
+								<div class="slds-truncate">Status</div>
+							</th>
+							<th scope="col"
+								style="width: 7%; color: #9D9D9D; padding: 4px; text-align: center;font-weight: bold;font-size: 17px;">
+								<div class="slds-truncate">Actions</div>
+							</th>
+						</tr>
+					</thead>
+					<template if:true={isDataLoaded}>
+						<tbody>
+							<template for:each={leaveRequestRecords} for:item="record" for:index="index" >
+								<!-- <tr key={record.Id} class="rowRecord">
+                                    <td class="tableRow">{record.Applied_Leave_Date__c}</td>
+                                    <td class="tableRow">{record.From_Date__c}</td>
+                                    <td class="tableRow">{record.To_Date__c}</td>
+                                    <td class="tableRow">{record.Leave_Type__c}</td>
+                                    <td class="tableRow">{record.Reason_for_Leave__c}</td>
+                                    <td class="tableRow">{record.Status__c}</td>
+
+                                    <td>
+                                        <button class="slds-button slds-button_brand" onclick={openConfirmationModal}
+                                            data-id={record.Id} data-index={index} disabled={record.disable}>
+                                            Cancel
+                                        </button>
+                                    </td>
+                                </tr> -->
+
+								<tr key={record.Id} class="rowRecord slds-hint-parent">
+									<td class="slds-size_1-of-6">
+										<div class="slds-truncate tableRow">{record.Applied_Leave_Date__c}</div>
+									</td>
+									<td class="slds-size_1-of-6">
+										<div class="slds-truncate tableRow">{record.From_Date__c}</div>
+									</td>
+									<td class="slds-size_1-of-6">
+										<div class="slds-truncate tableRow">{record.To_Date__c}</div>
+									</td>
+									<td class="slds-size_1-of-6">
+										<div class="slds-truncate tableRow">{record.Number_of_Days__c}</div>
+									</td>
+									<td class="slds-size_1-of-6">
+										<div class="slds-truncate tableRow">{record.Leave_Type__c}</div>
+									</td>
+									<!-- <td class="slds-size_1-of-6">
+										<div class="slds-truncate tableRow">{record.Leave_Duration__c}</div>
+									</td> -->
+									<!-- <td class="slds-size_1-of-6">
+										<div class="slds-truncate tableRow">{record.Reason_for_Leave__c}</div>
+									</td> -->
+
+									<td class="slds-size_1-of-6" style="white-space: pre !important;">
+										<div class="container">
+											<div class="ReasonLeave" style="white-space: nowrap; text-overflow: ellipsis; overflow: hidden; text-align: -webkit-center;" >{record.Reason_for_Leave__c}</div>
+											<div class="overlay">
+												<div class="hidden-content">
+													{record.Reason_for_Leave__c}
+												</div>
+											  </div>
+										</div>
+										
+									</td>
+
+									<td class="slds-size_1-of-6" style="text-align: center;">
+										<div class={record.statusInputClass}>{record.Status__c}</div>
+									</td>
+									<template if:false={record.isPastDate}>
+									<td class="slds-size_1-of-6">
+										<div class="slds-text-align_center">
+											<!-- <button class="slds-button slds-button_brand" onclick={openConfirmationModal} data-id={record.Id} data-index={index} disabled={record.disable}>
+                                                Cancel
+                                            </button> -->
+											<button class="slds-button slds-button_brand" 
+													onclick={openConfirmationModal}
+													data-id={record.Id} 
+													data-index={index} 
+													disabled={record.disable}>
+												Cancel
+											</button>
+
+										</div>
+									</td>
+								</template>
+								<template if:true={record.isPastDate}><td class="slds-size_1-of-6"> </td></template>
+							  
+								</tr>
+							</template>
+						</tbody>
+					</template>
+					<template if:false={isDataLoaded}>
+						<div>Loading...</div>
+					</template>
+				</table>
+			</div>
+        </div>
+
+			<div if:true={isConfirmationModalOpen} class="slds-modal slds-fade-in-open">
+				<div class="slds-modal__container conformation">
+					<header class="slds-modal__header">
+						<h2 class="slds-text-heading_medium">Confirmation</h2>
+						<button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={handleCancelClick}>
+							<lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+							<span class="slds-assistive-text">Close</span>
+						</button>
+					</header>
+					<div class="slds-modal__content slds-p-around_medium">
+						<p>Are you sure you want to cancel the Leave request?</p>
+					</div>
+					<footer class="slds-modal__footer">
+						<lightning-button variant="destructive" label="Yes" style="margin-right: 15px;" onclick={handleYesClick}></lightning-button>
+						<lightning-button variant="success" label="No" onclick={handleNoClick}></lightning-button>
+					</footer>
+				</div>
+			</div>
+
+			<div if:true={isConfirmationModalOpen} class="slds-backdrop slds-backdrop_open"></div>
+
+		</div>
+	</lightning-card>
+</template>

@@ -1,0 +1,886 @@
+<!-- sldsValidatorIgnore -->
+<!-- sldsValidatorIgnore -->
+<template>
+	<div class="overrideStyle"></div>
+	<template if:true={mobileView}>
+		<article class="slds-card" style="background: #EAECF1;border: none !important;">
+	
+			<!-- <lightning-card> -->
+			<!-- <div if:true={isSpinnerLoad}>
+					<div class="demo-only demo-only_viewport demo--inverse"
+						style="height:6rem;position:relative">
+						<div class="slds-spinner_container slds-is-fixed">
+							<div role="status" class="slds-spinner slds-spinner_medium">
+								<span class="slds-assistive-text">Loading</span>
+								<div class="slds-spinner__dot-a"></div>
+								<div class="slds-spinner__dot-b"></div>	
+							</div>
+						</div>
+					</div>
+				</div> -->
+			<!-- <lightning-spinner alternative-text="Loading" if:true={isSpinnerLoad} variant="brand" size="large">
+				</lightning-spinner> -->
+	
+			<div class="datePickerBlock" style="padding:15px;">
+				<!-- navigation to employee details and test -->
+				<!-- <div>
+						<ul class="ul">
+							<li style="font-size: 20px;" class="li"><a class="a">Employee Details</a></li>
+							<li style="font-size: 20px" class="li"><a class="a">Test</a></li>
+						</ul>
+					</div> -->
+	
+				<div class="slds-form-element" style="display: block; background:#DEF5E4; width:100%; border-radius:6px; padding: 10px;">
+					<div 
+						style="font-size: 16px; color: #00A129; font-weight: bold; display:flex;">
+						<lightning-icon icon-name='utility:clock' alternative-text='clock' variant='success' size='x-small'
+							title='clock'></lightning-icon> &nbsp; &nbsp;
+						<div>Total Hours: {computedTotalActualHours}</div>
+					</div>
+					<div style="display: flex; align-items: center; margin-top: 10px;">
+						<lightning-icon icon-name='utility:date_input' alternative-text='date_input' variant='success'
+							size='x-small' title='date_input'></lightning-icon> &nbsp; &nbsp;
+						<lightning-input type="date" name="Date__c" class="hide-date-icon" style="width: 120px;"
+							onchange={projectHandle} value={currentDateDefault} ></lightning-input>
+					</div>
+				</div>
+			</div>
+			<template if:true={isTableVisible}>
+				<div class="table-block">
+					<div class=" slds-p-around_small">
+						<!-- <table class="slds-table slds-table_cell-buffer"
+								aria-label="Example table of Opportunities with vertical borders"> -->
+						<!-- <thead> -->
+						<!-- <tr class="slds-line-height_reset slds-border_bottom"> -->
+	
+						<!-- <th class="" scope="col"
+											style=" color: #9D9D9D; padding: 9px; text-align: center;font-weight: bold;font-size: 17px; ">
+											<div class="slds-truncate" title="Task Type">Task Type</div>
+										</th>
+										<th class="" scope="col"
+											style=" color: #9D9D9D; text-align: center;font-weight: bold;font-size: 17px; ">
+											<div class="slds-truncate" title="Ticket No.">Ticket No.</div>
+										</th>
+										<th class="" scope="col"
+											style=" color: #9D9D9D; text-align: center;font-weight: bold;font-size: 17px; ">
+											<div class="slds-truncate" title="Task Description">Task Description</div>
+										</th>
+	
+										<th class="" scope="col"
+											style=" color: #9D9D9D; text-align: center;font-weight: bold;font-size: 17px; ">
+											<div class="slds-truncate" title="Actual Hours">Actual Hours</div>
+										</th> -->
+						<!-- <th class="" scope="col" style=" color: #9D9D9D;">
+												<div class="slds-truncate" title="Estimated Hours">Estimated Hours</div>
+											</th> -->
+						<!-- <th class="" scope="col"
+											style=" color: #9D9D9D; text-align: center;font-weight: bold;font-size: 17px; ">
+											<div class="slds-truncate" title="Project Name">Project Name</div>
+										</th>
+	
+										<th class="" scope="col"
+											style="color: #9D9D9D; text-align: center; font-weight: bold; font-size: 17px;">
+											<div class="slds-truncate" title="Component Change">Component Change</div>
+										</th>
+	
+										<th class="" scope="col"
+											style=" color: #9D9D9D; padding-right: 9px; text-align: center;font-weight: bold;font-size: 17px; ">
+											<div class="slds-truncate" title="Delete">Delete</div>
+										</th> -->
+						<!-- </tr> -->
+						<!-- </thead> -->
+	
+						<template if:true={isDateSelected}>
+							<!-- <tbody> -->
+							<template for:each={events} for:item="event" for:index="index">
+								<div key={event} class="slds-hint-parent slds-border_bottom" style="margin-bottom: 10px;">
+									<div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+										<div style="width:47%;">
+											<template if:true={event.IsLocked}>
+												<!-- <lightning-combobox options={taskTypeOption} name="TaskType"
+														onchange={projectHandle} data-index={index} style="padding-right: 22px;"
+														value={event.TaskType}  class="s {taskTypeInputClass(index)}"
+														onblur={handleBlur}
+														variant="label-hidden" disabled></lightning-combobox> -->
+												<div>
+													<div>Task Type</div>
+													<div>
+														<lightning-select options={taskTypeOption} name="TaskType"
+															onchange={projectHandle} data-index={index}
+															style="padding-right: 0px;" value={event.TaskType}
+															class="tasktype s {taskTypeInputClass(index)}"
+															onblur={handleBlur} variant="label-hidden"
+															disabled></lightning-select>
+
+														<span class="error-message"
+															style="color: red; font-weight:bolder;">{event.taskTypeError}</span>
+													</div>
+												</div>
+											</template>
+											<template if:false={event.IsLocked}>
+												<!-- <lightning-combobox options={taskTypeOption} name="TaskType"
+														onchange={projectHandle} data-index={index} style="padding-right: 22px;"
+														value={event.TaskType}  class="s {taskTypeInputClass(index)}"
+														onblur={handleBlur}
+														variant="label-hidden"></lightning-combobox> -->
+												<div>
+													<div>Task Type</div>
+													<div>
+														<lightning-select options={taskTypeOption} name="TaskType"
+															onchange={projectHandle} data-index={index}
+															style="padding-right: 0px;" value={event.TaskType}
+															class="tasktype s {taskTypeInputClass(index)}"
+															onblur={handleBlur} variant="label-hidden"></lightning-select>
+	
+	
+														<span class="error-message"
+															style="color: red; font-weight:bolder;">{event.taskTypeError}</span>
+													</div>
+												</div>
+											</template>
+										</div>
+	
+										<div style="width:47%">
+											<template if:true={event.IsLocked}>
+												<div>
+													<div>Ticket No.</div>
+													<div>
+														<lightning-input type="text" data-index={index} onblur={handleBlur}
+															class="ticket-no {ticketNoInputClass(index)}" name="TicketNo"
+															onchange={projectHandle} value={event.TicketNo}
+															variant="label-hidden" disabled>
+														</lightning-input>
+														<span
+															style="color: red;font-weight:bolder;">{event.ticketNoError}</span>
+													</div>
+												</div>
+											</template>
+											<template if:false={event.IsLocked}>
+												<div >
+													<div>Ticket No.</div>
+													<div>
+														<lightning-input type="text" data-index={index} onblur={handleBlur}
+															class="ticket-no {ticketNoInputClass(index)}" name="TicketNo"
+															onchange={projectHandle} value={event.TicketNo}
+															variant="label-hidden"></lightning-input>
+														<span
+															style="color: red; font-weight:bolder;">{event.ticketNoError}</span>
+													</div>
+												</div>
+											</template>
+										</div>
+									</div>
+	
+									<div style="margin-bottom: 5px;">
+										<template if:true={event.IsLocked}>
+											<div>
+												<div>Task Description</div>
+												<div>
+													<lightning-textarea type="text" data-index={index} onblur={handleBlur}
+														style="display:inline"
+														class="TaskDescriptionClass description-color {descriptionInputClass(index)}"
+														name="TaskDescription" onchange={projectHandle}
+														value={event.TaskDescription} variant="label-hidden" disabled>
+													</lightning-textarea>
+													<span class="error-message"
+														style="color: red;font-weight:bolder;">{event.descriptionError}</span>
+												</div>
+											</div>
+										</template>
+	
+										<template if:false={event.IsLocked}>
+											<div>
+												<div>Task Description</div>
+												<div>
+													<lightning-textarea type="text" data-index={index} onblur={handleBlur}
+														style="display:inline"
+														class="TaskDescriptionClass description-color {descriptionInputClass(index)}"
+														name="TaskDescription" onchange={projectHandle}
+														value={event.TaskDescription} variant="label-hidden">
+													</lightning-textarea>
+													<span class="error-message"
+														style="color: red;font-weight:bolder;">{event.descriptionError}</span>
+												</div>
+											</div>
+										</template>
+									</div>
+	
+									<!--  -->
+	
+	
+									<!--  -->
+									<div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+										<div style="width: 47%">
+											<template if:true={event.IsLocked}>
+												<div>
+													<div>Actual Hours</div>
+													<div>
+														<lightning-select options={ActEstHourOption} name="ActualHour"
+															onblur={handleBlur} onchange={projectHandle} data-index={index}
+															value={event.ActualHour}
+															class="  comboboxpadding {actualHoursInputClass(index)} "
+															variant="label-hidden" disabled>
+														</lightning-select>
+														<span
+															style="color: red;font-weight:bolder;">{event.actualHoursError}</span>
+													</div>
+												</div>
+											</template>
+											<template if:false={event.IsLocked}>
+												<div>
+													<div>Actual Hours</div>
+													<div>
+														<lightning-select options={ActEstHourOption} name="ActualHour"
+															onblur={handleBlur} onchange={projectHandle} data-index={index}
+															value={event.ActualHour}
+															class="comboboxpadding {actualHoursInputClass(index)}"
+															variant="label-hidden">
+														</lightning-select>
+														<span
+															style="color: red;font-weight:bolder;">{event.actualHoursError}</span>
+													</div>
+												</div>
+											</template>
+										</div>
+	
+										<div style="width:47%">
+											<template if:true={event.IsLocked}>
+												<div>
+													<div>Project Name</div>
+													<div>
+														<lightning-select options={projNameOption} onchange={projectHandle}
+															onblur={handleBlur} name="ProjectName" data-index={index}
+															value={event.ProjectName}
+															class="  comboboxpadding {projectNameInputClass(index)}"
+															variant="label-hidden" disabled>
+														</lightning-select>
+														<span
+															style="color: red;font-weight:bolder; ">{event.projectnameError}</span>
+													</div>
+												</div>
+											</template>
+											<template if:false={event.IsLocked}>
+												<div>
+													<div>Project Name</div>
+													<div>
+														<lightning-select options={projNameOption} onchange={projectHandle}
+															onblur={handleBlur} name="ProjectName" data-index={index}
+															value={event.ProjectName}
+															class="  comboboxpadding {projectNameInputClass(index)}"
+															variant="label-hidden">
+														</lightning-select>
+														<span
+															style="color: red;font-weight:bolder;">{event.projectnameError}</span>
+													</div>
+												</div>
+											</template>
+										</div>
+									</div>
+	
+									<div style="margin-bottom: 10px;">
+										<template if:true={event.IsLocked}>
+											<div>
+												<div>Component Change</div>
+												<div>
+													<lightning-textarea type="text" data-index={index} onblur={handleBlur}
+														style="display: inline"
+														class="ComponentChangeClass description-color {componentChangeInputClass(index)}"
+														name="ComponentChange" onchange={projectHandle}
+														value={event.ComponentChange} variant="label-hidden" disabled>
+													</lightning-textarea>
+													<span class="error-message"
+														style="color: red;font-weight:bolder;">{event.ComponentChangeError}</span>
+												</div>
+											</div>
+										</template>
+										<template if:false={event.IsLocked}>
+											<div >
+												<div>Component Change</div>
+												<div>
+													<lightning-textarea type="text" data-index={index} onblur={handleBlur}
+														style="display: inline"
+														class="ComponentChangeClass description-color {componentChangeInputClass(index)}"
+														name="ComponentChange" onchange={projectHandle}
+														value={event.ComponentChange} variant="label-hidden">
+													</lightning-textarea>
+													<span class="error-message"
+														style="color: red;font-weight:bolder;">{event.ComponentChangeError}</span>
+												</div>
+											</div>
+										</template>
+	
+									</div>
+			
+									<div style="margin-bottom: 10px;">
+										<template if:true={event.IsLocked}>
+										</template>
+										<template if:false={event.IsLocked}>
+											<template if:true={eventDeleteEnable}>
+												<lightning-button-icon icon-name="utility:delete" size="large"
+													alternative-text="Delete" title="Delete" data-index={index}
+													onclick={deleteEvent}
+													class="deleteRecord deleteBtn button-border large-svg"
+													style="color: black; justify-content: end;">
+												</lightning-button-icon>
+											</template>
+										</template>
+									</div>
+								</div>
+							</template>
+							<!-- </tbody> -->
+						</template>
+						<!-- </table> -->
+						<!-- <div class="slds-p-top_medium">
+								<p>Total Actual Hours: {computedTotalActualHours}</p>
+							</div> -->
+					</div>
+				</div>
+			</template>
+			
+			<template if:true={isTableVisible}>
+				<span>
+					<template if:true={isDateSelected}>
+						<div class="slds-p-right_medium slds-p-left_medium" style="background: white;">
+							<template if:true={isDateSelected}>
+								<template if:false={isAddButtonVisible}>
+									<button class="slds-button slds-button_brand slds-button_brand-color"
+										onclick={addEvents}>
+										<span>Add</span>
+									</button>
+								</template>
+	
+								<template if:false={isAddButtonVisible}>
+									<template if:true={isSaveButtonVisible}>
+										<button class="slds-button slds-button_brand slds-button_brand-color"
+											style="background:#00A129;  float:right " onclick={handleSaveClick}>
+											<span>Save</span>
+										</button>
+									</template>
+									<template if:false={isSaveButtonVisible}>
+										<button class="slds-button slds-button_brand slds-button_brand-color"
+											style="background:gray;  float:right " disabled>
+											<span>Save</span>
+										</button>
+									</template>
+								</template>
+							</template>
+						</div>
+					</template>
+				</span>
+			</template>
+			
+			<template if:true={isSpinnerLoad}>
+				<lightning-spinner alternative-text="Loading" size="medium">
+				</lightning-spinner>
+			</template>
+	
+			<div style="background:white; border-radius:0px 0px 15px 15px; padding: 15px; padding-top:0px;">
+				<template if:true={isEmployeeNotJoinedYet}>
+					<div>
+						<p style="text-align: center; color: red; font-size:16px;	">You cannot fill out a past
+							time
+							sheet as you have
+							not joined
+							yet. If
+							you believe there is an issue, please contact the administrator for assistance</p>
+					</div>
+				</template>
+				<template if:true={isPreviousDataIsNULL}>
+					<div>
+						<p style="text-align: center; color: red; font-size:16px">
+							You're unable to complete a timesheet for a past period. Please reach out to the
+							administrator
+							for assistance.
+						</p>
+					</div>
+				</template>
+			</div>
+			<!-- <template if:false={isTableVisible}>
+					<div>
+						<p style="text-align: center; color: red;">You cannot fill out a past time sheet as you have not joined
+							yet. If
+							you believe there is an issue, please contact the administrator for assistance</p>
+					</div>
+				</template> -->
+			<!-- <template if:true={isDateSelected}>
+		
+					<div class="slds-col slds-size_12-of-12">
+						<div align="right" class="slds-p-right_medium slds-p-top_large slds-p-bottom_medium">
+							< <lightning-button variant="brand" label="Save" onclick={handleSaveClick}
+								if:true={isSaveButtonVisible}></lightning-button> >
+							<button class="slds-button slds-button_brand slds-button_brand-color" onclick={handleSaveClick}
+								if:true={isSaveButtonVisible}>
+								<span>Save</span>
+							</button>
+						</div>
+					</div>
+				</template> -->
+			<!-- 
+		<template if:true={isDateSelected}>
+			<div class="slds-col slds-size_12-of-12">
+				<div align="right" class="slds-p-right_medium slds-p-top_large slds-p-bottom_medium">
+					<template if:true={isSaveButtonVisible}>
+						<button class="slds-button slds-button_brand slds-button_brand-color" onclick={handleSaveClick}>
+							<span>Save</span>
+						</button>
+					</template>
+				</div>
+			</div>
+		</template> -->
+	
+			<!-- Delete modal popup  -->
+			<template lwc:if={DeleteModalPopup}>
+				<section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-02"
+					class="slds-modal slds-fade-in-open slds-modal_small">
+					<div class="slds-modal__container">
+						<button onclick={handleDeleteNoClick}
+							class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+							<lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+								size="small"></lightning-icon>
+							<span class="slds-assistive-text">Cancel and close</span>
+						</button>
+						<div class="slds-modal__header">
+							<h1 id="modal-heading-02" class="slds-modal__title slds-hyphenate">Confirmed Delete</h1>
+						</div>
+						<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+							<p>Are you sure you want to delete timesheet record?</p>
+						</div>
+						<div class="slds-modal__footer">
+							<button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+								onclick={handleDeleteNoClick}>No</button>
+							<button class="slds-button slds-button_brand" onclick={handleDeleteYesClick}>Yes</button>
+						</div>
+					</div>
+				</section>
+				<div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+			</template>
+	
+			<!-- </lightning-card> -->
+		</article>
+	</template>
+
+	<template if:false={mobileView}>
+		<article class="slds-card" style="background: #EAECF1;border: none !important;">
+
+			<!-- <lightning-card> -->
+			<!-- <div if:true={isSpinnerLoad}>
+			<div class="demo-only demo-only_viewport demo--inverse"
+				style="height:6rem;position:relative">
+				<div class="slds-spinner_container slds-is-fixed">
+					<div role="status" class="slds-spinner slds-spinner_medium">
+						<span class="slds-assistive-text">Loading</span>
+						<div class="slds-spinner__dot-a"></div>
+						<div class="slds-spinner__dot-b"></div>	
+					</div>
+				</div>
+			</div>
+		</div> -->
+			<!-- <lightning-spinner alternative-text="Loading" if:true={isSpinnerLoad} variant="brand" size="large">
+		</lightning-spinner> -->
+
+			<div class="datePickerBlock">
+				<!-- navigation to employee details and test -->
+				<!-- <div>
+				<ul class="ul">
+					<li style="font-size: 20px;" class="li"><a class="a">Employee Details</a></li>
+					<li style="font-size: 20px" class="li"><a class="a">Test</a></li>
+				</ul>
+			</div> -->
+				<div>
+					<span>
+						<div class="slds-form-element"
+							style="display: flex;flex-direction: row;align-items: center;margin-top: 15px;background:#DEF5E4;margin-left:20px;border-radius:6px">
+							<span
+								style="font-size: 17px;color: #00A129;font-weight: bold;margin: 10px; display:flex;"><lightning-icon
+									icon-name='utility:clock' alternative-text='clock' variant='success' size='x-small'
+									title='clock'></lightning-icon> &nbsp; Total Hours: {computedTotalActualHours}
+								&nbsp;&nbsp;&nbsp;|</span>
+							<lightning-icon icon-name='utility:date_input' alternative-text='date_input'
+								variant='success' size='x-small' title='date_input'></lightning-icon>&nbsp;
+							<lightning-input type="date" name="Date__c" class="hide-date-icon" style="width:120px"
+								onchange={projectHandle} value={currentDateDefault}></lightning-input></b>
+						</div>
+					</span>
+				</div>
+				<template if:true={isTableVisible}>
+					<div class="slds-col slds-large-size_2-of-12 slds-medium-size_3-of-12 slds-size_4-of-12">
+						<span>
+							<template if:true={isDateSelected}>
+								<!-- <template if:true={isAddButtonVisible}> -->
+								<div align="right" class="slds-p-right_medium"
+									style="display:flex;justify-content: flex-end;">
+									<!-- <lightning-button icon-name="utility:add" variant="brand" onclick={addEvents}
+								label="Add"></lightning-button> -->
+									<template if:true={isDateSelected}>
+										<!-- <div class="slds-col slds-size_12-of-12">
+										<div align="right"
+											class="slds-p-right_medium slds-p-top_large slds-p-bottom_medium"> -->
+										<!-- <template if:true={isSaveButtonVisible}>
+										<button class="slds-button slds-button_brand slds-button_brand-color"
+											style="background:#00A129;" onclick={handleSaveClick}>
+											<span>Save</span>
+										</button>
+									</template> -->
+									</template>
+									<!-- <template if:false={isAddButtonVisible}>
+									<button class="slds-button slds-button_brand slds-button_brand-color" onclick={addEvents}>
+																		<span>Add</span>
+																	</button>
+								</template> -->
+								</div>
+							</template>
+						</span>
+					</div>
+				</template>
+			</div>
+			<template if:true={isTableVisible}>
+				<div class="table-block">
+					<div class=" slds-p-around_small">
+						<table class="slds-table slds-table_cell-buffer"
+							aria-label="Example table of Opportunities with vertical borders">
+							<thead>
+								<tr class="slds-line-height_reset slds-border_bottom">
+									<th class="" scope="col"
+										style=" color: #9D9D9D; padding: 9px; text-align: center;font-weight: bold;font-size: 17px; ">
+										<div class="slds-truncate" title="Task Type">Task Type</div>
+									</th>
+									<th class="" scope="col"
+										style=" color: #9D9D9D; text-align: center;font-weight: bold;font-size: 17px; ">
+										<div class="slds-truncate" title="Ticket No.">Ticket No.</div>
+									</th>
+									<th class="" scope="col"
+										style=" color: #9D9D9D; text-align: center;font-weight: bold;font-size: 17px; ">
+										<div class="slds-truncate" title="Task Description">Task Description</div>
+									</th>
+
+									<th class="" scope="col"
+										style=" color: #9D9D9D; text-align: center;font-weight: bold;font-size: 17px; ">
+										<div class="slds-truncate" title="Actual Hours">Actual Hours</div>
+									</th>
+									<!-- <th class="" scope="col" style=" color: #9D9D9D;">
+										<div class="slds-truncate" title="Estimated Hours">Estimated Hours</div>
+									</th> -->
+									<th class="" scope="col"
+										style=" color: #9D9D9D; text-align: center;font-weight: bold;font-size: 17px; ">
+										<div class="slds-truncate" title="Project Name">Project Name</div>
+									</th>
+
+									<th class="" scope="col"
+										style="color: #9D9D9D; text-align: center; font-weight: bold; font-size: 17px;">
+										<div class="slds-truncate" title="Component Change">Component Change</div>
+									</th>
+
+									<th class="" scope="col"
+										style=" color: #9D9D9D; padding-right: 9px; text-align: center;font-weight: bold;font-size: 17px; ">
+										<div class="slds-truncate" title="Delete">Delete</div>
+									</th>
+								</tr>
+							</thead>
+
+							<template if:true={isDateSelected}>
+								<tbody>
+									<template for:each={events} for:item="event" for:index="index">
+										<tr key={event} class="slds-hint-parent slds-border_bottom">
+											<td data-label="Task Type" style="width:15% ">
+												<template if:true={event.IsLocked}>
+													<!-- <lightning-combobox options={taskTypeOption} name="TaskType"
+												onchange={projectHandle} data-index={index} style="padding-right: 22px;"
+												value={event.TaskType}  class="s {taskTypeInputClass(index)}"
+												onblur={handleBlur}
+												variant="label-hidden" disabled></lightning-combobox> -->
+
+
+													<lightning-select options={taskTypeOption} name="TaskType"
+														onchange={projectHandle} data-index={index}
+														style="padding-right: 22px;" value={event.TaskType}
+														class="tasktype s {taskTypeInputClass(index)}"
+														onblur={handleBlur} variant="label-hidden"
+														disabled></lightning-select>
+
+
+													<span class="error-message"
+														style="color: red;font-weight:bolder;">{event.taskTypeError}</span>
+												</template>
+												<template if:false={event.IsLocked}>
+													<!-- <lightning-combobox options={taskTypeOption} name="TaskType"
+												onchange={projectHandle} data-index={index} style="padding-right: 22px;"
+												value={event.TaskType}  class="s {taskTypeInputClass(index)}"
+												onblur={handleBlur}
+												variant="label-hidden"></lightning-combobox> -->
+
+													<lightning-select options={taskTypeOption} name="TaskType"
+														onchange={projectHandle} data-index={index}
+														style="padding-right: 22px;" value={event.TaskType}
+														class="tasktype s {taskTypeInputClass(index)}"
+														onblur={handleBlur} variant="label-hidden"></lightning-select>
+
+
+													<span class="error-message"
+														style="color: red;font-weight:bolder;">{event.taskTypeError}</span>
+												</template>
+											</td>
+
+											<td data-label="Ticket No." class="ticket-no-column" style="width:15%">
+												<template if:true={event.IsLocked}>
+													<lightning-input type="text" data-index={index} onblur={handleBlur}
+														class="ticket-no {ticketNoInputClass(index)}" name="TicketNo"
+														onchange={projectHandle} value={event.TicketNo}
+														variant="label-hidden" disabled>
+													</lightning-input>
+													<span class="error-message slds-m-left_medium"
+														style="color: red;font-weight:bolder;">{event.ticketNoError}</span>
+												</template>
+												<template if:false={event.IsLocked}>
+													<lightning-input type="text" data-index={index} onblur={handleBlur}
+														class="ticket-no {ticketNoInputClass(index)}" name="TicketNo"
+														onchange={projectHandle} value={event.TicketNo}
+														variant="label-hidden"></lightning-input>
+													<span class="error-message slds-m-left_medium"
+														style="color: red;font-weight:bolder;">{event.ticketNoError}</span>
+												</template>
+											</td>
+											<td data-label="Task Description" class="task-description-column"
+												style="width:25%">
+												<template if:true={event.IsLocked}>
+													<lightning-textarea type="text" data-index={index}
+														onblur={handleBlur} style="display:inline"
+														class="TaskDescriptionClass description-color {descriptionInputClass(index)}"
+														name="TaskDescription" onchange={projectHandle}
+														value={event.TaskDescription} variant="label-hidden" disabled>
+													</lightning-textarea>
+													<span class="error-message"
+														style="color: red;font-weight:bolder;">{event.descriptionError}</span>
+												</template>
+												<template if:false={event.IsLocked}>
+													<lightning-textarea type="text" data-index={index}
+														onblur={handleBlur} style="display:inline"
+														class="TaskDescriptionClass description-color {descriptionInputClass(index)}"
+														name="TaskDescription" onchange={projectHandle}
+														value={event.TaskDescription} variant="label-hidden">
+													</lightning-textarea>
+													<span class="error-message"
+														style="color: red;font-weight:bolder;">{event.descriptionError}</span>
+												</template>
+											</td>
+
+											<!--  -->
+
+
+											<!--  -->
+											<td data-label="Actual Hours" class="actual-hours-column" style="width:10%">
+												<template if:true={event.IsLocked}>
+													<lightning-select options={ActEstHourOption} name="ActualHour"
+														onblur={handleBlur} onchange={projectHandle} data-index={index}
+														value={event.ActualHour}
+														class="  comboboxpadding {actualHoursInputClass(index)} "
+														variant="label-hidden" disabled>
+													</lightning-select>
+													<span class="error-message slds-m-left_medium"
+														style="color: red;font-weight:bolder;">{event.actualHoursError}</span>
+												</template>
+												<template if:false={event.IsLocked}>
+													<lightning-select options={ActEstHourOption} name="ActualHour"
+														onblur={handleBlur} onchange={projectHandle} data-index={index}
+														value={event.ActualHour}
+														class="  comboboxpadding {actualHoursInputClass(index)}"
+														variant="label-hidden">
+													</lightning-select>
+													<span class="error-message slds-m-left_medium"
+														style="color: red;font-weight:bolder;">{event.actualHoursError}</span>
+												</template>
+											</td>
+											<td data-label="Project Name" style="width:15%">
+												<template if:true={event.IsLocked}>
+													<lightning-select options={projNameOption} onchange={projectHandle}
+														onblur={handleBlur} name="ProjectName" data-index={index}
+														value={event.ProjectName}
+														class="  comboboxpadding {projectNameInputClass(index)}"
+														variant="label-hidden" disabled>
+													</lightning-select>
+													<span class="error-message slds-m-left_medium"
+														style="color: red;font-weight:bolder; ">{event.projectnameError}</span>
+												</template>
+												<template if:false={event.IsLocked}>
+													<lightning-select options={projNameOption} onchange={projectHandle}
+														onblur={handleBlur} name="ProjectName" data-index={index}
+														value={event.ProjectName}
+														class="  comboboxpadding {projectNameInputClass(index)}"
+														variant="label-hidden">
+													</lightning-select>
+													<span class="error-message slds-m-left_medium"
+														style="color: red;font-weight:bolder;">{event.projectnameError}</span>
+												</template>
+											</td>
+
+
+											<td data-label="Component Change" class="component-change-column"
+												style="width: 25%;">
+												<template if:true={event.IsLocked}>
+													<lightning-textarea type="text" data-index={index}
+														onblur={handleBlur} style="display: inline"
+														class="ComponentChangeClass description-color {componentChangeInputClass(index)}"
+														name="ComponentChange" onchange={projectHandle}
+														value={event.ComponentChange} variant="label-hidden" disabled>
+													</lightning-textarea>
+													<span class="error-message"
+														style="color: red;font-weight:bolder;">{event.ComponentChangeError}</span>
+												</template>
+												<template if:false={event.IsLocked}>
+													<lightning-textarea type="text" data-index={index}
+														onblur={handleBlur} style="display: inline"
+														class="ComponentChangeClass description-color {componentChangeInputClass(index)}"
+														name="ComponentChange" onchange={projectHandle}
+														value={event.ComponentChange} variant="label-hidden">
+													</lightning-textarea>
+													<span class="error-message"
+														style="color: red;font-weight:bolder;">{event.ComponentChangeError}</span>
+												</template>
+
+											</td>
+
+											<td data-label="Delete" style="width:5%">
+												<template if:true={event.IsLocked}>
+												</template>
+												<template if:false={event.IsLocked}>
+													<template if:true={eventDeleteEnable}>
+														<lightning-button-icon icon-name="utility:delete" size="large"
+															alternative-text="Delete" title="Delete" data-index={index}
+															onclick={deleteEvent}
+															class="deleteRecord deleteBtn button-border large-svg"
+															style="color: black;">
+														</lightning-button-icon>
+													</template>
+												</template>
+											</td>
+										</tr>
+									</template>
+								</tbody>
+							</template>
+						</table>
+						<!-- <div class="slds-p-top_medium">
+						<p>Total Actual Hours: {computedTotalActualHours}</p>
+					</div> -->
+					</div>
+				</div>
+			</template>
+			<template if:true={isTableVisible}>
+				<span>
+					<template if:true={isDateSelected}>
+						<div class="slds-p-right_medium slds-p-left_medium" style="background: white;">
+							<template if:true={isDateSelected}>
+								<template if:false={isAddButtonVisible}>
+									<button class="slds-button slds-button_brand slds-button_brand-color"
+										onclick={addEvents}>
+										<span>Add</span>
+									</button>
+								</template>
+
+								<template if:false={isAddButtonVisible}>
+									<template if:true={isSaveButtonVisible}>
+										<button class="slds-button slds-button_brand slds-button_brand-color"
+											style="background:#00A129;  float:right " onclick={handleSaveClick}>
+											<span>Save</span>
+										</button>
+									</template>
+									<template if:false={isSaveButtonVisible}>
+										<button class="slds-button slds-button_brand slds-button_brand-color"
+											style="background:gray;  float:right " disabled>
+											<span>Save</span>
+										</button>
+									</template>
+								</template>
+							</template>
+						</div>
+					</template>
+				</span>
+			</template>
+			<template if:true={isSpinnerLoad}>
+				<lightning-spinner alternative-text="Loading" size="medium">
+				</lightning-spinner>
+			</template>
+
+			<div style="padding-top:20px;padding-bottom:20px;background:white;border-radius:0px 0px 15px 15px;">
+				<template if:true={isEmployeeNotJoinedYet}>
+					<div>
+						<p style="text-align: center; color: red;font-size:16px;padding:5px">You cannot fill out a past
+							time
+							sheet as you have
+							not joined
+							yet. If
+							you believe there is an issue, please contact the administrator for assistance</p>
+					</div>
+				</template>
+				<template if:true={isPreviousDataIsNULL}>
+					<div>
+						<p style="text-align: center; color: red;font-size:16px">
+							You're unable to complete a timesheet for a past period. Please reach out to the
+							administrator
+							for assistance.
+						</p>
+					</div>
+				</template>
+			</div>
+			<!-- <template if:false={isTableVisible}>
+			<div>
+				<p style="text-align: center; color: red;">You cannot fill out a past time sheet as you have not joined
+					yet. If
+					you believe there is an issue, please contact the administrator for assistance</p>
+			</div>
+		</template> -->
+			<!-- <template if:true={isDateSelected}>
+
+			<div class="slds-col slds-size_12-of-12">
+				<div align="right" class="slds-p-right_medium slds-p-top_large slds-p-bottom_medium">
+					< <lightning-button variant="brand" label="Save" onclick={handleSaveClick}
+                        if:true={isSaveButtonVisible}></lightning-button> >
+					<button class="slds-button slds-button_brand slds-button_brand-color" onclick={handleSaveClick}
+						if:true={isSaveButtonVisible}>
+						<span>Save</span>
+					</button>
+				</div>
+			</div>
+		</template> -->
+			<!-- 
+<template if:true={isDateSelected}>
+	<div class="slds-col slds-size_12-of-12">
+		<div align="right" class="slds-p-right_medium slds-p-top_large slds-p-bottom_medium">
+			<template if:true={isSaveButtonVisible}>
+				<button class="slds-button slds-button_brand slds-button_brand-color" onclick={handleSaveClick}>
+                    <span>Save</span>
+                </button>
+			</template>
+		</div>
+	</div>
+</template> -->
+
+			<!-- Delete modal popup -->
+			<template lwc:if={DeleteModalPopup}>
+				<section role="dialog" tabindex="-1" aria-modal="true" aria-labelledby="modal-heading-01"
+					class="slds-modal slds-fade-in-open slds-modal_small">
+					<div class="slds-modal__container">
+						<button onclick={handleDeleteNoClick}
+							class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse">
+							<lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+								size="small"></lightning-icon>
+							<span class="slds-assistive-text">Cancel and close</span>
+						</button>
+						<div class="slds-modal__header">
+							<h1 id="modal-heading-01" class="slds-modal__title slds-hyphenate">Confirmed Delete</h1>
+						</div>
+						<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+							<p>Are you sure you want to delete timesheet record?</p>
+						</div>
+						<div class="slds-modal__footer">
+							<button class="slds-button slds-button_neutral" aria-label="Cancel and close"
+								onclick={handleDeleteNoClick}>No</button>
+							<button class="slds-button slds-button_brand" onclick={handleDeleteYesClick}>Yes</button>
+						</div>
+					</div>
+				</section>
+				<div class="slds-backdrop slds-backdrop_open" role="presentation"></div>
+			</template>
+
+			<!-- </lightning-card> -->
+		</article>
+	</template>
+</template>

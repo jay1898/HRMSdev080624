@@ -1,0 +1,17 @@
+<template>
+    <template if:true={showVariable}>
+        Offer Letter
+        <template if:true={showOfferLetterButtons}>
+            <lightning-button variant="brand" label="Accept" title="Accept" data-action="accept"
+                onclick={handleOfferLetter}></lightning-button>
+            <lightning-button variant="brand" label="Reject" title="Reject" data-action="reject"
+                onclick={handleOfferLetter}></lightning-button>
+        </template>
+        <template if:true={showAcceptMsg}>
+            Accepted
+        </template>
+        <template if:true={showDeclineMsg}>
+            Rejected
+        </template>
+    </template>    
+</template>

@@ -1,0 +1,155 @@
+/* .input { */
+
+  /* outline: none;
+  width: 100%;
+  padding: 7px; */
+  /* border: 1px solid #ccc;
+  border-radius: 5px; */
+  /* font-size: 16px; */
+  /* background: rgba(167,167,167,0.1); */
+/* } */
+
+.error-border {
+  /* border: 1px solid red !important; */
+  /* border: none !important; */
+  border: 1px solid red !important;
+  
+}
+.TaskTypeClass{
+    padding: 11px;
+}
+.TicketNoClass{
+    padding: 11px;
+}
+
+.TaskDescriptionClass  textarea:focus {
+
+    
+    height: 10em;
+    width:500px
+}
+
+.ActualHourClass{
+    padding: 11px;
+}
+
+.EstimatedHourClass{
+    padding: 11px;
+}
+
+.ProjectNameClass{
+    padding: 11px;
+}
+
+.ProjectManagerClass{
+    padding: 11px;
+}
+.SubProjectNameClass{
+    padding: 11px;
+}
+
+.deleteRecord{
+    color: crimson;
+}
+.slds-spinner_container  {
+
+    /* background-color: rgba(221, 214, 214, 0.732); */
+    /* margin-top: 200px; */
+    /* margin-bottom: 200px; */
+}
+.slds-button_brand-color{
+    background-color: #1D4354;
+    border-color: #1D4354;
+    height: 46px;
+    width: 88px;
+    border-radius: 8px;
+    font-size: 18px;
+    border: none;
+    font-family: sans-serif;
+    margin-top: 15px;
+}
+
+.font{
+	font-family: iTechCloudSansRegular;
+}
+.dateFont{
+    font-size: large;
+}
+.slds-combobox {
+    z-index: 1001; /* Increase the z-index to make the dropdown appear above the card */
+    overflow: visible !important; /* Allow the dropdown to overflow */
+}
+.deleteBtn{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* .ticket-no-column {
+    width: 13%; 
+} */
+
+.task-description-column { 
+    /* width: 40%;  */
+     height: auto; 
+ } 
+
+
+.date_formatter{
+     width:52%;
+}
+
+.datePickerBlock {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    border-radius: 15px 15px 0px 0px;
+}
+.table-block{
+    /* display: flex;
+    justify-content: space-between; */
+    background: white;
+    /* border-radius: 0px 0px 0px 15px; */
+}
+.delete-svg svg{
+    width: 2rem;
+    height: 2rem;
+    color: #194051;
+}
+
+.slds-select_container:before {
+    border-bottom: 5px solid currentColor;
+    top: calc((var(--lwc-lineHeightButtonSmall,1.75rem) / 2) - 6px);
+    margin-top: 20px;
+}
+
+
+.table-block tr td {
+    vertical-align: top;
+    padding: 20px 8px;
+}
+
+.ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: rgb(226, 226, 226);
+    /* border-radius: 15px 15px 15px 15px */
+}
+
+.li {
+    float: left;    
+}
+  
+.li .a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+  
+.li a:hover {
+    background-color: #a7a7a7;
+}

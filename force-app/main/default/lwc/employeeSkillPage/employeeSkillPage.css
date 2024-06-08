@@ -1,0 +1,76 @@
+.headingContainer {
+    width: 59%;
+    margin: 16px auto;
+}
+
+.headingContainer h1 {
+    font-family: "roboto";
+    font-size: 2em;
+    font-weight: 700;
+    color: #07334A;
+    letter-spacing: 1px;
+}
+
+span {
+    font-family: "roboto";
+    font-weight: 400;
+    color: #07334A;
+    letter-spacing: 1px;
+}
+
+.combox {
+    width: 59%;
+    margin: 30px auto;
+}
+
+.combox .starColor {
+    color: red;
+}
+.employeeInputText{
+    color: #07334A;
+    font-family: 'roboto';
+    font-weight: 400;
+}
+.strong-text {
+    font-family: "roboto";
+    display: block;
+    font-weight: 200;
+    color: #07334A;
+}
+
+label {
+    font-family: "roboto";
+    font-weight: 200;
+    color: #07334A;
+}
+
+.droupDownContainer {
+    width: 60.5%;
+    margin: 2px auto;
+}
+
+.droupDownContainer span {
+    color: red;
+}
+
+.saveAndNextButtonDiv {
+    margin-top: 50px;
+}
+
+.saveAndNextButton {
+    color: white;
+    background-color: #37a000;
+    border: none;
+    border-radius: 8px;
+    height: 34px;
+}
+
+.saveAndNextButton:hover {
+    background-color: #256203;
+}
+
+.footerButtons {
+    text-align: end;
+    width: 59%;
+    margin: auto auto;
+}

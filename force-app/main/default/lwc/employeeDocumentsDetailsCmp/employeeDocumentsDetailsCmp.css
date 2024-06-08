@@ -1,0 +1,166 @@
+/* .firstCard{
+    border-radius: 10px;
+    background-color: white;
+    padding: 5px 5px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 10px;
+} */
+.imgTag{
+  height: 300px;
+  width: 270px;
+}
+.h1{
+    font-size: large;
+    font-weight: bold;
+    line-height: 50px;
+}
+.key{
+   
+    color: gray;
+}
+
+.value{
+    font-weight: bold;
+   
+}
+
+.subValue{
+    color: #aeafaf;
+    font-weight: bold;
+    font-size: smaller;
+}
+
+.style_f_card {
+	margin-top: 20px;
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.editButton{
+    color: rgb(37, 184, 37); 
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 17px;
+    line-height: 50px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: left;
+}
+
+/* .checkbox-container {
+    margin-left: auto; 
+} */
+
+.marital-status {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+.eduBox {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 60rem;
+    min-width: 20rem;
+    height: auto;
+}
+
+.divider {
+        border-top: 1px solid #ccc; /* Specify border color and style */
+        margin: 20px 0; /* Add spacing above and below the line */
+    }
+
+
+
+    .tab-container {
+  position: relative;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background-color: #3AD67B;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+      
+       .tab-list {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        border-bottom: 2px solid #ddd;
+        border-block: none;
+        border-radius: 10px;
+        width: 250px;
+        background-color: #F1F1F1;
+      }
+      
+      .tab {
+        padding: 10px 39px;
+        cursor: pointer;
+        user-select: none;
+      }
+      
+      .tab:hover {
+        background-color: #f0f0f0;
+      }
+      
+      
+      
+      .active-tab {
+        border-bottom: 4px solid #3AD67B;
+      }
+
+
+.certificate-container {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: .5rem;
+    padding: 1rem;
+    margin-bottom: 1rem; /* Adds space between rows */
+    margin-right: 10px;
+    background: #F0F0F0;
+}
+
+.certificate-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 10px; /* Adjust as necessary */
+}
+
+.imgTag {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.image-title {
+    text-align: center;
+    padding-top: 10px; /* Adjust as necessary */
+}
+
+.align-center{
+  display: flex;
+  justify-content: center;
+}
+
+.color-Green{
+  color: #0BD67B;
+}
+
+.right-line{
+  border-right: 1px solid #7E909A;
+  margin-top: 20px;
+}
+
+.pan-m-top{
+  margin-top: 20px;
+}

@@ -1,0 +1,319 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Email</name>
+        <label>Send Email</label>
+        <locationX>314</locationX>
+        <locationY>458</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <connector>
+            <targetReference>Sucessfully_Email_Send</targetReference>
+        </connector>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>candidate_record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>abc</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>updatedDefaultEmailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>recipientId</name>
+            <value>
+                <elementReference>candidate_record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>60.0</apiVersion>
+    <decisions>
+        <name>Checking_Interview_Date_For_Null_Handling</name>
+        <label>Checking Interview Date For Null Handling</label>
+        <locationX>314</locationX>
+        <locationY>242</locationY>
+        <defaultConnectorLabel>Filled Interdate Date</defaultConnectorLabel>
+        <rules>
+            <name>Interview_Date_Null</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>candidate_record.Interview_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>true</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Acknowledge_Message_for_interview_Date</targetReference>
+            </connector>
+            <label>Interview Date Null</label>
+        </rules>
+        <rules>
+            <name>Valid_Interview_Date</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>candidate_record.Interview_Date__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Show_Email_body</targetReference>
+            </connector>
+            <label>Valid Interview Date</label>
+        </rules>
+    </decisions>
+    <description>Updating Email Template, that compatible with rich text</description>
+    <environments>Default</environments>
+    <formulas>
+        <name>dynamicRecordLink</name>
+        <dataType>String</dataType>
+        <expression>HYPERLINK({!$Label.SiteUrl}&amp;&apos;s/interviewconfirmation?id=&apos;&amp;{!candidate_record.Id}, &apos;Click Here&apos;, &apos;_blank&apos;)</expression>
+    </formulas>
+    <formulas>
+        <name>RecordLink</name>
+        <dataType>String</dataType>
+        <expression>HYPERLINK(&quot;https://itechcloudsolution--itechdev.sandbox.my.site.com/s/interviewconfirmation?id=&quot;+{!candidate_record.Id},&apos;Click Here&apos; ,&quot;_parent&quot; )</expression>
+    </formulas>
+    <interviewLabel>Send Interview Email {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send Interview Email</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>candidate_record</name>
+        <label>candidate record</label>
+        <locationX>314</locationX>
+        <locationY>134</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Checking_Interview_Date_For_Null_Handling</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>recordId</elementReference>
+            </value>
+        </filters>
+        <getFirstRecordOnly>true</getFirstRecordOnly>
+        <object>Candidate__c</object>
+        <storeOutputAutomatically>true</storeOutputAutomatically>
+    </recordLookups>
+    <screens>
+        <name>Acknowledge_Message_for_interview_Date</name>
+        <label>Acknowledge Message for interview Date</label>
+        <locationX>50</locationX>
+        <locationY>350</locationY>
+        <allowBack>true</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>true</allowPause>
+        <fields>
+            <name>ErrorMessage</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(228, 13, 13);&quot;&gt;Acknowledge Message fo&lt;span class=&quot;ql-cursor&quot;&gt;﻿&lt;/span&gt;r interview Date.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Show_Email_body</name>
+        <label>Show Email body</label>
+        <locationX>314</locationX>
+        <locationY>350</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <connector>
+            <targetReference>Send_Email</targetReference>
+        </connector>
+        <fields>
+            <name>InterviewEmail</name>
+            <extensionName>c:interviewEmailMessage</extensionName>
+            <fieldType>ComponentInstance</fieldType>
+            <inputParameters>
+                <name>defaultemailBody</name>
+                <value>
+                    <elementReference>DefaultEmailBody</elementReference>
+                </value>
+            </inputParameters>
+            <inputsOnNextNavToAssocScrn>UseStoredValues</inputsOnNextNavToAssocScrn>
+            <isRequired>true</isRequired>
+            <outputParameters>
+                <assignToReference>lwcOutput</assignToReference>
+                <name>defaultemailBody</name>
+            </outputParameters>
+        </fields>
+        <nextOrFinishButtonLabel>Send Email</nextOrFinishButtonLabel>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <screens>
+        <name>Sucessfully_Email_Send</name>
+        <label>Sucessfully Email Send</label>
+        <locationX>314</locationX>
+        <locationY>566</locationY>
+        <allowBack>false</allowBack>
+        <allowFinish>true</allowFinish>
+        <allowPause>false</allowPause>
+        <fields>
+            <name>Emailsend</name>
+            <fieldText>&lt;p&gt;&lt;strong style=&quot;color: rgb(56, 166, 66); font-size: 18px; background-color: rgb(255, 255, 255);&quot;&gt;Email Send Successfully.&lt;/strong&gt;&lt;/p&gt;</fieldText>
+            <fieldType>DisplayText</fieldType>
+        </fields>
+        <showFooter>true</showFooter>
+        <showHeader>true</showHeader>
+    </screens>
+    <start>
+        <locationX>188</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>candidate_record</targetReference>
+        </connector>
+    </start>
+    <status>Draft</status>
+    <textTemplates>
+        <name>DefaultEmailBody</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+
+&lt;head&gt;
+&lt;/head&gt;
+
+&lt;body&gt;
+    &lt;!--Main Body Starts--&gt;
+    &lt;table style=&quot;text-align: justify;max-width: 600px;margin: 0 auto;&quot;&gt;
+
+        &lt;tr&gt;
+            &lt;!-- Image content --&gt;
+            &lt;td style=&quot;margin-bottom: 20px&quot; width=&quot;600&quot;&gt;
+                &lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img
+                        src=&quot;https://itechcloudsolution--itechdev.sandbox.my.salesforce.com/sfc/dist/version/download/?oid=00D1s0000000TLW&amp;ids=0681s000002MHUXAA4&amp;d=/a/1s000000ESca/810Q9Uas30_xtds9NAz5MK4tnEUHunQkQtQq_soF4tk&amp;operationContext=DELIVERY&amp;viewId=05H1s000000DH54EAG&amp;dpt=&quot;
+                        alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot; /&gt; &lt;/a&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;!-- Message content --&gt;
+            &lt;td style=&quot;text-align: justify; max-width: 600px; margin: 0 auto;&quot;&gt;
+                &lt;p&gt;Dear {!candidate_record.Full_Name__c},&lt;/p&gt;
+                &lt;p&gt;We are pleased to confirm your interview for the {!candidate_record.Candidate_Role__c} position at iTechCloud Solution Pvt Ltd. Please review the interview details below:&lt;/p&gt;
+                &lt;p&gt;Interview Date &amp;amp; Time: {!candidate_record.Interview_Date__c}&lt;/p&gt;
+                &lt;p&gt;Interview Location: Surat&lt;/p&gt;
+                &lt;p&gt;Confirmation: &amp;nbsp;&lt;/p&gt;
+                &lt;p&gt;Please Click the below link for confirmation: {!dynamicRecordLink} &lt;/p&gt;
+			&lt;/td&gt;
+		
+               
+		
+			 &lt;!-- FOOTER CONTENT --&gt;
+			
+			
+                &lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+                    &lt;tr&gt;
+                        &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+                            &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+                                &lt;tr&gt;
+                                    &lt;td align=&quot;center&quot;
+                                        style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;
+                                        &lt;!-- Add social media links here --&gt;
+                                        &lt;div class=&quot;social-links mt-3&quot;&gt;
+                                            &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot;
+                                                    src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot; /&gt;&lt;/a&gt;
+                                            &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot;&gt;&lt;img height=&quot;30px&quot;
+                                                    width=&quot;30px&quot;
+                                                    src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot; /&gt;&lt;/a&gt;
+                                            &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot;
+                                                    width=&quot;30px&quot;
+                                                    src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot; /&gt;&lt;/a&gt;
+                                            &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot;
+                                                    width=&quot;30px&quot;
+                                                    src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot; /&gt;&lt;/a&gt;
+                                            &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img
+                                                    height=&quot;30px&quot; width=&quot;30px&quot;
+                                                    src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot; /&gt;&lt;/a&gt;
+                                        &lt;/div&gt;
+                                        &lt;!-- End social media links --&gt;
+                                        &lt;br&gt;
+                                        This email was sent by:
+                                        &lt;span&gt;iTechCloud Solution&lt;br&gt;
+                                            209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India
+                                            395006&lt;/span&gt;
+                                        &lt;br&gt;
+                                        &lt;br&gt;
+                                        &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot;
+                                            style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy
+                                            Policy&lt;/a&gt;
+                                        &lt;br&gt;
+                                        &lt;br&gt;
+                                        &lt;!-- Add more links as needed --&gt;
+                                    &lt;/td&gt;
+                                &lt;/tr&gt;
+                            &lt;/table&gt;
+                        &lt;/td&gt;
+                    &lt;/tr&gt;
+                &lt;/table&gt;
+			&lt;/tr&gt;
+    &lt;/table&gt;
+    &lt;!--Main Body Starts--&gt;
+
+&lt;/body&gt;
+
+&lt;/html&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>updatedDefaultEmailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;p&gt;{!lwcOutput}&lt;/p&gt;</text>
+    </textTemplates>
+    <variables>
+        <name>lwcOutput</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>false</isInput>
+        <isOutput>true</isOutput>
+    </variables>
+    <variables>
+        <name>recordId</name>
+        <dataType>String</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>false</isOutput>
+    </variables>
+</Flow>

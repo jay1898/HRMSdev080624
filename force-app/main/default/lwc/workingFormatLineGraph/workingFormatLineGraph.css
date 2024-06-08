@@ -1,0 +1,25 @@
+/*.gradient-background {
+    background: linear-gradient(180deg, #00A129 0%, rgba(0, 161, 41, 0.00) 89.37%);
+}
+:host {
+    --01: #00A129; 
+}
+.gradient-background-fill {
+    background: linear-gradient(0deg, #00A129 0%, rgba(0, 161, 41, 0.00) 89.37%);
+}
+
+.gradient-border {
+    background: linear-gradient(180deg, #00A129 0%, rgba(0, 161, 41, 0.00) 89.37%);
+    border-color: #00A129; 
+    border-width: 2px; 
+}*/
+.Body{
+    background-color: #FCFCFC;
+    border-radius: 20px;
+}
+.Working{
+    text-align: center;
+    font-size: 18px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}

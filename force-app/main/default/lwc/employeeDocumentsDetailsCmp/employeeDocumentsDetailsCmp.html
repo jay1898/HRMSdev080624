@@ -1,0 +1,408 @@
+<template>
+
+
+	<div class="slds-grid slds-wrap">
+		<div class="slds-col slds-large-size_12-of-12 slds-small-size_12-of-12">
+
+			<div class="slds-box slds-box_small style_f_card">
+				<div class="slds-var-m-around_small">
+					<div class="slds-col slds-size_9-of-12">
+						<p class="h1">Employee Documents
+						</p>
+
+
+					</div>
+					<div class="tab-container">
+						<ul class="tab-list">
+							<li class="tab" data-tab="Degrees" onclick={handleTabClick}>Degrees</li>
+							<li class="tab" data-tab="Identity" onclick={handleTabClick}>Identity</li>
+						</ul>
+						<div class="tab-indicator"></div>
+					</div>
+
+
+					<template if:true={isIdentityTab}>
+						<div class="slds-grid slds-wrap">
+							<div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12 right-line">
+								<div class="slds-grid slds-wrap slds-var-m-top_small">
+									<div class="slds-col slds-size_6-of-12">
+										<div class="h1">Aadhaar Details</div>
+									</div>
+									<div class="slds-col slds-size_6-of-12">
+										<div class="slds-col">
+											<button class="slds-button editButton"  onclick={EditAadhaarBtn} >View & Update</button>
+										</div>
+									</div>
+								</div>
+								<!--Aadhaar Details-->
+								<!-- <p class="h1">Aadhaar Details</p> -->
+
+								<!-- <div class="slds-col">
+										<button class="slds-button editButton"  onclick={EditAadhaarBtn} >View & Update</button>
+									</div> -->
+
+								<!-- <div class="slds-col">
+										<button class="slds-button editButton"  onclick={EditAadhaarBtn} >View & Update</button>
+									</div> -->
+								<template if:true={employeeData}>
+									<div class="slds-grid slds-wrap slds-var-m-top_small">
+										<div
+											class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+											<div class="key">Aadhaar Card</div>
+											<div class="value">{employeeData.Nationality__c}</div>
+										</div>
+										<div class="slds-col slds-size_6-of-12">
+											<div class="key">Employee Number</div>
+											<div class="value">{employeeData.EmpCode__c}</div>
+										</div>
+										<!-- <div class="slds-col slds-size_6-of-12">
+											<div class="key">Address</div>
+											<div class="value">{employeeData.Address__c}</div>
+										</div> -->
+									</div>
+									<div class="slds-grid slds-wrap slds-var-m-top_small">
+										<div class="slds-col slds-size_6-of-12">
+											<div class="key">Aadhaar Number</div>
+											<div class="value">{employeeData.Aadhaar_Number__c}</div>
+										</div>
+										<div class="slds-col slds-size_6-of-12">
+											<div class="key">Gender</div>
+											<div class="value">{employeeData.Gender__c}</div>
+										</div>
+									</div>
+									<div class="slds-grid slds-wrap slds-var-m-top_small">
+										<div class="slds-col slds-size_6-of-12">
+											<div class="key">Address</div>
+											<div class="value">{employeeData.Address__c}</div>
+										</div>
+									</div>
+									<div class="slds-col slds-size_3-of-6 ">
+									</div>
+								</template>
+							</div>
+							<template if:true={isIdentityTab}>
+								<div class="slds-col slds-size_6-of-12 slds-p-left_xx-large pan-m-top">
+									<!--PAN Details-->
+									<!-- <p class="h1">PAN Details
+									</p> -->
+									<div class="slds-grid slds-wrap slds-var-m-top_small">
+										<div class="slds-col slds-size_6-of-12">
+											<div class="h1">PAN Details</div>
+										</div>
+										<div class="slds-col slds-size_6-of-12">
+											<div class="slds-col">
+												<button class="slds-button editButton"  onclick={EditPanCardBtn} >View & Update</button>
+											</div>
+										</div>
+									</div>
+
+									<template if:true={employeeData}>
+										<div class="slds-grid slds-wrap slds-var-m-top_small">
+											<div class="slds-col slds-size_6-of-12">
+												<div class="key">PAN Card</div>
+												<div class="value">{employeeData.Nationality__c}</div>
+											</div>
+										</div>
+										<div class="slds-grid slds-wrap slds-var-m-top_small">
+											<div class="slds-col slds-size_6-of-12">
+												<div class="key">Permanent Account Number</div>
+												<div class="value">{employeeData.PAN_Card_Number__c}</div>
+											</div>
+										</div>
+										<div class="slds-grid slds-wrap slds-var-m-top_small">
+											<div class="slds-col slds-size_6-of-12">
+												<div class="key">Date Of Birth</div>
+												<div class="value">{employeeData.Date_of_Birth__c}</div>
+											</div>
+										</div>
+									</template>
+								</div>
+
+							</template>
+						</div>
+
+					</template>
+
+					<template if:true={isDegreesTab}>
+						<lightning-spinner alternative-text="Loading" variant="brand" if:true={isLodingDegree} size="large"></lightning-spinner>
+						<div class="slds-grid">
+							<div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12">
+								<p class="h1">Degrees Documents
+								</p>
+							</div>
+							<div class="slds-col slds-size_3-of-12">
+								<button class="slds-button editButton"  onclick={AddCertificate}>+ Add Certificate</button>
+							</div>
+
+						</div>
+						<div class="slds-grid slds-wrap align-center">
+							<template for:each={imageUrlDegrees} for:item="imageData">
+								<div key={imageData.title}
+									class="slds-col slds-size_1-of-3 slds-p-horizontal_small certificate-container">
+									<div class="certificate-header">
+										<h1 class="slds-truncate" title={imageData.title}>{imageData.title}</h1>
+										<lightning-button icon-name="utility:download" label="Download" title="Download" class="slds-m-left_x-small" data-id={imageData.id} onclick={handleDownload}></lightning-button>
+									</div>
+									<img class="imgTag" src={imageData.base64Data} alt={imageData.title} />
+            					</div>
+							</template>
+						</div>
+						<!-- <div if:true={imageUrlDegrees}>
+							<template for:each={imageUrlDegrees} for:item="imageData">
+								<div key={imageData.title}>
+									<img class="imgTag" src={imageData.base64Data} alt={imageData.title} />
+									<div>{imageData.title}</div>
+								</div>
+							</template>
+						</div> -->
+					</template>
+
+				</div>
+			</div>
+		</div>
+
+
+
+		<!-- Pan Card Section -->
+
+	</div>
+
+	<template if:true={EditAadhaarNumber}>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- modal header start -->
+				<header class="slds-modal__header">
+					<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideAadhaarModal}>
+                <lightning-icon icon-name="utility:close"
+                alternative-text="close"
+                variant="inverse"
+                size="small" ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+            </button>
+					<h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Upload Aadhaar Card
+						Details</h2>
+				</header>
+
+				<!-- modal body start -->
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+
+					<!-- Start File Upload Section -->
+					<div class="slds-col slds-size_3-of-6">
+
+						<!-- File Upload -->
+						<div class="flex-item">
+							<div style="display: flex;flex-direction: row;">
+								<div class="slds-file-selector slds-file-selector_files">
+									<div style="font-weight: bold;">
+										<div style="margin-bottom: -16px;" class="myLable">
+											<label style="font-size: 15px;font-weight: bold;">Upload Aadhaar Card<span
+                                            aria-hidden="true" style="color: red;">*</span></label>
+										</div>
+										<lightning-file-upload name="fileUploader" accept={acceptedFormats}
+											record-id={employeeId} onuploadfinished={handleUploadFinished}
+											file-field-name="From_App_fileupload__c"
+											file-field-value="Employee Adhaar Uploaded ">
+										</lightning-file-upload>
+									</div>
+								</div>
+							</div>
+
+							<div>
+								<template lwc:if={isCheck}>
+									<div>
+										File Name: {AadharfileName}
+									</div>
+								</template>
+								<template if:false={isAdhaarCard}>
+									<p>No file uploaded</p>
+									<lightning-spinner if:true={isLoading} alternative-text="Loading"></lightning-spinner>
+								</template>
+							</div>
+
+						</div>
+					</div>
+					<div></div>
+					<!--End File Upload Section -->
+					<div class="slds-col slds-size_3-of-6">
+						<lightning-input type="Text" class="adharCard" label="Aadhaar Number" value={editedEmployeeData.Aadhaar_Number__c}
+							onkeypress={patternAdhar} onchange={handleEmployeeChange} data-field="Aadhaar_Number__c" required ></lightning-input>
+					</div>
+					
+					<div>
+					<template if:true={isAdhaarCard}>
+						<img src={imageUrlAadhar} alt="Aadhaar Card" if:true={imageUrlAadhar} />
+						<lightning-spinner if:true={isLoading} alternative-text="Loading"></lightning-spinner>
+					</template>
+           			</div>
+					</div>
+
+
+					<!-- modal footer start-->
+					<footer class="slds-modal__footer">
+						<button class="slds-button slds-button_neutral" onclick={hideAadhaarModal}>Cancel</button>
+						<button class="slds-button slds-button_brand" onclick={saveEmployeeDetails}>Save</button>
+					</footer>
+
+				</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+	<!-- Pan Card Section -->
+
+	<template if:true={EditPANCardNumber}>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- modal header start -->
+				<header class="slds-modal__header">
+					<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hidePANModal}>
+                <lightning-icon icon-name="utility:close"
+                alternative-text="close"
+                variant="inverse"
+                size="small" ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+            </button>
+					<h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">Upload PAN Card Details
+					</h2>
+				</header>
+
+				<!-- modal body start -->
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+
+					<!-- Start File Upload Section -->
+					<div class="slds-col slds-size_3-of-6">
+
+						<!-- File Upload -->
+						<div class="flex-item">
+							<div style="display: flex;flex-direction: row;">
+								<div class="slds-file-selector slds-file-selector_files">
+									<div style="font-weight: bold;">
+										<div style="margin-bottom: -16px;" class="myLable">
+											<label style="font-size: 15px;font-weight: bold;">Upload PAN Card<span
+                                            aria-hidden="true" style="color: red;">*</span></label>
+										</div>
+										<lightning-file-upload name="fileUploader" accept={acceptedFormats}
+											record-id={employeeId} onuploadfinished={handleUploadPANFinished}
+											file-field-name="From_App_fileupload__c"
+											file-field-value="Employee Pan Uploaded">
+										</lightning-file-upload>
+									</div>
+								</div>
+							</div>
+
+							<div>
+								<template lwc:if={isCheck}>
+									<div>
+										File Name: {PanfileName}
+									</div>
+								</template>
+								<template if:false={isPanCard}>
+									<p>No file uploaded</p>
+								</template>
+							</div>
+						</div>
+					</div>
+					<div></div>
+					<!--End File Upload Section -->
+					<div class="slds-col slds-size_3-of-6">
+						<lightning-input type="text" label="Permanent Account Number"
+							value={editedEmployeeData.PAN_Card_Number__c} onchange={handleEmployeeChange}
+							data-field="PAN_Card_Number__c" maxlength="10" required></lightning-input>
+					</div>
+					<div>
+						<template if:true={isPanCard}>
+						<img src={imageUrlPAN} alt="PAN Card" if:true={imageUrlPAN} />
+					</template>
+				
+                </div>
+					</div>
+
+					<!-- modal footer start-->
+					<footer class="slds-modal__footer">
+						<button class="slds-button slds-button_neutral" onclick={hidePANModal}>Cancel</button>
+						<button class="slds-button slds-button_brand" onclick={saveEmployeeDetails}>Save</button>
+					</footer>
+
+				</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+
+
+
+
+
+
+	<!-- AddDegreesCertificate Section -->
+
+	<template if:true={AddDegreesCertificate}>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- modal header start -->
+				<header class="slds-modal__header">
+					<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideDegreesModal}>
+                <lightning-icon icon-name="utility:close"
+                alternative-text="close"
+                variant="inverse"
+                size="small" ></lightning-icon>
+                <span class="slds-assistive-text">Close</span>
+            </button>
+					<h2 id="modal-heading-03" class="slds-text-heading_medium slds-hyphenate">Upload Degree Certificate
+					</h2>
+				</header>
+
+				<!-- modal body start -->
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+
+					<!-- Start File Upload Section -->
+					<div class="slds-col slds-size_3-of-6">
+						<div class="slds-col slds-size_3-of-6">
+							<lightning-input type="text" label="Degrees Name" value={degreesName}
+								onchange={handleDegreesNameChange} required></lightning-input>
+						</div>
+
+						<!-- File Upload -->
+						<div class="flex-item">
+							<div style="display: flex;flex-direction: row;">
+								<div class="slds-file-selector slds-file-selector_files">
+									<div style="font-weight: bold;">
+										<div style="margin-bottom: -16px;" class="myLable">
+											<label style="font-size: 15px;font-weight: bold;"><span
+                                        aria-hidden="true" style="color: red;">*</span>Upload Degree Certificate</label>
+										</div>
+										<lightning-file-upload name="fileUploader" accept={acceptedFormats}
+											record-id={employeeId} onuploadfinished={uploadCertificate}
+											file-field-name="From_App_fileupload__c" file-field-value="Employee Degree">
+										</lightning-file-upload>
+									</div>
+								</div>
+							</div>
+
+							<div>
+								<template lwc:if={isCheck}>
+									<div>
+										File Uploaded
+									</div>
+								</template>
+							</div>
+						</div>
+					</div>
+					<div></div>
+				</div>
+
+				<!-- modal footer start-->
+				<footer class="slds-modal__footer">
+					<button class="slds-button slds-button_neutral" onclick={hideDegreesModal}>Cancel</button>
+					<button class="slds-button slds-button_brand" onclick={saveDegreesRecord}>Save</button>
+				</footer>
+
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+</template>

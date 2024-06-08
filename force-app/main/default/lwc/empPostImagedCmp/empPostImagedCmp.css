@@ -1,0 +1,20 @@
+.dummy{
+	color : black;
+}
+
+.postPics {
+  width: 20%; 
+  margin-bottom: 20px;
+}
+.postPics img{
+  border-radius: 10%;
+  height: 90%;
+  box-sizing: border-box; 
+  padding: 5px;
+}
+
+.profile-image{
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+}

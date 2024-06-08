@@ -1,0 +1,127 @@
+.main-div {
+    background-color: white; 
+    padding: 15px; 
+    padding-top: 5px;
+    border-radius: 10px;
+}
+
+.date{
+    font-size: 20px;
+}
+
+.vertical-pipe{
+    font-size: 24px;
+}
+
+.day {
+    display: flex; 
+    justify-content: space-between; 
+    background-color: #F1F1F1; 
+    padding: 8px; 
+    border-radius: 10px; 
+    align-items: center; 
+    font-size: 18px;
+    margin-top: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.pastHoliday {
+    opacity: 30%;
+}
+
+.a {
+    color: #fb6514;
+}
+
+.b {
+    color: #6172F3;
+}
+
+.c {
+    color: #12B76A;
+}
+
+.d {
+    color: #2E90FA;
+}
+
+.e {
+    color: #F04438;
+}
+
+.f {
+    color: #09FAFA;
+}
+
+.g {
+    color: #F63D68;    
+}
+
+.h {
+    color: #7A5AF8;
+}
+
+.i {
+    color: #EE46BC;
+}
+
+.j {
+    color: #9E77ED;
+}
+
+.k {
+    color: #4E5BA6;
+}
+
+.l {
+    color: #667085;    
+}
+
+@media screen and (min-width: 768px) and (max-width: 821px){
+    .day {
+        padding: 5px;
+        border-radius: 10px;
+        font-size: 14px;
+        margin-top: 7px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .date{
+        font-size: 16px;
+    }
+
+    .vertical-pipe{
+        font-size: 20px;
+    }
+
+    .main-div{
+        padding: 8px;
+        padding-top: 2px;
+    }
+}
+
+@media screen and (max-width: 480px){
+    .day {
+        padding:1px;
+        border-radius: 5px;
+        font-size: 7px;
+        margin-top: 5px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }  
+    
+    .date{
+        font-size: 8px;
+    }
+
+    .vertical-pipe{
+        font-size: 12px;
+    }
+
+    .main-div{
+        padding: 6px;
+        padding-top: 2px;
+    }
+}

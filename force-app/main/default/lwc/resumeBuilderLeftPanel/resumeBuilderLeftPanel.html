@@ -1,0 +1,27 @@
+<template>
+    <div class="mainContainer ">
+        <div>
+            <h2>Resume Design's</h2>
+            <div class="bottomBorder"></div>
+        </div>
+        <template lwc:if={spinner}>
+            <div class="spinner">
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </div>
+        </template>
+        <div class="slds-grid slds-wrap">
+            <template for:each={templates} for:item="temp">
+                <div key={temp.templateDocumentId} class="image-container slds-col slds-size_6-of-12" style="">
+                    <div class="templateContainer">
+                        <img src={temp.templateThumbnailBase64} alt={temp.templateThumbnailId}
+                            onclick={handleImageClick} data-id={temp.templateDocumentId} />
+                        <p onclick={handleImageClick} data-id={temp.templateDocumentId}>
+                            {temp.templateName}
+                        </p>
+                    </div>
+                </div>
+            </template>
+
+        </div>
+    </div>
+</template>

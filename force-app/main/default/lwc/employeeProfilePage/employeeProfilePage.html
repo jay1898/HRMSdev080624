@@ -1,0 +1,638 @@
+<template>
+    
+          <div class="slds-grid slds-wrap">
+            <!-- Primary Details Box -->
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12">
+            <div class="slds-box slds-box_small style_f_card">
+                <div class="slds-var-m-around_small">
+                <!-- <div class="slds-var-m-top_small"> -->
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_11-of-12">
+                        <p class="h1">Primary Details</P>
+                        </div>
+                        <div class="slds-col slds-size_1-of-12">
+                            <button class="slds-button editButton"  onclick={editPrimaryBtn}>Edit</button>
+                        </div>
+                    </div>
+                    <template if:true={viewPrimary}>
+                        <template if:true={employeeData}>
+                            <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+                                    <p class="key">First Name</P>
+                                    <p class="value">{employeeData.First_Name__c}</P>
+                                </div>
+                                <div class="slds-col slds-size_3-of-6">
+                                    <p class="key">Middle Name</P>
+                                    <p class="value">{employeeData.Middle_Name__c}</P>
+                                </div>
+                            </div>
+                            <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+                                    <p class="key">Last Name</P>
+                                    <p class="value">{employeeData.Last_Name__c}</P>
+                                </div>
+                                <div class="slds-col slds-size_3-of-6">
+                                    <p class="key">Display Name</P>
+                                    <p class="value">{employeeData.Display_Name__c}</P>
+                                </div>
+                            </div>
+                            <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+                                    <p class="key">Gender</P>
+                                    <p class="value">{employeeData.Gender__c}</P>
+                                </div>
+                                <div class="slds-col slds-size_3-of-6">
+                                    <p class="key">Date of Birth</P>
+                                    <p class="value">{formattedDateOfBirth}</P>
+                                </div>
+                            </div>
+                            <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+                                    <p class="key">Maritial Status</P>
+                                    <!-- <p class="value">{employeeData.Marital_Status__c}</P> -->
+                                    <template if:true={employeeData.Marital_Status__c}>
+                                        <p class="value">Married</P>
+                                    </template>
+                                    <template if:false={employeeData.Marital_Status__c}>
+                                        <p class="value">Not Married</P>
+                                    </template>
+                                </div>
+                                <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+                                    <p class="key">Blood Group</P>
+                                    <p class="value">{employeeData.Blood_Group__c}</P>
+                                </div>
+                            </div>
+                            <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+                                    <p class="key">Physcally Handicaped</P>
+                                    <!-- <p class="value">{employeeData.Physically_Handicap__c}</P> -->
+                                    <template if:true={employeeData.Physically_Handicap__c}>
+                                        <p class="value">Yes</P>
+                                    </template>
+                                    <template if:false={employeeData.Physically_Handicap__c}>
+                                        <p class="value">No</P>
+                                    </template>
+                                </div>
+                                <div class="slds-col slds-size_3-of-6">
+                                    <p class="key">Nationality</P>
+                                    <p class="value">{employeeData.Nationality__c}</P>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                    
+                <!-- </div> -->
+                
+                </div>
+            </div>
+            </div>
+
+            <!-- Contact Details Box -->
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12">
+            <div class="slds-box slds-box_small style_f_card">
+                <div class="slds-var-m-around_small">
+                <!-- <div class="slds-var-m-top_small"> -->
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_11-of-12">
+                        <p class="h1">Contact Details</P>
+                        </div>
+                        <div class="slds-col slds-size_1-of-12">
+                            <button class="slds-button editButton"  onclick={editContactBtn}>Edit</button>
+                        </div>
+                    
+                    </div>
+                    <template if:true={viewContact}>
+                            <template if:true={employeeData}>
+                                <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                    <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+                                        <p class="key">Work Email</P>
+                                        <p class="value">{employeeData.Email__c}</P>
+                                    </div>
+                                    <div class="slds-col slds-size_3-of-6">
+                                        <p class="key">Personal Email</P>
+                                        <p class="value">{employeeData.Personal_Email__c}</P>
+                                    </div>
+                                </div>
+                                <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                    <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+                                        <p class="key">Phone</P>
+                                        <p class="value">{employeeData.Emergency_Contact_No__c}</P>
+                                    </div>
+                                    <div class="slds-col slds-size_3-of-6">
+                                        <p class="key">Skype</P>
+                                        <p class="value">{employeeData.Skype_Id__c}</P>
+                                    </div>
+                                </div>
+                            </template>
+                    </template>
+                    
+                <!-- </div> -->
+                
+                </div>
+            </div>
+            </div>
+
+
+        </div>
+
+        <div class="slds-grid slds-wrap">
+
+            <!-- Professional Summary Box -->
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12">
+            <div class="slds-box slds-box_small style_f_card">
+                <div class="slds-var-m-around_small">
+                <!-- <div class="slds-var-m-top_small"> -->
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_11-of-12">
+                        <p class="h1">Professional Summary</P>
+                        </div>
+                        <div class="slds-col slds-size_1-of-12">
+                            <button class="slds-button editButton"  onclick={editSummaryBtn}>Edit</button>
+                        </div>
+                    </div>
+                    <template if:true={viewSummary}>
+                        <template if:true={employeeData}>
+                            <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                <div class="slds-col slds-size_6-of-6">
+                                    <!-- <p class="key">Professional Summary</P> -->
+                                    <div class="value"><lightning-formatted-rich-text value={employeeData.Professional_Summary__c}></lightning-formatted-rich-text></div>
+                                </div>
+                            </div>
+                        </template>
+                    </template>
+                <!-- </div> -->
+                
+                </div>
+            </div>
+            </div>
+
+            <!-- Address Box -->
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12">
+            <div class="slds-box slds-box_small style_f_card">
+                <div class="slds-var-m-around_small">
+                <!-- <div class="slds-var-m-top_small"> -->
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_11-of-12">
+                        <p class="h1">Address</P>
+                        </div>
+                        <div class="slds-col slds-size_1-of-12">
+                            <button class="slds-button editButton"  onclick={editAddressBtn}>Edit</button>
+                        </div>
+                    </div>
+                    <template if:true={viewAddress}>
+                            <template if:true={employeeData}>
+                                <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                    <div class="slds-col slds-size_3-of-6">
+                                        <p class="key">Current Address</P>
+                                        <p class="value">{employeeData.Address__c}</P>
+                                    </div>
+                                </div>
+                            </template>
+                        </template>
+                    
+                <!-- </div> -->
+                
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            
+            <!-- Experiance Box -->
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12">
+            <div class="slds-box slds-box_small style_f_card">
+                <div class="slds-var-m-around_small">
+                <!-- <div class="slds-var-m-top_small"> -->
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_11-of-12">
+                        <p class="h1">Experience</P>
+                        </div>
+                        <div class="slds-col slds-size_1-of-12">
+                            <button class="slds-button editButton"  onclick={editExperianceBtn}>Edit</button>
+                        </div>
+                    </div>
+                    <template if:true={viewExperance}>
+                        <!-- <template if:true={employeeExpData}>
+                            <div class="slds-grid slds-var-m-around_small">
+                                <div class="slds-col slds-size_4-of-6">
+                                    <p class="value">{employeeExpData.Position__c}, {employeeExpData.Company_Name__c} </P>
+                                    <p class="subValue">{employeeExpData.FRMT_Join_Date__c} - {employeeExpData.FRMT_Leave_Date__c} : {employeeExpData.Company_Location__c} </P>
+                                </div>
+                            </div>
+                        </template> -->
+                        <template for:each={employeeExpData} for:item="expItem">
+                            <div key={expItem.Id} >
+                                <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                    <div class="slds-col slds-size_4-of-6">
+                                        <p class="value">{expItem.Position__c}, {expItem.Company_Name__c} </P>
+                                        <p class="subValue">{expItem.FRMT_Join_Date__c} - {expItem.FRMT_Leave_Date__c} : {expItem.Company_Location__c} </P>
+                                    
+                                    </div>
+                                </div>
+                                <hr class="divider">
+                                <!-- <div class="slds-grid slds-var-m-around_small">
+                                    <div class="slds-col slds-size_5-of-6">
+                                        
+                                    </div>
+                                </div> -->
+                            </div>
+                        </template>
+                    </template>
+                    
+                <!-- </div> -->
+                
+                </div>
+            </div>
+            </div>
+
+            <!-- Education Box -->
+            <div class="slds-col slds-large-size_6-of-12 slds-small-size_12-of-12">
+            <div class="slds-box slds-box_small style_f_card">
+                <div class="slds-var-m-around_small">
+                <!-- <div class="slds-var-m-top_small"> -->
+                    <div class="slds-grid">
+                        <div class="slds-col slds-size_11-of-12">
+                        <p class="h1">Education</P>
+                        </div>
+                        <div class="slds-col slds-size_1-of-12">
+                            <button class="slds-button editButton"  onclick={editEducationBtn}>Edit</button>
+                        </div>
+                    </div>
+                    <template if:true={viewEducation}>
+                        <template for:each={employeeEduData} for:item="eduItem">
+                            <div key={eduItem.Id} >
+                                <div class="slds-grid slds-wrap slds-var-m-top_small">
+                                    <div class="slds-col slds-size_5-of-6">
+                                        <p class="value">{eduItem.Degree_Name__c}</p>
+                                        <p class="subValue">{eduItem.University_Name__c}</p>
+                                    </div>
+                                    <div class="slds-col slds-size_1-of-6">
+                                        <p class="value">{eduItem.FRMT_Start_Date__c}-{eduItem.FRMT_End_Date__c}</p>
+                                    </div>
+                                </div>
+                                <hr class="divider">
+                                <!-- <div class="slds-grid slds-var-m-around_small">
+                                    <div class="slds-col slds-size_5-of-6">
+                                        
+                                    </div>
+                                </div> -->
+                            </div>
+                        </template>
+                    </template>
+                <!-- </div> -->
+                
+                </div>
+            </div>
+            </div>
+        </div>
+    
+
+    <!-- Edit Primary Box -->
+    <template if:true={editPrimary}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hidePrimaryModal}>
+                    <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Primary Details</h2>
+            </header>
+        
+            <!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    
+                <div class="slds-grid slds-var-m-around_small">
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning-input type="text" label="First Name" value={editedEmployeeData.First_Name__c} onchange={handleEmployeeChange} data-field="First_Name__c" required ></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6"></div>
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning-input type="text" label="Middle Name" value={editedEmployeeData.Middle_Name__c} onchange={handleEmployeeChange} data-field="Middle_Name__c" ></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-grid slds-var-m-around_small">
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning-input type="text" label="Last Name" value={editedEmployeeData.Last_Name__c} onchange={handleEmployeeChange} data-field="Last_Name__c" required></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6"></div>
+                    <div class="slds-col slds-size_2-of-6">
+                        <p class="key">Gender</P>
+                        <lightning-combobox options={picklistGender} label="Gender"
+                                            value={editedEmployeeData.Gender__c}
+                                            onchange={handleEmployeeChange}
+                                            data-field="Gender__c"
+                                            variant="label-hidden"
+                                            required
+                                            >
+                        </lightning-combobox>
+                    </div>
+                </div>
+                <div class="slds-grid slds-var-m-around_small">
+                    
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning-input type="date" value={editedEmployeeData.Date_of_Birth__c} label="Date of Birth" onchange={handleEmployeeChange} data-field="Date_of_Birth__c"  required ></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6"></div>
+                    <div class="slds-col slds-size_2-of-6">
+                        
+                        <p class="key">Maritial Status</P>
+                        <div class="checkbox-wrapper">
+                            <p class="value">Married?</p>
+                            <div class="checkbox-container slds-p-left_small">
+                                <lightning-input type="checkbox"
+                                                checked={editedEmployeeData.Marital_Status__c}
+                                                onchange={handleEmployeeChange}
+                                                data-field="Marital_Status__c"></lightning-input>
+                            </div>
+                        </div>
+                        
+                       
+                    </div>
+                </div>
+                <div class="slds-grid slds-var-m-around_small">
+                    
+                    <div class="slds-col slds-size_2-of-6">
+                        <p class="key">Blood Group</P>
+                        <lightning-combobox options={picklistBloodGrp} label="Blood Group"
+                                            value={editedEmployeeData.Blood_Group__c}
+                                            onchange={handleEmployeeChange}
+                                            data-field="Blood_Group__c"
+                                            variant="label-hidden">
+                        </lightning-combobox>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6"></div>
+                    <div class="slds-col slds-size_2-of-6">
+                        <p class="key">Physically Handicaped?</P>
+                        <lightning-input type="checkbox" checked={editedEmployeeData.Physically_Handicap__c} onchange={handleEmployeeChange} data-field="Physically_Handicap__c"></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-grid slds-var-m-around_small">
+                    
+                    <div class="slds-col slds-size_2-of-6">
+                        <p class="key">Nationality</P>
+                        <lightning-combobox options={picklistNationality} label="Nationality"
+                                            value={editedEmployeeData.Nationality__c}
+                                            onchange={handleEmployeeChange}
+                                            data-field="Nationality__c"
+                                            variant="label-hidden">
+                        </lightning-combobox>
+                    </div>
+                </div>
+            </div>
+
+            <!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={hidePrimaryModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveEmployeeDetails}>Save</button>
+            </footer>
+        
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+    <!-- Edit Contact Box -->
+    <template if:true={editContact}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-2" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideContactModal}>
+                    <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-02" class="slds-text-heading_medium slds-hyphenate">Contact Details</h2>
+            </header>
+        
+            <!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-2">
+                    
+                <div class="slds-grid slds-var-m-around_small">
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning-input type="email" label="Work Email" value={editedEmployeeData.Email__c} onchange={handleEmployeeChange} data-field="Email__c" ></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6"></div>
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning-input type="email" label="Personal Email" value={editedEmployeeData.Personal_Email__c} onchange={handleEmployeeChange} data-field="Personal_Email__c" required ></lightning-input>
+                    </div>
+                </div>
+                <div class="slds-grid slds-var-m-around_small">
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning-input type="tel" label="Phone" pattern="[0-9]{10}" maxlength="10" value={editedEmployeeData.Emergency_Contact_No__c} onchange={handleEmployeeChange} data-field="Emergency_Contact_No__c" required ></lightning-input>
+                    </div>
+                    <div class="slds-col slds-size_1-of-6"></div>
+                    <div class="slds-col slds-size_2-of-6">
+                        <lightning-input type="text" label="Skype" value={editedEmployeeData.Skype_Id__c} onchange={handleEmployeeChange} data-field="Skype_Id__c" ></lightning-input>
+                    </div>
+                </div>
+                
+            </div>
+
+            <!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={hideContactModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveEmployeeDetails}>Save</button>
+            </footer>
+        
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+     <!-- Edit Address Box -->
+    <template if:true={editAddress}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-3" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideAddressModal}>
+                    <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-03" class="slds-text-heading_medium slds-hyphenate">Address Details</h2>
+            </header>
+        
+            <!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-3">
+                    
+                <div class="slds-grid slds-var-m-around_small">
+                    <div class="slds-col slds-size_6-of-6">
+                        <lightning-textarea type="email" label="Current Address" value={editedEmployeeData.Address__c} onchange={handleEmployeeChange} data-field="Address__c" ></lightning-textarea>
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            <!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={hideAddressModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveEmployeeDetails}>Save</button>
+            </footer>
+        
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+     <!-- Edit Summary Box -->
+    <template if:true={editSummary}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-4" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideSummaryModal}>
+                    <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-04" class="slds-text-heading_medium slds-hyphenate">Professional Summary</h2>
+            </header>
+        
+            <!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-4">
+                    
+                <div class="slds-grid slds-var-m-around_small">
+                    <div class="slds-col slds-size_6-of-6">
+                        <lightning-input-rich-text type="text" len="1000" label="Professional Summary" value={editedEmployeeData.Professional_Summary__c} onchange={handleEmployeeChange} data-field="Professional_Summary__c" ></lightning-input-rich-text>
+                    </div>
+                    
+                </div>
+                
+            </div>
+
+            <!-- modal footer start-->
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={hideSummaryModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveEmployeeDetails}>Save</button>
+            </footer>
+        
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+    <!-- Edit Education Box -->
+    <template if:true={editEducation}>
+        
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-5" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container eduBox">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideEduModal}>
+                    <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-05" class="slds-text-heading_medium slds-hyphenate">Education Details</h2>
+            </header>
+        
+            <!-- modal body start -->
+          
+            <div class="slds-modal__content slds-p-around_medium scrollable-table" id="modal-content-id-5">
+                <lightning-spinner if:true={showEduSpinner} alternative-text="Loading"></lightning-spinner>
+
+                
+                <lightning-button icon-name="utility:add" variant="brand" label="Add" onclick={handleEduAddRow}>Add New</lightning-button>
+                <lightning-datatable
+                    key-field="Id"
+                    data={editedEmployeeEduData}
+                    columns={educationColumns}
+                    onsave={saveEducationDetails}
+                    oncancel={handleCancel}
+                    onrowaction = {handleDelEduRec}
+                    oncellchange={handleEduCellChange}
+                    hide-checkbox-column>
+                    
+                </lightning-datatable>
+                <!-- <template if:true={showError}>
+                    <div class="slds-notify slds-notify_alert slds-theme_alert-texture slds-theme_error" role="alert">
+                        <span class="slds-assistive-text">Error</span>
+                        <h2>{errorMessage}</h2>
+                    </div>
+                </template> -->
+            </div>
+
+            <!-- modal footer start
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={hideEduModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveEducationDetails}>Save</button>
+            </footer>-->
+        
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+
+<!-- Edit Experiance Box -->
+    <template if:true={editExperance}>
+
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-6" class="slds-modal slds-fade-in-open">
+        <div class="slds-modal__container eduBox">
+            <!-- modal header start -->
+            <header class="slds-modal__header">
+                <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={hideExpModal}>
+                    <lightning-icon icon-name="utility:close"
+                    alternative-text="close"
+                    variant="inverse"
+                    size="small" ></lightning-icon>
+                    <span class="slds-assistive-text">Close</span>
+                </button>
+                <h2 id="modal-heading-06" class="slds-text-heading_medium slds-hyphenate">Experience Details</h2>
+            </header>
+        
+            <!-- modal body start -->
+            <div class="slds-modal__content slds-p-around_medium scrollable-table" id="modal-content-id-6">
+
+                <lightning-spinner if:true={showExpSpinner} alternative-text="Loading"></lightning-spinner>
+
+                <lightning-button icon-name="utility:add" variant="brand" label="Add" onclick={handleExpAddRow}>Add New</lightning-button>
+                <lightning-datatable
+                    key-field="Id"
+                    data={editedEmployeeExpData}
+                    columns={experianceColumns}
+                    onsave={saveExperianceDetails}
+                    oncancel={handleCancel}
+                    onrowaction = {handleDelExpRec}
+                    oncellchange={handleExpCellChange}
+                    hide-checkbox-column>
+                    
+                </lightning-datatable>
+            </div>
+
+            <!-- modal footer start
+            <footer class="slds-modal__footer">
+                <button class="slds-button slds-button_neutral" onclick={hideEduModal}>Cancel</button>
+                <button class="slds-button slds-button_brand" onclick={saveEducationDetails}>Save</button>
+            </footer>-->
+        
+        </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </template>
+
+  
+
+</template>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomFieldTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <label></label>
+    <name>Leave_Type__c</name>
+    <picklistValues>
+        <masterLabel>Paid Leave</masterLabel>
+        <translation></translation>
+    </picklistValues>
+    <picklistValues>
+        <masterLabel>Unpaid Leave</masterLabel>
+        <translation></translation>
+    </picklistValues>
+</CustomFieldTranslation>

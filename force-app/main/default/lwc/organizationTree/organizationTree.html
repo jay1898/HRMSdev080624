@@ -1,0 +1,47 @@
+<template>
+	<div style="background:white">
+
+
+		<div class="hierarchy">
+			<ul class="tree">
+				<template for:each={employees} for:item="emp">
+					<li key={emp.employee.Id} class="node {index === 0 ? 'root-node' : ''}">
+						<div style="display: flex;flex-direction: column;border: 1px solid grey;" onclick={toggleChildren}>
+							<span><b>{emp.employee.Name}</b></span>
+							<span>{emp.employee.Role__c}</span>
+						</div>
+
+						<ul>
+							<template if:true={emp.subordinates}>
+								<li class="subordinates">
+									<c-organization-tree employees={emp.subordinates}></c-organization-tree>
+
+								</li>
+							</template>
+						</ul>
+
+					</li>
+				</template>
+			</ul>
+
+		</div>
+	</div>
+</template>
+
+<!-- <template>
+	<lightning-card>
+		<template if:true={employees}>
+			<ul class="slds-m-left_large">
+				<template for:each={employees} for:item="emp">
+					<li key={emp.employee.Id} class="slds-m-bottom_small">
+						{emp.employee.Name}
+						<template if:true={emp.subordinates}>
+							<c-organization-tree employees={emp.subordinates}></c-organization-tree>
+						</template>
+					</li>
+				</template>
+			</ul>
+		</template>
+	</lightning-card>
+
+</template> -->

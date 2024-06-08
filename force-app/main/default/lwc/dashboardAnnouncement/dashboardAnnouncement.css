@@ -1,0 +1,61 @@
+.dummy{
+	color : black;
+}
+.first_div{
+      background: rgb(222, 245, 228);
+      max-height: 200px;
+    overflow-y: auto;
+    border-radius: 10px;
+}
+.profile-image{
+  border-radius: 60%;
+  height: 40px;
+  width: 50px;
+}
+.Body{
+  background-color: #FCFCFC;
+  border-radius: 20px;
+}
+
+.created_date{
+  color: #7E909A;
+  font-size: 10px;
+}
+
+.view-button{
+  font-size: 18px;
+  text-align: center;
+}
+:host {
+  /* Set the text color for the base variant of lightning-button */
+  --sds-c-button-text-color: #0BD67B;
+}
+.Content_Info{
+      padding-bottom: 10px;
+}
+html {
+  overflow:   scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+.title{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+.employee_name{
+  font-size: 12px;
+  font-weight: bold;
+}
+.noContent{
+    height: 180px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}

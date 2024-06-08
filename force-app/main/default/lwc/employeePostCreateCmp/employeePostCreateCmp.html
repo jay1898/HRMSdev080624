@@ -1,0 +1,404 @@
+<template>
+	<div class="overrideStyle"></div>
+	<!-- <lightning-spinner alternative-text="Loading" size="large" if:true={isLoading} variant="brand"></lightning-spinner> -->
+	<div style="background-color: white;    border-radius: 10px;" class="slds-p-top_xx-small">
+
+		<!-- Create Post  -->
+		<div class="slds-p-top_x-small scroll_css">
+			<div class="slds-grid slds-var-m-around_small">
+				<div
+					class="createContent slds col slds-size_12-of-12 slds-large-size_12-of-12 slds-medium-size_11-of-12 slds-small-size_12-of-12">
+					<template if:true={isNewBtnEnabled}>
+						<lightning-input-rich-text formats="font, bold, italic, underline, strike, list, indent, align,
+								link, clean, code, code-block, color, background, mention, header" value={newPost}
+							onchange={handleCreateEvent} data-field="Content__c" placeholder="Write your post here...">
+						</lightning-input-rich-text>
+					</template>
+					<template if:false={isNewBtnEnabled}>
+						<lightning-input-rich-text formats="font, bold, italic, underline, strike, list, indent, align,
+								link, clean, code, code-block, color, background, mention, header" value={newPost}
+							onchange={handleCreateEvent} data-field="Content__c" placeholder="Write your post here..." disabled>
+						</lightning-input-rich-text>
+					</template>
+					
+				</div>
+			</div>
+			<div class="footerButtons slds-p-bottom_medium">
+				<div class="inside_ftrbtns">
+					<div class="date_size slds-p-left_small">
+						<label for="ExpirationDate">End Date &nbsp;&nbsp;&nbsp;</label>
+						<template if:true={isNewBtnEnabled}>
+							<lightning-input type="date" value={expirationDate} onchange={handleCreateEvent}
+								data-field="Expiration_Date__c" onfocusout={handleExpFocusOut}>
+							</lightning-input>
+						</template>
+						<template if:false={isNewBtnEnabled}>
+							<lightning-input type="date" value={expirationDate} onchange={handleCreateEvent}
+								data-field="Expiration_Date__c" disabled>
+							</lightning-input>
+						</template>
+					</div>
+					<div class="slds-form-element fileUploadButton">
+						<template if:true={isNewBtnEnabled}>
+							<lightning-button icon-name="utility:upload" variant="brand"
+								class="slds-m-left_x-small btncolor" label="File Upload" onclick={clickFileUpload}
+								data-action-name="Create">
+							</lightning-button>
+						</template>
+						<template if:false={isNewBtnEnabled}>
+							<lightning-button icon-name="utility:upload" variant="brand"
+								class="slds-m-left_x-small btncolor" label="File Upload" onclick={clickFileUpload}
+								data-action-name="Create" disabled>
+							</lightning-button>
+						</template>
+						
+						<label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{selectedFileCounts} Files selected.</label>
+						<!-- <lightning-input type="file"  onchange={handleFileChange} accept=".png, .jpeg" multiple> </lightning-input> -->
+					</div>
+
+				</div>
+
+				<div style="text-align:end">
+					<template if:true={isNewBtnEnabled}>
+						<lightning-button class="slds-p-right_medium" label="Cancel" onclick={clearDetails}
+						variant="neutral"></lightning-button>
+						<lightning-button class="slds-p-right_medium btncolor" label="Save" onclick={handleSave}
+							variant="brand"></lightning-button>
+					</template>
+					<template if:false={isNewBtnEnabled}>
+						<lightning-button class="slds-p-right_medium" label="Cancel" onclick={clearDetails}
+						variant="neutral" disabled></lightning-button>
+						<lightning-button class="slds-p-right_medium btncolor" label="Save" onclick={handleSave}
+							variant="brand" disabled></lightning-button>
+					</template>
+				</div>
+			</div>
+		</div>
+
+
+		<!-- List Post -->
+		<div class="first_div slds-m-around_medium">
+			<template if:true={isLoadingAfter}>
+				<lightning-spinner alternative-text="Loading" size="medium">
+				</lightning-spinner>
+			</template>
+			<template if:true={postDataList}>
+				<!-- <lightning-spinner if:true={showSpinner} alternative-text="Loading"></lightning-spinner> -->
+				<template for:each={postDataList} for:item="post">
+					<div key={post.Id} class="slds-box slds-m-bottom_small dataContent">
+						<div class="employee_Info slds-grid slds-var-m-around_medium">
+							<div class="image viewImage slds-p-right_small">
+								<template if:true={post.HasProfile_Photo}>
+									<c-emp-post-imaged-cmp content-version-id={post.Profile_Photo} image-type="Profile" class="profile-image"></c-emp-post-imaged-cmp>
+								</template>
+								<template if:false={post.HasProfile_Photo}>
+									<img src={altImages} alt="Profile Image" class="profile-image " />
+								</template>
+								<!-- <c-emp-post-imaged-cmp content-version-id={post.Profile_Photo} image-type="Profile" class="profile-image"></c-emp-post-imaged-cmp> -->
+									
+								<!-- <img src={post.Profile_Photo} alt="Profile Image" class="profile-image"/> -->
+							</div>
+							<div class="employee_data">
+								<div class="emp_name_main">
+									<div class="employee_name slds-text-heading_small">
+										{post.Announced_by_Name}
+										<div class="createAnsmt slds-p-left_xx-small slds-p-top_xx-small">created a post</div>
+									</div>
+
+									<div class="employee_date">{post.CreatedDate}</div>
+								</div>
+
+								<!-- <div class="employee_name slds-text-heading_small">{post.Announced_by_Name} <div class="createAnsmt slds-p-left_xx-small slds-p-top_xx-small">created a post</div>
+									<div class="employee_date">{post.CreatedDate}</div>
+								</div> -->
+								<div class="edit_Delete">
+									<template if:true={post.isEditable}>
+										<button class="slds-button slds-button_icon slds-m-horizontal_small" title="Edit" onclick={handleEditModal} data-postid={post.Id}>
+													<lightning-icon icon-name="utility:edit" size="x-small" class="box1"></lightning-icon>
+														<span class="slds-assistive-text">Edit</span>
+												</button>
+										<button class="slds-button slds-button_icon slds-m-horizontal_small" title="Delete" onclick={handleDeleteModal} data-postid={post.Id}>
+													<lightning-icon icon-name="utility:delete" size="x-small" class="box1"></lightning-icon>
+														<span class="slds-assistive-text">Delete</span>
+												</button>
+									</template>
+								</div>
+							</div>
+						</div>
+						<div class="slds-grid slds-var-m-around_small">
+							<template if:true={post.Post_Pics}>
+								<div class="postPicsData">
+									<template for:each={post.Post_Pics} for:item="postPic">
+										<!-- <div key={postPic.contentzversionId}> -->
+										<c-emp-post-imaged-cmp key={postPic.keys} content-version-id={postPic}
+											image-type="Post" class="slds-p-around_xx-small postPics">
+										</c-emp-post-imaged-cmp>
+										<!-- </div> -->
+										<!-- <img key={postPic.contentzversionId} src={postPic.contentzversionData} class="slds-p-around_xx-small postPics"/> -->
+									</template>
+								</div>
+
+							</template>
+						</div>
+						<div class="Content_Info slds-var-m-around_medium">
+							<template if:true={post.Content__c}>
+								<lightning-formatted-rich-text value={post.Content__c}></lightning-formatted-rich-text>
+							</template>
+						</div>
+					</div>
+				</template>
+			</template>
+			<template if:true={noContentAvail}>
+				<div class="noContent">
+					There are currently no post available.
+				</div>
+			</template>
+<!-- <div class="slds-backdrop slds-backdrop_open"></div> -->
+		</div>
+
+	</div>
+	<!--<template if:true={isLoading}>
+		 <div class="view-button"> 
+		<div class="exampleHolder">
+			<lightning-spinner alternative-text="Loading" size="medium"></lightning-spinner>
+		</div>
+		<template if:false={contentAvailable}>
+			<lightning-button label="Load More" onclick={loadMoreRecords} variant="base">
+			</lightning-button> 
+		</template>
+		 </div> 
+	</template>-->
+
+	<template if:false={isLoading}>
+		<template if:true={isLoadingAfter}>
+			<div class="view-button">
+				<template if:true={contentAvailable}>
+					<lightning-button label="Load More" onclick={loadMoreRecords} variant="base" disabled>
+					</lightning-button>
+				</template>
+			</div>
+		</template>
+	</template>
+
+	<template if:false={isLoading}>
+		<template if:false={isLoadingAfter}>
+			<div class="view-button">
+				<template if:true={contentAvailable}>
+					<lightning-button label="Load More" onclick={loadMoreRecords} variant="base">
+					</lightning-button>
+				</template>
+			</div>
+		</template>
+	</template>
+
+
+	<!-- <template if:false={noContentAvail}>
+		<div class="view-button">
+			<lightning-button label="Load More" onclick={loadMoreRecords} variant="base"></lightning-button>
+		</div>
+	</template> -->
+
+
+	<!-- Edit Content -->
+
+	<template if:true={isEditModalOpen}>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-4" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- modal header start -->
+				<header class="slds-modal__header">
+					<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCancel}>
+						<lightning-icon icon-name="utility:close"
+						alternative-text="close"
+						variant="inverse"
+						size="small" ></lightning-icon>
+						<span class="slds-assistive-text">Close</span>
+					</button>
+					<h2 id="modal-heading-04" class="slds-text-heading_medium slds-hyphenate">Post</h2>
+				</header>
+				<!-- modal body start -->
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-4">
+
+
+					<div class="slds-grid slds-var-m-around_small">
+						<div class="slds-col slds-size_6-of-6">
+							<div class="slds-p-bottom_medium">
+								<template if:true={editedPostList.Expiration_Date__c}>
+									<b>End Date : {editedPostList.Expiration_Date__c}</b>
+								</template>
+							</div>
+							<lightning-input-rich-text formats="font, bold, italic, underline, strike, list, indent, align,
+       						 link, clean, code, code-block, color, background, mention, header" value={editedPostList.Content__c}
+								onchange={handleContentChange}>
+							</lightning-input-rich-text>
+							<!-- <div class="slds-grid slds-var-m-around_small"> -->
+							<div class="slds-text-color_error slds-m-top_x-small slds-m-bottom_x-small">
+								<b>NOTE: Deleting the file will result in permanent removal.</b>
+							</div>
+							
+							<div class="postPicsData">
+								<template if:true={editedPostPics}>
+									<template for:each={editedPostPics} for:item="editedFiles">
+										<div key={editedFiles.keys} class="postPics" style="margin-bottom: 40px;">
+											<!-- <img src={editedFiles.contentzversionData} class="slds-p-around_xx-small" ></img> -->
+											<c-emp-post-imaged-cmp content-version-id={editedFiles} image-type="Post"
+												class="slds-p-around_xx-small"></c-emp-post-imaged-cmp>
+
+											<div align="center">
+												<button title="Remove Image" data-image-id={editedFiles} class="" onclick={handleDeleteImage}>
+														<lightning-icon icon-name="utility:delete" size="x-small" ></lightning-icon>
+													</button>
+											</div>
+										</div>
+									</template>
+								</template>
+								<template if:true={displayfiles}>
+									<template for:each={displayfiles} for:item="files">
+										<div key={files.name} class="postPics" style="margin-bottom: 40px;">
+											<img src={files.url} alt={files.name} image-type="Post" class="slds-p-around_xx-small" ></img>
+											<div align="center">
+												<button title="Remove Image" data-image-name={files.name} onclick={handleRemoveImage} class="removeButton">
+														<lightning-icon icon-name="utility:delete" size="x-small" class="slds-m-around_xxx-small"></lightning-icon>
+													</button>
+											</div>
+										</div>
+									</template>
+								</template>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- modal footer start-->
+				<footer class="slds-modal__footer deleteModal">
+					<button class="slds-button slds-button_neutral" onclick={handleCancel}>Cancel</button>
+					<!-- <lightning-button icon-name="utility:upload" variant="brand" class="slds-button slds-button_brand slds-m-left_x-small btncolor" 
+									label="File Upload" onclick={clickFileUpload}>
+				</lightning-button> -->
+					<lightning-button icon-name="utility:upload" variant="brand" class="slds-m-left_x-small btncolor"
+						label="File Upload" onclick={clickFileUpload} data-action-name="Edit">
+					</lightning-button>
+					<button class="slds-button slds-button_brand btncolor slds-m-left_x-small" onclick={handleSaveEdit}>Save</button>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+
+	<!-- Delete Modal -->
+
+	<template if:true={isDeleteModalOpen}>
+		<section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- modal header start -->
+				<header class="slds-modal__header">
+					<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleCancel}>
+						<lightning-icon icon-name="utility:close"
+						alternative-text="close"
+						variant="inverse"
+						size="small" ></lightning-icon>
+						<span class="slds-assistive-text">Close</span>
+					</button>
+					<h2 id="modal-heading-05" class="slds-text-heading_medium slds-hyphenate">Delete Post</h2>
+				</header>
+				<!-- modal body start -->
+				<div class="slds-modal__content slds-p-around_medium deleteModal" id="modal-content-id-5">
+					<b>Are you sure you want to delete the post?</b>
+				</div>
+				<footer class="slds-modal__footer deleteModal">
+					<button class="slds-button slds-button_neutral" onclick={handleCancel}>Cancel</button>
+					<button class="slds-button slds-button_destructive" onclick={handleDelete}>Delete</button>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+	<!-- File Upload Modal -->
+
+	<template if:true={isFileUploadOpen}>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-7" class="fileUploadModal slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- modal header start -->
+				<header class="slds-modal__header">
+					<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={handleFileCancel}>
+						<lightning-icon icon-name="utility:close"
+						alternative-text="close"
+						variant="inverse"
+						size="small" ></lightning-icon>
+						<span class="slds-assistive-text">Close</span>
+					</button>
+					<h2 id="modal-heading-07" class="slds-text-heading_medium slds-hyphenate">File Upload</h2>
+				</header>
+				<!-- modal body start -->
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-7">
+
+
+					<div class="slds-grid slds-var-m-around_small">
+						<div class="slds-col slds-size_6-of-6">
+							<div class="slds-p-bottom_medium">
+								<lightning-input type="file" onchange={handleFileChange} accept=".png, .jpeg, .jpg" multiple>
+								</lightning-input>
+								<div class="slds-text-color_error slds-m-top_x-small slds-m-bottom_x-small">
+									<b>NOTE: Each file must be under 2 MB Size and only 10 files allow.</b>
+								</div>
+								<!-- <lightning-file-upload
+								accept={acceptedFormats}
+								name="fileUploader"
+								class="file-selector-large"
+								label="Select Files"
+								title="postUploader"
+								onuploadfinished={handleUploadFinished}             
+								multiple
+							>
+							</lightning-file-upload> -->
+							</div>
+							<div class="">
+								<template if:true={displayfiles}>
+									<div class="postPicsData">
+										<template for:each={displayfiles} for:item="files">
+											<div key={files.keys} class="displayPics">
+												<img src={files.url} alt={files.name} class="slds-p-around_xx-small" style="width: 100%;"></img>
+												<!-- <c-emp-post-imaged-cmp  content-version-id={files} class="slds-p-around_xx-small postPics"></c-emp-post-imaged-cmp> -->
+												<div align="center">
+													<button title="Remove Image" data-image-name={files.name} onclick={handleRemoveImage}>
+														<lightning-icon icon-name="utility:delete" size="x-small"></lightning-icon>
+													</button>
+												</div>
+
+											</div>
+										</template>
+									</div>
+									<!-- <div class="postPicsData slds-m-top_medium">
+										<template for:each={displayfiles} for:item="files">
+											<div key={files} class="postPics">
+												 <img src={editedFiles.contentzversionData} class="slds-p-around_xx-small" ></img>
+												<c-emp-post-imaged-cmp content-version-id={files} class="slds-p-around_xx-small"></c-emp-post-imaged-cmp>
+												<div align="center">
+													<button title="Remove Image" data-image-id={files} class="slds-m-around_x-small" onclick={handleDeleteImage}>
+														<lightning-icon icon-name="utility:delete" size="x-small" ></lightning-icon>
+													</button>
+												</div>
+											</div>
+										</template>	
+									</div> -->
+								</template>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- modal footer start-->
+				<footer class="slds-modal__footer deleteModal">
+					<button class="slds-button slds-button_neutral" onclick={handleFileCancel}>Cancel</button>
+					<button class="slds-button slds-button_brand btncolor" onclick={handleSaveFiles}>Save</button>
+				</footer>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+
+</template>

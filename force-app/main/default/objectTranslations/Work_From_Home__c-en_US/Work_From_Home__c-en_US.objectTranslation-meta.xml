@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Work From Home</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Work From Home</value>
+    </caseValues>
+    <fieldSets>
+        <label></label>
+        <name>Work_From_Home_Request</name>
+    </fieldSets>
+    <layouts>
+        <layout>Work From Home Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Prevent_Duplicate_Insertion_of_WFH</name>
+    </validationRules>
+</CustomObjectTranslation>

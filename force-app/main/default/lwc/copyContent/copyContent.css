@@ -1,0 +1,20 @@
+.dummy{
+	color : black;
+}
+.title{
+	/* margin: 20px 10px; */
+    font-size: 25px;
+    text-align: center;
+}
+.custom-container {
+    height: 160px; /* Set your preferred height here */
+    padding: 16px; /* Optional: Add padding for better appearance */
+    border: 1px solid #ddd; /* Optional: Add border for better appearance */
+    border-radius: 8px; /* Optional: Add border radius for rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add box shadow for a subtle effect */
+    overflow-y: auto; /* Optional: Add scroll if the content overflows */
+}
+.btn{
+	padding-left: 43%;
+	padding-top: 50px;
+}

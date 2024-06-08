@@ -1,0 +1,1530 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Application_Form_Submitted</name>
+        <label>Application Form Submitted</label>
+        <locationX>314</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>devenrudani62@gmail.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Application Form Submitted Successfully</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>Application_form_submit_sucessfully</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Candidate_Screening_Rejection</name>
+        <label>Candidate Screening Rejection</label>
+        <locationX>1898</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>devenrudani62@gmail.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Candidate Screening Reject</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>ScreeningReject</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_for_Non_Technical</name>
+        <label>Send Email for Non Technical</label>
+        <locationX>1634</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>devenrudani62@gmail.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Interview Schedule for Non-Technical Position</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>InterviewScheduleforNonTechnicalPosition</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_for_Technical_Person</name>
+        <label>Send Email for Technical Position</label>
+        <locationX>50</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>devenrudani62@gmail.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Interview Schedule for Technical Position</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>InterviewScheduleforTechnicalPosition</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_Status_At_iTechCloud</name>
+        <label>Send Email Status At iTechCloud</label>
+        <locationX>1370</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>devenrudani62@gmail.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Application Status Update At iTechcloud Stage</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>EmailBodyAtItechCloud</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_Status_Rejection</name>
+        <label>Send Email Status Rejection</label>
+        <locationX>842</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>devenrudani62@gmail.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Unfortunately You are Rejected</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>CandidateFinalRejected</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_Status_Selected</name>
+        <label>Send Email Status Selected</label>
+        <locationX>1106</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>devenrudani62@gmail.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Selected for Salesforce Developer Position</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>CandidateSelection</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <actionCalls>
+        <name>Send_Email_Status_Selected_for_HR_Interview</name>
+        <label>Send Email Status Selected for HR Interview</label>
+        <locationX>578</locationX>
+        <locationY>431</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>devenrudani62@gmail.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Selected for HR Interview</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>SelectedforHRInterview</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <decisions>
+        <name>Candidate_Selection_For_Interview</name>
+        <label>Candidate Selection For Interview</label>
+        <locationX>1106</locationX>
+        <locationY>323</locationY>
+        <defaultConnectorLabel>Default</defaultConnectorLabel>
+        <rules>
+            <name>Technical_Candidate</name>
+            <conditionLogic>1 AND 2</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Candidate_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Technical Candidate</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Interview</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_for_Technical_Person</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Technical Candidate</label>
+        </rules>
+        <rules>
+            <name>Application_Form_Submit</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Under HR Review</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Application_Form_Submitted</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Application Form Submit</label>
+        </rules>
+        <rules>
+            <name>Setting_Up_Candidate_Interviews_for_HR</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Pre-screening &amp; Interview Setup</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_Status_Selected_for_HR_Interview</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Setting Up Candidate Interviews for HR</label>
+        </rules>
+        <rules>
+            <name>If_Candidate_Rejected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Final Reject</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Final_Reject__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_Status_Rejection</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>If Candidate Rejected</label>
+        </rules>
+        <rules>
+            <name>Candidate_Selected</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Selected</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_Status_Selected</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Candidate Selected</label>
+        </rules>
+        <rules>
+            <name>Candidate_At_iTechCloud</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>At iTechCloud</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_Status_At_iTechCloud</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Candidate At iTechCloud</label>
+        </rules>
+        <rules>
+            <name>Non_Technical_Interview</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Candidate_Type__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Non-Technical Candidate</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Interview</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Send_Email_for_Non_Technical</targetReference>
+            </connector>
+            <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+            <label>Non-Technical Interview</label>
+        </rules>
+        <rules>
+            <name>Candidate_Screening_Reject</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>$Record.Status__c</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>Screening Reject</stringValue>
+                </rightValue>
+            </conditions>
+            <conditions>
+                <leftValueReference>$Record.Screening_Reject__c</leftValueReference>
+                <operator>IsNull</operator>
+                <rightValue>
+                    <booleanValue>false</booleanValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Candidate_Screening_Rejection</targetReference>
+            </connector>
+            <label>Candidate Screening Reject</label>
+        </rules>
+    </decisions>
+    <description>V42</description>
+    <environments>Default</environments>
+    <interviewLabel>Email Notifications for Candidate Interview {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Email Notifications for Candidate Interview</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>980</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Candidate_Selection_For_Interview</targetReference>
+        </connector>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Email__c</field>
+            <operator>IsNull</operator>
+            <value>
+                <booleanValue>false</booleanValue>
+            </value>
+        </filters>
+        <object>Candidate__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Active</status>
+    <textTemplates>
+        <name>Application_form_submit_sucessfully</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+ body {
+text-align: justify;
+ }
+ .container {
+
+  max-width: 600px;
+
+  margin: 0 auto;
+
+ }
+ /* Media query for screens with a maximum width of 768px (commonly used for mobile devices) */
+
+ @media screen and (max-width: 768px) {
+
+  /* Add styles for smaller screens here */
+
+  .body {
+
+   display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+
+  }
+
+ }
+
+&lt;/style&gt;
+
+&lt;/head&gt;
+
+  &lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+
+   &lt;!--iTech Branding--&gt;
+
+   &lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+
+    &lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+
+   &lt;/div&gt;
+
+&lt;p&gt;Dear {!$Record.Full_Name__c},&lt;/p&gt;&lt;p&gt;I hope this message finds you well. We are pleased to inform you that we have received your application form for the {!$Record.Candidate_Role__c} at itechcloud Solution&amp;nbsp;Your submission has been processed and is now in our records.&lt;/p&gt;&lt;p&gt;Here are the details of your application: Name: {!$Record.Full_Name__c}&lt;/p&gt;&lt;p&gt;- Application Date: {!$Record.LastModifiedDate}&lt;/p&gt;&lt;p&gt;- Position Applied for: {!$Record.Candidate_Role__c}&lt;/p&gt;&lt;p&gt;Our selection process is currently underway, and our team will review all applications thoroughly. We appreciate your interest in joining itechcloud Solution, and we will contact you if you are shortlisted for the next steps of the selection process.&lt;/p&gt;&lt;p&gt;In the meantime, please feel free to reach out to us if you have any questions or need further information. You can contact us at or Email at shrikant.shendgeitechcloud@gmail.com&lt;/p&gt;&lt;p&gt;We would like to take this opportunity to thank you for considering itechcloud Solution as your potential employer/educational institution. We look forward to reviewing your application and getting to know you better.&lt;/p&gt;&lt;p&gt;Best regards,&lt;/p&gt;&lt;p&gt;Parth Javiya&lt;/p&gt;
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+     &lt;tr&gt;
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+      &lt;br&gt;
+      This email was sent by: 
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+     209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>CandidateFinalRejected</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+  /* Global styles that apply to all screen sizes */
+  body {
+    text-align: justify;
+  }
+  .container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Media query for screens with a maximum width of 768px (commonly used for mobile devices) */
+  @media screen and (max-width: 768px) {
+    /* Add styles for smaller screens here */
+    .body {
+      display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+    }
+  }
+&lt;/style&gt;
+&lt;/head&gt;
+   &lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+      &lt;!--iTech Branding--&gt;
+      &lt;div  style=&quot;margin-bottom: 20px width=&quot;600&quot;&quot;&gt;
+
+&lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+       
+      &lt;/div&gt;
+&lt;p&gt;Dear {!$Record.Full_Name__c},&lt;/p&gt;
+&lt;p&gt;I hope this message finds you well.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;I want to express my sincere gratitude for your interest in joining the itechcloud Solution team and taking the time to go through our application process.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We appreciate your enthusiasm and the effort you put into your application for the [Position] role.&lt;/p&gt;
+&lt;p&gt;After careful consideration and a thorough review of all applicants, we have made a difficult decision, and I regret to inform you that we have chosen to move forward with another candidate for the position.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;This decision was not easy, as we were genuinely impressed by your qualifications and experience.&lt;/p&gt;
+&lt;p&gt;We want to emphasize that your application was highly competitive, and the final choice was extremely challenging.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We encourage you to continue pursuing opportunities that align with your career goals and expertise.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Your skills and experiences are valuable, and we believe that you will find a position that will be a great match for your talents.&lt;/p&gt;
+&lt;p&gt;We will keep your application on file, and we hope you&apos;ll consider applying for future positions at itechcloud Solution as they become available.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Our organization is always evolving, and we frequently look for exceptional talent to join our team.&lt;/p&gt;
+&lt;p&gt;Thank you once again for considering a career with us, and we wish you every success in your job search and your future endeavors.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Should you have any questions or would like feedback on your application or interview, please feel free to reach out to us.&lt;/p&gt;
+&lt;p&gt;Thank you for your understanding, and we appreciate your interest in itechcloud Solution.&lt;/p&gt;
+&lt;p&gt;Best regards,&lt;/p&gt;
+&lt;p&gt;Parth Javiya&lt;/p&gt;
+
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+
+     &lt;!-- FOOTER CONTENT --&gt;
+
+     &lt;tr&gt;
+
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+
+    &lt;tr&gt;
+
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+
+      &lt;!-- End social media links --&gt;
+
+      &lt;br&gt;
+
+      This email was sent by: 
+
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+
+     209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+
+      &lt;br&gt;
+
+      &lt;br&gt;
+
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>CandidateSelection</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+
+&lt;head&gt;
+
+&lt;style&gt;
+
+ /* Global styles that apply to all screen sizes */
+
+ body {
+
+  text-align: justify;
+
+ }
+
+ .container {
+
+  max-width: 600px;
+
+  margin: 0 auto;
+
+ }
+ /* Media query for screens with a maximum width of 768px (commonly used for mobile devices) */
+
+ @media screen and (max-width: 768px) {
+
+  /* Add styles for smaller screens here */
+
+  .body {
+
+   display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+
+  }
+
+ }
+
+&lt;/style&gt;
+
+&lt;/head&gt;
+
+  &lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+
+   &lt;!--iTech Branding--&gt;
+
+   &lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+
+    &lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+
+   &lt;/div&gt;
+&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Dear {!$Record.Full_Name__c},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;I hope this email finds you well. We are thrilled to inform you that after careful consideration of all applicants, you have been selected for the {!$Record.Candidate_Role__c} role at itechcloud Solution. Congratulations on this outstanding achievement!&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Your application and interview performance impressed our selection committee, and we believe that you possess the skills, experience, and qualities that make you an excellent fit for our team. We look forward to having you on board and contributing to our company&apos;s success.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Here are some important details and next steps:&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;1. Employment Agreement: You will receive an official employment agreement that outlines the terms and conditions of your employment. Please review it carefully, sign, and return it by [Deadline Date].&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;2. Onboarding Process: Our HR team will reach out to you with details about the onboarding process, which includes completing necessary paperwork, orientation, and training. Please keep an eye on your inbox for this communication.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;3. Start Date: Your scheduled start date is [Start Date]. We are excited to welcome you to the team, and please don&apos;t hesitate to reach out if you have any questions before your first day.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;4. Contact Information: If any of your contact information has changed since your application, please inform our HR team to ensure smooth communication.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;If you have any questions or require additional information, please feel free to contact at&amp;nbsp;&lt;/p&gt;&lt;p&gt;We would like to take this opportunity to congratulate you once again on your achievement. We are confident that you will make a valuable contribution to our company, and we look forward to working with you.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Welcome to the itechcloud family, and we can&apos;t wait to see the great things we&apos;ll achieve together!&lt;/p&gt;&lt;p&gt;Sincerely,&amp;nbsp;&lt;/p&gt;&lt;p&gt;Parth Javiya&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;iTechCloud Solution&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Surat.
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+     &lt;tr&gt;
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+      &lt;br&gt;
+      This email was sent by: 
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+      209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>EmailBodyAtItechCloud</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+body {
+text-align: justify;
+}
+.container {
+max-width: 600px;
+margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+.body {
+display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+&lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+&lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Dear {!$Record.Full_Name__c},&lt;/p&gt;&lt;p&gt;We&apos;re pleased to inform you that your application for the position at iTechCloud has reached the &quot;At iTechcloud&quot; stage. This signifies a significant step forward in our selection process.&lt;/p&gt;&lt;p&gt;Application Stage: At iTechcloud&lt;/p&gt;&lt;p&gt;What to Expect:&lt;/p&gt;&lt;p&gt;Our dedicated team at iTechcloud will now carefully review your qualifications, skills, and experience to ensure the best fit for the position. Please be patient as we evaluate your application thoroughly.&lt;/p&gt;&lt;p&gt;Next Steps:&lt;/p&gt;&lt;p&gt;We&apos;ll keep you updated on your application&apos;s progress, and you may receive further communication regarding interviews or additional information.&lt;/p&gt;&lt;p&gt;Questions or Assistance:&lt;/p&gt;&lt;p&gt;If you have any questions or need assistance, reach out to us at contact@itechcloudsolution.com.&lt;/p&gt;&lt;p&gt;Thank you for considering iTechCloud Solution. We look forward to the possibility of having you join our team.&lt;/p&gt;&lt;p&gt;Best regards,&lt;/p&gt;&lt;p&gt;iTechCloud Solution&lt;/p&gt;&lt;p&gt;Surat.&lt;/p&gt;
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+     &lt;tr&gt;
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+      &lt;br&gt;
+      This email was sent by: 
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+     209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>Use this email body to send email to candidate when his/her status is at iTechCloud</description>
+        <name>EmailBodyForCandidateAtItechCloud</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+body {
+text-align: justify;
+}
+.container {
+max-width: 600px;
+margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+.body {
+display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+&lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+&lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Dear {!$Record.Full_Name__c},&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;We&apos;re pleased to inform you that your application for the {!$Record.Candidate_Role__c} position at iTechCloud has reached the &quot;At iTechcloud&quot; stage. 
+This signifies a significant step forward in our selection process.&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;Application Stage: At iTechcloud&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;What to Expect:&lt;/p&gt;
+&lt;p&gt;Our dedicated team at iTechcloud will now carefully review your qualifications, skills, and experience to ensure the best fit for the position. Please be patient as we evaluate your application thoroughly.&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Next Steps:&lt;/p&gt;&lt;p&gt;We&apos;ll keep you updated on your application&apos;s progress, and you may receive further communication regarding interviews or additional information.&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;Questions or Assistance:&lt;/p&gt;
+&lt;p&gt;If you have any questions or need assistance, reach out to us at contact@itechcloudsolution.com.&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;p&gt;Thank you for considering iTechCloud Solution. We look forward to the possibility of having you join our team.&lt;/p&gt;&lt;p&gt;
+&lt;/p&gt;&lt;br&gt;&lt;p&gt;Best regards,&lt;/p&gt;
+&lt;p&gt;iTechCloud Solution&lt;/p&gt;
+&lt;p&gt;Surat.&lt;/p&gt;
+
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+     &lt;tr&gt;
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+      &lt;br&gt;
+      This email was sent by: 
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+      209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>emailBodyforOfferlatter</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+body {
+text-align: justify;
+}
+.container {
+max-width: 600px;
+margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+.body {
+display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+&lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+&lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Dear {!$Record.Full_Name__c} ,&lt;/p&gt;&lt;p&gt;We are delighted to extend an offer for the {!$Record.Candidate_Role__c} position at iTechCloud Solution.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Your qualifications, experience, and interview performance have truly impressed us, and we believe you will be a valuable addition to our team.&lt;/p&gt;&lt;p&gt;Offer Letter Details:&lt;/p&gt;&lt;p&gt;Position: {!$Record.Candidate_Role__c}&lt;/p&gt;&lt;p&gt;Start Date: [Proposed Start Date]&lt;/p&gt;&lt;p&gt;Compensation: [Offered Compensation Package]&lt;/p&gt;&lt;p&gt;Benefits: [Details of Offered Benefits]&lt;/p&gt;&lt;p&gt;Terms and Conditions: [Any Specific Terms and Conditions]Action Required: To accept this offer, please follow the instructions provided in the attached offer letter or click the secure link below.&amp;nbsp;&lt;/p&gt;&lt;p&gt;You will find an &quot;Accept&quot; or &quot;Decline&quot; button within the offer letter.Offer Letter Link:&amp;nbsp;&amp;nbsp;https://itechcloudsolution--itechdev.sandbox.my.site.com/s/offer-letter-confirmation?Variable=true&amp;amp;id={!$Record.Id}&lt;/p&gt;&lt;p&gt;Deadline for Acceptance: We kindly request that you review and respond to this offer by [Offer Acceptance Deadline].&amp;nbsp;&lt;/p&gt;&lt;p&gt;Your prompt response will allow us to initiate the onboarding process.Questions or Clarifications: If you have any questions or need clarification on any aspect of the offer, please do not hesitate to reach out to our HR team at [Contact Email] or [Contact Phone Number].&lt;/p&gt;&lt;p&gt;Confirmation for [Company Owner]: A confirmation email has been sent to the company owner indicating that the offer letter has been successfully delivered to your email address.We eagerly await your response, and we are excited about the possibility of having you as a part of iTechCloud Solution.&lt;/p&gt;&lt;p&gt;Best regards,&lt;/p&gt;&lt;p&gt;Parth Javiya&lt;/p&gt;
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+     &lt;tr&gt;
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+      &lt;br&gt;
+      This email was sent by: 
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+      209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <description>This email body needs to be used when sending email to candidate when he/she is at Under HR Review Status</description>
+        <name>EmailBodyForStatusUnderHRReview</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+body {
+text-align: justify;
+}
+.container {
+max-width: 600px;
+margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+.body {
+display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+&lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+&lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;Dear {!$Record.Full_Name__c},&lt;/p&gt;&lt;p&gt;We are pleased to inform you that your application for the {!$Record.Candidate_Role__c} position has moved to the &apos;Under HR Review&apos; stage.&lt;/p&gt;&lt;p&gt;Our team will review your application, and you will receive further updates soon.&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Thank you for your interest in joining iTechCloud Solution.&lt;/p&gt;&lt;p&gt;Best regards, iTechCloud&lt;/p&gt;
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+     &lt;tr&gt;
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+      &lt;br&gt;
+      This email was sent by: 
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+      209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>InterviewScheduleforNonTechnicalPosition</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+body {
+text-align: justify;
+}
+.container {
+max-width: 600px;
+margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+.body {
+display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+&lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+&lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Dear {!$Record.Full_Name__c},&lt;/p&gt;&lt;p&gt;I hope this message finds you well. We are pleased to inform you that you have been shortlisted for an interview for the Non-Technical Position at itechcloud Solution.&lt;/p&gt;&lt;p&gt;Your application has impressed us, and we are eager to learn more about you and your qualifications.&lt;/p&gt;&lt;p&gt;Below, you will find the details of your interview schedule:&lt;/p&gt;&lt;p&gt;Interview Date &amp;amp;amp :- Time {!$Record.Candidate_Role__c}&lt;/p&gt;&lt;p&gt;Interview Location :- itechcloud Solution Pvt , ltd Surat.&lt;/p&gt;&lt;p&gt;Interview Panel :-&amp;nbsp;Subhash Panchani , Deepak Koli&lt;/p&gt;&lt;p&gt;Agenda:&lt;/p&gt;&lt;p&gt;1. Introduction and Company Overview&lt;/p&gt;&lt;p&gt;2. Behavioral Interview Questions&lt;/p&gt;&lt;p&gt;3. Role-specific Questions&lt;/p&gt;&lt;p&gt;4. Q&amp;amp;amp;A Session&lt;/p&gt;&lt;p&gt;5. Next Steps and Closing Remarks&lt;/p&gt;&lt;p&gt;Please make sure to arrive a few minutes early, dressed professionally, and with any necessary documents or materials.&amp;nbsp;&lt;/p&gt;&lt;p&gt;If the interview is conducted via video conference, please ensure that you have a stable internet connection, a working camera, and a quiet, well-lit space for the call.&lt;/p&gt;&lt;p&gt;We recommend you familiarize yourself with our company and the role you are applying for.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Be prepared to discuss your qualifications and experiences that make you a strong fit for this position. Feel free to ask any questions you may have during the A session.&lt;/p&gt;&lt;p&gt;If the provided date and time are inconvenient for you, please let us know as soon as possible so that we can make alternative arrangements.&lt;/p&gt;&lt;p&gt;If you have any questions or require further information prior to the interview, please do not hesitate to reach out to our HR department at harshvi.mavaniitechcloud@gmail.com.&lt;/p&gt;&lt;p&gt;We look forward to meeting you and getting to know you better during the interview. Good luck with your preparations, and thank you for your interest in joining itechcloud Solution .&lt;/p&gt;&lt;p&gt;Best regards,&lt;/p&gt;&lt;p&gt;Parth Javiya&lt;/p&gt;
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+     &lt;tr&gt;
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+      &lt;br&gt;
+      This email was sent by: 
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+      209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>InterviewScheduleforTechnicalPosition</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+
+&lt;head&gt;
+
+&lt;style&gt;
+
+ /* Global styles that apply to all screen sizes */
+
+ body {
+
+  text-align: justify;
+
+ }
+
+ .container {
+
+  max-width: 600px;
+
+  margin: 0 auto;
+
+ }
+ /* Media query for screens with a maximum width of 768px (commonly used for mobile devices) */
+
+ @media screen and (max-width: 768px) {
+
+  /* Add styles for smaller screens here */
+
+  .body {
+
+   display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+
+  }
+
+ }
+
+&lt;/style&gt;
+
+&lt;/head&gt;
+
+  &lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+
+   &lt;!--iTech Branding--&gt;
+
+   &lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+
+    &lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+
+   &lt;/div&gt;
+
+&lt;p&gt;Dear {!$Record.Full_Name__c},&lt;/p&gt;&lt;p&gt;We hope this email finds you well. We are excited to invite you for an interview with itechcloud Solution for the position of {!$Record.Candidate_Role__c}.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Your application has impressed us, and we would like to move forward in the selection process.&lt;/p&gt;&lt;p&gt;We have scheduled a series of rounds to evaluate your skills and fit for the role.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Please find the details of each round below:&lt;/p&gt;&lt;p&gt;HR/General Discussion Round&lt;/p&gt;&lt;p&gt;Date &amp;amp;amp; Time&amp;nbsp;:- {!$Record.Interview_Date__c}&lt;/p&gt;&lt;p&gt;Interviewer&amp;nbsp;&amp;nbsp;:- Parth Javiya&lt;/p&gt;&lt;p&gt;&amp;nbsp;Duration&amp;nbsp;&amp;nbsp;&amp;nbsp;:- Approximately 30 minutes&lt;/p&gt;&lt;p&gt;&amp;nbsp;This round will focus on getting to know you better,&amp;nbsp;&lt;/p&gt;&lt;p&gt;&amp;nbsp;discussing your background, career aspirations, and how you align with our company culture.&lt;/p&gt;&lt;p&gt;Round 2: Technical Round&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Date :-{!$Record.Interview_Date__c}&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Interviewer :-Mr. Dhruv Javiya&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Duration :- Approximately 60 minutes ,In this round, we will assess your technical skills, knowledge, and problem-solving abilities related to the role you have applied for.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Be prepared to discuss your relevant experience and answer technical questions.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Round 3 :- Aptitude Round&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Date&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;:-{!$Record.Interview_Date__c}&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Interviewer :- [Aptitude Test Facilitator&apos;s Name]&amp;nbsp;&amp;nbsp;&lt;/p&gt;&lt;p&gt;Duration&amp;nbsp;&amp;nbsp;:- Approximately 45 minutes&lt;/p&gt;&lt;p&gt;This round will evaluate your analytical and problem-solving skills.&amp;nbsp;&lt;/p&gt;&lt;p&gt;You may be given aptitude tests or asked to solve practical problems related to the role.&lt;/p&gt;&lt;p&gt;Please ensure that you are well-prepared for each round, and if any specific materials or tools are required, we will inform you in advance. Don&apos;t forget to bring any relevant identification or documents if necessary.&lt;/p&gt;&lt;p&gt;If the proposed date and time for any of these rounds do not work for you, or if you have any questions or concerns, please let us know as soon as possible.&amp;nbsp;&lt;/p&gt;&lt;p&gt;We are happy to accommodate your schedule or address any inquiries you may have.&lt;/p&gt;&lt;p&gt;We look forward to meeting you and discussing your potential contributions to our team.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Your interview with us is an important step, and we appreciate the effort you&apos;ve put into your application.&lt;/p&gt;&lt;p&gt;Should you have any further queries or need assistance, feel free to contact [HR Contact Name] at shrikant.shendgeitechcloud@gmail.com&amp;nbsp;&lt;/p&gt;&lt;p&gt;Best regards,&lt;/p&gt;&lt;p&gt;Parth Javiya
+
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+
+     &lt;!-- FOOTER CONTENT --&gt;
+
+     &lt;tr&gt;
+
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+
+    &lt;tr&gt;
+
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+
+      &lt;!-- End social media links --&gt;
+
+      &lt;br&gt;
+
+      This email was sent by: 
+
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+
+      209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+
+      &lt;br&gt;
+
+      &lt;br&gt;
+
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>ScreeningReject</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+body {
+text-align: justify;
+}
+.container {
+max-width: 600px;
+margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+.body {
+display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+&lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+&lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;&lt;br&gt;&lt;/p&gt;&lt;p&gt;Dear {!$Record.Full_Name__c},&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;I hope this message finds you well.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;I want to express my sincere gratitude for your interest in joining the itechcloud Solution team and taking the time to go through our application process.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We appreciate your enthusiasm and the effort you put into your application for the [Position] role.&lt;/p&gt;&lt;p&gt;After careful consideration and a thorough review of all applicants, we have made a difficult decision, and I regret to inform you that we have chosen to move forward with another candidate for the position.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;This decision was not easy, as we were genuinely impressed by your qualifications and experience.&lt;/p&gt;
+&lt;p&gt;We want to emphasize that your application was highly competitive, and the final choice was extremely challenging.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;We encourage you to continue pursuing opportunities that align with your career goals and expertise.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Your skills and experiences are valuable, and we believe that you will find a position that will be a great match for your talents.&lt;/p&gt;
+&lt;p&gt;We will keep your application on file, and we hope you&apos;ll consider applying for future positions at itechcloud Solution as they become available.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Our organization is always evolving, and we frequently look for exceptional talent to join our team.&lt;/p&gt;&lt;p&gt;Thank you once again for considering a career with us, and we wish you every success in your job search and your future endeavors.&amp;nbsp;&lt;/p&gt;
+&lt;p&gt;Should you have any questions or would like feedback on your application or interview, please feel free to reach out to us.&lt;/p&gt;
+&lt;p&gt;Thank you for your understanding, and we appreciate your interest in itechcloud Solution.&lt;/p&gt;
+&lt;p&gt;Best regards,&lt;/p&gt;
+&lt;p&gt;Parth Javiya&lt;/p&gt;
+
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+     &lt;tr&gt;
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+      &lt;br&gt;
+      This email was sent by: 
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+      209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+    <textTemplates>
+        <name>SelectedforHRInterview</name>
+        <isViewedAsPlainText>true</isViewedAsPlainText>
+        <text>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+body {
+text-align: justify;
+}
+.container {
+max-width: 600px;
+margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+.body {
+display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+&lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+&lt;a href=&quot;#&quot; title=&quot;HTML Email Check&quot; target=&quot;_blank&quot;&gt; &lt;img src=&quot;{!$Label.Email_Header_Image_Link}&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;/&gt; &lt;/a&gt;
+&lt;/div&gt;
+
+&lt;p&gt;Dear {!$Record.Full_Name__c},&lt;/p&gt;&lt;p&gt;I hope this message finds you well. We want to express our gratitude for your interest in the itechcloud Solution and your recent application for the {!$Record.Candidate_Role__c} position.&amp;nbsp;&lt;/p&gt;&lt;p&gt;We were highly impressed by your qualifications and the experiences you&apos;ve shared in your application.&lt;/p&gt;&lt;p&gt;We are pleased to inform you that you have been selected for the next stage of our hiring process, which is the HR interview.&amp;nbsp;&lt;/p&gt;&lt;p&gt;This interview is a crucial step in our evaluation process as it allows us to learn more about you as a candidate and to determine if your skills and aspirations align with the values and culture of our company.&lt;/p&gt;&lt;p&gt;Details for the HR interview are as follows:&lt;/p&gt;&lt;p&gt;Date &amp;amp; Time :- {!$Record.Interview_Date__c}&amp;nbsp;&lt;/p&gt;&lt;p&gt;During the HR interview, we aim to understand your background, career goals, and what motivates you.&amp;nbsp;&lt;/p&gt;&lt;p&gt;You will also have the opportunity to ask any questions you may have about the role, company, or our hiring process.&lt;/p&gt;&lt;p&gt;To prepare for the interview, please be ready to discuss your:&lt;/p&gt;&lt;p&gt;1. Professional experience and qualifications.&lt;/p&gt;&lt;p&gt;2. Your understanding of itechcloud Solution.&lt;/p&gt;&lt;p&gt;3. Your career aspirations and how they align with the position.&lt;/p&gt;&lt;p&gt;4. Any questions you have about the role or our Company.If the provided date and time are not convenient for you, please let us know as soon as possible, and we will do our best to accommodate your schedule.&amp;nbsp;&lt;/p&gt;&lt;p&gt;We highly value your time and effort, and we want to ensure the interview process is as convenient as possible for you.&lt;/p&gt;&lt;p&gt;If you require any accommodations for the interview due to a disability or any other special circumstances, please let us know, and we will make the necessary arrangements.&lt;/p&gt;&lt;p&gt;We look forward to meeting with you and getting to know you better during the HR interview.&amp;nbsp;&lt;/p&gt;&lt;p&gt;In the meantime, if you have any immediate questions or concerns, please feel free to reply to this email, or you can reach out to our HR department at [HR Contact Email or Phone Number].&lt;/p&gt;&lt;p&gt;Thank you for considering a career with itechcloud Solution. We are excited about the opportunity to work with you and discuss your potential contributions to our team.&lt;/p&gt;&lt;p&gt;Best regards,&lt;/p&gt;&lt;p&gt;Parth Javiya&lt;/p&gt;
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+     &lt;tr&gt;
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://join.skype.com/invite/i8xgA7xIMFdj&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+      &lt;br&gt;
+      This email was sent by: 
+      &lt;span&gt;iTechCloud Solution&lt;br&gt;
+      209-210-211, Western Plaza, Simada Naka, Varachha Road,Surat, Gujarat, India 395006&lt;/span&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+</Flow>

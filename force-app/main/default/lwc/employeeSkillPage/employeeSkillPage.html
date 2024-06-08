@@ -1,0 +1,63 @@
+<template>
+
+    <div class="headingContainer">
+        <h1><span>ADD</span> EMPLOYEE & SKILL</h1>
+    </div>
+    <div class="combox">
+        <div class="slds-size_1-of-2">
+            <label for="combobox"><span class="starColor">*</span>Select Employee</label>
+            <!-- <lightning-combobox id="employee" class="strong-text" name="employee" options={employeeOptions}
+                  value={value} onchange={handleChange} style="margin-top: -16px;"></lightning-combobox> -->
+            <div style="margin-top: -16px;">
+                <!-- lightning input for selection of employee -->
+                <lightning-input class="employeeInputText" type="search" onfocus={showPicklistOptions} onchange={search}
+                    value={selectedValue} placeholder="Please Select Employee">
+                </lightning-input>
+                <div if:true={searchResults} class="slds-dropdown slds-dropdown_length-5 " role="listbox">
+                    <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                        <template for:each={searchResults} for:item="searchResult">
+                            <li key={searchResult.value} data-value={searchResult.value} role="presentation"
+                                onclick={selectSearchResult} class="slds-listbox__item">
+                                <div class="slds-media slds-listbox__option slds-listbox__option_plain slds-media_small "
+                                    role="option">
+                                    <span class="slds-media__body">
+                                        <span class="slds-truncate" title={searchResult.label}>
+                                            {searchResult.label}
+                                        </span>
+                                    </span>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="droupDownContainer">
+        <div class="slds-p-horizontal_small">
+            <label for="combobox"><span>*</span>Select Skills</label>
+            <div style="margin-top: -16px;">
+                <template lwc:if={spinner}>
+                    <div>
+                        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                    </div>
+                </template>
+                <c-custom-multi-pick-list required="true" showpills="true"
+                    role="cm-picklist"></c-custom-multi-pick-list>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="footerButtons">
+        <div class="saveAndNextButtonDiv">
+            <button class="slds-button slds-button_success saveAndNextButton" onclick={onNavigateToCertificatePage}>Save
+                & Next</button>
+        </div>
+    </div>
+
+
+</template>

@@ -1,0 +1,10 @@
+.wrapper{
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 10px;
+    cursor: pointer;
+}

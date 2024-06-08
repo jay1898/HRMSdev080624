@@ -1,0 +1,37 @@
+<template>
+    <canvas class="confettiCanvas" id="canvas" lwc:dom="manual"></canvas>
+
+    <!-- Confetti -->
+    <lightning-card title="Confetti">
+        <div>
+            <lightning-button label="Basic Cannon" onclick={basicCannon}
+                class="slds-m-around_x-small"></lightning-button>
+
+            <lightning-button label="Random Cannon" onclick={randomCannon}
+                class="slds-m-around_x-small"></lightning-button>
+
+            <lightning-button label="Fire Work" onclick={fireworks} class="slds-m-around_x-small"></lightning-button>
+
+            <lightning-button label="Shower" onclick={shower} class="slds-m-around_x-small"></lightning-button>
+
+            <lightning-button label="Celebration" onclick={celebration}
+                class="slds-m-around_x-small"></lightning-button>
+
+            <lightning-button label="Burst" onclick={burst} class="slds-m-around_x-small"></lightning-button>
+        </div>
+    </lightning-card>
+
+    <!-- Sweet Alert -->
+    <lightning-card title="Sweet Alerts">
+        <lightning-button label="Success" onclick={showSuccessAlert} variant="success"
+            class="slds-m-around_x-small"></lightning-button>
+
+        <lightning-button label="Error" onclick={showFailureAlert} variant="destructive"
+            class="slds-m-around_x-small"></lightning-button>
+
+        <lightning-button label="Warning" onclick={showWarningAlert} class="slds-m-around_x-small"></lightning-button>
+
+        <lightning-button label="Info" onclick={showInfoAlert} class="slds-m-around_x-small"></lightning-button>
+    </lightning-card>
+
+</template>

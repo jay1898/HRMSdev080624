@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Send_Offer_Letter_Log</name>
+        <label>Send Offer Letter Log</label>
+        <locationX>176</locationX>
+        <locationY>323</locationY>
+        <actionName>emailSimple</actionName>
+        <actionType>emailSimple</actionType>
+        <flowTransactionModel>CurrentTransaction</flowTransactionModel>
+        <inputParameters>
+            <name>emailAddresses</name>
+            <value>
+                <elementReference>$Record.Email__c</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderType</name>
+            <value>
+                <stringValue>OrgWideEmailAddress</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>senderAddress</name>
+            <value>
+                <stringValue>devenrudani62@gmail.com</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailSubject</name>
+            <value>
+                <stringValue>Offer Letter Confirmation</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>emailBody</name>
+            <value>
+                <elementReference>emailBody</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>sendRichBody</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>relatedRecordId</name>
+            <value>
+                <elementReference>$Record.Id</elementReference>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>logEmailOnSend</name>
+            <value>
+                <booleanValue>true</booleanValue>
+            </value>
+        </inputParameters>
+        <nameSegment>emailSimple</nameSegment>
+        <versionSegment>1</versionSegment>
+    </actionCalls>
+    <apiVersion>59.0</apiVersion>
+    <environments>Default</environments>
+    <interviewLabel>Send Offer Letter {!$Flow.CurrentDateTime}</interviewLabel>
+    <label>Send Offer Letter</label>
+    <processMetadataValues>
+        <name>BuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>CanvasMode</name>
+        <value>
+            <stringValue>AUTO_LAYOUT_CANVAS</stringValue>
+        </value>
+    </processMetadataValues>
+    <processMetadataValues>
+        <name>OriginBuilderType</name>
+        <value>
+            <stringValue>LightningFlowBuilder</stringValue>
+        </value>
+    </processMetadataValues>
+    <processType>AutoLaunchedFlow</processType>
+    <start>
+        <locationX>50</locationX>
+        <locationY>0</locationY>
+        <connector>
+            <targetReference>Send_Offer_Letter_Log</targetReference>
+        </connector>
+        <doesRequireRecordChangedToMeetCriteria>true</doesRequireRecordChangedToMeetCriteria>
+        <filterLogic>and</filterLogic>
+        <filters>
+            <field>Status__c</field>
+            <operator>EqualTo</operator>
+            <value>
+                <stringValue>Offer Extended</stringValue>
+            </value>
+        </filters>
+        <object>Candidate__c</object>
+        <recordTriggerType>Update</recordTriggerType>
+        <triggerType>RecordAfterSave</triggerType>
+    </start>
+    <status>Obsolete</status>
+    <textTemplates>
+        <name>emailBody</name>
+        <isViewedAsPlainText>false</isViewedAsPlainText>
+        <text>&lt;html&gt;
+&lt;head&gt;
+&lt;style&gt;
+body {
+text-align: justify;
+}
+.container {
+max-width: 600px;
+margin: 0 auto;
+}
+@media screen and (max-width: 768px) {
+.body {
+display: none; /* Example: Hide the element with class &apos;body&apos; on smaller screens */
+}
+}
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body class=&quot;container&quot; style=&quot;text-align: justify;&quot;&gt;
+&lt;div style=&quot;margin-bottom: 20px&quot;&gt;
+&lt;img src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vE6&amp;oid=00D1s0000000TLW&amp;lastMod=1697453575000&quot; alt=&quot;iTechCloud Solution&quot; width=&quot;100%&quot;&gt;
+&lt;/div&gt;
+&lt;p&gt;Dear {!$Record.Full_Name__c} ,&lt;/p&gt;&lt;p&gt;We are delighted to extend an offer for the {!$Record.Candidate_Role__c} position at iTechCloud Solution.&amp;nbsp;&lt;/p&gt;&lt;p&gt;Your qualifications, experience, and interview performance have truly impressed us, and we believe you will be a valuable addition to our team.&lt;/p&gt;&lt;p&gt;Offer Letter Details:&lt;/p&gt;&lt;p&gt;Position: {!$Record.Candidate_Role__c}&lt;/p&gt;&lt;p&gt;Start Date: [Proposed Start Date]&lt;/p&gt;&lt;p&gt;Compensation: [Offered Compensation Package]&lt;/p&gt;&lt;p&gt;Benefits: [Details of Offered Benefits]&lt;/p&gt;&lt;p&gt;Terms and Conditions: [Any Specific Terms and Conditions]Action Required: To accept this offer, please follow the instructions provided in the attached offer letter or click the secure link below.&amp;nbsp;&lt;/p&gt;&lt;p&gt;You will find an &quot;Accept&quot; or &quot;Decline&quot; button within the offer letter.Offer Letter Link:&amp;nbsp;&amp;nbsp;https://itechcloudsolution--itechdev.sandbox.my.site.com/s/offer-letter-confirmation?Variable=true&amp;amp;id={!$Record.Id}&lt;/p&gt;&lt;p&gt;Deadline for Acceptance: We kindly request that you review and respond to this offer by [Offer Acceptance Deadline].&amp;nbsp;&lt;/p&gt;&lt;p&gt;Your prompt response will allow us to initiate the onboarding process.Questions or Clarifications: If you have any questions or need clarification on any aspect of the offer, please do not hesitate to reach out to our HR team at [Contact Email] or [Contact Phone Number].&lt;/p&gt;&lt;p&gt;Confirmation for [Company Owner]: A confirmation email has been sent to the company owner indicating that the offer letter has been successfully delivered to your email address.We eagerly await your response, and we are excited about the possibility of having you as a part of iTechCloud Solution.&lt;/p&gt;&lt;p&gt;Best regards,&lt;/p&gt;&lt;p&gt;Parth Javiya&lt;/p&gt;
+&lt;table width=&quot;100%&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; style=&quot;margin-top: 20px;&quot;&gt;
+     &lt;tr&gt;
+  &lt;td align=&quot;center&quot; valign=&quot;top&quot; width=&quot;100%&quot;&gt;
+  &lt;table class=&quot;container&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; width=&quot;600&quot;&gt;
+    &lt;tr&gt;
+      &lt;td align=&quot;center&quot; style=&quot;font-family: Verdana, Helvetica, Arial, sans-serif; font-size: 11px; color: #959595; padding:0px 0px 25px 0px;&quot;&gt;&lt;!-- Add social media links here --&gt;
+
+      &lt;div class=&quot;social-links mt-3&quot;&gt;
+
+       &lt;a href=&quot;https://twitter.com/itechcloud_&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEf&amp;oid=00D1s0000000TLW&amp;lastMod=1697461691000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.facebook.com/itechcloudsolution/&quot; &gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEL&amp;oid=00D1s0000000TLW&amp;lastMod=1697460067000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://www.instagram.com/itechcloudsolution&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEV&amp;oid=00D1s0000000TLW&amp;lastMod=1697461983000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;skype:subhash.panchani?chat&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEQ&amp;oid=00D1s0000000TLW&amp;lastMod=1697460995000&quot;/&gt;&lt;/a&gt;
+
+       &lt;a href=&quot;https://in.linkedin.com/company/itechcloud-solution-pvt-ltd&quot;&gt;&lt;img height=&quot;30px&quot; width=&quot;30px&quot; src=&quot;https://itechcloudsolution--itechdev.sandbox.file.force.com/servlet/servlet.ImageServer?id=0151s0000000vEa&amp;oid=00D1s0000000TLW&amp;lastMod=1697461606000&quot;/&gt;&lt;/a&gt;
+
+      &lt;/div&gt;
+      &lt;br&gt;
+      This email was sent by: 
+      &lt;span&gt;iTechCloud Solutoin&lt;br&gt;
+      210, Western Plaza,Simada Gam, Nana Varachha, Surat, Gujarat 395006, India&lt;/span&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;a href=&quot;https://google.com&quot; alias=&quot;Privacy Policy&quot; target=&quot;_blank&quot; style=&quot;font-size:12px; color: #959595; text-decoration: none; font-weight:bold;&quot;&gt;Privacy Policy&lt;/a&gt;
+      &lt;br&gt;
+      &lt;br&gt;
+      &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/table&gt;
+  &lt;/td&gt;
+&lt;/tr&gt;
+   &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</text>
+    </textTemplates>
+</Flow>

@@ -1,0 +1,25 @@
+<apex:page standardController="Candidate__c" extensions="SendOfferLetterWithAttachment" showHeader="false"
+    showQuickActionVfHeader="false">
+    <style type="text/css">
+
+    </style>
+    <apex:outputText value="{!message}" style="color:green;font-size:20px" />
+    <apex:outputPanel rendered="{!IF(dataNotNull == true,true,false)}">
+        <div style="color: red;font-size: 20px;text-align: center;">The fields for Salary, Joining date, and Description are required. Please ensure all fields are filled before proceeding.
+        </div>
+    </apex:outputPanel>
+    <apex:outputPanel rendered="{!IF(dataNotNull == false,true,false)}">
+        <apex:form >
+            <center>
+                <apex:commandButton action="{!sendEmail}" value="Send Mail"
+                    style="margin-top: 10px;background: #00A129; border: none; color: white;border-radius:10px; padding: 15px 15px; font-size: 16px" />
+                <apex:commandButton action="{!Cancel}" value="Cancel"
+                    style="margin-left: 500px;background: red; border: none; color: white;border-radius:10px; padding: 15px 15px; font-size: 16px" />
+            </center> <br />
+            <center>
+                <apex:iframe height="900px" src="/apex/OfferLetterPDFViewer?id={!MstrID}" />
+            </center>
+        </apex:form><br /><br /><br />
+    </apex:outputPanel>
+    <footer class="slds-modal__footer"></footer>
+</apex:page>

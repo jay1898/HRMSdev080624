@@ -1,0 +1,254 @@
+<template>
+	<header>
+		<div class="container navbar">
+			<div class="">
+				<div class="">
+					<a href="https://www.itechcloudsolution.com/">
+						<img class="Carrer_logo" src={imgURL} />
+                    </a>
+				</div>
+			</div>
+			<div class="">
+				<p class="home"><a href="https://www.itechcloudsolution.com/"> <span class="home-span">Home</span> </a>
+				</p>
+			</div>
+		</div>
+	</header>
+	<br><br><br><br>
+	<div class="overrideStyle"></div>
+
+	<template if:true={showVariable}>
+		<lightning-spinner if:true={isLoading} alternative-text="Loading" size="large"></lightning-spinner>
+        <template if:true={showExpiredLink}>
+			<div class="link" style="text-align: center;">
+				<img class="Linkexpire" src={ExpirelinkURL} />
+            </div>
+				<div style="text-align: center; padding-bottom:47px; padding-top:39px;">
+					<span style="color:#194051; font-size: 26px;">Your form has already been submitted or the</span><br>
+					<span style="color:#FF0101; font-size: 26px;">link has expired.</span>
+				</div>
+				<!-- <div class="errorMsg">Your form has already been submitted or the link has expired.</div> -->
+		</template>
+		<template if:true={imgMainPage}>
+			<div class="latter">
+				<img class="LatterCon" src={latterURL} />
+            </div>
+				<P class="LatterHeader">
+					Offer Letter Confirmation
+				</P>
+		</template>
+		
+
+		<template if:true={showOfferLetterButtons}>
+			<div class="Btn">
+				<button class="Acceptbtn" onclick={handleOfferLetter} data-action="accept">Accept</button>
+				<button class="Rejectbtn" onclick={handleOfferLetter} data-action="reject">Reject</button>
+			</div>
+		</template>
+		<template if:true={showAcceptMsg}>
+			<template if:true={imgSecondPage}>
+				<P class="SecondLatterHeader">
+					Offer Letter Confirmation
+				</P>
+				<div class="ConYes">
+					<lightning-spinner if:true={isLoading} alternative-text="Loading" size="large"></lightning-spinner>
+					<img class="ConfirmationYes" src={confirmationURL} />
+                </div>
+			</template>
+		</template>
+		<template if:true={showDeclineMsg}>
+			<template if:true={imgThirdPage}>
+				<P class="SecondLatterHeader">
+					Offer Letter Confirmation
+				</P>
+				<div class="ConNo">
+					<lightning-spinner if:true={isLoading} alternative-text="Loading" size="large"></lightning-spinner>
+					<img class="ConfirmationNo" src={confirmationNoURL} />
+                </div>
+			</template>
+			<!-- <div style="font-size: 26px; text-align: center; padding-top: 25px; padding-bottom: 25px;">
+                <P style="color: #00A129;">Thank You!</P><p style="color:#194051;"> for letting us know.</p>
+            </div> -->
+			<!-- <div style="text-align: center; padding-top: 25px; padding-bottom: 25px;">
+				<label style="font-size: 26px; color:#00A129;">Thank You!
+                <span style="font-size: 26px; color:#194051;">for letting us know.</span>
+            </label>
+			</div> -->
+		</template>
+	</template>
+	<template if:true={showModal}>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id" class="slds-modal slds-fade-in-open">
+			<div style="font-family: Lato" class="slds-modal__container">
+				<div>
+					<div class="slds-text-heading_medium slds-hyphenate">
+						<div id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate"
+							style="padding-top: 190px;">
+
+							<div class="slds-modal__content slds-p-around_medium popup_Content" id="modal-content-id">
+								<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" onclick={handleModalAction}>
+                            <lightning-icon icon-name="utility:close" alternative-text="Close" size="small" class="Closebtn"></lightning-icon>
+                                <span class="slds-assistive-text">Close</span>
+                        </button>
+						<div class="boxtitle">
+								<p class="Headermsg">
+									{headerMessage}
+								</p>
+								<p class="Modalmsg">
+									{modalMessage}
+								</p>
+						</div>
+								<div>
+									<button class="Cancelbtn" onclick={handleModalAction} data-action="cancel">Cancel</button>
+									<button class="Confirmbtn" onclick={handleModalAction} data-action="confirm">Yes</button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+	<template if:true={errorMessage}>
+		<div class="slds-text-color_error">
+			{errorMessage}
+		</div>
+	</template>
+
+	<footer class="footer-section">
+
+		<div class="footer-outer footer-background">
+			<div class="container">
+				<div class="footer_top_menu_border">
+					<div class="footer_top_menu slds-grid slds-wrap" style="color:white; font-family: 'Poppins', sans-serif;">
+
+						<!-- Reach Us -->
+						<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+							<div class="reach_us">
+								<div class="footer_top_menu_heading"><strong class="footer-title-size-Reachus">Reach
+                                Us</strong></div>
+								<ul class="content_ul">
+									<li style="display:flex">
+										<lightning-icon icon-name="utility:dialing" alternative-text="Phone"
+											size="small" variant="inverse"></lightning-icon>
+										<div><a href="tel:+91 997 9933 595" class="Reachus_Phone">+91 997 9933
+												595</a> </div>
+									</li>
+									<li style="display:flex">
+										<lightning-icon icon-name="utility:email" alternative-text="Email" size="small"
+											variant="inverse"></lightning-icon>
+										<div><a href="mailto: contact@itechcloudsolution.com"
+												class="Reachus_Email">contact@itechcloudsolution.com</a> </div>
+									</li>
+									<li style="display:flex">
+										<lightning-icon icon-name="utility:checkin" alternative-text="Address"
+											size="small" variant="inverse"></lightning-icon>
+										<div class="Reachus_Add">Western Plaza, 209-210-211, Simada Naka, Simada
+											Gam,
+											Nana Varachha, Surat, Gujarat 395006</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+
+
+						<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+							<div class="useful_links">
+								<div class="footer_top_menu_heading">
+									<strong class="footer-title-size-Ourservice" >Our Services</strong></div>
+								<ul class="content_ul">
+									<a href="https://www.itechcloudsolution.com/salesforce-consulting/"
+										style="color:white">
+										<li class="Ourservice_First Ourservice ">Salesforce Consulting</li>
+									</a>
+									<a href="https://www.itechcloudsolution.com/salesforce-implementation/"
+										style="color:white">
+										<li class="Ourservice_Second Ourservice">Salesforce Implementation</li>
+									</a>
+									<a href="https://www.itechcloudsolution.com/salesforce-integration/"
+										style="color:white">
+										<li class="Ourservice_Third Ourservice">Salesforce Integration</li>
+									</a>
+									<a href="https://www.itechcloudsolution.com/salesforce-development-and-customization/"
+										style="color:white">
+										<li class="Ourservice_Four Ourservice">Salesforce Development and
+											Customization</li>
+									</a>
+								</ul>
+							</div>
+						</div>
+
+						<div
+							class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12 top-space">
+							<div class="our_services">
+								<div class="footer_top_menu_headingc "><strong class="footer-title-size">  </strong>
+								</div>
+								<ul class="content_ul">
+									<a href="https://www.itechcloudsolution.com/salesforce-appexchange-app-development/"
+										style="color:white">
+										<li class="Ourservice_First1 Ourservice">Salesforce AppExchange App
+											Development</li>
+									</a>
+									<a href="https://www.itechcloudsolution.com/salesforce-managed-services/"
+										style="color:white">
+										<li class="Ourservice_Second1 Ourservice">Salesforce Managed Services</li>
+									</a>
+									<a href="https://www.itechcloudsolution.com/salesforce-qa-services/"
+										style="color:white">
+										<li class="Ourservice_Third1 Ourservice">Salesforce QA Services</li>
+									</a>
+									<a href="https://www.itechcloudsolution.com/middleware-development-using-heroku/"
+										style="color:white">
+										<li class="Ourservice_Four1 Ourservice">Middleware Development Using Heroku
+										</li>
+									</a>
+								</ul>
+							</div>
+						</div>
+
+						<!-- Our Social Networks -->
+						<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+							<div class="social_image">
+								<div class="footer_top_menu_heading"><strong class="footer-title-size-Socialnetwork" style="margin-left: 4px;">Our Social
+                                Networks</strong></div>
+								<!-- <div class="">Icon coming soon</div> -->
+
+								<ul>
+									<!-- <li><img src={linkedInFooterIcon} /></li>
+                            <li class="icon"><a
+                                    href="https://in.linkedin.com/company/itechcloud-solution"><img
+                                        src={skypeFooterIcon} /></a></li>
+                            <li class="icon"><img src={InstagramFooterIcon} /></li>
+                            <li class="icon"><img src={twitterFooterIcon} /></li>
+                            <li class="icon"><img src={facebookFooterIcon} /></li> -->
+
+									<li><a href="skype:subhash.panchani?chat" target="_blank"><img
+                                        src={skypeFooterIcon} /></a></li>
+									<li class="icon"><a href="https://in.linkedin.com/company/itechcloud-solution"
+											target="_blank"><img src={linkedInFooterIcon} /></a></li>
+									<li class="icon"><a href="https://www.instagram.com/itechcloudsolution/"
+											target="_blank"><img src={InstagramFooterIcon} /></a></li>
+									<li class="icon"><a href="https://twitter.com/itechcloud_" target="_blank"><img
+                                        src={twitterFooterIcon} /></a></li>
+									<li class="icon"><a href="https://www.facebook.com/itechcloudsolution/"
+											target="_blank"><img src={facebookFooterIcon} /></a></li>
+								</ul>
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+		<!-- Footer Bottom -->
+		<div class="footer_bottom">
+			© Copyright iTechCloud Solution {currentYear}. All Rights Reserved.
+			<!-- © Copyright <b> iTechCloud </b>. All Rights Reserved -->
+		</div>
+	</footer>
+</template>

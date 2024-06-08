@@ -1,0 +1,69 @@
+<template>
+
+    <!-- <lightning-card title="Address Lookup Without Picklist">
+        <div class="slds-p-around_medium">
+            <lightning-input-address address-label="Candidate Address" street-label="Street" city-label="City"
+                country-label="Country" province-label="Province" postal-code-label="PostalCode" required
+                field-level-help="Select Your Address" show-address-lookup>
+            </lightning-input-address>
+        </div>
+    </lightning-card> -->
+
+    <!-- <lightning-card title="Address Lookup using Google Maps Places API">
+      <div class="slds-p-around_medium">
+            <lightning-record-edit-form 
+                id="recordViewForm"
+                record-id={recordId}
+                onchange={handleChange}
+                object-api-name="Account"
+                onsubmit={handleSubmit}>
+            
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="Name"></lightning-input-field>
+                <lightning-input-address
+                    address-label="Billing Address"
+                    street-label="Street"
+                    city-label="City"
+                    country-label="Country"
+                    province-label="Province"
+                    postal-code-label="PostalCode"
+                    city={city}
+                    country={country}
+                    province={province}
+                    postal-code={postalCode}
+                    onchange={handleAddress}
+                    class="custom-hidden-street"
+                    field-level-help="Select Billing Address" 
+                    show-address-lookup
+                ></lightning-input-address>
+
+                <lightning-button type="submit" label="Update record"></lightning-button>
+            </lightning-record-edit-form>
+
+            <lightning-button label="Validate" onclick={validateAddress}></lightning-button>
+        </div>
+    </lightning-card> -->
+
+
+    <lightning-card title="Lightning record edit form">
+        <lightning-record-edit-form object-api-name={objectName} record-id={recordId}>
+            <lightning-messages></lightning-messages>
+            <lightning-input-field field-name={fields.nameField}></lightning-input-field>
+            <label class="slds-p-left_x-small"> Enter Your Email</label>
+            
+            <lightning-button onclick={handleReset} class="slds-m-around_xx-small" label="cancel" ></lightning-button>
+            <lightning-button variant="brand" type="submit" class="slds-m-around_xx-small" label="Save"></lightning-button>
+        </lightning-record-edit-form>
+    </lightning-card>
+
+
+    <lightning-card title="Address Lookup With Country and State Picklist">
+        <div class="slds-p-around_medium">
+            <lightning-input-address address-label="Billing Address" street-label="Street" city-label="City"
+                country-label="Country" province-label="State" postal-code-label="PostalCode" country={selectedCountry}
+                field-level-help="Select Your Address" country-options={countryOptions} province-options={stateOptions}
+                onchange={handleAddressChange} show-address-lookup>
+            </lightning-input-address>
+        </div>
+    </lightning-card>
+</template>

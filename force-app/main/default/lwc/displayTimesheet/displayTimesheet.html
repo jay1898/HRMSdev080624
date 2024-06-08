@@ -1,0 +1,18 @@
+<template>
+		
+		<table>
+				<tr>
+						<th>Date</th>
+						<th>Ticket No</th>
+						<th>Description</th>
+				</tr>
+				<template for:each={timeSheetRecords} for:item="timesheet" for:index="index">
+						<tr  key={timesheet.Id} >
+								<td>{timesheet.Date__c}</td>
+								<td>{timesheet.Ticket_No__c}</td>
+								<td>{timesheet.Task_Description__c}</td>
+						</tr>
+				</template>
+				
+		</table>
+</template>

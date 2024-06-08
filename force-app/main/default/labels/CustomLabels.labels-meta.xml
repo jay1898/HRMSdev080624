@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>Email_Header_Image_Link</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Email Header Image Link</shortDescription>
+        <value>https://itechcloudsolution--itechdev.sandbox.my.salesforce.com/sfc/dist/version/download/?oid=00D1s0000000TLW&amp;ids=0681s000002MHUXAA4&amp;d=/a/1s000000ESca/810Q9Uas30_xtds9NAz5MK4tnEUHunQkQtQq_soF4tk&amp;operationContext=DELIVERY&amp;viewId=05H1s000000DH54EAG&amp;dpt=</value>
+    </labels>
+    <labels>
+        <fullName>HRMS_Link</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>HRMS Link</shortDescription>
+        <value>https://itechcloudsolution--itechdev.sandbox.my.site.com/hrms/s/</value>
+    </labels>
+    <labels>
+        <fullName>SiteUrl</fullName>
+        <categories>Site</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>SiteUrl</shortDescription>
+        <value>https://itechcloudsolution--itechdev.sandbox.my.site.com/</value>
+    </labels>
+</CustomLabels>

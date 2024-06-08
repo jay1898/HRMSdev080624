@@ -1,0 +1,165 @@
+.dummy{
+	color : black;
+}
+.status-approved {
+    color: #00A129;
+    font-size: larger;
+}
+
+.status-rejected {
+    color: red;
+    font-size: larger;
+
+}
+.slds-modal__header .slds-modal__close {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    margin-left: 0;
+    bottom: 0;
+    color: darkblue;
+}
+.tableRow{
+	
+    /* width: 201px; */
+    /* height: 52px; */
+    /* top: 776px; */
+    /* left: 393.5px; */
+    /* border: 1px; */
+    /* padding: 15px; */
+
+    /*border-radius: 10px;
+    border: 1px solid #9D9D9D;
+	border-bottom: 1px solid #9D9D9D;*/
+    color: (0deg, #FCFCFC, #FCFCFC);
+    padding: 7px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    margin-right: 4px;
+    padding-left: 22px;
+    /* margin-top: 10px;
+    margin-bottom: 10px;
+    padding-top: 15px;
+    padding-left: 10px;
+    padding-left: 10px; */
+}
+
+/* .ReasonLeave{
+
+    border-radius: 10px;
+    /* height: auto; */
+    /* border-bottom-right-radius: 10px; 
+    margin-top: 5px;
+    padding-bottom: 7px;
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+
+} */
+.rowRecord{
+	border-bottom: 1px solid #9D9D9D;
+	margin-bottom: 10px;
+}
+.table-block{
+    /* display: flex;
+    justify-content: space-between; */
+    background: white;
+    /* border-radius: 0px 0px 0px 15px; */
+}
+
+.table-block tr td {
+    /* vertical-align: top; */
+    padding: 0px 2px;
+}
+
+.leaveBox{
+    width: 119%;
+    height: 100px;
+    top: 181px;
+    left: 365px;
+    border-radius: 10px;
+}
+
+.leaveBoxBorder{
+    border-radius: 10px;
+    border: 4px solid #ffffff;
+    background-color: #ffffff;
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.requestRecordTitles{
+    font-size: 16px;
+    color: #9D9D9D;
+}
+
+
+
+
+
+/*.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .container:hover .overlay {
+    opacity: 2;
+    pointer-events: auto;
+  }
+   .container:hover .textarea {
+     opacity: 0;
+   }
+   */
+
+.overlay {
+    position: absolute;
+    /* width: auto; */
+    white-space: break-spaces;
+    /* transform: translateX(-65%);  */
+    background-color: #fff; /* Background color */
+    border: 1px solid #ccc; /* Border */
+    padding: 10px; /* Padding */
+    border-radius: 5px; /* Border radius */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Box shadow */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 999; /* Adjusted to make sure it appears on top of other content */
+}
+.ReasonLeave {
+    position: relative;
+    max-height: 4em; /* Adjusted to the equivalent of four lines of text */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Limit the number of lines to display */
+    -webkit-box-orient: vertical;
+    transition: max-height 0.3s ease; /* Added transition for smooth animation */
+}
+
+.ReasonLeave:hover {
+    /* width: 100px !important; */
+    max-height: none; /* Allow the ReasonLeave area to expand to its natural height on hover */
+    overflow: visible; /* Allow content overflow when hovering */
+    text-overflow: initial; /* Revert text-overflow to its initial state on hover */
+}
+
+
+.container:hover .overlay {
+    opacity: 1;
+    pointer-events: auto;
+   
+}
+
+/* Adjusted to make sure text inside the overlay is visible */
+.overlay .hidden-content {
+    
+    color: #333;
+}

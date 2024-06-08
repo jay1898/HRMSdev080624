@@ -1,0 +1,23 @@
+<template>
+    <div class="customStyle">
+
+    </div>
+    <div class="overrideStyle"></div>
+    <div class="">
+        <div style="text-align:right; padding: 8px;">
+            <lightning-button onclick={onClickDownload} label="Download"></lightning-button>
+        </div>
+        <div class="">
+            <div class="flex-grow-1 d-flex flex-row" style="height: 0;">
+                <template lwc:if={spinner}>
+                    <div class="spinner">
+                        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                    </div>
+                </template>
+                <div id="document-container" class="document-container overflow-auto flex-grow-1 h-100"></div>
+            </div>
+        </div>
+    </div>
+    <div id="wordDocument"></div>
+    <div id="pdfContainer"></div>
+</template>

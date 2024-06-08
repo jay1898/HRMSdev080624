@@ -1,0 +1,111 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-03-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <template if:false={empDetails}>
+        <lightning-spinner alternative-text="Loading" size="large" variant="brand"> </lightning-spinner>
+    </template>
+
+    <template if:true={empDetails}>
+        <div class= "lcard">
+            <div>
+                <div class="profile_details slds-var-p-around_medium">
+                    <div class="slds-grid slds-wrap">
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12">
+                            <div class="profile_details_left">
+                                <!-- <div class="profile_image" >
+                                    <img src={profileImage} class="slds-avatar_large">
+                                    <div class="camera-icon-container">
+                                    <lightning-button-icon  icon-name="utility:photo"
+                                    alternative-text="Upload"
+                                    title="Upload   "
+                                    onclick={handlePhotoClick}></lightning-button-icon>
+                                    </div>
+                                    <input type="file" accept="image/*" class="file-input" onchange={handleFileChange} hidden>
+                                </div> -->
+
+                                <div class="profile-card">
+                                    <div class="profile-image-container">
+                                        <lightning-spinner if:true={isUploading} alternative-text="Uploading"></lightning-spinner>
+                                      <img src={profileImage} class="profile-image">
+                                      <div class="delete-icon-container" if:true={showDeleteIcon}>
+                                          <!-- <lightning-icon icon-name='utility:delete' alternative-text='delete'  size='large' title='delete'></lightning-icon> -->
+                                          <lightning-icon  icon-name='utility:delete' alternative-text='remove_photo' size='xx-small' title='remove_photo' onclick={handleRemoveClick}></lightning-icon>
+                                      </div>
+                                      
+                                      <div class="camera-icon-container" onclick={handlePhotoClick}>
+                                        <lightning-icon icon-name='action:add_photo_video' alternative-text='add_photo_video' size='xx-small' title='add_photo_video'></lightning-icon>
+                                        <input type="file" accept="image/jpeg, image/png" class="file-input" onchange={handleFileChange} hidden>
+                                    </div>
+                                    </div>
+                                  </div>
+                                <div class="profile_name slds-var-m-left_small">
+                                    <div class="profile_name_top">{empDetails.Name}</div>
+                                    <div class="profile_name_bottom">{empDetails.Role__c}</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slds-col slds-large-size_6-of-12 slds-medium-size_6-of-12">
+                            <div class="profile_details_right">
+                                <div class="slds-grid slds-wrap">
+                                    <!-- <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_6-of-12"> -->
+                                    <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+                                        <div class="profile_details_title">Employee ID</div>
+                                        <div class="profile_details_value">{empDetails.EmpCode__c}</div>
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12">
+                                        <div class="profile_details_title">Email</div>
+                                        <div class="profile_details_value slds-var-m-bottom_small">{empDetails.Email__c}</div>
+                                    </div>
+                                    <div class="slds-col slds-size_12-of-12 slds-large-size_6-of-12 slds-medium-size_6-of-12 slds-small-size_12-of-12 slds-var-m-bottom_small">
+                                        <div class="profile_details_title">Department</div>
+                                        <div class="profile_details_value">{empDetails.Department__c}</div>
+                                    </div>
+                                    <div class="slds-col slds-size_6-of-12">
+                                        <div class="profile_details_title">Phone</div>
+                                        <div class="profile_details_value">{empDetails.Emergency_Contact_No__c}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="tabContainer">
+            <template for:each={tabs} for:item="tab">
+                <c-tab-item
+                    key={tab.label}
+                    tab-label={tab.label}
+                    tab-content={tab.content}
+                    is-active={tab.isActive}
+                    ontabclick={handleTabClick}
+                ></c-tab-item>
+            </template>
+        </div>
+
+        <!-- <div class={tabComponent} > -->
+        <div class={tabComponent} >
+             
+            <template if:true={isAboutTab}>
+                <c-employee-about-page employee-id={recordId}></c-employee-about-page>
+            </template>
+            <template if:true={isProfileTab}>
+                <c-employee-profile-page employee-id={recordId}></c-employee-profile-page>
+            </template>
+            <template if:true={isJobTab}>
+                <c-employee-job-details-cmp employee-id={recordId}></c-employee-job-details-cmp>
+            </template>
+            <template if:true={isDocumentTab}>
+              <c-employee-documents-details-cmp employee-id={recordId}></c-employee-documents-details-cmp>
+            </template>
+            
+        </div>
+    </template>
+
+</template>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Candidate</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Candidates</value>
+    </caseValues>
+    <layouts>
+        <layout>Candidate Layout</layout>
+        <sections>
+            <label></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Interview Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Offer Letter Details</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Professional Information</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Remark</section>
+        </sections>
+        <sections>
+            <label></label>
+            <section>Source Information</section>
+        </sections>
+    </layouts>
+    <quickActions>
+        <label></label>
+        <name>Send_Interview_Email</name>
+    </quickActions>
+    <quickActions>
+        <label></label>
+        <name>Send_Offer_Letter</name>
+    </quickActions>
+    <recordTypes>
+        <label></label>
+        <name>Candidate_Review</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Can_not_reselect_Stages</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Final_Reject</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Interview_Date_Blocked_past_date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Joining_Date_Blocked_past_date</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Screening_reject</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage></errorMessage>
+        <name>Verification_call_remarks_Field</name>
+    </validationRules>
+    <webLinks>
+        <label></label>
+        <name>Offer_Letter_Mail</name>
+    </webLinks>
+</CustomObjectTranslation>

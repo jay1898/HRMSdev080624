@@ -1,0 +1,15 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 04-02-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <div class="wrapper">
+        <div class={tabClass} onclick={handleClick}>
+            {tabLabel}
+        </div>
+    </div>
+        <img if:true={isActive} src={hLineImage} style="width: 100px; height: 3px;">
+</template>

@@ -1,0 +1,18 @@
+<template>
+    <div class="main-div">
+        <lightning-spinner alternative-text="Loading" if:true={isLoading} size="large" variant="brand"></lightning-spinner>
+        <template if:true={holidays}>
+            <template for:each={holidays} for:item="day">
+                <div class={day.divClass} key={day.holidayDate}>
+                <div style="display: flex; align-items: center;">
+                    <div class="date">{day.dateNumber}</div>&nbsp;
+                    <div class={day.class}><span class="vertical-pipe">|</span></div>&nbsp;
+                    <div>{day.month}</div>
+                </div>
+                <div>{day.name}</div>
+                <div>{day.dayName}</div>
+                </div>
+            </template>
+        </template>
+    </div>
+</template>

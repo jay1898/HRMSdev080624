@@ -1,0 +1,16 @@
+<apex:page standardcontroller="Lead" extensions="EmailTemplateController"  showHeader="false" sidebar="false">
+    <apex:form >
+        <apex:pageBlock title="Send Email">
+            <apex:pageBlockSection columns="1">
+                <apex:inputHidden value="{!leadId}" />
+                <apex:inputText value="{!toAddresses}" label="To" required="true"/>
+                <apex:inputText value="{!cc}" label="cc" required="false"/>
+                <apex:inputText value="{!subject}" label="Subject" required="true"/>
+                <apex:inputTextarea value="{!htmlBody}" label="Body" richText="true" required="true"/>
+            </apex:pageBlockSection>
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!sendEmail}" value="Send Email"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -1,0 +1,227 @@
+.dummy {
+  color: blue;
+}
+
+.tab-container {
+  position: relative;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background-color: #3AD67B;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.tab-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  border-block: none;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.tab {
+  padding: 10px 39px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tab:hover {
+  background-color: white;
+}
+
+
+
+.active-tab {
+  border-bottom: 4px solid #3AD67B;
+}
+
+
+.viewImage{
+      max-width: 50px;
+    border-radius: 50px;
+}
+.profile-image{
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+}
+/* .edit-icon{
+  fill:blue;
+} */
+
+
+.employee_data {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.THIS .box1 svg{
+  width: 30px;
+  height: 15px;
+}
+
+.scroll_css{
+  background-color: white;  
+  border-radius: 10px;
+}
+
+
+
+.first_div .slds-backdrop.slds-backdrop_open {
+  background-color: #ffffffbf !important;
+}
+
+.first_div {
+  position: relative;
+  overflow-y: auto; 
+  
+   /* max-height: 1000px; */
+}
+
+.date_size{
+  width: max-content;
+      display: flex;
+    align-items: baseline;
+}
+
+.footerButtons{
+      display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.employee_date{
+  color: #7E909A;
+  font-size: 10px;
+}
+
+.deleteModal{
+  text-align: center;
+}
+.postPicsData {
+  display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+.postPics {
+  width: 20%; 
+  margin-bottom: 20px;
+   position: relative;
+  display: inline-block;
+  text-align: center;
+  height: 100px;
+}
+
+ :host { /* Added */
+  --slds-c-textarea-sizing-min-height: 160px !important;
+}
+
+
+html {
+  overflow:   scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.inside_ftrbtns{
+  display: contents;
+}
+
+.btncolor{
+  --sds-c-button-brand-color-background: #00a129;
+}
+.view-button{
+  font-size: 18px;
+  text-align: center;
+  --sds-c-button-text-color: #0BD67B;
+}
+
+.dataContent{
+    border: none;
+    border-radius: 15px;
+    background: #F1F1F1;
+}
+
+.removeButton{
+  border-radius: 20%;
+  border-width: thin;
+}
+
+.fileUploadModal{
+  backdrop-filter: brightness(0.63) !important;
+}
+
+.displayPics {
+  width: 20%; 
+  margin-bottom: 20px;
+   position: relative;
+  display: inline-block;
+  text-align: center;
+}
+.displayPics img{
+  border-radius: 10%;
+  box-sizing: border-box; 
+  padding: 5px;
+}
+
+.noContent{
+    height: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.view-button lightning-button {
+    text-decoration: none !important;
+}
+.view-button lightning-button:focus {
+    outline: none !important;
+}
+.view-button lightning-button .slds-button {
+    --sds-c-button-text-color: #0BD67B !important;
+}
+
+.fileUploadButton{
+  margin-right: auto;
+}
+
+.createAnsmt{
+  color: #7E909A;
+  font-size: 11px;
+}
+
+.employee_name{
+  display: flex;
+}
+
+
+@media (max-width: 1099.98px){
+
+    .btnView{
+      text-align: center;
+    }
+
+    .btnLook{
+      margin-top: 20px;
+      text-align: left;
+      padding-left: 10px;
+    }
+}
+
+.exampleHolder{
+    position: sticky;	
+}

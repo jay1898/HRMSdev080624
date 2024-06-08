@@ -1,0 +1,74 @@
+/* .firstCard{
+    border-radius: 10px;
+    background-color: white;
+    padding: 5px 5px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 10px;
+} */
+
+.h1{
+    font-size: large;
+    font-weight: bold;
+}
+.key{
+    //font-size: small;
+    color: gray;
+}
+
+.value{
+    font-weight: bold;
+    //font-size: medium;
+}
+
+.subValue{
+    color: #aeafaf;
+    font-weight: bold;
+    font-size: smaller;
+}
+
+.style_f_card {
+	margin-top: 20px;
+    margin-right: 10px;
+    background-color: white;
+    border-radius: 10px;
+}
+
+.editButton{
+    color: rgb(37, 184, 37); 
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: left;
+}
+
+/* .checkbox-container {
+    margin-left: auto; 
+} */
+
+.marital-status {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+    }
+
+.eduBox {
+    margin: 0 auto;
+    width: 80%;
+    max-width: 60rem;
+    min-width: 20rem;
+    height: auto;
+}
+
+.divider {
+        border-top: 1px solid #ccc; 
+        margin: 20px 0; 
+    }
+
+.scrollable-table {
+    max-height: 430px; 
+    overflow-y: auto;
+}

@@ -1,0 +1,284 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-05-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+	<div>
+		<div class="overrideStyle" style="background: rgba(222, 245, 228, 1);"></div>
+		<div style="background-color: white;">
+			<!-- <center><img style="max-height: 200px" alt="iTechcloud logo" src={iTechlogo}/></center> -->
+			<!-- <hr> -->
+			<div class="line"></div>
+
+			<template if:true={mobileView}>
+				<div>
+					<a>
+						<lightning-vertical-navigation selected-item="Dashboard" style="gap: 502px;">
+							<lightning-vertical-navigation-section>
+								<lightning-vertical-navigation-item-icon name="Dashboard" size='large' icon-name="utility:builder" onclick={handleClick}>
+									<!-- <div
+										style="font-family: Poppins; font-size: 36px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Basic Overview
+									</div> -->
+								</lightning-vertical-navigation-item-icon>
+								<lightning-vertical-navigation-item-icon name="requestDetails" size='large' icon-name="utility:list" onclick={handleClick}>
+									<!-- <div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Request Details
+									</div> -->
+								</lightning-vertical-navigation-item-icon>
+								<lightning-vertical-navigation-item-icon name="Ticket_History" size='large' icon-name="utility:inbox" onclick={handleClick}>
+									<!-- <div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Ticket History
+									</div> -->
+								</lightning-vertical-navigation-item-icon>
+								<!-- <lightning-vertical-navigation-item-icon label="Attendance" name="Attendance" size='large'
+									icon-name="utility:date_input">
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Attendance
+									</div>
+								</lightning-vertical-navigation-item-icon>
+								<lightning-vertical-navigation-item-icon label="My Team" name="My_Team" size='large'
+									icon-name="utility:groups">
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										My Team
+									</div>
+								</lightning-vertical-navigation-item-icon>
+								<lightning-vertical-navigation-item-icon label="My Finances" name="My_Finances"
+									size='large' icon-name="utility:money">
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										My Finances
+									</div>
+								</lightning-vertical-navigation-item-icon> -->
+								<template if:true={rolePM}>
+									<lightning-vertical-navigation-item-icon name="pmddReportDetails" size='large' icon-name="utility:description" onclick={handleClick}>
+										<!-- <div
+											style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+											Request Details
+										</div> -->
+									</lightning-vertical-navigation-item-icon>
+								</template>
+								<lightning-vertical-navigation-item-icon name="myDashboard"	size='large' icon-name="utility:weeklyview" onclick={handleClick}>
+									<!-- <div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Dashboard Details
+									</div> -->
+								</lightning-vertical-navigation-item-icon>
+								<lightning-vertical-navigation-item-icon name="Organization" size='large' icon-name="utility:company">
+									<!-- <div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Organization
+									</div> -->
+								</lightning-vertical-navigation-item-icon>
+								<!-- My Profile Tab -->
+								<lightning-vertical-navigation-item-icon name="myProfile" size='large' icon-name="utility:profile" onclick={handleClick}>
+									<!-- <div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										MyProfile
+									</div> -->
+								</lightning-vertical-navigation-item-icon>
+								<!-- Attendance Tab -->
+								<lightning-vertical-navigation-item-icon name="attendance" size='large' icon-name="utility:monthlyview" onclick={handleClick}>
+									<!-- <div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Attendance
+									</div> -->
+								</lightning-vertical-navigation-item-icon>
+								<!-- Announcement Tab -->
+								<lightning-vertical-navigation-item-icon name="announcement" size='large' icon-name="utility:announcement" onclick={handleClick}>
+									<!-- <div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Announcement
+									</div> -->
+								</lightning-vertical-navigation-item-icon>
+
+								<!-- ReportSheet -->
+								<lightning-vertical-navigation-item-icon name="reportsheet"	size='large' icon-name="utility:weeklyview" onclick={handleClick}>
+									<!-- <div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Report Sheet
+									</div> -->
+								</lightning-vertical-navigation-item-icon>
+
+								<!-- Skill Matrix -->
+								<lightning-vertical-navigation-item-icon name="skillMatrix"	size='large' icon-name="utility:skill" onclick={handleClick}>
+								</lightning-vertical-navigation-item-icon>
+							</lightning-vertical-navigation-section>
+						</lightning-vertical-navigation>
+					</a>
+					<div style="padding-bottom: 12px; padding-top: 12px; padding-left: 30px;">
+						<div>
+							<lightning-icon icon-name='utility:logout' alternative-text='logout' variant='error'
+								size='x-small' title='logout'
+								style="transform: scaleX(-1); cursor: pointer" onclick={handleLogOutClick}></lightning-icon>
+							<!-- <span
+								style="font-size: 15px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left; color: red; padding: 10px 5px 5px 5px; cursor: pointer"
+								onclick={handleLogOutClick}>Log Out</span> -->
+						</div>
+					</div>
+				</div>
+			</template>
+
+			<template if:false={mobileView}>
+				<div>
+					<a>
+						<lightning-vertical-navigation selected-item="Dashboard" style="gap: 502px;">
+							<lightning-vertical-navigation-section>
+								<lightning-vertical-navigation-item-icon label="Basic Overview" name="Dashboard"
+									size='large' icon-name="utility:builder" onclick={handleClick}>
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Basic Overview
+									</div>
+								</lightning-vertical-navigation-item-icon>
+								<lightning-vertical-navigation-item-icon label="Request Details" name="requestDetails"
+									size='large' icon-name="utility:list" onclick={handleClick}>
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Request Details
+									</div>
+								</lightning-vertical-navigation-item-icon>
+								<lightning-vertical-navigation-item-icon label="Ticket History" name="Ticket_History"
+									size='large' icon-name="utility:inbox" onclick={handleClick}>
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Ticket History
+									</div>
+								</lightning-vertical-navigation-item-icon>
+								<!-- <lightning-vertical-navigation-item-icon label="Attendance" name="Attendance" size='large'
+										icon-name="utility:date_input">
+										<div
+											style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+											Attendance
+										</div>
+									</lightning-vertical-navigation-item-icon>
+									<lightning-vertical-navigation-item-icon label="My Team" name="My_Team" size='large'
+										icon-name="utility:groups">
+										<div
+											style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+											My Team
+										</div>
+									</lightning-vertical-navigation-item-icon>
+									<lightning-vertical-navigation-item-icon label="My Finances" name="My_Finances"
+										size='large' icon-name="utility:money">
+										<div
+											style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+											My Finances
+										</div>
+									</lightning-vertical-navigation-item-icon> -->
+								<template if:true={rolePM}>
+									<lightning-vertical-navigation-item-icon label="PMDD Report"
+										name="pmddReportDetails" size='large' icon-name="utility:description"
+										onclick={handleClick}>
+										<div
+											style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+											Request Details
+										</div>
+									</lightning-vertical-navigation-item-icon>
+								</template>
+								<lightning-vertical-navigation-item-icon label="My Dashboard" name="myDashboard"
+									size='large' icon-name="utility:weeklyview" onclick={handleClick}>
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Dashboard Details
+									</div>
+								</lightning-vertical-navigation-item-icon>
+								<lightning-vertical-navigation-item-icon label="Organization" name="Organization"
+									size='large' icon-name="utility:company">
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Organization
+									</div>
+								</lightning-vertical-navigation-item-icon>
+								<!-- My Profile Tab -->
+								<lightning-vertical-navigation-item-icon label="My Profile" name="myProfile"
+									size='large' icon-name="utility:profile" onclick={handleClick}>
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										MyProfile
+									</div>
+								</lightning-vertical-navigation-item-icon>
+								<!-- Attendance Tab -->
+								<lightning-vertical-navigation-item-icon label="Attendance" name="attendance"
+									size='large' icon-name="utility:monthlyview" onclick={handleClick}>
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Attendance
+									</div>
+								</lightning-vertical-navigation-item-icon>
+								<!-- Announcement Tab -->
+								<lightning-vertical-navigation-item-icon label="Announcement" name="announcement"
+									size='large' icon-name="utility:announcement" onclick={handleClick}>
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Announcement
+									</div>
+								</lightning-vertical-navigation-item-icon>
+
+								<!-- ReportSheet -->
+								<lightning-vertical-navigation-item-icon label="ReportSheet" name="reportsheet"
+									size='large' icon-name="utility:weeklyview" onclick={handleClick}>
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Report Sheet
+									</div>
+								</lightning-vertical-navigation-item-icon>
+ 
+								<lightning-vertical-navigation-item-icon label="Skill Matrix" name="skillMatrix"
+									size='large' icon-name="utility:skill" onclick={handleClick}>
+									<div
+										style="font-family: Poppins; font-size: 19px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left;">
+										Skill Matrix
+									</div>
+								</lightning-vertical-navigation-item-icon>
+							</lightning-vertical-navigation-section>
+						</lightning-vertical-navigation>
+					</a>
+					<div style="padding: 8px 24px 8px 30px;">
+						<div>
+							<lightning-icon icon-name='utility:logout' alternative-text='logout' variant='error'
+								size='x-small' title='logout'
+								style="transform: scaleX(-1); cursor: pointer"></lightning-icon>
+							<span
+								style="font-size: 15px; font-weight: 400; line-height: 26px; letter-spacing: 0em; text-align: left; color: red; padding: 10px 5px 5px 5px; cursor: pointer"
+								onclick={handleLogOutClick}>Log Out</span>
+						</div>
+					</div>
+				</div>
+			</template>
+			
+		</div>
+		<!-- <div style="width: 1585px; height: 151px; left: 335px; background-color: white;">
+			<div class="container">
+				<div class="profile">
+						<lightning-avatar variant="circle" 
+							src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg"  initials="AW"
+							fallback-icon-name="standard:person_account" alternative-text="Amy Weaver"
+							class="slds-m-right_large custom-avatar"></lightning-avatar>
+				</div>
+				<div class="info">
+					<div class="name">
+						
+						John Doe
+					</div>
+					<div class="email">
+						
+						john.doe@example.com
+					</div>
+				</div>
+				<div class="caret-down">
+				
+					<div class="caret-vector"></div>
+				</div>
+			</div>
+		</div> -->
+	</div>
+
+</template>

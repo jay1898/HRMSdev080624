@@ -1,0 +1,73 @@
+<template>
+	<!-- <lightning-spinner alternative-text="Loading" size="large" if:true={isAnnouncementLoading}></lightning-spinner> -->
+	<article class="slds-card Body">
+		<div class="main_div" style="margin: 10px; height: 264px;">
+			<div class="title slds-p-bottom_medium">
+				<label> Announcement </label>
+			</div>
+			
+
+			<!-- {latestAnnouncement.Content__c} -->
+			
+			<div class="first_div " >
+				<template if:true={latestAnnouncement}>
+					<template for:each={latestAnnouncement} for:item="announcement">
+						<div key={announcement.Id} class="inside_div slds-var-m-around_small" style="height: 160px;">
+							<div class="employee_info slds-grid slds-var-m-bottom_small" style="display:flex;">
+								<div class="profile-image slds-p-right_small">
+									<!-- <img key={announcement.Profile_Photo} src={announcement.Profile_Photo} alt="Profile Image" class="profile-image"/> -->
+									<c-emp-post-imaged-cmp content-version-id={announcement.Profile_Photo} image-type="Profile" class="profile-image"></c-emp-post-imaged-cmp>
+						  	</div>
+
+									<div class="employee_data">
+										<div class="employee_name slds-text-heading_small">
+											<p key={announcement.Announced_by_Name}>{announcement.Announced_by_Name}</p>
+											<div class="created_date">
+												<p key={announcement.CreatedDate}>{announcement.CreatedDate}</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								
+								<!-- <div class="second_div"> -->
+								<!-- <lightning-formatted-rich-text key={announcement.Content__c}
+								value={announcement.Content__c}>
+							</lightning-formatted-rich-text> -->
+								<!-- </div> -->
+								<!-- <p key={announcement.Id}>{announcement.Content__c}</p>
+							<p key={announcement.CreatedDate}>Announced by: {announcement.Announced_by__r.Name}</p> -->
+								<div class="Content_Info">
+									<template if:true={announcement.Content__c}>
+										<lightning-formatted-rich-text value={announcement.Content__c}>
+										</lightning-formatted-rich-text>
+									</template>
+									<template if:false={announcement.Content__c}>
+										<p>No content available.</p>
+									</template>
+								</div>
+							</div>
+
+					</template>
+				</template>
+				<template if:true={isAnnouncementLoading}>
+								<lightning-spinner alternative-text="Loading" size="medium">
+								</lightning-spinner>
+				</template>
+				<template if:true={noContentAvail}>
+					<div class="noContent">
+						There are currently no announcements available.
+					</div>
+					
+				</template>
+			</div>
+			<div if:true={error}>
+				Error: {error}
+			</div>
+			<div class="view-button">
+				<lightning-button variant="base" label="View all" onclick={handleView}></lightning-button>
+			</div>
+		</div>
+	</article>
+
+</template>

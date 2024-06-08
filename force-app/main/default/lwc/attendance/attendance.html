@@ -1,0 +1,281 @@
+<template>
+   <div class="overrideStyle"></div>
+      <div class="summary">
+         <div class="slds-max-small-size_1-of-1 slds-size_1-of-4">
+            <div class="divtag">
+               <span>Total Attendance:</span>
+               <span>
+                  <span style="color:#00A129;">{attendanceDetails.totalPresentDays}</span>
+                  <span style="color:#194051;">/{attendanceDetails.totalWorkingDays}</span>
+               </span>
+            </div>
+         </div>
+
+         <div class="slds-max-small-size_1-of-1 slds-size_1-of-4">
+            <div class="divtag">
+               <span>Total Leaves:</span>
+               <span style="color:#DA0E0E;">{attendanceDetails.totalLeaves}</span>
+            </div>
+         </div>
+
+         <div class="slds-max-small-size_1-of-1 slds-size_1-of-4">
+            <div class="divtag">
+               <span>Total Half Days:</span>
+               <span style="color:#F9AA35;">{attendanceDetails.totalHalfDays}</span>
+            </div>
+         </div>
+
+         <div class="slds-max-small-size_1-of-1 slds-size_1-of-4">
+            <div class="divtag" style="margin-right: 0;">
+               <span>On Time Arrival:</span>
+               <span style="color:#194051;">{attendanceDetails.onTimeArrivalPercentage}%</span>
+            </div>
+         </div>
+
+      </div>
+
+      <template if:false={smallScreen}>
+         <br>
+      </template>
+
+      <div>
+         <!-- <lightning-card>  -->
+         <div style="padding: 15px;" class="div-summary">
+            <!-- <br> -->
+            <div style="display: flex; justify-content: space-between;">
+
+               <div class="month-change-main">
+                  <template if:true={lastOnClick.month}>
+                     <span><img class="month-change needToDisbaleLastMonth" data-action="last"
+                           onclick={handleMonthChange} src={leftArrow} /></span>
+                  </template>
+                  <span class="month-year">{currMonth}</span>
+                  <span><img class="month-change" data-action="next" onclick={handleMonthChange}
+                        src={rightArrow} /></span>
+               </div>
+
+               <div class="month-change-main">
+                  <template if:true={lastOnClick.year}>
+                     <span><img class="month-change needToDisbaleLastMonth" data-action="last"
+                           onclick={handleYearChange} src={leftArrow} /></span>
+                  </template>
+                  <span class="month-year">{currYear}</span>
+                  <span><img class="month-change" data-action="next" onclick={handleYearChange}
+                        src={rightArrow} /></span>
+               </div>
+
+            </div>
+
+            <lightning-spinner alternative-text="Loading" if:true={isLoading} size="large"
+               variant="brand"></lightning-spinner>
+
+            <div>
+               <!-- firstWeek -->
+               <template if:true={firstWeek.length}>
+                  <div class="slds-grid slds-wrap">
+                     <template for:each={firstWeek} for:item="day">
+                        <div class="slds-max-small-size_1-of-1 slds-medium-size_1-of-7 slds-large-size_1-of-7"
+                           key={day.Date}>
+
+                           <div class={day.class.main}>
+
+                              <div class="first-row">
+                                 <div class="day-list"><b>{day.Day}</b></div>
+                                 <div class={day.class.dateround}>{day.Date}</div>
+                              </div><br>
+
+                              <div>
+                                 <div class={day.class.status}>•{day.class.main}</div>
+                              </div>
+
+                              <div class="clockin-out">
+                                 <div class="present-day text">{day.clockIn}{day.clockOut}</div>
+                                 <div class="present-day text">{day.timeDiff}</div>
+                              </div>
+
+                           </div>
+
+                        </div>
+                     </template>
+                  </div>
+               </template>
+
+               <!-- secondWeek -->
+               <template if:true={secondWeek.length}>
+                  <div class="slds-grid slds-wrap">
+                     <template for:each={secondWeek} for:item="day">
+                        <div class="slds-max-small-size_1-of-1 slds-medium-size_1-of-7 slds-large-size_1-of-7"
+                           key={day.Date}>
+
+                           <div class={day.class.main}>
+
+                              <div class="row-date">
+                                 <template if:true={smallScreen}>
+                                    <div class="day-list"><b>{day.Day}</b></div>
+                                 </template>
+                                 <div class={day.class.dateround}>{day.Date}</div>
+                              </div><br>
+
+                              <div style="font-size: 13px;">
+                                 <div class={day.class.status}>•{day.class.main}</div>
+                              </div>
+
+                              <div class="clockin-out">
+                                 <div class="present-day">{day.clockIn}{day.clockOut}</div>
+                                 <div class="present-day">{day.timeDiff}</div>
+                              </div>
+
+                           </div>
+
+                        </div>
+                     </template>
+                  </div>
+               </template>
+
+               <!-- thirdWeek -->
+               <template if:true={thirdWeek.length}>
+                  <div class="slds-grid slds-wrap">
+                     <template for:each={thirdWeek} for:item="day">
+                        <div class="slds-max-small-size_1-of-1 slds-medium-size_1-of-7 slds-large-size_1-of-7"
+                           key={day.Date}>
+
+                           <div class={day.class.main}>
+
+                              <div class="row-date">
+                                 <template if:true={smallScreen}>
+                                    <div class="day-list"><b>{day.Day}</b></div>
+                                 </template>
+                                 <div class={day.class.dateround}>{day.Date}</div>
+                              </div><br>
+
+                              <div style="font-size: 13px;">
+                                 <div class={day.class.status}>•{day.class.main}</div>
+                              </div>
+
+                              <div class="clockin-out">
+                                 <div class="present-day">{day.clockIn}{day.clockOut}</div>
+                                 <div class="present-day">{day.timeDiff}</div>
+                              </div>
+
+                           </div>
+
+                        </div>
+                     </template>
+                  </div>
+               </template>
+
+               <!-- fourthWeek -->
+               <template if:true={fourthWeek.length}>
+                  <div class="slds-grid slds-wrap">
+                     <template for:each={fourthWeek} for:item="day">
+                        <div class="slds-max-small-size_1-of-1 slds-medium-size_1-of-7 slds-large-size_1-of-7"
+                           key={day.Date}>
+
+                           <div class={day.class.main}>
+
+                              <div class="row-date">
+                                 <template if:true={smallScreen}>
+                                    <div class="day-list"><b>{day.Day}</b></div>
+                                 </template>
+                                 <div class={day.class.dateround}>{day.Date}</div>
+                              </div><br>
+
+                              <div style="font-size: 13px;">
+                                 <div class={day.class.status}>•{day.class.main}</div>
+                              </div>
+
+                              <div class="clockin-out">
+                                 <div class="present-day">{day.clockIn}{day.clockOut}</div>
+                                 <div class="present-day">{day.timeDiff}</div>
+                              </div>
+
+                           </div>
+
+                        </div>
+                     </template>
+                  </div>
+               </template>
+
+               <!-- fifthWeek -->
+               <template if:true={fifthWeek.length}>
+                  <div class="slds-grid slds-wrap">
+                     <template for:each={fifthWeek} for:item="day">
+                        <div class="slds-max-small-size_1-of-1 slds-medium-size_1-of-7 slds-large-size_1-of-7"
+                           key={day.Date}>
+
+                           <div class={day.class.main}>
+
+                              <div class="row-date">
+                                 <template if:true={smallScreen}>
+                                    <div class="day-list"><b>{day.Day}</b></div>
+                                 </template>
+                                 <div class={day.class.dateround}>{day.Date}</div>
+                              </div><br>
+
+                              <div style="font-size: 13px;">
+                                 <div class={day.class.status}>•{day.class.main}</div>
+                              </div>
+
+                              <div class="clockin-out">
+                                 <div class="present-day">{day.clockIn}{day.clockOut}</div>
+                                 <div class="present-day">{day.timeDiff}</div>
+                              </div>
+
+                           </div>
+
+                        </div>
+                     </template>
+                  </div>
+               </template>
+
+               <!-- sixthWeek -->
+               <template if:true={sixthWeek.length}>
+                  <div class="slds-grid slds-wrap">
+                     <template for:each={sixthWeek} for:item="day">
+                        <div class="slds-max-small-size_1-of-1 slds-medium-size_1-of-7 slds-large-size_1-of-7"
+                           key={day.Date}>
+
+                           <div class={day.class.main}>
+
+                              <div class="row-date">
+                                 <template if:true={smallScreen}>
+                                    <div class="day-list"><b>{day.Day}</b></div>
+                                 </template>
+                                 <div class={day.class.dateround}>{day.Date}</div>
+                              </div><br>
+
+                              <div class="status">
+                                 <div class={day.class.status}>•{day.class.main}</div>
+                              </div>
+
+                              <div class="clockin-out">
+                                 <div class="present-day">{day.clockIn}{day.clockOut}</div>
+                                 <div class="present-day">{day.timeDiff}</div>
+                              </div>
+
+                           </div>
+
+                        </div>
+                     </template>
+                  </div>
+               </template>
+            </div><br>
+
+            <div class="footer">
+               <span style="color: #00A129;">•P-Present</span>
+               <span style="color: #F9AA35;">•FHL-First Half Leave</span>
+               <span style="color: #F9AA35;">•SHL-Second Half Leave</span>
+               <span style="color: #5E44EF;">•FO-Festival Off</span>
+               <span style="color: #DA0E0E;">•FDL-Full Day Leave</span>
+               <span style="color: #6C6C6C;">•WO-Week Off</span>
+            </div><br>
+
+            <div class="note">
+               <div>* The initial clock-in time under the "Clock In" section and the final clock-out time under the
+                  "Clock Out" section.</div>
+            </div>
+
+         </div>
+         <!-- </lightning-card> -->
+      </div>
+</template>

@@ -1,0 +1,23 @@
+<template>
+  <lightning-card title="LWC to Visualforce">
+    <div class="slds-p-around_small">
+      <lightning-input
+        type="text"
+        label="Enter some text"
+        value={message}
+        onchange={handleOnChange}
+      ></lightning-input>
+      <br />
+      <lightning-button
+        variant="brand"
+        label="Send to VF"
+        title="Primary action"
+        onclick={handleClick}
+        class="slds-m-left_x-small"
+      ></lightning-button>
+      <br />
+      <br />
+      <iframe id="vfIframe" src="/apex/SampleVF"> </iframe>
+    </div>
+  </lightning-card>
+</template>

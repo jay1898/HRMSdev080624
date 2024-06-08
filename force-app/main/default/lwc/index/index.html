@@ -1,0 +1,378 @@
+<template>
+
+	<header>
+		<div class="container navbar">
+			<div class="">
+				<div class="">
+					<a href="https://www.itechcloudsolution.com/">
+						<img class="Carrer_logo" src={imgURL} />
+                    </a>
+				</div>
+			</div>
+			<div class="">
+				<p class="home"><a href="https://www.itechcloudsolution.com/"> <span class="home-span">Home</span> </a>
+				</p>
+			</div>
+		</div>
+	</header>
+
+	<template lwc:if={showMain}>
+		<lightning-spinner if:true={isLoading} size="large" variant="brand"></lightning-spinner>
+		<!-- Before -->
+		<!-- <img class="hero_section" src={imageURL} /> -->
+		<div class="at-Top"></div>
+		<div class="hero_section">
+			<div class="hero_section_items">
+				<div class="job_title">
+					<span class="overlay-text">
+            <span style="color: #37a000;"> {countPosition} Jobs</span>&nbsp;Available Now
+					</span>
+				</div>
+				
+				<!-- <div class="job-metadata ">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id varius velit, ac molestie metus.
+					Nam a ex eu velit feugiat eleifend."
+				</div> -->
+			</div>
+			<!-- Display the length of the data array on top of the image -->
+		</div>
+		
+		<div class="back container" style="font-family:Montserrat">
+			<div class="boxtitle">
+				<div class="">
+					<template for:each={jobData} for:item="job">
+
+						<div key={job.id} class="">
+							<div class="joblisting">
+								<div class="jobspecificationitem job-type">
+									<!-- <h2 class="jobpost">{job.Title__c}</h2> -->
+									<span class="awsm-job-specification-term jobTitle">{job.Title__c}</span>
+									<span class="pipeSign">|</span>
+									<span class="awsm-job-specification-term jobTitle">{job.Job_Title__c}</span>
+								</div>
+								
+
+								<div class="jobspecificationitem job-type">
+									<i class="awsm-job-icon-bell"></i>
+									<img class="briefCase" src={CaseURL} />
+									<span class="awsm-job-specification-term jobexp">{job.JobExp}
+                        </span>
+									<span class="pipeSign">|</span>
+
+									<img class="Rupee" src={RuURL} />
+									<span class="awsm-job-specification-term Notdisclosed">Not Disclosed
+                        </span>
+									<span class="pipeSign">|</span>
+									<img class="location" src={LocURL} />
+									<span class="awsm-job-specification-term loc">Surat,
+                            Gujarat</span>
+								</div>
+								<div class="responsibilities">
+									<lightning-formatted-rich-text value={job.Responsibilities_and_Duties}>
+									</lightning-formatted-rich-text>
+								</div>
+
+								<div class="Apply_now_box">
+									<div class="Apply_now_box_left">
+										<!-- {job.Skills__formatted} -->
+										<template for:each={job.Skills__formatted} for:item="skill">
+											<span key={skill} class="skill-item">{skill}</span>
+										</template>
+									</div>
+									<div class="apply_btn">
+										<button onclick={showDetails} data-id={job.Id} class="btn">Apply
+                                Now</button>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</template>
+				</div>
+			</div>
+		</div>
+		<!-- 46rem    631 px -->
+
+	</template>
+
+	<!-- <div class="overrideStyle"></div><br> -->
+	<!-- <template lwc:if={showMain}>
+<img class="hero_section" src={imageURL} />
+
+<div class="back">
+<div class="boxtitle">
+    <div class="">
+        <template for:each={jobData} for:item="job">
+
+            <div key={job.id} class="">
+                <div class="joblisting" >
+                    <div class="gridleftcol">
+                        <div class="slds-grid slds-wrap">
+                            <div class="slds-col slds-size_1-of-1 slds-large-size_10-of-12">
+                        <h2 class="jobpost">{job.Title__c}</h2>
+                        <div class="jobspecificationitem job-type">
+                            <i class="awsm-job-icon-bell"></i>
+                            <img class="briefCase" src={CaseURL} />&nbsp;&nbsp;
+                            <span class="awsm-job-specification-term"
+                                style="font-size: 15px; color: #1D4354;">{job.JobExp} </span>
+                            &nbsp; | &nbsp;&nbsp;
+                            <img class="Rupee" src={RuURL} />&nbsp;
+                            <span class="awsm-job-specification-term" style="font-size: 15px; color: #1D4354;">Not Disclosed
+                            </span>
+                            &nbsp; | &nbsp;&nbsp;
+                            <img class="location" src={LocURL} />&nbsp;
+                            <span class="awsm-job-specification-term" style="font-size: 15px; color: #1D4354;">Surat,
+                                Gujrat</span><br><br>
+                        </div>
+                        <div >
+                            <lightning-formatted-rich-text  style="display: inline-block;"
+                                value={job.Responsibilities_and_Duties}>
+                            </lightning-formatted-rich-text>
+                        </div>
+                        <br>
+                        <div class="box">
+                            <template for:each={job.Skills__formatted} for:item="skill">
+                                        <span key={skill} class="skill-item">{skill}</span>
+                                    </template>
+                        </div>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-large-size_2-of-12">
+                    <div class="center">
+                        <button onclick={showDetails} data-id={job.Id} class="btn">Apply Now</button>
+                    </div>
+                    </div>
+            </div>
+            
+            </div>    
+            </div>
+            </div>
+        </template>
+    </div>
+</div>
+</div>
+
+<footer>
+<img class="footer_section" src={footerURL} />
+</footer>
+</template> -->
+	<template lwc:if={fullMessageView}>
+		<!-- <img class="hero_section" src={imageURL} /> -->
+		
+		<div class="hero_section">
+			<div class="hero_section_items">
+				<div class="job_title">
+					<span class="overlay-text">
+            <span style="color: #37a000;"> {showTitle} </span>
+					</span>
+				</div>
+				<!-- <div class="job-metadata">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam id varius velit, ac molestie metus.
+					Nam a ex eu velit feugiat eleifend."
+				</div> -->
+			</div>
+		</div>
+		<div class="container detail_page" style="display: flex;flex-direction: row; margin-top: 20px;font-family:Montserrat">
+			<!-- Display Position -->
+
+			<div class="left-container" style="width: 50%;padding-right: 60px;">
+				<!-- <span style="font-weight: inherit;
+    color: #37a000;
+    margin-bottom: 0;
+    padding-top: inherit;
+    font-size: 1.1rem;
+" onclick={backButtonhandle} class="backresult"><lightning-icon icon-name="utility:back"
+            alternative-text="back!" variant="back" onclick={backButtonhandle} class="slds-col my-icon"
+            title="back" size="small">
+        </lightning-icon> -->
+				<img class="back-arrow" onclick={backButtonhandle} src={BackURL} />
+				<!-- Back to Results</span> -->
+				<br> <br>
+				<div class="boxtitle">
+				<div class="showtitle">{showTitle}</div>
+
+				<i class="awsm-job-icon-bell"></i>
+				<img class="briefCase" src={CaseURL} />
+				<span class="awsm-job-specification-term" style="color: #1D4354;">{JobExp}
+                    </span>
+				<span class="pipeSign">|</span>
+
+				<img class="Rupee" src={RuURL} />
+				<span class="awsm-job-specification-term" style="color: #1D4354;">Not Disclosed
+                    </span>
+				<span class="pipeSign">|</span>
+				<img class="location" src={LocURL} />
+				<span class="awsm-job-specification-term" style="color: #1D4354;">Surat,
+                        Gujarat</span>
+				<!-- </div> -->
+
+				<div style="font-size: 17px;margin-top: 10px; margin-bottom: 10px;">
+					<span class="job-attributes">Qualification - </span>
+					{showQualification}
+				</div>
+
+				<div style="font-size: 17px; margin-bottom: 10px;">
+					<span class="job-attributes">Job Type - </span>
+					{showJobType}
+				</div>
+
+				<!-- <div class="Roledes" style="font-size: 17px;display: flex; margin-bottom: 10px;">
+					<span class="job-attributes">Role Description - </span>
+					<lightning-formatted-rich-text style="display: inline-block;" value={strippedshowDescription}>
+					</lightning-formatted-rich-text>
+				</div> -->
+				<div style="font-size: 17px;text-align: justify; margin-bottom: 10px;">
+					<span class="job-attributes">Job Description</span>
+					<lightning-formatted-rich-text value={strippedshowDescription}></lightning-formatted-rich-text>
+				</div>
+
+				<div style="font-size: 17px;text-align: justify; margin-bottom: 10px;">
+					<span class="job-attributes"> Responsibilities and Duties </span>
+					<lightning-formatted-rich-text value={showResponsibilityDuty}></lightning-formatted-rich-text>
+				</div>
+
+				<div style="font-size: 17px;text-align: justify; ">
+					<span class="job-attributes"> Required Experience, Skills and Qualifications </span>
+					<lightning-formatted-rich-text value={showRequiredExperienceSkillsQualificaton}>
+					</lightning-formatted-rich-text>
+				</div>
+			</div>
+</div>
+			<div class="right-container" style="width: 50%;">
+				<c-application-form name={getName} onsubmitclicked={hanldeValueChange}></c-application-form>
+			</div>
+			
+		</div>
+		<!-- <div style="margin-top: 40px;">
+<lightning-button variant="brand" label="Back" onclick={backButtonhandle}></lightning-button>
+</div> -->
+
+	</template>
+
+
+	<template if:true={isThankyouvisible}>
+		<div class="new">
+			<!-- <span style="font-weight: inherit;
+color: rgb(132 197 98);
+margin-top: 0px;
+padding-top: inherit;
+font-size: 1.1rem;
+" onclick={backButtonhandle} class="backresult"><lightning-icon icon-name="utility:back"
+        alternative-text="back!" variant="back" onclick={backButtonhandle} class="slds-col my-icon"
+        title="back" size="small">
+    </lightning-icon>Back to Results</span> -->
+			<div class="content">
+				<div class="wrapper-1">
+					<div class="zoom-animation">
+						<div class="wrapper-2">
+							<lightning-spinner if:true={isImageLoad} alternative-text="Loading" size="large"></lightning-spinner>
+							<img class="submitted_image" src={candidateSubmitted} onload={handleImageLoaded} />
+							<p style="color:#194051;" class="success-message">Your application has been submitted <span style="color:#00A129">successfully.</span>  </p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</template>
+
+	<footer class="footer-section">
+
+			<div class="footer-outer footer-background">
+				<div class="container">
+					<div class="footer_top_menu_border">
+						<div class="footer_top_menu slds-grid slds-wrap" style="color:white; font-family: 'Poppins', sans-serif;">
+
+							<!-- Reach Us -->
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+								<div class="reach_us">
+									<div class="footer_top_menu_heading"><strong class="footer-title-size-Reachus">Reach
+                                Us</strong></div>
+								<ul class="content_ul">
+										<li style="display:flex">
+											<lightning-icon icon-name="utility:dialing" alternative-text="Phone"
+												size="small" variant="inverse"></lightning-icon>
+											<div><a href="tel:+91 997 9933 595" class="Reachus_Phone">+91 997 9933 595</a> </div>
+										</li>
+										<li style="display:flex">
+											<lightning-icon icon-name="utility:email" alternative-text="Email"
+												size="small" variant="inverse"></lightning-icon>
+											<div ><a href="mailto: contact@itechcloudsolution.com" class="Reachus_Email">contact@itechcloudsolution.com</a> </div>
+										</li>
+										<li style="display:flex">
+											<lightning-icon icon-name="utility:checkin" alternative-text="Address"
+												size="small" variant="inverse"></lightning-icon>
+											<div class="Reachus_Add">Western Plaza, 209-210-211, Simada Naka, Simada Gam,
+												Nana Varachha, Surat, Gujarat 395006</div>
+										</li>
+									</ul>
+								</div>
+							</div>
+
+		
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+								<div class="useful_links">
+									<div class="footer_top_menu_heading"><strong class="footer-title-size-Ourservice" >Our Services</strong></div>
+									<ul class="content_ul">
+										<a href="https://www.itechcloudsolution.com/salesforce-consulting/" style="color:white"><li class="Ourservice_First Ourservice ">Salesforce Consulting</li></a>
+										<a href="https://www.itechcloudsolution.com/salesforce-implementation/" style="color:white"><li class="Ourservice_Second Ourservice" >Salesforce Implementation</li></a>
+										<a href="https://www.itechcloudsolution.com/salesforce-integration/" style="color:white"><li class="Ourservice_Third Ourservice" >Salesforce Integration</li></a>
+										<a href="https://www.itechcloudsolution.com/salesforce-development-and-customization/" style="color:white"><li class="Ourservice_Four Ourservice">Salesforce Development and Customization</li></a>
+									</ul>
+								</div>
+							</div>
+
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12 top-space">
+								<div class="our_services">
+									<div class="footer_top_menu_headingc "><strong class="footer-title-size">  </strong></div>
+									<ul class="content_ul">
+										<a href="https://www.itechcloudsolution.com/salesforce-appexchange-app-development/" style="color:white"><li class="Ourservice_First1 Ourservice">Salesforce AppExchange App Development</li></a>
+										<a href="https://www.itechcloudsolution.com/salesforce-managed-services/" style="color:white"><li class="Ourservice_Second1 Ourservice" >Salesforce Managed Services</li></a>
+										<a href="https://www.itechcloudsolution.com/salesforce-qa-services/" style="color:white"><li class="Ourservice_Third1 Ourservice">Salesforce QA Services</li></a>
+										<a href="https://www.itechcloudsolution.com/middleware-development-using-heroku/" style="color:white"><li class="Ourservice_Four1 Ourservice">Middleware Development Using Heroku</li></a>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Our Social Networks -->
+							<div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12 slds-large-size_3-of-12">
+								<div class="social_image">
+									<div class="footer_top_menu_heading"><strong class="footer-title-size-Socialnetwork" style="margin-left: 4px;">Our Social
+                                Networks</strong></div>
+									<!-- <div class="">Icon coming soon</div> -->
+
+									<ul>
+										<!-- <li><img src={linkedInFooterIcon} /></li>
+                            <li class="icon"><a
+                                    href="https://in.linkedin.com/company/itechcloud-solution"><img
+                                        src={skypeFooterIcon} /></a></li>
+                            <li class="icon"><img src={InstagramFooterIcon} /></li>
+                            <li class="icon"><img src={twitterFooterIcon} /></li>
+                            <li class="icon"><img src={facebookFooterIcon} /></li> -->
+
+										<li><a href="skype:subhash.panchani?chat" target="_blank"><img
+                                        src={skypeFooterIcon} /></a></li>
+										<li class="icon"><a href="https://in.linkedin.com/company/itechcloud-solution"
+												target="_blank"><img src={linkedInFooterIcon} /></a></li>
+										<li class="icon"><a href="https://www.instagram.com/itechcloudsolution/"
+												target="_blank"><img src={InstagramFooterIcon} /></a></li>
+										<li class="icon"><a href="https://twitter.com/itechcloud_" target="_blank"><img
+                                        src={twitterFooterIcon} /></a></li>
+										<li class="icon"><a href="https://www.facebook.com/itechcloudsolution/"
+												target="_blank"><img src={facebookFooterIcon} /></a></li>
+									</ul>
+
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<!-- Footer Bottom -->
+			<div class="footer_bottom">
+				© Copyright iTechCloud Solution {currentYear}. All Rights Reserved.
+				<!-- © Copyright <b> iTechCloud </b>. All Rights Reserved -->
+			</div>
+	</footer>
+</template>

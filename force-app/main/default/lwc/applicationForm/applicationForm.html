@@ -1,0 +1,252 @@
+<template>
+	<div class="overrideStyle"></div>
+	<div class="container">
+		<div class="boxtitle">
+		<div class="form_name">Apply For This Position</div>
+		<div class="flex-container mobileView" style="margin-bottom: 10px;">
+
+			<!-- Full Name -->
+			<div class="flex-item ">
+				<label style="font-size: 15px;" for="Full_Name__c" class="label">Full Name<span aria-hidden="true"
+						style="color: red;">*</span></label>
+				<input class={fullNameInputClass} type="text" required name="Full_Name__c" value={Full_Name__c}
+					onchange={handleInputChange}
+					></input>
+				<span class="error-message" style="color: red;">{fullNameError}</span>
+			</div>
+
+			<!-- Email -->
+			<div class="flex-item ">
+				<label style="font-size: 15px;" for="Email__c" class="label">Email<span aria-hidden="true"
+						style="color: red;">*</span></label>
+				<div class="myEmailField ">
+					<input class={emailInputClass} type="email" required name="Email__c" value={Email__c}
+						onchange={handleInputChange} onblur={handleEmailonBlur} ></input>
+					<span class="error-message" style="color: red;">{emailError}</span>
+				</div>
+				<!-- Verify Email Button -->
+				<!-- <template if:false={emailFieldDisable}>
+					<template if:true={showEmailVerifyButton}>
+						<div align="right" style="margin-top: 10px;">
+							<lightning-spinner if:true={isVerifyEmailLoading} size="large" variant="brand"></lightning-spinner>
+							<button onclick={handleVerifyOTPButtonClick} class="verify-btn">{verifyEmailButtonTitle}</button>
+						</div>
+					</template>
+				</template> -->
+			</div>
+
+		</div>
+
+		<div class="flex-container" style="margin-bottom: 10px;">
+			<!-- pattern="^[0-9]{1,10}$" -->
+			<!-- Phone -->
+			<div class="flex-item">
+				<label style="font-size: 15px;" for="Phone__c" class="label">Phone<span aria-hidden="true"
+						style="color: red;">*</span></label>
+				<!-- <div style="display: flex;border: 1px solid #ccc;border-radius: 5px 5px 5px 5px;"> -->
+					<!-- <span class={spanInputClass} style="padding: 5px;border-right: 1px solid rgb(204, 204, 204);
+					border-radius: 5px 0px 0px 5px !important;">+91</span> -->
+					<input class={phoneInputClass} type="tel" required name="Phone__c" value={Phone__c}
+						onchange={handleInputChange}  ></input>
+				<!-- </div>	 -->
+				<!-- <input class={phoneInputClass} type="tel" required name="Phone__c" value={Phone__c}
+					onchange={handleInputChange} disabled={emailVerified}></input> -->
+				<span class="error-message" style="color: red;">{phoneError}</span>
+			</div>
+			<!-- Highest Qualification Held -->
+			<div class="flex-item">
+				<div style="margin-bottom: -16px;" class="label">
+					<label style="font-size: 15px;">Highest Qualification Held<span aria-hidden="true"
+							style="color: red;">*</span></label>
+				</div>
+				<lightning-combobox class={qualificationInputClass} name="Highest_Qualification_Held__c"
+					value={selectedQualification} placeholder="Select Highest Qualification"
+					options={qualificationOptions} onchange={handleInputChange}
+					></lightning-combobox>
+				<span class="error-message" style="color: red;">{qualificationError}</span>
+			</div>
+		</div>
+
+
+		<div class="flex-container mobileView" style="margin-bottom: 10px;">
+			<!-- Experience -->
+			<div class="flex-item">
+				<div style="margin-bottom: -16px;" class="label">
+					<label style="font-size: 15px;">Years of Experience<span aria-hidden="true"
+							style="color: red;">*</span></label>
+				</div>
+				<lightning-combobox class={experienceInputClass} name="Years_of_Experience__c"
+					value={selectedExperience} placeholder="Select Years of Experience" options={experienceOptions}
+					onchange={handleInputChange} ></lightning-combobox>
+				<span class="error-message" style="color: red;">{experienceError}</span>
+			</div>
+			<!-- About Us -->
+			<div class="flex-item">
+				<div style="margin-bottom: -16px;" class="label">
+					<label style="font-size: 15px;">How Did You Hear About Us?<span aria-hidden="true"
+							style="color: red;">*</span></label>
+				</div>
+				<lightning-combobox class={aboutusInputClass} name="How_Did_You_Hear_About_Us__c"
+					value={selectedAboutUs} placeholder="Select How Did You Hear About Us?" options={aboutUsOptions}
+					onchange={handleInputChange} ></lightning-combobox>
+				<span class="error-message" style="color: red;">{aboutusError}</span>
+			</div>
+		</div>
+
+
+		<!-- For enhancement should be remove these fields -->
+		<!-- Address -->
+		<!-- <div class="flex-item">
+			<label style="font-size: 15px;" for="Address__c" class="label">Address<span aria-hidden="true"
+					style="color: red;">*</span></label>
+			<textarea class="input" type="text" name="Address__c" value={Address__c} onchange={handleInputChange}
+				disabled={addressVerified}></textarea>
+		</div> -->
+
+		<!-- Country -->
+		<!-- <div class="flex-container mobileView" style="margin-bottom: 10px;">
+			<div class="flex-item">
+				<label style="font-size: 15px;" for="Country__c" class="label">Country<span aria-hidden="true"
+						style="color: red;">*</span></label>
+				<input class="input" type="text" name="Country__c" value={Country__c} onchange={handleInputChange}
+					disabled={countryVerified}></input>
+			</div> -->
+		<!-- State -->
+		<!-- <div class="flex-item">
+				<label style="font-size: 15px;" for="State__c" class="label">State<span aria-hidden="true"
+						style="color: red;">*</span></label>
+				<input class="input" type="text" name="State__c" value={State__c} onchange={handleInputChange}
+					disabled={stateVerified}></input>
+			</div>
+		</div> -->
+
+		<div class="flex-container mobileView" style="margin-bottom: 10px;">
+			<!-- File Upload -->
+			<div class="flex-item">
+				<div style="display: flex;flex-direction: row;">
+					<div class="slds-file-selector slds-file-selector_files">
+						<div style="font-weight: bold;">
+							<div style="margin-bottom:-16px" class="myLable">
+								<label style="font-size: 15px;font-weight: bold;color: #8D8D8D;">Upload CV/Resume<span
+										aria-hidden="true" style="color: red;">*</span></label>
+							</div>
+							<!-- <lightning-input type="file"  onchange={handleFileUploaded}
+								variant="label-hidden" accept=".png, .jpeg, .pdf" >
+							</lightning-input> -->
+							<lightning-file-upload name="fileUploader" accept={acceptedFormats} record-id={recordId}
+								onuploadfinished={handleUploadFinished} file-field-name="From_App_fileupload__c"
+								file-field-value="RECRUITMENT_WEBSITE" >
+							</lightning-file-upload>
+							<span class="error-message" style="color: red;">{fileuploadError}</span>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<template lwc:if={isFileUploaded}>
+						<div style="font-size: 15px;">
+							<span style="color: green;">Uploaded File:</span> {fileName}
+						</div>
+					</template>
+					<template lwc:if={isFilelimitExceed}>
+						<div style="font-size: 15px;">
+							<span style="color: red;">Please Choose below 25 MB file</span>
+						</div>
+					</template>
+				</div>
+				<div style="font-size: 12px;padding-top: 5px; ">
+					<div>
+						Supported Formats:  <b>.docx, .doc, .pdf</b>
+					</div>
+					<div>
+						<!-- File Size Limit: Up to <b>5 MB</b> -->
+					</div>
+				</div>
+			</div>
+
+			<!-- Reference -->
+			<!-- <div class="flex-item">
+				<label style="font-size: 15px;" for="References__c" class="label">Reference</label>
+				<input class="input" type="text" name="References__c" value={References__c} onchange={handleInputChange}
+					></input>
+			</div> -->
+
+			<div class="flex-item">
+				<label style="font-size: 15px;" for="References__c" class="label" if:true={showReferenceField}>Reference<span aria-hidden="true"
+					style="color: red;">*</span></label>
+				<input class={RefernceInputClass} type="text" name="References__c" value={References__c} onchange={handleInputChange} 
+					if:true={showReferenceField}></input>
+					<span class="error-message" style="color: red;">{referenceError}</span>
+			</div>
+			
+		</div>
+
+		<!-- TnC Checkbox -->
+		<div class="flex-item" style="display: flex;flex-direction: row;align-items: center;">
+			<!-- <input
+				style="font-size: 15px;width: 11%;align-items: center;height: 18px;display: flex;justify-content: center;"
+				class="input" type="checkbox" name="checkboxTnC" id="checkboxTnC" value={TnC}
+				onchange={handleInputChange} disabled={emailVerified}></input> -->
+
+			<lightning-input class="slds-text-heading_medium {errorClass}" type="checkbox" id="checkboxTnC"
+				 onchange={handleCheckbox} label="By
+				submitting this form, you consent to the storage and processing of your data by this website" name="checkboxTnC">
+			</lightning-input>
+
+			<!-- <label style="font-size: 14px;width: 90%;margin-left: -17px;" for="checkboxTnC" class="label-1">By
+				submitting this form, you consent to the storage and processing of your data by this website
+				<span aria-hidden="true" style="color: red;">*</span>
+			</label> -->
+		</div>
+		<div class={errorMessageClass} style="color: red;">Please agree to the Terms and Conditions.
+		</div>
+		<!-- Submit Button -->
+		<div class="center">
+			<lightning-spinner if:true={isLoading} size="large" variant="brand"></lightning-spinner>
+			<button onclick={handleSubmit} class="btn hover-grow">Submit</button>
+		</div>
+	</div>
+</div>
+
+	<!-- OTP Input Modal -->
+	<!-- <template if:true={showOTPInputModal}>
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<header class="slds-modal__header popup">
+					<lightning-icon icon-name="action:email" alternative-text="email" title="email"></lightning-icon>
+
+					<h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate" style="color: #1D4354;">
+						Verify Your Email</h2>
+				</header>
+				<div class="slds-modal__content slds-p-around_medium popup" id="modal-content-id-1">
+					<div>
+						Hi {First_Name__c},<br>We have sent you an OTP on your email: <b>{Email__c}</b>, enter that 4
+						digit OTP number here and verify your email address for proceeding further with your
+						application.
+					</div>
+					<div class="container-1">
+						<div id="inputs" class="inputs">
+							<input class="input-1" type="text" oninput={handleInput} onkeydown={handleKeydown}
+								inputmode="numeric" maxlength="1" />
+							<input class="input-1" type="text" oninput={handleInput} onkeydown={handleKeydown}
+								inputmode="numeric" maxlength="1" />
+							<input class="input-1" type="text" oninput={handleInput} onkeydown={handleKeydown}
+								inputmode="numeric" maxlength="1" />
+							<input class="input-1" type="text" oninput={handleInput} onkeydown={handleKeydown}
+								onkeyup={validateWithUserOtp} inputmode="numeric" maxlength="1" />
+						</div>
+					</div>
+				</div>
+				<footer class="slds-modal__footer popup">
+					<lightning-button variant="neutral" label="Cancel" title="Cancel" onclick={closeModal}
+						style="padding-right: 20px;"></lightning-button>
+				</footer>
+			</div>
+
+		</section>
+		<div class="slds-backdrop slds-backdrop--open"></div>
+	</template> -->
+
+
+</template>

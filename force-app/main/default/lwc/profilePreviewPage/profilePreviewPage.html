@@ -1,0 +1,25 @@
+<template>
+    <template lwc:if={preview}>
+        <c-resume-builder profile-data={profileData} profile-content-version-id={profileId}></c-resume-builder>
+    </template>
+
+    <div class="footerButtons">
+        <div class="backButtonDiv">
+            <template lwc:if={backButton}>
+                <div>
+                    <button class="slds-button slds-button_outline-brand backButton" onclick={onBack}>Back</button>
+                </div>
+            </template>
+        </div>
+        <template lwc:if={buttonEnable}>
+            <div class="previewButtonDiv">
+                <button class="slds-button slds-button_success previewButton" onclick={onPreview}>Preview</button>
+            </div>
+        </template>
+        <template lwc:if={buttonDisable}>
+            <div class="disableButtonDiv">
+                <button class="slds-button slds-button_success disableButton">Preview</button>
+            </div>
+        </template>
+    </div>
+</template>
