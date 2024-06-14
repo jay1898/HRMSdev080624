@@ -1,0 +1,138 @@
+.dummy {
+	color: black;
+}
+
+.tab-container {
+	position: relative;
+}
+
+.exampleHolder{
+    position: sticky;	
+}
+
+.tab {
+	padding: 11px;
+	cursor: pointer;
+	user-select: none;
+	width: 100%;
+	text-align: center;
+}
+
+.tab-list {
+	list-style-type: none;
+	margin: 0;
+	display: flex;
+	border-bottom: 2px solid #ddd;
+	border-radius: 10px;
+	height: 43px;
+	background-color: white;
+}
+
+.tab-indicator {
+	position: absolute;
+	bottom: 0;
+	height: 4px;
+	background-color: #3AD67B;
+	transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+
+
+.active-tab {
+	border-bottom: 4px solid #3AD67B;
+}
+
+
+.birth {
+	background-color: white;
+	border-radius: 10px;
+	margin-top: 21.5pX;
+	padding: 15PX;
+}
+
+.todaybirthday {
+	color: rgba(126, 144, 154, 1);
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	font-size: 11PX;
+	margin-top: 8PX;
+}
+
+.todayBirth {
+	padding: 6px;
+	font-family: Montserrat;
+	font-size: 12px;
+	font-weight: 500;
+	text-align: left;
+	margin-top: 16px;
+}
+
+
+.name {
+    font-size: 12.5px; /* font-size: 16px; */
+    color: rgba(7, 36, 49, 1);
+}
+
+.birthdate {
+    color: rgba(126, 144, 154, 1);
+    font-size: 12.5px; /* font-size: 16px; */
+}
+
+.sevenname {
+    color: rgba(7, 36, 49, 1);
+    font-family: Montserrat;
+    text-align: left;
+    font-size: 12.5px; /* font-size: 16px; */
+}
+
+.sevenbirthdate {
+    color: rgba(126, 144, 154, 1);
+    font-size: 12.5px; /* font-size: 16px; */
+}
+
+.nextweek {
+	margin-top: 10PX;
+}
+
+.todayAnniversary {
+	padding: 6px;
+	font-family: Montserrat;
+	font-size: 12px;
+	font-weight: 500;
+	line-height: 19.5px;
+	text-align: left;
+	margin-top: 16px;
+}
+
+.anniversary {
+	background-color: white;
+	border-radius: 10px;
+	margin-top: 21.5pX;
+	padding: 15PX;
+}
+
+.todayworkanniversary {
+	color: rgba(126, 144, 154, 1);
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	font-size: 11PX;
+	margin-top: 8PX;
+}
+
+.viewImage {
+	display: flex;
+	gap: 8px;
+}
+
+.viewImage img {
+	/*
+	width: 40px;
+	height: 40px;
+	border-radius: 9px;
+	object-fit: cover;*/
+	border-radius: 50px;
+    height: 40px;
+    width: 40px;
+}

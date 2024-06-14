@@ -1,0 +1,112 @@
+@font-face {
+    font-family: 'roboto';
+    src: url("/resource/Fonts/Roboto-Medium.ttf") format(TrueType);
+}
+
+:host {
+   --sds-c-textarea-sizing-min-height: 30vh;
+   --slds-c-icon-color-foreground:#339D5D;
+}
+.mainContainer{
+    display: flex;
+    flex-direction: column;
+}
+.headingContainer{
+  width: 59%;
+  margin: 16px auto;
+}
+.headingContainer h1{
+  font-family: "roboto";
+  font-size: 2em;
+  font-weight: 700;
+  color: #07334A;
+  letter-spacing: 1px;
+}
+span{
+  font-family: "roboto";
+  font-weight: 400;
+  color: #07334A;
+  letter-spacing: 1px;
+}
+.headingContainer h3{
+    font-weight: inherit;
+    font-size: 1em;
+    color: #7A93A0;
+}
+.richtextMainContainer{
+  width: 59%;
+  margin: 10px auto;
+}
+.richtextContainer{
+    display: flex;
+    justify-content: space-between;
+}
+.richtextMainContainer h2 {
+  color: #07334A;
+  font-family: "roboto";
+  font-weight:200;
+  width: 60%;
+  font-size: 15px;
+}
+.preDefineTextContainer{
+    width: 37%;
+    box-shadow: 0px 2px 5px silver;
+    border: none;
+    border-radius: 16px;
+}
+.arrowIcon{
+    margin: auto;
+    background-color: #F3FCF7;
+    border-radius: 50%;
+    padding: 7px;
+    margin-right: 5px;
+}
+.arrowIcon:hover{
+    cursor: pointer;
+}
+.preDefineText{
+    margin-top: 10px;
+    padding: 2px 16px;
+    /* display: flex; */
+}
+.preDefineText p:hover{
+    cursor: pointer;
+}
+.footerButtons{
+    justify-content: space-between;
+    display: flex;
+    width: 59%;
+    margin: 16px auto;
+}
+.saveAndNextButton{
+    color: white;
+    background-color: #37a000;
+    border: none;
+    border-radius: 8px;
+    height: 34px;
+    padding: 0px 30px;
+}
+.saveAndNextButton:hover{
+    background-color: #256203;
+}
+.disableButton{
+    color: white;
+    background-color: #d3d3d3;
+    border: none;
+    border-radius: 8px;
+    height: 34px;
+    padding: 0px 30px;
+}
+.disableButton:hover{
+    cursor: auto;
+}
+.backButton{
+    color: #07334A;
+    border: 2px solid #07334A;
+    padding-inline: 25px;
+    border-radius: 8px;
+}
+.exampleHolder{
+    position: sticky;
+    margin-top: 50px;
+}

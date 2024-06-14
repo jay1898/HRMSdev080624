@@ -1,0 +1,176 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.heading{
+  font-size: 2em;
+  font-weight: bold;
+  color: #07334A;
+  margin-top: 42px;
+  margin-left: 17rem;
+  display: inline-block;
+}
+.headingContainer{
+  width: 59%;
+  margin: 30px auto;
+}
+.headingContainer h1{
+  font-family: "roboto";
+  font-size: 2em;
+  font-weight: 700;
+  color: #07334A;
+
+}
+span{
+  font-family: "roboto";
+  font-weight: 400;
+  color: #07334A;
+}
+
+.combox{
+  width: 59%;
+  margin: 30px auto;
+}
+
+.addskills{
+    width: 59%;
+    margin: 30px auto;
+}
+
+.level{
+  width: 59%;
+  margin: 30px auto;
+}
+.custom-combobox-label .slds-form-element__label {
+  font-weight: bold;
+}
+
+.skilloptions {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0px -12px -8px 0px;
+  width: 700px;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+.strong-text {
+  font-weight: 700;
+}
+
+.add-skills h2 {
+  margin-bottom: 10px;
+}
+
+.accordian {
+  background-color: rgba(245, 247, 250, 1);
+  border-radius: 8px;
+  margin: 0px 0px;
+  padding: 10px 20px;
+  max-width: 700px;
+  width: 100%;
+  height: 50PX;
+  cursor: pointer;
+}
+
+
+.drpDwnClrChng {
+  background-color: rgba(245, 247, 250, 1);
+  border-radius: 8px;
+  justify-content: space-between;
+  margin: 0px 0px;
+  padding: 10px 20px;
+  max-width: 700px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.drpRghtClrChng {
+  background-color: rgba(245, 247, 250, 1);
+  border-radius: 8px;
+  margin: 0px 0px;
+  padding: 10px 20px;
+  max-width: 700px;
+  width: 100%;
+  cursor: pointer;
+  height: 50PX;
+}
+
+.dropdownHeading {
+  font-size: 15px;
+  font-weight: bold;
+  color: rgba(7, 51, 74, 1);
+}
+
+.dropdownHeadingTitle {
+  color: rgba(169, 166, 187, 1);
+}
+
+.dropdown_data {
+  margin-top: 15px;
+}
+
+
+.jGfGfY {
+  display: -webkit-inline-box;
+  -webkit-box-align: center;
+  align-items: center;
+  margin: 0px 12px 12px 0px;
+  padding: 6px 6px 6px 10px;
+  border-radius: 4px;
+  background-color: rgb(239, 242, 249);
+  color: rgb(30, 37, 50);
+  font-size: 16px;
+  line-height: 20px;
+  white-space: nowrap;
+  transition: background-color 0.1s ease 0s, color 0.1s ease 0s;
+  will-change: opacity, transform;
+  cursor: pointer;
+}
+
+.jGfGfY:hover {
+  background-color: rgb(234, 246, 255);
+  color: rgb(26, 145, 240);
+}
+
+
+.skill {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border-radius: 4px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.skill-level {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.skill-level label {
+  margin-right: 10px;
+}
+
+.level-slider {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.level-slider .novice {
+  margin-right: 10px;
+}

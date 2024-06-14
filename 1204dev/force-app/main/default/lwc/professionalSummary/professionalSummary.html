@@ -1,0 +1,70 @@
+<template>
+    <div class="mainContainer">
+        <div class="headingContainer">
+            <h1><span>PROFESSIONAL</span> SUMMARY</h1>
+            <h3>Write a short summary telling more about yourself, your strengths and experience. Feel free to use our
+                pre-written
+                examples</h3>
+        </div>
+        <div class="richtextMainContainer">
+            <div>
+                <h2>Summary</h2>
+                <div class="richtextContainer">
+                    <div class="richtextinput" style="width: 60%;">
+                        <lightning-input-rich-text value={richTextValue} onchange={handleRichTextValue}>
+                        </lightning-input-rich-text>
+                    </div>
+                    <div class="preDefineTextContainer">
+                        <lightning-card>
+                            <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left"
+                                style="border-bottom: 1px solid #A9A6BB;">
+                                <lightning-icon size="x-small"
+                                    class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default"
+                                    icon-name="utility:search"></lightning-icon>
+                                <input type="text" id="text-input-id-1" placeholder="Type Text to Search"
+                                    onkeyup={handleKeyChange} class="slds-input" style="border: none;" />
+                            </div>
+                            <div style="overflow-y: scroll;  height: 200px; margin:0px 5px">
+                                <template lwc:if={spinner}>
+                                    <div class="exampleHolder">
+                                        <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+                                    </div>
+                                </template>
+                                <template for:each={helpTexts} for:item="hp" for:index="index">
+                                    <div key={hp.id} class="preDefineText" style="display: flex;">
+                                        <lightning-icon class="arrowIcon" icon-name='utility:chevronleft'
+                                            alternative-text='chevronleft' variant='success' size='x-small'
+                                            title='chevronleft' data-id={index}
+                                            onclick={onValueGoToRichTextArea}></lightning-icon>
+                                        <p onclick={getTheParagrhapValue}>{hp.Instructions__c}</p>
+                                    </div>
+                                </template>
+                            </div>
+                        </lightning-card>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+    <div class="footerButtons">
+        <div class="backButtonDiv">
+            <div>
+                <button class="slds-button slds-button_outline-brand backButton" onclick={onBack}>Back</button>
+            </div>
+        </div>
+        <template lwc:if={buttonEnable}>
+            <div class="saveAndNextButtonDiv">
+                <button class="slds-button slds-button_success saveAndNextButton" onclick={onSaveAndNext}>Save</button>
+            </div>
+        </template>
+        <template lwc:if={buttonDisable}>
+            <div class="disableButtonDiv">
+                <button class="slds-button slds-button_success disableButton">Save</button>
+            </div>
+        </template>
+    </div>
+</template>

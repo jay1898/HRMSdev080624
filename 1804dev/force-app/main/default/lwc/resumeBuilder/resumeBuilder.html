@@ -1,0 +1,18 @@
+<template>
+    <div class="customStyle">
+
+    </div>
+    <div class="overrideStyle"></div>
+    <div class="container">
+        <div class="right-div">
+            <c-resume-builder-right-panel content-version-id={contentVersionId}
+                profile-data={currentProfileData}></c-resume-builder-right-panel>
+        </div>
+        <div class="left-div">
+            <c-resume-builder-left-panel onsendtemplateid={handleResumeTemplateChange}></c-resume-builder-left-panel>
+        </div>
+
+    </div>
+    <div id="wordDocument"></div>
+    <div id="pdfContainer"></div>
+</template>

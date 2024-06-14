@@ -1,0 +1,258 @@
+<template>
+	<!-- <template if:true={isfirstpage}>
+		<lightning-card variant="Narrow" title="Select Template" icon-name="standard:template">
+			<div class="image-container slds-grid slds-wrap">
+				<template for:each={imageUrls} for:item="imageData">
+					<div key={imageData.Template_Name__c}
+						class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2 slds-large-size_1-of-2"
+						data-item-id={imageData.Template_Name__c} onclick={templateSelected}>
+						<span class="slds-grid">
+                        <div class="slds-col imageAndTemplateNameDiv" style="text-align: center;">
+                            <img width="400px" class="TemplateImg" src={imageData.imageUrl__c} alt="Dynamic Image" />
+							<p>{imageData.Template_Name__c}</p>
+							<div if:true={imageData.showCheck} class="check-overlay">
+                                    <div class="check-icon">&#10003;</div>
+                            </div>
+                        </div>
+                    </span>
+					</div>
+				</template>
+			</div>
+			<p if:true={isButtonVisible} slot="footer" style="text-align: right;">
+				<lightning-button class="backButton" variant="brand" div="Back" title="Back"
+					onclick={handleClickBack}>
+				</lightning-button>
+				<lightning-button variant="brand" div="Next" title="Next" data-id='1' onclick={handleClickNext}>
+				</lightning-button>
+			</p>
+		</lightning-card>
+	</template> -->
+
+	<template if:true={isTemplateSelected}>
+		<div class="container">
+			<header>
+				<img style=" width: 140px; height: 95px; top: 31px; left: 278px; gap: 0px; opacity: 0px; max-height: 150px;" alt="iTechCloud Logo" src={iTechlogo}>
+				<div class="slds-col slds-large-size_5-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+					<div class="slds-grid slds-wrap slds-m-bottom_medium">
+						<div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+							<div class="progressText">
+								<span class="pogressNum" onclick={progressHandleClick} data-msg="25">1</span>
+								<div class="pogresstext">Employee</div>
+							</div>
+						</div>
+						<div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+							<div class="progressText">
+								<span class="pogressNum" onclick={progressHandleClick} data-msg="50">2</span>
+								<div class="pogresstext">Experience</div>
+							</div>
+						</div>
+						<div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+							<div class="progressText">
+								<span class="pogressNum" onclick={progressHandleClick} data-msg="75">3</span>
+								<div class="pogresstext">Summary</div>
+							</div>
+						</div>
+						<div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+							<div class="progressText">
+								<span class="pogressNum" onclick={progressHandleClick} data-msg="100">4</span>
+								<div class="pogresstext">Review</div>
+							</div>
+						</div>
+					</div>
+
+					<span>
+						<lightning-progress-bar value={progressValue} size="large"></lightning-progress-bar>
+					</span>
+				</div>
+
+			</header>
+			<!--main-->
+				<h1><b>ADD EMPLOYEE & SKILL</b></h1>
+				<div class="slds-size_1-of-2">
+					<lightning-combobox id="employee" class="strong-text" label="Select Employee" name="employee" options={employeeOptions}
+						onchange={handleChange}></lightning-combobox>
+				</div>
+				<div class="add-skills">
+					<div style="font-weight: 600;">
+						<br>
+						<h2>Add Skills</h2>
+					</div>
+					
+					<div class="skill-options">
+						<template for:each={skillOptions} for:item="option">
+							<div key={option.value} class="skill-option jGfGfY" onclick={handleSkillClick} data-value={option.value}>
+								{option.label} &nbsp;
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px" height="10px">
+									<path fill-rule="evenodd"
+										d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+								</svg>
+							</div>
+						</template>
+					</div>
+
+					<!-- <template if:true={coverageFCAutoLib}> -->
+						<div class="accordian" data-id="divblock5" onclick={FCAutoLib_handleClick}>
+					 
+							<div class="slds-m-left_small dropdownHeading">Foreign Auto Liability Difference In Conditions/Excess Liability</div>  
+						   <div class="slds-float_right slds-p-around_none slds-m-right_small" >
+							 <lightning-icon icon-name={icFCAutoLib}  size='xx-small' ></lightning-icon>
+						   </div>
+					 
+					   </div>
+					   <div if:true={showFCAutoLib}>
+						fgdbhfcgncvnbghvcnj
+						   <!-- <c-fc-au-liability-difference-in-conditions-ex-liability record-type-data ={recordApi.coverages} excel-response={excelResponse} onchangedataupdate={onAUTOChange}></c-fc-au-liability-difference-in-conditions-ex-liability> -->
+					   </div>
+					<!-- </template> -->
+
+					<!--<lightning-accordion class="example-accordion" onsectiontoggle={handleToggleSection}>
+							<lightning-accordion-section  name='huubhj' label='kjnikikikikikikikik'>
+								<p>This is the content area for .</p>
+							</lightning-accordion-section>
+					</lightning-accordion>-->
+					<!--
+					<div class="skill">Communication Skills &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px"
+							height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+							</svg></div>
+					<div class="skill">Microsoft Office &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px"
+							height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+							</svg></div>
+					<div class="skill">Project Management &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px"
+							height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+							</svg></div>
+					<div class="skill">Online Marketing &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px"
+							height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+							</svg></div>
+					<div class="skill">HTML &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px" height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+						</svg></div>
+					<div class="skill">Data Analytics &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px" height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+						</svg></div>
+					<div class="skill">Css &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px" height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+						</svg></div>
+					<div class="skill">Javascript &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px" height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+						</svg></div>
+					<div class="skill">Aura &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px" height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+						</svg></div>
+					<div class="skill">Integration &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px" height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+						</svg></div>
+					<div class="skill">LWC &nbsp; <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px" height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+						</svg></div>-->
+				</div>
+					<div class="button-group">
+						<lightning-button variant="brand-outline" label="+ Add One More Skill" onclick={handleAddSkill}>
+						</lightning-button>
+						<lightning-button variant="brand" label="Save &amp; Next" data-id='2' onclick={handleClickNext}>
+						</lightning-button>
+					</div>
+		</div>
+
+		<!--div class="experience">
+						<label for="experience">Project Management</label>
+						<lightning-combobox name="experience" label="Project Management" options={experienceOptions}
+							onchange={handleExperienceChange}></lightning-combobox>
+					</div>
+					<div class="not-specified">
+						<label for="not-specified">(Not Specified)</label>
+						<lightning-combobox name="not-specified" label="(Not Specified)" options={notSpecifiedOptions}
+							onchange={handleNotSpecifiedChange}></lightning-combobox>
+						<div class="skill-level">
+							<label for="skill-level">Skill</label>
+							<lightning-input type="text" name="skill-level" label="Skill" onchange={handleSkillChange}>
+							</lightning-input>
+							<div class="level-slider">
+								<span class="novice">Novice</span>
+								<lightning-slider name="skill-level-slider" label="Skill Level" min="1" max="5"
+									value={skillLevel} onchange={handleSkillLevelChange}></lightning-slider>
+							</div>
+						</div>
+					</div-->
+
+		<!--/main-->
+		<!--/div-->
+		<!--lightning-card variant="Narrow" title="Select Employee" icon-name="standard:employee_organization">
+		<img style="max-height: 200px" alt="iTechcloud logo" src={iTechlogo}/>
+
+			<div class="header">
+				<div class="slds-grid slds-wrap"-->
+
+		<!--<div class="slds-col slds-large-size_7-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+						<span>ADD EMPLOYEE AND SKILL</span>
+					</div>-->
+		<!--div class="slds-col slds-large-size_7-of-12 slds-medium-size_1-of-12 slds-size_1-of-12" style="text-align: left;">
+						<span style="font-weight: bold;">ADD EMPLOYEE AND SKILL</span>
+					</div>					
+					<div class="slds-col slds-large-size_5-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+						<div class="slds-grid slds-wrap slds-m-bottom_medium">
+							<div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+								<div class="progressText">
+									<span class="pogressNum" onclick={progressHandleClick} data-msg="25">1</span>
+									<div class="pogresstext">Employee</div>
+								</div>
+							</div>
+							<div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+								<div class="progressText">
+									<span class="pogressNum" onclick={progressHandleClick} data-msg="50">2</span>
+									<div class="pogresstext">Experience</div>
+								</div>
+							</div>
+							<div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+								<div class="progressText">
+									<span class="pogressNum" onclick={progressHandleClick} data-msg="75">3</span>
+									<div class="pogresstext">Summary</div>
+								</div>
+							</div>
+							<div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+								<div class="progressText" >
+									<span class="pogressNum" onclick={progressHandleClick} data-msg="100">4</span>
+									<div class="pogresstext">Review</div>
+								</div>
+							</div>
+						</div>
+
+						<span>
+	    			<lightning-progress-bar value={progressValue} size="large"></lightning-progress-bar>
+				</span>
+					</div>
+				</div>
+			</div>
+
+			<div style="padding : 30px;">
+				<lightning-combobox name="progress" div="" value={value} placeholder="Select Employee"
+					options={employeeOptions} onchange={handleChange}></lightning-combobox>
+			</div>
+			<p slot="footer" style="text-align: right;">
+				<lightning-button class="backButton" variant="brand" div="Back" title="Back" onclick={handleClickBack}>
+				</lightning-button>
+				<lightning-button variant="brand" div="Next" title="Next" data-id='2' onclick={handleClickNext}>
+				</lightning-button>
+			</p>
+		</lightning-card>-->
+	</template>
+	<template if:true={loadVfpage}>
+		<!-- <iframe id="profileBuilderPage" src="/apex/profileBuilderPage" width="100%" height="100%"> </iframe> -->
+		<c-profile-preview-page record-details={fullDataJson}></c-profile-preview-page>
+	</template>
+	<!-- <iframe id="profileBuilderPage" src="/apex/profileBuilderPage" width="100%" height="100%"> </iframe> -->
+</template>

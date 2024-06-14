@@ -1,0 +1,67 @@
+<template>
+	<!-- <div class="overrideStyle"></div> -->
+	<!-- <div class="heading"> -->
+		<div class="headingContainer">
+			<h1><span>ADD</span> EMPLOYEE & SKILL</h1>
+		</div>
+
+		<div class="combox">
+			<div class="slds-size_1-of-2">
+				<lightning-combobox id="employee" class="strong-text" label="Select Employee" name="employee"
+					options={employeeOptions} onchange={handleChange}></lightning-combobox>
+			</div>
+		</div>
+		<div class="addskills">
+			<div style="font-weight: 600;">
+				<br>
+				<h2>Add Skills</h2>
+			</div>
+
+			<div class="skilloptions">
+				<template for:each={skillOptions} for:item="option">
+					<div key={option.value} class="skill-option jGfGfY" data-name={option.value}
+						onclick={handleSkillClick}>
+						{option.label} &nbsp;
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10px" height="10px">
+							<path fill-rule="evenodd"
+								d="M 11 2 L 11 11 L 2 11 L 2 13 L 11 13 L 11 22 L 13 22 L 13 13 L 22 13 L 22 11 L 13 11 L 13 2 Z" />
+						</svg>
+					</div>
+				</template>
+			</div>
+
+			<!-- expandle section -->
+			<div class="accordian" data-id="divblock5" onclick={FCAutoLib_handleClick}>
+				<div class="slds-m-left_small dropdownHeading">
+					{cardName}
+					<div class="slds-float_right slds-p-around_none slds-m-right_small">
+						<lightning-icon icon-name={icFCAutoLib} size='xx-large'></lightning-icon>
+					</div>
+				</div>
+				<div class="dropdownHeadingTitle" id="value2">{value2}</div>
+
+
+				<div if:true={showFCAutoLib}>
+					<div class="dropdown_data">
+					</div>
+					<div class="slds-grid slds-wrap">
+						<div class="slds-col slds-size_6-of-12">
+							<lightning-input type="text" label="Skill"></lightning-input>
+						</div>
+						<div class="slds-col slds-size_6-of-12">
+							Level
+							<!-- Level Range -->
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--Range input -->
+		<div class="level">
+			<input id="range" type="range" name="rangeInput" min="0" step="1" max="4" value={selectedValue} class="white"
+				onchange={handleRangeChange}></input>
+			<input id="box" type="text" value={value2} name="amount" for="rangeInput" oninput={handleTextInput}></input>
+		</div>
+	<!-- </div> -->
+</template>

@@ -1,0 +1,19 @@
+@font-face {
+    font-family: 'roboto';
+    src: url("/resource/Fonts/Roboto-Medium.ttf") format(TrueType);
+}
+
+.slds-listbox_expanded {
+    height:auto;
+    width: 100%
+    
+}
+.slds-form-element label{
+    color: #07334A;
+    font-family: "roboto";
+    font-weight: 200;
+}
+.slds-dropdown{
+    max-width: none;
+    left: 48.5%;
+}

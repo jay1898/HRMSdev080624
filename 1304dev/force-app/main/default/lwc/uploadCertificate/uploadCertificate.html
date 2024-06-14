@@ -1,0 +1,27 @@
+<template>
+    <div class="mainContainer">
+        <div class="headingContainer">
+            <h1><span>ADD</span> CERTIFICATE</h1>
+            <h3>Unlock your potential and elevate your career with Salesforce certification</h3>
+        </div>
+
+        <div class="droupDownContainer">
+            <div class="slds-p-horizontal_small">
+                <c-custom-multi-pick-list label="Select Certificate" required="true" showpills="true"
+                    role="cm-picklist"></c-custom-multi-pick-list>
+            </div>
+        </div>
+
+        <div class="footerButtons">
+            <div class="backButtonDiv">
+                <div>
+                    <button class="slds-button slds-button_outline-brand backButton" onclick={onBack}>Back</button>
+                </div>
+            </div>
+            <div class="saveAndNextButtonDiv">
+                <button class="slds-button slds-button_success saveAndNextButton"
+                    onclick={onNavigateToExperiencePage}>Save & Next</button>
+            </div>
+        </div>
+    </div>
+</template>

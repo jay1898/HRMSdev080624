@@ -1,0 +1,142 @@
+@font-face {
+  font-family: 'roboto';
+  src: url("/resource/Fonts/Roboto-Medium.ttf") format(TrueType);
+}
+:host {
+  --sds-c-textarea-sizing-min-height: 30vh;
+  --slds-c-icon-color-foreground:#339D5D;
+}
+.headingContainer{
+  width: 59%;
+  margin: 30px auto;
+}
+.headingContainer h1{
+  font-family: "roboto";
+  font-size: 2em;
+  font-weight: 700;
+  color: #07334A;
+
+}
+span{
+  font-family: "roboto";
+  font-weight: 400;
+  color: #07334A;
+}
+.headingContainer h3{
+ 
+  font-weight: inherit;
+  font-size: 1em;
+  color: #7A93A0;
+}
+.input{
+  width: 100%;
+  margin: 30px auto;
+}
+.richtext{
+  width: 100%;
+  margin: 30px auto;
+}
+.richtext h1 {
+  width: 348px;
+  height: 18px;
+  font-family: Roboto;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 12.44px;
+  letter-spacing: 0.02em;
+  text-align: left;
+  margin: 0Px;
+}
+.footerButtons{
+    justify-content: space-between;
+    display: flex;
+    width: 59%;
+    margin:16px auto;
+}
+.save{
+    color: white;
+    background-color: #37a000;
+    border: none;
+    padding-inline: 30px;
+    border-radius: 8px;
+    height: 34px;
+}
+.save:hover{
+  background-color: #256203;
+}
+.backButton{
+    color: #07334A;
+    border: 2px solid #07334A;
+    padding-inline: 25px;
+    border-radius: 8px;
+}
+.addExperience{
+    color: #37A000;
+    border: 2px solid #37A000;
+    padding-inline: 18px;
+    border-radius: 8px;
+}
+.slds-modal__container {
+  width: 59%;
+  margin: 30px auto;
+  max-width: 40rem;
+  min-width: 50rem;
+}
+.experience-box {
+  width: 59%;
+  margin: 30px auto;
+  background: rgba(245, 247, 250, 1);
+  border: 1.7px solid rgba(169, 166, 187, 1);
+  border-radius: 10px 10px 10px 10px;
+  padding: 10px;
+  margin-bottom: 10px;
+  position: relative; /* Required for relative positioning of the button container */
+}
+.label {
+  font-weight: bold;
+  font-family: Roboto;
+}
+
+.button-container {
+  position: absolute;
+  top: 10px; /* Adjust this value to change the vertical position */
+  right: 10px; /* Adjust this value to change the horizontal position */
+}
+
+.button-container button {
+  margin-left: 10px; /* Add margin between buttons */
+}
+
+.slds-button_success, .slds-button--success {
+  background-color: #37a000;
+}
+
+.preDefineTextContainer{
+  width: 37%;
+  box-shadow: 0px 2px 5px silver;
+  border: none;
+  border-radius: 16px;
+}
+.arrowIcon{
+  margin: auto;
+  background-color: #F3FCF7;
+  border-radius: 50%;
+  padding: 7px;
+  margin-right: 5px;
+}
+.arrowIcon:hover{
+  cursor: pointer;
+}
+.preDefineText{
+  margin-top: 10px;
+  padding: 2px 16px;
+  /* display: flex; */
+}
+.preDefineText p:hover{
+  cursor: pointer;
+}
+
+.richtextContainer{
+  display: flex;
+  justify-content: space-between;
+}

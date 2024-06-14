@@ -1,0 +1,109 @@
+.TaskTypeClass{
+    padding: 11px;
+}
+.TicketNoClass{
+    padding: 11px;
+}
+
+.TaskDescriptionClass{
+    
+  padding: 11px;
+  max-height: none; /* Ensure no height restrictions */
+  height: auto; /* Allow for flexible height */
+  overflow-y: hidden; /* Remove scrollbar */
+  resize: none; /* Prevent the textarea from being resized */
+}
+
+.ActualHourClass{
+    padding: 11px;
+}
+
+.EstimatedHourClass{
+    padding: 11px;
+}
+
+.ProjectNameClass{
+    padding: 11px;
+}
+
+.ProjectManagerClass{
+    padding: 11px;
+}
+.SubProjectNameClass{
+    padding: 11px;
+}
+
+.deleteRecord{
+    color: crimson;
+}
+.slds-spinner_container  {
+
+    /* background-color: rgba(221, 214, 214, 0.732); */
+    /* margin-top: 200px; */
+    /* margin-bottom: 200px; */
+}
+.slds-button_brand-color{
+    background-color: #1D4354;
+    border-color: #1D4354;
+    height: 46px;
+    width: 88px;
+    border-radius: 8px;
+    font-size: 18px;
+    border: none;
+    font-family: sans-serif;
+    margin-top: 15px;
+}
+
+.font{
+	font-family: iTechCloudSansRegular;
+}
+.dateFont{
+    font-size: large;
+}
+.slds-combobox {
+    z-index: 1001; /* Increase the z-index to make the dropdown appear above the card */
+    overflow: visible !important; /* Allow the dropdown to overflow */
+}
+.deleteBtn{
+display: flex;
+align-items: center;
+justify-content: center;
+padding-right: 0px;
+padding-left: 10px;
+}
+
+.ticket-no-column {
+    width: 13%; 
+}
+
+.task-description-column {
+    width: 40%; 
+    height: auto;
+}
+
+
+.comboboxpadding{    
+    padding-left: 14px;
+    padding-right: 14px;
+}
+.date_formatter{
+     width:52%;
+}
+
+.datePickerBlock {
+    display: flex;
+    justify-content: space-between;
+    background: white;
+    border-radius: 15px 15px 0px 0px;
+}
+.table-block{
+    /* display: flex;
+    justify-content: space-between; */
+    background: white;
+    /* border-radius: 0px 0px 0px 15px; */
+}
+.delete-svg svg{
+    width: 2rem;
+    height: 2rem;
+    color: #194051;
+}

@@ -1,0 +1,711 @@
+.Carrer_logo {
+
+  background-image: url('/resource/iTech_logo');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* max-height: 500px; */
+}
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
+	.slds-button_success:hover {
+		background-color: #194051;
+	}
+
+
+.horizontalHeader {
+  background: white;
+  width: 100%;
+  height: 5rem;
+  padding: 20px;
+}
+
+
+.profile-image-container {
+  position: relative;
+  display: inline-block;
+}
+
+
+
+.profile-image {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px; 
+}
+
+li {
+  list-style: none;
+  cursor: pointer;
+}
+
+h5 {
+  margin: 10px;
+}
+
+p {
+  margin: 10px;
+}
+
+.quiz-container {
+  display: flex;
+  flex-direction: column;
+  height: 80%;
+  padding: 10px;
+  background-color: #f2f2f2;
+}
+
+.quiz-title {
+  align-self: center;
+  width: 60%;
+  text-align: center;
+  padding: 10px;
+  border-radius: 20px;
+  box-shadow: inset 0 -3em 3em rgba(157, 32, 32, 0.1), 0 0 0 2px rgb(0, 42, 255),
+    0.3em 0.3em 1em rgba(137, 240, 116, 0.3);
+}
+
+.quiz-body {
+  display: flex;
+  width: 85%;
+  align-self: center;
+  margin-top: 25px;
+  border-radius: 20px;
+  background-color: white;
+}
+
+
+
+.question-container {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+  border-radius: 20px;
+  position: relative;
+  height: 415px;
+  color: white;
+  font-weight: bold;
+}
+
+.question {
+  width: 94%;
+  border: 1px solid black;
+  margin: 20px 20px 0px 20px;
+  border-radius: 20px;
+  height: 100px;
+  background-color: #4e9dc2;
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  margin: 13px;
+  position: absolute;
+  width: 94%;
+  bottom: 60px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.options {
+  cursor: pointer;
+  /* border: 1px solid black; */
+  display: flex;
+  align-items: center;
+  padding: 4px;
+  margin-top: 13px;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  box-shadow: h-offset v-offset blur spread color;
+  width: 100%;
+  box-shadow: inset 0 -3em 3em rgba(245, 212, 212, 0.959), 0 0 0 0 rgb(255, 255, 255),
+    3px 3px 3px rgba(217, 238, 30, 0.884);
+}
+
+.checkbox {
+  padding: 10px;
+  margin: 10px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 20px 20px 10px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.previous-button,
+.next-button {
+  width: 60px;
+  height: 30px;
+  background-color: lightgrey;
+  color: #fff;
+  border: none;
+  border-radius: 15px;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+.quiz-sidebar {
+  width: 30%;
+  padding: 20px 20px 20px 20px;
+  border: 1px solid black;
+  border-radius: 20px;
+  margin-left: 16px;
+}
+
+.help-section {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.question-number ul {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  margin-top: 16px;
+}
+
+.question-number li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  color: #fff;
+  border-radius: 20px;
+  margin: 5px;
+  flex-basis: 15%;
+}
+
+.timer {
+  margin-top: 16px;
+  text-align: center;
+  border: 1px solid black;
+  border-radius: 20px;
+}
+
+.submit_quiz {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+.submit_quiz_button {
+  width: 70%;
+}
+
+.congratulations-container {
+  background-color: lightgray;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.congratulations-message {
+  font-size: 3rem;
+  font-weight: bold;
+  color: green;
+  margin-bottom: 1rem;
+}
+
+.score-message {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+}
+
+.score-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: black;
+  margin-top: 1rem;
+}
+
+/* css by mahendra  */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 85vh; */
+}
+
+.thank-you-container {
+    text-align: center;
+    margin-top: 20px;
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+p {
+    font-size: 16px;
+    color: #666;
+}
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 80px;
+}
+.logo-container img {
+  width: 140px;
+  height: 78.31px;
+  top: 100px;
+  left: 1173px;
+}
+
+:host {
+  /* --sds-c-card-color-background: #4F7386; */
+  /* --sds-c-card-color-background: rgba(186, 186, 186, 0.619); */
+  --sds-c-card-color-background: #f3f5fa;
+}
+
+.containerforsignup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.boxforsignup {
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 551px;
+  height: 800px;
+  background: #e6eedcb8;
+  /* background: whitesmoke; */
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1),
+    0 10px 20px rgba(0, 0, 0, 0.05),
+    0 20px 20px rgba(0, 0, 0, 0.05),
+    0 30px 20px rgba(0, 0, 0, 0.05);
+}
+
+.instruction {
+  padding: 30px;
+}
+
+li {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  text-transform: capitalize;
+  color: #000000;
+}
+
+.showPassword {
+  display: flex;
+  justify-content: left;
+  margin-top: 5px;
+  margin-left: 1px;
+}
+
+.loginButton {
+  /* background: rgb(2, 0, 36); */
+  background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+  color: aliceblue;
+  font-size: large;
+}
+.loginButton:hover {
+  /* background: rgb(2,0,36); */
+background: linear-gradient(270deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+}
+
+.box{
+  width: 340px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(10%) translateY(-50%);
+
+}
+
+.hrmsImage {
+  width: 600px;
+  padding-left: 115px;
+}
+
+.hamburger-menu {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 48px;
+    justify-content: space-around;
+}
+
+.hamburger-menu span {
+    background-color: #333;
+    height: 2px;
+    width: 19px;
+    margin: 3px 0;
+}
+
+.line {
+    width: 100%; 
+    height: 2px; 
+    background-color: black; 
+}
+
+.hamburger{
+    cursor: pointer;
+    flex-direction: column;
+    padding: 10px;
+    padding-top: 40px;
+    justify-content: space-around;
+}
+
+.bar1, .bar2, .bar3{
+  width: 25px;
+  height: 2px;
+  margin: 6px 0;
+  background-color: rgb(25, 64, 81);
+}
+
+/* Add this CSS to your stylesheet or style section */
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.hrms-logo img {
+  animation: zoomIn 1s ease-in-out;
+}
+
+@keyframes up-down {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.hrms-logo img {
+  animation: up-down 3s ease-in-out infinite;
+}
+
+.animated-text {
+  overflow: hidden;
+  /* white-space: nowrap; */
+  margin: 0;
+  font-size: 25px;
+  color: rgb(36, 80, 103);
+}
+
+
+/* @media (max-width: 699px) { */
+  /* .animated-text { */
+      /* font-size: 18px; Adjust font size for smaller screens */
+  /* } */
+
+  /* .hrms-logo img { */
+      /* width: 100%; Make the image width 100% for smaller screens */
+      /* padding-left: 0; Remove padding on smaller screens if needed */
+  /* } */
+/* } */
+
+/* @media (max-width: 320px) {
+  .container{
+    display: flex;
+    justify-content: center;
+    height: 50vh;
+  }
+  .animated-text {
+      font-size: 18px; 
+  }
+
+  .hrms-logo img {
+      width: 100%; 
+      padding-left: 0; 
+  }
+} */
+
+@media (min-width: 333px) and (max-width: 768px) {
+ .container{
+    display: flex;
+    justify-content: center;
+    height: 45vh;
+     /* display: block;
+    height: 50vh;  */
+
+  }
+  .animated-text {
+      font-size: 18px; /* Adjust font size for smaller screens */
+  }
+
+  .hrms-logo img {
+      width: 100%; /* Make the image width 100% for smaller screens */
+      padding-left: 0; /* Remove padding on smaller screens if needed */
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+ .container{
+    display: flex;
+    justify-content: center;
+    height: 60vh;
+     /* display: block;
+    height: 50vh;  */
+
+  }
+  .animated-text {
+    /* font-size: 23px;       Production Size*/
+      font-size: 23px; /* Adjust font size for smaller screens */
+  }
+
+  .hrms-logo img {
+      width: 100%; /* Make the image width 100% for smaller screens */
+      padding-left: 0; /* Remove padding on smaller screens if needed */
+  }
+}
+
+
+@media (max-width: 767px) {
+  .animated-text {
+      font-size: 20px; /* Adjust font size for smaller screens */
+  }
+
+  .hrms-logo img {
+      width: 100%; /* Make the image width 100% for smaller screens */
+      padding-left: 0; /* Remove padding on smaller screens if needed */
+  }
+  .container{
+  height: 5%;
+  }
+}
+
+
+/* Center the container horizontally and vertically */
+.password-reset-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  z-index: 999; /* Ensure it's on top of other content */
+}
+
+/* Style the box */
+.password-reset-box {
+  background: #fff; /* White background for the box */
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: 30%;
+}
+
+
+.logoInHrader{
+  display: flex;
+  /* justify-content: center; */
+  margin-bottom: 7px;
+}
+
+.container-button{
+  display: flex;
+  justify-content: flex-end; /* Align button to the right */
+  align-items: center; /* Center vertically */
+}
+
+/* Add this CSS animation definition to your component's CSS file */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to your message element */
+.thank-you-container {
+    animation: fadeIn 1s; /* Adjust the duration as needed (1s = 1 second) */
+}
+.loginPageImage-img{
+  width: 77%;
+}
+
+/* backgroundLWC.css */
+.background-container {
+  /* position: relative; */
+  position: relative;
+  height: 100vh;
+}
+
+.background-container img {
+  /* position: absolute; */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the image behind other content */
+}
+
+@media screen and (min-width: 333px) and (max-width: 768px) {
+  .background-container {
+    background-image: url('/resource/LoginPageWave'); /* Replace with the correct resource URL */
+    background-size: cover;
+    /* Add other CSS properties for the background image */
+  }
+}
+
+.avatarImg{
+    /*margin: 10px;*/
+    text-align: center;
+}
+
+.resetFormLogo{
+    width: 140px;
+    height: 78.31px;
+    margin: 95px;
+}
+
+
+
+
+.notification-container {
+  height: 100px;
+  overflow: hidden;
+padding-top: 10px;
+overflow-y: auto;
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  animation: scroll 10s linear infinite;
+}
+
+.notification-container::-webkit-scrollbar {
+background-color:#fff;
+width:16px
+}
+.notificationLabel{
+font-style: normal;
+ font-weight: bold;
+}
+.notification-content div {
+padding: 5px 10px;
+margin: 2px 0;
+text-align: right;
+background: #fff;
+color: green;
+font-weight: 500;
+font-style: italic;
+padding-right: 20px;
+}
+
+/*.notification-content-fadin {
+  opacity: 0;
+ animation: fadeIn 1s ease-in-out forwards;
+}*/
+
+.notification-content-fadin span{
+  animation: blink 2s 1; /* 2s duration, 1 iteration (one-time blink) */
+}
+@keyframes blink {
+0% { color:green; }
+50% { background-color: yellow;color:black; }
+100% { color:green; }
+}
+
+@keyframes fadeIn {
+from {
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}
+
+
+/*
+.notification-container {
+  height: 100px;
+  overflow: hidden;
+padding-top: 10px;
+overflow-y: auto;
+}
+
+.notification-content {
+  display: flex;
+  flex-direction: column;
+  animation: scroll 10s linear infinite;
+}
+
+.notification-container::-webkit-scrollbar {
+background-color:#fff;
+width:16px
+}
+.notificationLabel{
+font-style: normal;
+ font-weight: bold;
+}
+.notification-content div {
+padding: 5px 10px;
+margin: 2px 0;
+text-align: right;
+background: #fff;
+color: green;
+font-weight: 500;
+font-style: italic;
+padding-right: 20px;
+}
+
+/*.notification-content-fadin {
+  opacity: 0;
+ animation: fadeIn 1s ease-in-out forwards;
+}*/
+
+/*.notification-content-fadin span{
+  animation: blink 2s 1; /* 2s duration, 1 iteration (one-time blink) *
+}
+@keyframes blink {
+0% { color:green; }
+50% { background-color: yellow;color:black; }
+100% { color:green; }
+}
+
+@keyframes fadeIn {
+from {
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}*/

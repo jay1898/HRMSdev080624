@@ -1,0 +1,104 @@
+@font-face {
+    font-family: 'roboto';
+    src: url("/resource/Fonts/Roboto-Medium.ttf") format(TrueType);
+}
+
+.header{
+    /* box-shadow: 0 6px 15px rgba(0,0,0,0.19), 0 5px 9px rgba(0,0,0,0.23); */
+    background-color: #ffffff;
+    border: none;
+    margin-top: -18px;
+}
+.mainContainer{
+    
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    width: 100%;
+    margin:auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.processBar{
+    display: inline-flex;
+    width: auto;
+    
+}
+.pogressNum {
+  cursor: pointer;
+  display: inline-block;
+  border: 2px solid #37a000;
+  background-color: white;
+  border-radius: 50% ;
+  width:40px;
+  height:40px;
+  text-align: center;
+  box-sizing: border-box;
+  padding:7px;
+}
+.progressText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 8px;
+}
+.pogressLine{
+    width: 115%;
+    margin-top: 8px;
+    margin-left: 16px;
+}
+.headingContainer{
+  width: 59%;
+  margin: 16px auto;
+}
+.headingContainer h1{
+  font-family: "roboto";
+  font-size: 2em;
+  font-weight: 700;
+  color: #07334A;
+  letter-spacing: 1px;
+}
+span{
+  font-family: "roboto";
+  font-weight: 400;
+  color: #07334A;
+  letter-spacing: 1px;
+}
+.combox{
+  width: 59%;
+  margin: 30px auto;
+  
+}
+.strong-text {
+ font-family: "roboto";
+ display: block;
+ font-weight: 200;
+ color: #07334A;
+ 
+}
+
+.droupDownContainer{
+    width: 60.5%;
+    margin: 2px auto;
+}
+.saveAndNextButtonDiv{
+    margin-top: 50px;
+}
+.saveAndNextButton{
+    color: white;
+    background-color: #37a000;
+    border: none;
+    border-radius: 8px;
+    height: 34px;
+}
+.saveAndNextButton:hover{
+    background-color: #256203;
+}
+.footerButtons{
+    text-align: end;
+    width: 59%;
+    margin:auto auto;
+}

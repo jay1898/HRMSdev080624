@@ -1,0 +1,67 @@
+.header{
+    box-shadow: 0 6px 15px rgba(0,0,0,0.19), 0 5px 9px rgba(0,0,0,0.23);
+    margin-top: -18px;
+}
+.mainContainer{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.container{
+    width: 100%;
+    margin:auto;
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.processBar{
+    display: inline-flex;
+    width: auto;
+    
+}
+.pogressNum {
+  cursor: pointer;
+  display: inline-block;
+  border: 2px solid #37a000;
+  background-color: white;
+  border-radius: 50% ;
+  width:40px;
+  height:40px;
+  text-align: center;
+  box-sizing: border-box;
+  padding:7px;
+}
+.progressText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 8px;
+}
+.pogressLine{
+    width: 115%;
+    margin-top: 8px;
+    margin-left: 16px;
+}
+.saveAndNextButton{
+    color: white;
+    background-color: #37a000;
+    border: none;
+    border-radius: 8px;
+    height: 34px;
+}
+.addOneMoreSkill{
+    color: #37A000;
+    border: 2px solid #37A000;
+    padding-inline: 8px;
+    border-radius: 8px;
+}
+.saveAndNextButton:hover{
+    background-color: #256203;
+}
+.footerButtons{
+    justify-content: space-between;
+    display: flex;
+    width: 59%;
+    margin:auto auto;
+}

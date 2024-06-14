@@ -1,0 +1,89 @@
+.dummy {
+  color: blue;
+}
+
+.tab-container {
+  position: relative;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background-color: #3AD67B;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.tab-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  border-block: none;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.tab {
+  padding: 10px 39px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tab:hover {
+  background-color: white;
+}
+
+
+
+.active-tab {
+  border-bottom: 4px solid #3AD67B;
+}
+
+.birthdayalign{
+  
+}
+.viewImage{
+      max-width: 50px;
+    border-radius: 50px;
+}
+.profile-image{
+  border-radius: 30px;
+}
+.edit-icon{
+  fill:blue;
+}
+.employee_data {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.THIS .box1 svg{
+  width: 30px;
+  height: 15px;
+}
+
+.scroll_css{
+  background-color: white;  
+  border-radius: 10px;
+}
+
+.first_div{
+   max-height: 800px;
+   overflow-y: auto;
+}
+
+.date_size{
+  width: max-content;
+      display: flex;
+    align-items: baseline;
+}
+
+.footerButtons{
+      display: flex;
+    align-items: end;
+    justify-content: space-between;
+}

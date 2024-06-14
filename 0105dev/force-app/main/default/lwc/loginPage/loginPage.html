@@ -1,0 +1,323 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 03-29-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+	<div class="overrideStyle"></div>
+	<!-- 28/07/2023 -->
+	<template if:true={loginVisible}>
+
+		<div class="background-container">
+			<div class="box">
+				<div class="logo-container">
+					<img src={loginHDimage} alt="iTechCloud Solution Pvt Ltd." style="width: 140px; height: 78.31px;" />
+				</div><br /><br />
+					<div style="padding-right: 30px;">
+						<div style="text-align: center;">
+							<label style="font-weight: Bold; font-size: 17px;">Hii, 👋 Welcome to
+							<span style="color: #00a129; font-size: large; font-size: 19px; padding-right: 4px; padding-left: 4px;">
+								 iTechCloud</span> <span>Portal</span></label>
+						</div>
+					</div>
+					<div>
+						<span style="color: #b0b0b0; font-size: 11px; padding-left: 6px;"> Please enter your username and
+						password</span>
+					</div>
+
+					<div style="padding-top: 58px;">
+						<div class="slds-form-element slds-form-element_horizontal slds-input-has-icon slds-input-has-icon_right "
+							style="margin-bottom: 5px;">
+
+							<input type="text" oninput={handleUsernameChange} placeholder="Username" class="slds-input"
+							style="height: 40px; background-color: #f3f5fa; box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out;"
+							required />
+					</div>
+							<div class="slds-form-element slds-form-element_horizontal slds-input-has-icon slds-input-has-icon_right "
+								style="margin-bottom: 15px;">
+
+								<input type="password" oninput={handlePasswordChange} placeholder="Password" class="slds-input"
+							style="height: 40px; background-color: #f3f5fa; box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1);  transition: box-shadow 0.3s ease-in-out;"
+							required />
+					</div>
+
+								<div align="center">
+									<span style="color: red;">{error}</span>
+								</div>
+								<div class="slds-form-element slds-form-element_horizontal " 
+								style="margin-bottom: 0px;">
+									<button class="slds-button slds-button_success" id="login-button"
+							style="width: 335px; height: 40px; color: white; transition: box-shadow 0.3s ease-in-out; font-size: larger;"
+							onclick={handleSignInClick}>
+							Login</button>
+								</div>
+
+								<span
+						style=" display: flex; justify-content: space-between;  margin-top: -10px;  margin-right: -1rem;">
+						<p style="text-align: right; font-size: medium; font-weight: 500;">
+							<!-- <a href="#"  >Remember Me</a> -->
+							<input type="checkbox" style="margin-right: 5px;"> <a href="#"> Remember Me</a>
+						</p>
+						<p style="text-align: left; font-size: medium; font-weight: 500;">
+							<a href="#" onclick={showPasswordReset}>Forgot Password?</a>
+						</p>
+					</span>
+							</div>
+						</div>
+						<!-- <img src={backgroundImageUrl} alt="Background Image" /> -->
+						<img src={fullLoginPageImage} alt="Background Image" />
+		</div>
+
+	</template>
+	<!-- forgot password  -->
+
+	<template if:true={resetForm}>
+		<div class="background-container">
+			<!-- <p class="animation-text">iTechCloud We believe in people doing business together.</p> -->
+			<div class="container">
+				<div class="box">
+					<div class="resetFormLogo">
+						<img src={loginHDimage} alt="iTechCloud Solution Pvt Ltd." />
+				</div>
+						<div
+							class="slds-form-element slds-form-element_horizontal slds-input-has-icon slds-input-has-icon_right ">
+							<label style="font-size: 15px;">New Password</label>
+							<input type="password" oninput={handleNewPasswordChange} placeholder="New Password"
+						class="slds-input"
+						style="height: 40px; background-color: #f3f5fa; box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1);	transition: box-shadow 0.3s ease-in-out;"
+						required />
+				</div>
+							<div
+								class="slds-form-element slds-form-element_horizontal slds-input-has-icon slds-input-has-icon_right ">
+								<label style="font-size: 15px;">Confirm Password</label>
+								<input type="password" oninput={handleConfirmPasswordChange} placeholder="confirm Password"
+						class="slds-input"
+						style="height: 40px; background-color: #f3f5fa; box-shadow: 0px 2px 5px 2px rgba(0, 0, 0, 0.1); transition: box-shadow 0.3s ease-in-out; margin-bottom: 15px;"
+						required />
+				</div>
+								<div align="center">
+									<span style="color: red;">{error}</span>
+								</div>
+								<div class="slds-form-element slds-form-element_horizontal ">
+									<button class="slds-button slds-button_success" id="reset-button"
+						style="width: 100%; height: 39px; box-shadow: 0px 2px 4px 0px rgb(33 132 54);	transition: box-shadow 0.3s ease-in-out; font-size: larger;"
+						onclick={handleResetPassword}>
+						Save</button>
+								</div>
+							</div>
+						</div>
+						<!-- <img src={backgroundImageUrl} alt="Background Image" /> -->
+						<img src={fullLoginPageImage} alt="Background Image" />
+		</div>
+	</template>
+
+	<!-- Password reset form -->
+
+	<template if:true={showPasswordResetForm}>
+		<div class="password-reset-container">
+			<div class="password-reset-box">
+				<h2><strong> Forgot Password? </strong></h2>
+				<p> <strong>Enter your username below to reset it.</strong></p><br />
+				<div class="slds-form slds-form_stacked">
+					<div class="slds-form-element">
+						<div style="text-align: justify;  font-size: 15px; ">
+							<label for="username" autocomplete="off">Username</label>
+						</div>
+						<input type="text" id="username" name="username" placeholder="Enter your username"
+							oninput={handleUsernameChange} class="slds-input" />
+					</div>
+						<span class="slds-text-color_error" if:true={usernameRequiredError}>
+						Username is required.
+					</span>
+						<span class="slds-text-color_error" if:true={popupError}>
+						{popupError}
+					</span>
+					</div>
+					<div class="slds-grid slds-gutters slds-grid_align-center">
+						<div class="slds-col">
+							<button class="slds-button slds-button_brand" onclick={handleResetClick}>Send Mail</button>
+						</div>
+						<div class="slds-col">
+							<button class="slds-button slds-button_neutral" onclick={closePasswordReset}>Cancel</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</template>
+	<template if:true={empdetailVisible}>
+		<template if:false={resetForm}>
+			<!-- //This line is added to hide the employee detail page when the Passward Reset form is open. -->
+			
+		<!-- top header div  -->
+		<div class="slds-grid slds-wrap">
+			<div class="slds-col slds-large-size_2-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+					<img style="max-height: 200px; padding: 20px; margin-left: 5rem;" alt="iTechcloud logo" src={iTechlogo}/>
+				</div>
+				<div class="slds-col slds-large-size_5-of-12 slds-medium-size_5-of-12 slds-size_5-of-12">
+					<div class="header-container">
+						<div class="horizontalHeader">
+							<div style="display: flex; justify-content: space-between; align-items: flex-start; padding: 0;">
+								<div class="slds-col slds-size_2-of-12">
+									<div class="avatarImg">
+										<lightning-spinner if:true={isUploading} alternative-text="Uploading"></lightning-spinner>
+										<img src={profileImage} class="profile-image">
+									
+									</div>
+								</div>
+								<div class="slds-col slds-size_10-of-12">
+									<div>
+										<span>
+								<div style="left: 335px; background-color: white;">
+									<!-- <lightning-avatar variant="circle" src="https://www.lightningdesignsystem.com/assets/images/avatar2.jpg" initials="AW" fallback-icon-name="standard:person_account" alternative-text="Amy Weaver" class="slds-m-right_small"></lightning-avatar> -->
+									<div class="info" style="display: flex; flex-direction: column; margin-bottom: 10px;">
+										<div class="name" style="font-size: 20px; font-weight: bold; color: #16161D; font-family: sans-serif;">
+											{EmployeeDetails.EmpName}
+										</div>
+										<div class="email" style="font-size: 16px; color: #9D9D9D;">
+											{EmployeeDetails.EmpEmail}
+										</div>
+									</div>
+									<div class="caret-down">
+										<div class="caret-vector"></div>
+									</div>
+								</div>
+							</span>
+						</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="slds-col slds-large-size_5-of-12 slds-medium-size_6-of-12 slds-size_6-of-12">
+	<!-- Content for the third section -->
+			<div class="notification-container">
+					  <div class="notification-content">
+							<template for:each={bannerNotificationList} for:item="notification">
+									<div key={notification.Id} class="notification-item notification-content-fadin"><span class="notificationLabel">{notification.Group_Label__c} : </span><span class="marquee-content-fadin">{notification.Description__c}</span></div>
+							</template>
+					</div>
+			</div>
+</div>
+		</div>
+	
+
+
+			<!-- main body part div -->
+			<div data-recid="mainbody" style="display: flex;">
+				<!-- vertical dashboard div -->
+				<div data-recid="hamburgermenu" style="width: 20%;">
+					<div if:true={showChildComponent}>
+						<span ><c-vertical-navigation-bar record-id={EmployeeDetails.EmpRecordId} onlogout={handleLogoutClick} onleftpanelactionbuttonclick={handleLeftPanelButtonClick}></c-vertical-navigation-bar></span>
+					</div>
+				</div>
+
+				<!-- child component body div -->
+				<div style="background: rgb(234, 236, 241);padding: 20px;width: 80%;">
+					<template lwc:if={actionClick}>
+						<div>
+							<div class="">
+								<!-- remove from here  -->
+
+								<!-- remove form here end -->
+
+							<div style="display: flex;padding-bottom: 10px;">
+							<div class="slds-col " style="width: 30%;padding-right: 10px;">
+								<span><c-clock-in-clock-out-enhancement emp-details={EmployeeDetails}></c-clock-in-clock-out-enhancement></span>
+							</div>
+							<div class="slds-col " style="width: 30%;padding-right: 10px;">
+
+								<!-- <span><c-working-format-line-graph
+										record-id={recordId}></c-working-format-line-graph></span> -->
+										<span><c-dashboard-announcement onannouncementredirect={handleRedirect}></c-dashboard-announcement></span>
+
+							</div>
+							<div class="slds-col " style="width: 40%;">
+								<span><c-time-sheet-calendar employee-details={EmployeeDetails}
+										ongetdate={getDatefromCalender}
+										custom-date-handler-drs={selectedDateFromDrs}></c-time-sheet-calendar></span>
+							</div>
+						</div>
+
+							</div>
+						</div>
+
+						<c-timesheet-table ondataready={handleTimesheetLoaded} employee-details={EmployeeDetails} selected-date={selectedDate} 
+							custom-date-handler={selectedDateFromCalendar}
+							ongetdatefromdrs={getDatefromDrs}></c-timesheet-table>
+						<lightning-spinner alternative-text="Loading" if:true={isLoading} size="large" variant="brand"> </lightning-spinner>
+					</template>
+
+					<template lwc:if={requestDetailsClick}>
+						<div style="margin-bottom: 40px;">
+							<c-leave-request-detail-page record-id={EmployeeDetails.EmpRecordId}>
+							</c-leave-request-detail-page>
+						</div>
+					</template>
+				
+					<template lwc:if={requestDetailsClick}>
+							<c-work-from-home-request-view-page record-id={EmployeeDetails.EmpRecordId}>
+							</c-work-from-home-request-view-page>
+					
+					</template>
+					<template lwc:if={ticketHistoryClick}>
+							<c-ticket-history record-id={EmployeeDetails.EmpRecordId}>
+							</c-ticket-history>
+					
+					</template>
+
+					<template lwc:if={myProfileClick}>
+						<div>
+							<c-my-profile record-id={EmployeeDetails.EmpRecordId} onuploadprofilephoto={updateStatus}></c-my-profile>
+						</div>
+							
+					</template>
+					<template lwc:if={attendanceClick}>
+						<div>
+							<c-attendance record-id={EmployeeDetails.EmpRecordId}></c-attendance>
+						</div>
+					</template>
+					<template lwc:if={annoucementClick}>
+						<div>
+							<c-announcement record-id={EmployeeDetails.EmpRecordId}></c-announcement>
+						</div>
+					</template>
+					
+
+					<template lwc:if={requesReportClick}>
+						<c-report-table record-id={EmployeeDetails.EmpRecordId} ></c-report-table>
+						<!-- //<c-report-table data-id="reportTable"></c-report-table> -->
+					</template>
+					<template lwc:if={dashboardClick}>
+							<div>
+								<div style="display:flex">
+									<div style="width:50%">
+										<c-user-project-wise-donut-chart record-id={recordId}></c-user-project-wise-donut-chart>
+									</div>
+									
+									<div  style="width:50%">
+										<c-user-monthly-hour-wise-chart	record-id={recordId}></c-user-monthly-hour-wise-chart>
+									</div>
+								</div>
+								<div>
+									<div>
+										<c-user-task-type-wise-donut-chart record-id={recordId}></c-user-task-type-wise-donut-chart>
+									</div>
+								</div>
+							</div>
+					</template>
+				</div>
+
+			</div>
+
+	</template>
+
+	<template if:true={isThankyou}>
+		<div class="thank-you-container">
+			<h1>Thank You!</h1>
+			<p>Your Password has been reset successfully.</p>
+		</div>
+	</template>
+</template>
+</template>

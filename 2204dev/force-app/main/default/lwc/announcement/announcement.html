@@ -1,0 +1,256 @@
+<template>
+	<div style="display: flex; justify-content:space-between">
+		<div style="width: 65%;">
+			<div class="tab-container">
+				<ul class="tab-list">
+					<li class="tab" data-tab="Announcement" onclick={handleTabClick}>Announcement</li>
+					<li class="tab" data-tab="Post" onclick={handleTabClick}>Post</li>
+					<li class="tab" data-tab="Holidays" onclick={handleTabClick}>Holidays</li>
+				</ul>
+				<div class="tab-indicator"></div>
+			</div>
+			<div class="main_div slds-p-top_large">
+				<template if:true={isAnnouncementTab}>
+					<div style="background-color: white;    border-radius: 10px;" class="slds-p-top_large">
+						<!-- <lightning-card title="Announcement" icon-name="utility:announcement"> -->
+						<div class="slds-grid slds-var-m-around_small">
+							<lightning-input-rich-text value={announcement} onchange={handleChangeEvent}
+								data-field="Content__c" aria-placeholder="Announcement">
+							</lightning-input-rich-text>
+						</div>
+
+						<div>
+							<lightning-button class="" label="Select Date" onclick={fetchExpirationDate}>
+							</lightning-button>
+						</div>
+
+						<div style="text-align:end">
+							<lightning-button class="slds-p-right_large" label="Cancel" onclick={handleCancel}
+								variant="neutral"></lightning-button>
+							<lightning-button class="slds-p-right_small" label="Save" onclick={handleSave}
+								variant="brand"></lightning-button>
+						</div>
+
+						<div class="first_div slds-m-around_medium">
+							<template if:true={notifications}>
+								<template for:each={notifications} for:item="notification">
+									<div key={notification.Id} class="slds-box slds-m-bottom_small"
+										style="background: #F1F1F1;">
+										<div class="employee_Info slds-grid slds-var-m-around_small">
+											<div class="image viewImage">
+												<lightning-spinner if:true={isUploading} alternative-text="Uploading">
+												</lightning-spinner>
+												<img src={profileImage} alt="Profile Image" class="profile-image"/>
+										</div>
+												<div class="employee_data">
+													<div
+														class="employee_name slds-text-heading_small slds-m-bottom_x-small box">
+														{notification.Announced_by__r.Name}</div>
+													<div class="edit_Delete box">
+														<template if:true={notification.isEditable}>
+															<button class="slds-button slds-button_icon" title="Edit" onclick={openModal} data-id={notification.Id}>
+								<lightning-icon icon-name="utility:edit" size="xx-small"></lightning-icon>
+									<span class="slds-assistive-text">Edit</span>
+							</button>
+															<button class="slds-button slds-button_icon" title="Delete" onclick={deleteModal} data-id={notification.Id}>
+								<lightning-icon icon-name="utility:delete" size="xx-small"></lightning-icon>
+									<span class="slds-assistive-text">Delete</span>
+							</button>
+														</template>
+													</div>
+												</div>
+											</div>
+										
+
+										<div class="Content_Info">
+											<template if:true={notification.Content__c}>
+												<lightning-formatted-rich-text value={notification.Content__c}>
+												</lightning-formatted-rich-text>
+											</template>
+											<template if:false={notification.Content__c}>
+												<p>No content available.</p>
+											</template>
+										</div>
+									</div>
+								</template>
+							</template>
+							<template if:true={error}>
+								<p class="slds-text-color_error">{error}</p>
+							</template>
+							<lightning-button label="Refresh" onclick={refreshData} variant="brand"></lightning-button>
+						</div>
+					</div>
+					<!--<div class="slds-p-top_large">
+						 <template if:true={isAnnouncementTab}>
+				<div style="background-color: white;    border-radius: 10px;" class="slds-p-top_large">
+						 <lightning-card title="Announcement" icon-name="utility:announcement"> 
+					<div class="slds-grid slds-var-m-around_small">
+						<lightning-input-rich-text value={announcement} onchange={handleChangeEvent}
+							data-field="Content__c" aria-placeholder="Announcement">
+						</lightning-input-rich-text>
+					</div>
+
+					<div>
+						<lightning-button class="" label="Select Date" onclick={fetchExpirationDate}></lightning-button>
+					</div>
+
+					<div style="text-align:end">
+						<lightning-button class="slds-p-right_large" label="Cancel" onclick={handleCancel} variant="neutral"></lightning-button>
+					<lightning-button class="slds-p-right_small" label="Save" onclick={handleSave} variant="brand"></lightning-button>
+					</div> 
+
+
+
+
+						<div class="slds-m-around_medium">
+							<template if:true={notifications}>
+								<template for:each={notifications} for:item="notification">
+									<div key={notification.Id} class="slds-box slds-m-bottom_small"
+										style="background: #F1F1F1;">
+										<div class="slds-grid slds-var-m-around_small">
+											//Display profile image if available 
+											<div class="viewImage">
+												<lightning-spinner if:true={isUploading} alternative-text="Uploading">
+												</lightning-spinner>
+												<img src={profileImage} alt="Profile Image" class="profile-image"/>
+
+										</div>
+
+												Employee name
+												<div
+													class="employee-name slds-text-heading_small slds-m-bottom_x-small">
+													{notification.Announced_by__r.Name}
+												//<p class="employee-name slds-text-heading_small slds-m-bottom_x-small">{notification.Announced_by__r.Name}</p>
+												</div>
+												<div>
+													// <template if:true={notification.Content__c}>
+													<lightning-formatted-rich-text value={notification.Content__c}>
+													//</lightning-formatted-rich-text>
+													<template if:true={notification.isEditable}>
+														<button class="slds-button slds-button_icon" title="Edit" onclick={openModal} data-id={notification.Id}>
+														<lightning-icon icon-name="utility:edit" size="xx-small"></lightning-icon>
+														<span class="slds-assistive-text">Edit</span>
+													</button>
+														<button class="slds-button slds-button_icon" title="Delete" onclick={deleteModal} data-id={notification.Id}>
+														<lightning-icon icon-name="utility:delete" size="xx-small"></lightning-icon>
+														<span class="slds-assistive-text">Delete</span>
+													</button>
+													</template>
+													// </template> 
+												</div>
+											</div>
+
+											// <p class="slds-text-heading_small slds-m-bottom_x-small">
+										{notification.Announced_by__r.Name}
+									//</p> 
+											<template if:true={notification.Content__c}>
+												<lightning-formatted-rich-text value={notification.Content__c}>
+												</lightning-formatted-rich-text>
+												// <template if:true={notification.isEditable}>
+											<button class="slds-button slds-button_icon" title="Edit" onclick={openModal} data-id={notification.Id}>
+												<lightning-icon icon-name="utility:edit" size="xx-small"></lightning-icon>
+												<span class="slds-assistive-text">Edit</span>
+											</button>
+											<button class="slds-button slds-button_icon" title="Delete" onclick={deleteModal} data-id={notification.Id}>
+												<lightning-icon icon-name="utility:delete" size="xx-small"></lightning-icon>
+												<span class="slds-assistive-text">Delete</span>
+											</button>
+										//</template>  
+
+											</template>
+											<template if:false={notification.Content__c}>
+												<p>No content available.</p>
+											</template>
+										</div>
+										// <p key={notification.Id}>
+
+									{notification}
+									<lightning-formatted-rich-text value={notification.Content__c}>
+									</lightning-formatted-rich-text>
+								//</p> 
+								</template>
+							</template>
+							<template if:true={error}>
+								<p class="slds-text-color_error">{error}</p>
+							</template>
+							<lightning-button label="Refresh" onclick={refreshData} variant="brand"></lightning-button>
+						</div>-->
+						<!-- </lightning-card> -->
+
+					</div>
+
+					<template if:true={isModalOpen}>
+						<section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open">
+							<div class="slds-modal__container">
+								<header class="slds-modal__header">
+									<button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={handleModalCancel}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Cancel</span>
+                    </button>
+									<h2 class="slds-text-heading_medium">Edit Announcement</h2>
+								</header>
+								<div class="slds-modal__content slds-p-around_medium">
+									<lightning-input-rich-text value={editedContent} onchange={handleContentChange}>
+									</lightning-input-rich-text>
+								</div>
+								<footer class="slds-modal__footer">
+									<lightning-button variant="neutral" label="Cancel" onclick={handleModalCancel}>
+									</lightning-button>
+									<lightning-button variant="brand" label="Save" onclick={handleSaveEdit}>
+									</lightning-button>
+								</footer>
+							</div>
+						</section>
+						<div class="slds-backdrop slds-backdrop_open"></div>
+					</template>
+					<template if:true={isDeleteModalOpen}>
+						<section role="dialog" tabindex="-1" aria-modal="true" class="slds-modal slds-fade-in-open">
+							<div class="slds-modal__container">
+								<header class="slds-modal__header">
+									<button class="slds-button slds-button_icon slds-modal__close" title="Close" onclick={handleModalCancel}>
+                        <lightning-icon icon-name="utility:close" size="small"></lightning-icon>
+                        <span class="slds-assistive-text">Cancel</span>
+                    </button>
+									<h2 class="slds-text-heading_medium">Delete Announcement</h2>
+								</header>
+								<div class="slds-modal__content slds-p-around_medium">
+									Are you sure you want to delete it?
+								</div>
+								<footer class="slds-modal__footer">
+									<lightning-button variant="neutral" label="Cancel" onclick={handleModalCancel}>
+									</lightning-button>
+									<lightning-button variant="brand" label="Delete" onclick={handleDelete}>
+									</lightning-button>
+								</footer>
+							</div>
+						</section>
+						<div class="slds-backdrop slds-backdrop_open"></div>
+					</template>
+				</template>
+
+				<template if:true={isPostTab}>
+					<c-employee-post-create-cmp></c-employee-post-create-cmp>
+
+				</template>
+				<template if:true={isHolidaysTab}>
+					<c-holidays></c-holidays>
+				</template>
+			</div>
+		</div>
+	</div>
+	<div class="birthdayalign" style="width:33.5%;">
+		<c-birthday-and-workanniversary></c-birthday-and-workanniversary>
+	</div>
+	</div>
+
+
+	<!-- <template if:true={announcements.data}>
+        <template for:each={announcements.data} for:item="announcement">
+            <div key={announcement}>
+               <lightning-formatted-rich-text value={announcement}>
+											</lightning-formatted-rich-text>
+            </div>
+        </template>
+    </template> -->
+
+</template>

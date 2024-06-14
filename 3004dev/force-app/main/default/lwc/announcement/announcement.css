@@ -1,0 +1,149 @@
+.dummy {
+  color: blue;
+}
+
+.tab-container {
+  position: relative;
+}
+
+.tab-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  background-color: #3AD67B;
+  transition: width 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.tab-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  border-bottom: 2px solid #ddd;
+  border-block: none;
+  border-radius: 10px;
+  background-color: white;
+}
+
+.tab {
+  padding: 10px 39px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.tab:hover {
+  background-color: white;
+}
+
+.active-tab {
+  border-bottom: 4px solid #3AD67B;
+}
+
+.viewImage{
+      max-width: 50px;
+    border-radius: 50px;
+}
+.profile-image{
+  border-radius: 50px;
+  height: 40px;
+  width: 40px;
+}
+/* .edit-icon{
+  fill:blue;
+} */
+.employee_data {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+}
+
+.THIS .box1 svg{
+  width: 30px;
+  height: 15px;
+}
+
+.scroll_css{
+  background-color: white;  
+  border-radius: 10px;
+}
+
+.first_div{
+   max-height: 800px;
+   overflow-y: auto;
+}
+
+.date_size{
+  width: max-content;
+      display: flex;
+    align-items: baseline;
+}
+
+.footerButtons{
+      display: flex;
+    align-items: end;
+    justify-content: space-between;
+}
+
+.employee_date{
+  color: #7E909A;
+  font-size: 10px;
+}
+
+.deleteModal{
+  text-align: center;
+}
+
+:host {
+    --slds-c-textarea-sizing-min-height: 160px !important;
+}
+.btncolor{
+  --sds-c-button-brand-color-background: #00a129;
+}
+
+html {
+  overflow:   scroll;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+}
+
+.view-button{
+  font-size: 18px;
+  text-align: center;
+}
+
+.view-button {
+  /* Set the text color for the base variant of lightning-button */
+  --sds-c-button-text-color: #0BD67B;
+}
+
+.noContent{
+    height: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.dataContent{
+    border: none;
+    border-radius: 15px;
+    background: #F1F1F1;
+}
+
+@media (max-width: 1099.98px){
+   
+    .btnView{
+      text-align: center;
+    }
+    .btnLook{
+      margin-top: 20px;
+      text-align: left;
+      padding-left: 10px;
+    }
+}

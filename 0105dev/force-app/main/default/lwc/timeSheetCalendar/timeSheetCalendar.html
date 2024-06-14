@@ -1,0 +1,70 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 02-14-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    
+    <div class="font" >
+
+        <article class="slds-card body" >
+
+            <div class="slds-grid slds-wrap calender">
+            
+
+                <div class="slds-col slds-large-size_12-of-12 slds-medium-size_12-of-12 slds-size_12-of-12">
+                    <span>
+                        <div class="calendar">
+                            <div class="calendar-header">
+                                <!-- <span class="month-picker" onclick={showMonthList}>{currentMonth}</span> -->
+                                <div class = "month-picker">
+                                    <span class="month-change pre month-picker"><img id="prevmonth"  onclick={prevnextmonth}  src={leftArrow}/></span>
+                                    <span style="cursor: pointer;" onclick={showMonthList}>{currentMonth}</span>
+                                    <span class="month-change next"><img id="nextmonth"  onclick={prevnextmonth} src={rightArrow}/></span>
+                                </div>
+                                <div class="year-picker">
+                                    <span class="year-change" ><img onclick={prevYear} src={leftArrow}/></span>
+                                    <span>{currYear}</span>
+                                    <span class="year-change" ><img onclick={nextYear} src={rightArrow}/></span>
+                                </div>
+                            </div>
+                            <div class="calendar-body">
+                                
+                                <div class="calendar-week-day fontSize">
+                                    <template for:each={weekDays} for:item="day">
+                                        <div key={day}>{day}</div>
+                                    </template>
+                                </div>
+                                <ul class="days calendar-days">
+                                    <template for:each={dateCells} for:item="dateCell"  >
+                                        <li key={dateCell} class={dateCell.className} data-day={dateCell.currentSelectedDate} onclick={selectDate}>{dateCell.day}</li>
+                                    </template>
+                                </ul>
+                                <div class="calendar-days" style="font-size: larger; font-weight: bold;">
+                                     
+                                    <!-- <template for:each={calendarDates} for:item="date">
+                                        <div key={date.date} class={date.class} data-date={date.date} onselect={selectDate}>{date.day}</div>
+                                    </template> -->
+                                    <!-- <template for:each={calendarDates} for:item="date">
+                                <div key={date.date} class={date.class} data-date={date.date} onclick={selectDate}>{date.day}</div>
+                            </template> -->
+
+                                </div>
+                            </div>
+                            <!-- <div class="month-list" class={monthListClass}> -->
+                            <div class={monthListClass}>
+                                <template for:each={monthNames} for:item="month">
+                                    <div key={month} onclick={selectMonth} data-month={month.index}>{month.name}
+                                    </div>
+                                </template>
+                            </div>
+                        </div>
+                    </span>
+                </div>
+            </div>
+
+        </article>
+    </div>
+</template>

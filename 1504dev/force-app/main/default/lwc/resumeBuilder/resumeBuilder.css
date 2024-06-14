@@ -1,0 +1,24 @@
+.container {
+		 display: flex; /* Use flexbox for layout */
+		 width: 100%; /* Ensure full width */
+		 margin-bottom: 30px;
+		 height: 100vh;
+		 justify-content: space-evenly;
+}
+
+.left-div {
+		/* Set width to 30% */
+	width: 20%;
+}
+
+.right-div {
+		/* Set width to 70% */
+		overflow-y: scroll;
+		overflow-x: hidden;
+    	
+
+}
+
+.docx{
+		background-color:white !important
+}

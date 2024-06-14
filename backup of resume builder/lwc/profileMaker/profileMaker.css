@@ -1,0 +1,38 @@
+.TemplateImg {
+   cursor: pointer; 
+   border: 2px solid rgb(121, 119, 119);
+}
+
+.imageAndTemplateNameDiv {
+    position: relative;
+}
+
+.imageAndTemplateNameDiv p {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.backButton {
+    margin-right: 10px;
+}
+
+.progressText {
+    text-align: center;
+}
+
+.pogressNum {
+    cursor: pointer;
+    display: inline-block;
+    border: 3px solid #37a000;
+    background-color: white;
+    border-radius: 50% ;
+    width:40px;
+    height:40px;
+    text-align: center;
+    box-sizing: border-box;
+    padding:10px;
+}
+.pogresstext {
+    font-size: 20px;
+    font-weight: 50;
+}

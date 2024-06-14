@@ -1,0 +1,172 @@
+<!--<apex:page standardController="Profile_Builder__c" showQuickActionVfHeader="false" applyBodyTag="false" extensions="ProfileBuilderController">-->
+<apex:page lightningStylesheets="true" controller="ProfileBuilderController">
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8"/>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+            <title>Generate HTML</title>
+            <apex:includeScript value="{!URLFOR($Resource.profileBuilderDependencyJs)+'/js/jszip.min.js'}"/>
+            <apex:includeScript value="{!URLFOR($Resource.profileBuilderDependencyJs)+'/js/docx-preview.js'}"/>
+            <apex:includeScript value="{!URLFOR($Resource.profileBuilderDependencyJs)+'/js/FileSaver.min.js'}"/>
+            <apex:includeScript value="{!URLFOR($Resource.profileBuilderDependencyJs)+'/js/pizzip-utils.js'}"/>
+            <apex:includeScript value="{!URLFOR($Resource.profileBuilderDependencyJs)+'/js/pizzip.js'}"/>
+            <apex:includeScript value="{!URLFOR($Resource.profileBuilderDependencyJs)+'/js/docxtemplater-latest.js'}"/>
+        </head>
+        <body>
+            
+            <apex:slds />
+            <div id="wordDocument"></div>
+            <div id="output" class="slds-box" />
+            <div id="pdfContainer"></div>
+            <div class="flex-grow-1 d-flex flex-row" style="height: 0;">
+                <details class="docx-thumbnails h-100">
+                    <summary></summary>
+                    <div id="thumbnails-container" class="docx-thumbnails-container"></div>
+                </details>
+                <div id="document-container" class="overflow-auto flex-grow-1 h-100"></div>
+            </div> 
+            <script>
+             let reciveData;
+                var lexOrigin = '{!lexOrigin}';
+                /*** EventListener to GET response from LWC  ***/
+                console.log('enter in html');
+                window.addEventListener("message", function (event) {
+                    if(event.origin !== lexOrigin){
+                        return;
+                    }
+                    console.log('event ', event);
+                    var receivedfromLWC = event	.data;
+                    var output = document.querySelector("#output");
+                    console.log('receivedfromLWC',receivedfromLWC);
+                    output.innerHTML = receivedfromLWC;
+                    reciveData = JSON.parse(receivedfromLWC);
+                    
+                    generateHTML()
+                },false);
+            
+            //above is today added
+            function generateHTML() {
+                data = reciveData;
+                console.log('@@data@@ ',data);
+                /*data={
+                    name: "jhon",
+                    last_name: "Doe",
+                    phone: "0652455478",
+                    description: "New Website",
+                    ProfileImage:"{!URLFOR($Resource.sampleImage)}",
+                    professionalSummary: [
+                        {desc: "Overall, 12 years of IT experience in Software Design, Development of various client/server and web-based Enterprise Applications using different tools and technologies."},
+                        {desc: "10 years of experience with Salesforce in Creating Roles, Profiles, Email Services, Page Layouts, Workflow Alerts and Actions, Flow and Approval Workflow."},
+                        {desc: "Good knowledge of OOPs (Abstraction, Encapsulation, Inheritance and Polymorphism) and design concepts"},
+                        {desc: "Hands on experience in salesforce.com CRM integration, developing and deploying custom integration solutions."},
+                        {desc: "Experience in working on Sales Cloud, Service Cloud as well as Community Cloud."},
+                        {desc: "Experience in working with HTML, CSS, Bootstrap, JavaScript, jQuery, and Ajax."},
+                        {desc: "Experience in AGILE/Scrum Methodology."},
+                        {desc: "Extensive experience in developing Apex Classes, Triggers, Visual force pages, writing Workflows, Force.com API, test classes, Flow, Lightning aura component and LWC"},
+                        {desc: "Extensive experience in lead, case management, web-to-lead, Web-to case, Email-to-case."},
+                        {desc: "Proficient in Data Migration from Traditional Applications to Salesforce using Import Wizard and Data Loader Utility and currently use Salesforce Inspector extension."},
+                        {desc: "Used Salesforce Explorer to select data and to test in SOQL and search in SOSL."},
+                        {desc: "Experience with IDE tools Eclipse, Visual Studio, Ant, Git hub, JIRA."},
+                        {desc: "Integrated Salesforce with external applications using Force.com APIs (SOAP and REST) and developed Salesforce apex SOAP and REST web service classes. Experience working on XML and JSON formats also by creating Parsers, also worked on salesforce rest resources for calling webhooks and  client credential flow for calling SF Standard APIs."}
+                    ]
+                }*/
+                
+                // Load the docx file as binary content
+                fetch("{!URLFOR($Resource.templates)}")
+                .then(response => response.arrayBuffer())
+                .then(buffer => {
+                    processFileData(buffer)
+                })
+                    .catch(error => {
+                    console.error('Error loading document:', error);
+                });
+                }
+                    
+                    // promise-ified wrapper function to read & load a zip
+                    function getBinaryContentReturn(description) {
+                    return new Promise((resolve, reject) => {
+                    
+                    PizZipUtils.getBinaryContent(description, function (err, binaryData) {
+                    if (err) {
+                    reject(err);
+                } else {
+                    resolve(binaryData);
+                }
+                });
+                });
+                }
+                    
+                    async function processFileData(buffer){
+                    
+                    const content = new Uint8Array(buffer);
+                    const zip = new PizZip(content);
+                    
+                    var fileContent = zip.file("word/document.xml").asText();
+                    var parser = new DOMParser();
+                    var xmlDoc = parser.parseFromString(fileContent, "text/xml");
+                    var picElements = xmlDoc.getElementsByTagName('wp:inline');
+                    var descriptionEmbedPairs = {};
+                    for (var i = 0; i < picElements.length; i++) {
+                    var picElement = picElements[i];
+                    var description = picElement.getElementsByTagName('wp:docPr')[0].getAttribute('descr');
+                    var rEmbedValue = picElement.getElementsByTagName('a:blip')[0].getAttribute('r:embed');
+                    descriptionEmbedPairs[description] = rEmbedValue;
+                }
+                    console.log(descriptionEmbedPairs);
+                    fileContent = zip.file("word/_rels/document.xml.rels").asText();
+                    xmlDoc = parser.parseFromString(fileContent, "text/xml");
+                    for (var description in descriptionEmbedPairs) {
+                    if(data!=undefined && data[description]){
+                    const binaryData = await getBinaryContentReturn(data[description]);
+                    var rId6Element = xmlDoc.querySelector('Relationship[Id="'+descriptionEmbedPairs[description]+'"]');
+                    var targetAttributeValue = rId6Element.getAttribute('Target');
+                    console.log(targetAttributeValue);
+                    zip.file("word/"+targetAttributeValue, binaryData, {binary:true});
+            }                
+            }
+            const doc = new Docxtemplater(zip, {
+                paragraphLoop: true,
+                linebreaks: true,
+            });
+            
+            doc.render(data);
+            
+            const buf = doc.getZip().generate({
+                type: "blob",
+            });
+            
+            renderDocx(buf);
+            //   saveAs(buf, "/output1.docx");
+            }
+            
+            //generateHTML()
+            
+            
+            let currentDocument = null;
+            const docxOptions = Object.assign(docx.defaultOptions, {
+                debug: true,
+                experimental: true
+            });
+            
+            const container = document.querySelector("#document-container");
+            const fileInput = document.querySelector("#files");
+            const loadButton = document.querySelector("#loadButton");
+            const testDocuments = document.querySelector("#testDocuments");
+            
+            
+            function renderDocx(file) {
+                currentDocument = file; 
+                
+                if (!currentDocument) 
+                    return;
+                
+                docx.renderAsync(currentDocument, container, null, docxOptions)
+                .then((x) => {
+                    renderThumbnails(container, document.querySelector("#thumbnails-container"));
+                    console.log(x);
+                });
+                }
+                    </script>   
+        </body>
+    </html>
+</apex:page>

@@ -1,0 +1,68 @@
+@font-face {
+    font-family: 'roboto';
+    src: url("/resource/Fonts/Roboto-Medium.ttf") format(TrueType);
+}
+.mainContainer{
+    height: 70vh;
+    display: flex;
+    flex-direction: column;
+}
+.headingContainer{
+    width: 59%;
+    margin: 30px auto;
+}
+.headingContainer h1{
+    font-family: "roboto";
+    font-size: 2em;
+    font-weight: 700;
+    color: #07334A;
+  
+}
+span{
+    font-family: "roboto";
+    font-weight: 400;
+    color: #07334A;
+}
+.headingContainer h3{
+   
+    font-weight: inherit;
+    font-size: 1em;
+    color: #7A93A0;
+}
+.droupDownContainer{
+    width: 59%;
+    margin: auto;
+}
+.labelColour{
+     -webkit-label-fill-color: #07334A;
+     font-family: "roboto";
+}
+.footerButtons{
+    justify-content: space-between;
+    display: flex;
+    width: 59%;
+    margin:auto auto;
+    
+}
+.saveAndNextButton{
+    color: white;
+    background-color: #37a000;
+    border: none;
+    border-radius: 8px;
+    height: 34px;
+}
+.saveAndNextButton:hover{
+    background-color: #256203;
+}
+.backButton{
+    color: #07334A;
+    border: 2px solid #07334A;
+    padding-inline: 25px;
+    border-radius: 8px;
+}
+.addMoreCertificateButton{
+    color: #37A000;
+    border: 2px solid #37A000;
+    padding-inline: 8px;
+    border-radius: 8px;
+}

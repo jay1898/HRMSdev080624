@@ -1,0 +1,143 @@
+<template>
+	<div class="overrideStyle"></div>
+	<div class="headingContainer">
+		<h1>Experience</h1>
+		<h3>List your work experience, from the most recent to the oldest.</h3>
+	</div>
+	<!-- modal start -->
+	<template if:true={isShowModal}>
+		<!-- Modal content -->
+		<section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true"
+			aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+			<div class="slds-modal__container">
+				<!-- modal header start -->
+				<header class="slds-modal__header">
+					<button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse"
+						title="Close" onclick={hideModalBox}>
+						<lightning-icon icon-name="utility:close" alternative-text="close" variant="inverse"
+							size="small"></lightning-icon>
+						<span class="slds-assistive-text">Close</span>
+					</button>
+					<h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Experience</h2>
+				</header>
+				<!-- modal body start -->
+				<div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+					<div class="input">
+						<div class="slds-grid slds-gutters">
+							<div class="slds-col slds-size_6-of-12">
+								<lightning-input label="Employer" value={employerValue}
+									onchange={handleEmployerChange}></lightning-input>
+							</div>
+							<div class="slds-col slds-size_6-of-12">
+								<lightning-input label="Job Title" value={jobTitleValue}
+									onchange={handleJobTitleChange}></lightning-input>
+							</div>
+						</div>
+						<div class="slds-grid slds-gutters">
+							<div class="slds-col slds-size_6-of-12">
+								<lightning-input type="date" label="Start Date" date-style="short" max={today}
+									value={startDateValue} onchange={handleStartDateChange}></lightning-input>
+							</div>
+							<div class="slds-col slds-size_6-of-12">
+								<lightning-input type="date" label="End Date" date-style="short" max={today}
+									value={endDateValue} onchange={handleEndDateChange}></lightning-input>
+							</div>
+						</div>
+					</div>
+
+					<div class="richtext">
+						<h1>Description</h1>
+						<div class="richtextContainer">
+							<div class="richtextinput" style="width: 60%;">
+								<lightning-input-rich-text value={myVal}
+									onchange={handleChange}></lightning-input-rich-text>
+							</div>
+							<div class="preDefineTextContainer">
+								<lightning-card>
+									<div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left"
+										style="border-bottom: 1px solid #A9A6BB;">
+										<lightning-icon size="x-small"
+											class="slds-icon slds-input__icon slds-input__icon_right slds-icon-text-default"
+											icon-name="utility:search"></lightning-icon>
+										<input type="text" id="text-input-id-1" placeholder="Type Text to Search"
+											onkeyup={handleKeyChange} class="slds-input" style="border: none;" />
+									</div>
+									<div style="overflow-y: scroll;  height: 200px; margin:0px 5px">
+										<template for:each={helpTexts} for:item="hp" for:index="index">
+											<div key={hp.id} class="preDefineText" style="display: flex;">
+												<lightning-icon class="arrowIcon" icon-name='utility:chevronleft'
+													alternative-text='chevronleft' variant='success' size='x-small'
+													title='chevronleft' data-id={index}
+													onclick={onValueGoToRichTextArea}></lightning-icon>
+												<p onclick={getTheParagrhapValue}>{hp.Instructions__c}</p>
+											</div>
+										</template>
+									</div>
+								</lightning-card>
+							</div>
+
+						</div>
+					</div>
+				</div>
+				<!-- modal footer start-->
+				<footer class="slds-modal__footer">
+					<button class="slds-button slds-button_neutral" onclick={hideModalBox}>Cancel</button>
+					<button class="slds-button slds-button_success" onclick={saveExp}>Save</button>
+				</footer>
+
+			</div>
+		</section>
+		<div class="slds-backdrop slds-backdrop_open"></div>
+	</template>
+
+	<template lwc:if={spinner}>
+		<div class="exampleHolder">
+			<lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+		</div>
+	</template>
+
+	<template for:each={storedExperiences} for:item="exp" for:index="index">
+		<div key={exp.id} class="experience-box">
+			<div>
+				<h2>{exp.Name}</h2>
+				<p><span>{exp.Job_Title__c}</span><span><span> From </span> <lightning-formatted-date-time
+							value={exp.Start_Date__c} year="numeric" month="short"
+							day="2-digit"></lightning-formatted-date-time></span> <span> To </span>
+					<span> <lightning-formatted-date-time value={exp.End_Date__c} year="numeric" month="short"
+							day="2-digit"></lightning-formatted-date-time></span>
+				</p>
+				<div class="slds-truncate expandText"
+					style="max-width: calc(100% - 80px); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-height: 23px"
+					title={exp.Description__c}>
+					<lightning-formatted-rich-text value={exp.Description__c}></lightning-formatted-rich-text>
+				</div>
+			</div>
+
+			<div class="button-container">
+				<lightning-button-icon icon-name="utility:edit" alternative-text="Edit" class="slds-m-left_xx-small"
+					variant="bare" onclick={editExperience} data-id={exp.Id}></lightning-button-icon>
+				&nbsp;
+				<lightning-button-icon icon-name="utility:delete" alternative-text="Delete" class="slds-m-left_xx-small"
+					variant="bare" onclick={deleteExperience} data-id={exp.Id}
+					data-index={index}></lightning-button-icon>
+			</div>
+		</div>
+		<!-- </template> -->
+	</template>
+
+	<div class="footerButtons">
+		<div class="backButtonDiv">
+			<div>
+				<button class="slds-button slds-button_outline-brand backButton" onclick={onBack}>Back</button>
+			</div>
+		</div>
+		<div class="addMoreExperience">
+			<div>
+				<button class="slds-button slds-button_outline-brand addExperience" onclick={onAddOneMoreExperience}>+
+					Add
+					Experience</button>
+			</div>
+		</div>
+		<button class="slds-button slds-button_success save" onclick={onNavigateToSummaryPage}>Save & Next</button>
+	</div>
+</template>

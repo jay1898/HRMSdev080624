@@ -1,0 +1,95 @@
+<template>
+  <div class="overrideStyle"></div>
+  <lightning-card>
+    <div class="mainContainer">
+      <div class="slds-page-header header">
+        <div class="container">
+          <div style="display: inline-block;">
+            <img style=" width: 100px; height: 100px;" alt="iTechCloud Logo" src={iTechlogo}>
+          </div>
+          <div>
+            <div class="processBar">
+              <div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+                <div class="progressText">
+                  <span class="pogressNum" onclick={OnSkill} data-msg="20">1</span>
+                  <div class="progressText">Employee</div>
+                </div>
+              </div>
+              <div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+                <div class="progressText">
+                  <span class="pogressNum" onclick={OnCertificate} data-msg="40">2</span>
+                  <div class="progressText">Certificate</div>
+                </div>
+              </div>
+              <div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+                <div class="progressText">
+                  <span class="pogressNum" onclick={onExperience} data-msg="60">3</span>
+                  <div class="progressText">Experience</div>
+                </div>
+              </div>
+              <div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+                <div class="progressText">
+                  <span class="pogressNum" onclick={onSymmary} data-msg="80">4</span>
+                  <div class="progressText">Summary</div>
+                </div>
+              </div>
+              <div class="slds-col slds-large-size_3-of-12 slds-medium-size_1-of-12 slds-size_1-of-12">
+                <div class="progressText">
+                  <span class="pogressNum" onclick={progressHandleClick} data-msg="100">5</span>
+                  <div class="progressText">Review</div>
+                </div>
+              </div>
+            </div>
+            <div class="pogressLine">
+              <lightning-progress-bar class="slds-progress-bar__value_success" value={progressValue} variant="circular"
+                style="color: #37A000;">
+              </lightning-progress-bar>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <template lwc:if={skillPage}>
+        <div class="headingContainer">
+          <h1><span>ADD</span> EMPLOYEE & SKILL</h1>
+        </div>
+        <div class="combox">
+          <div class="slds-size_1-of-2">
+            <lightning-combobox id="employee" class="strong-text" label="Select Employee" name="employee"
+              options={employeeOptions} value={value} onchange={handleChange}></lightning-combobox>
+          </div>
+        </div>
+        <div class="droupDownContainer">
+          <div class="slds-p-horizontal_small">
+            <c-custom-multi-pick-list label="Select Skills" required="true" showpills="true"
+              role="cm-picklist"></c-custom-multi-pick-list>
+          </div>
+        </div>
+      </template>
+      <template lwc:if={certificatePage} style="display: flex; flex-direction:column">
+        <c-upload-certificate options-from-parent={certificateOptions} record-object={recordObject}
+          onexperiencepage={handleFromCertificatePage} onbacktoskillpage={handleBackToSkillPage}></c-upload-certificate>
+      </template>
+      <template lwc:if={experiencePage}>
+        <c-experience-details certificate-options={certificateOptions} record-object={recordObject}
+          onsummarypage={handleFromExperiencePage}
+          onbacktocertificatepage={handleBackToCertificatePage}></c-experience-details>
+      </template>
+      <template lwc:if={professionalSummaryPage}>
+        <c-professional-summary record-object={recordObject}
+          onbacktoexperiencepage={handleBackToExperiencePage}></c-professional-summary>
+      </template>
+
+      <template lwc:if={footerButtonOnSkillPage}>
+        <div class="footerButtons">
+          <div class="saveAndNextButtonDiv">
+            <button class="slds-button slds-button_success saveAndNextButton" onclick={onNavigateToCertificatePage}>Save
+              &
+              Next</button>
+          </div>
+        </div>
+      </template>
+    </div>
+  </lightning-card>
+
+</template>

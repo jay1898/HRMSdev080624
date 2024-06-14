@@ -1,0 +1,55 @@
+<template>
+	<!-- <div class="heading"> -->
+		<div class="overrideStyle"></div>
+		<div class="headingContainer">
+			<h1>Experience</h1>
+			<h3>List your work experience, from the most recent to the oldest.</h3>
+		</div>
+
+		<div class="input">
+			<div class="slds-grid slds-gutters">
+				<div class="slds-col slds-size_6-of-12">
+					<lightning-input label="Employer" value={employerValue} onchange={handleEmployerChange}></lightning-input>
+				</div>
+				<div class="slds-col slds-size_6-of-12">
+					<lightning-input label="Job Title" value={jobTitleValue} onchange={handleJobTitleChange}></lightning-input>
+				</div>
+			</div>
+			<div class="slds-grid slds-gutters">
+				<div class="slds-col slds-size_6-of-12">
+					<lightning-input type="date" label="Start Date" value={startDateValue} onchange={handleStartDateChange}></lightning-input>
+				</div>
+				<div class="slds-col slds-size_6-of-12">
+					<lightning-input type="date" label="End Date" value={endDateValue} onchange={handleEndDateChange}></lightning-input>
+				</div>
+			</div>
+		</div>
+
+		<div class="richtext">
+			<h1>Description</h1>
+			<div class="richtextinput">
+				<lightning-input-rich-text value={myVal} onchange={handleChange}>
+				</lightning-input-rich-text>
+			</div>
+		</div>
+	<!-- </div> -->
+	<!-- <lightning-formatted-rich-text value={myVal}></lightning-formatted-rich-text> -->
+	<div class="footerButtons">
+		<div class="backButtonDiv">
+			<div>
+				<button class="slds-button slds-button_outline-brand backButton" onclick={onBack}>Back</button>
+			</div>
+		</div>
+
+		<div class="addMoreExperience">
+			<div>
+				<button class="slds-button slds-button_outline-brand addExperience" onclick={onAddOneMoreExperience}>+
+					Add
+					Experience</button>
+			</div>
+		</div>
+
+		<button class="slds-button slds-button_success save" onclick={onNavigateToSummaryPage}>Save</button>
+
+	</div>
+</template>
