@@ -1,0 +1,83 @@
+/flow/Screen_Flow_Update_Account_Field
+jay.patelitechcloud@9-tbnx2p3yukpppf05c5t7bimn15jaximpd3nv1iqgmv05ko34d.b-aaxkkmap.na81.case.salesforce.com
+
+
+
+jay12246@okicici
+
+********************************************************
+01/01/23
+
+Flow Administration Superbadge Unit
+
+1)Update Create a New Case flow
+Create a New Case
+
+2)Update the order of execution for flows
+Update Hidden Checkbox
+
+3)Update email settings for flows
+Apex Exception Email Recipients
+
+
+
+
+Update Case Owner As Asset Owner
+User Before Save For Chatter NEW User
+
+
+Colourful Text while changing opp
+Post to Chatter Group
+
+
+
+
+
+
+IF(TEXT({!$Record.StageName}) ='Closed Lost', ('<html><body><div style="color: red;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '') & '</div></body></html>'),
+IF(TEXT({!$Record.StageName}) ='Closed Won', ('<html><body><div style="color: green;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '')& '</div></body></html>'),
+IF(TEXT({!$Record.StageName}) ='Prospecting', ('<html><body><div style="color: orange;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '') & '</div></body></html>'),
+IF(TEXT({!$Record.StageName}) ='Qualification', ('<html><body><div style="color: DarkMagenta;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '') & '</div></body></html>'),
+IF(TEXT({!$Record.StageName}) ='Needs Analysis', ('<html><body><div style="color: Thistle;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '') & '</div></body></html>'),
+IF(TEXT({!$Record.StageName}) ='Value Proposition', ('<html><body><div style="color: Yellow;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '') & '</div></body></html>'),
+IF(TEXT({!$Record.StageName}) ='Id. Decision Makers', ('<html><body><div style="color: Tan;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '') & '</div></body></html>'),
+IF(TEXT({!$Record.StageName}) ='Perception Analysis', ('<html><body><div style="color: Wheat;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '') & '</div></body></html>'),
+IF(TEXT({!$Record.StageName}) ='Proposal/Price Quote', ('<html><body><div style="color: SlateGrey;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '') & '</div></body></html>'),
+IF(TEXT({!$Record.StageName}) ='Negotiation/Review', ('<html><body><div style="color: Brown;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '') & '</div></body></html>'),
+""
+)))))))))
+
+
+
+
+Correct
+
+
+
+IF(TEXT({!$Record.StageName}) ='Closed Lost', ('<html><body><div style="color: red;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '') & '</div></body></html>'),
+IF(TEXT({!$Record.StageName}) ='Closed Won', ('<html><body><div style="color: green;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '')& '</div></body></html>'),
+IF({!$Record.IsClosed}=False, ('<html><body><div style="color: green;">' & SUBSTITUTE(SUBSTITUTE(SUBSTITUTE({!$Record.Deal_Analysis__c}, '<div style="color: green;">', ''), '<div style="color: red;">', ''), '</div>', '')& '</div></body></html>'),
+""
+)))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

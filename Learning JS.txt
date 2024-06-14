@@ -1,0 +1,626 @@
+
+
+
+
+
+
+
+// getName();
+// console.log(x);
+// console.log(getName);
+
+// var x = 7;
+    
+// function getName(){
+//   console.log('JS');
+// }
+
+
+
+
+// var x = 1;
+// a();
+// b();
+// console.log(x);
+
+// function a(){
+//     var x = 10;
+//     console.log(x);
+// }
+
+// function b(){
+//     var x = 100;
+//     console.log(x);
+// }
+
+
+
+
+
+// var a = 10;
+// function b(){
+//     var x = 10;    
+// }
+
+
+Console
+Window
+It will give locally store value in with a and b varaiable.
+
+
+
+// var a;
+// console.log(a);
+// a = 10;
+// console.log(a);
+// a="JS";
+// console.log(a);
+
+
+
+//function b(){
+//     var x = 100;
+//     c();
+//     function c(){
+//         console.log(x);
+//     }
+// }
+// b();
+
+
+
+// // console.log(a);//Cannot access 'a' before initialization
+// let a = 10;
+// console.log(a);
+// var b = 100;
+
+//Block
+{
+    var a = 10;
+    let b = 20;
+    const c = 30;
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+
+
+
+//Shadow concept Eg:- a
+var a = 100;
+{
+    var a = 10;
+    let b = 20;
+    const c = 30;
+    console.log(a);
+    console.log(b);
+    console.log(c);
+}
+console.log(a);
+
+
+
+function x(){
+    var a = 7;
+    function y(){
+        console.log(a);
+    }
+    y();
+}
+x();
+
+
+
+//Set Timeout with let
+function x(){
+    for(let i = 1; i <= 5; i++){
+        setTimeout(function(){
+        console.log(i);
+        }, i * 1000);
+    }   
+    console.log("Javascript");
+}
+x();
+
+
+//With Var
+function x(){
+    for(var i = 1; i <= 5; i++){
+        function close(x){
+            setTimeout(function(){
+                console.log(i);
+                }, x * 1000);
+        }
+        close(i);
+    }   
+    console.log("Javascript");
+}
+x();
+
+
+//Functions
+
+// a();
+// b();
+//Function Statement also know as Function Declartion
+function a(){
+    console.log("a Called");
+}
+
+//Function Expression
+var b = function (param1) {
+    console.log(param1);
+    return function xyz(){
+
+    }
+}
+
+a();
+console.log(b());
+// xyz();
+
+//Anonymous Function
+// function (){
+
+// }
+
+
+//First Class Functions  - ability to use function under function value is know as First Class Functions
+var b = function (param1) {
+    console.log(param1);
+    return function xyz(){
+
+    }
+}
+
+console.log(b());
+
+//First Class Citizens
+
+const c = function (param1) {
+    console.log(param1);
+    return function abc(){
+
+    }
+}
+
+console.log(c());
+
+
+//Callback in js
+// What is callback in JS  //y  is callback function
+setTimeout(function (){
+    console.log("Timer");
+},5000);
+function x(y){
+    console.log("x");
+    y();
+}
+x(function y(){
+    console.log("y");
+})
+
+
+console.log("Start");
+
+setTimeout(function cb(){
+    console.log("Callback");
+}, 5000);
+
+console.log("End");
+
+
+//How many times button is clicked.
+
+let count = 1;
+document.getElementById("clickMe")
+.addEventListener("click", function xyz() {
+    console.log("Button Clicked",count++);
+})
+
+
+//How many times button is clicked.
+
+function attachEventListeners(){
+    let count = 1;
+    document.getElementById("clickMe")
+    .addEventListener("click", function xyz() {
+        console.log("Button Clicked",count++);
+    });
+}
+
+attachEventListeners();
+
+
+
+
+//
+console.log("Start");
+
+setTimeout(function cb(){
+    console.log("Callback");
+}, 5000);
+
+fetch("https://api.netflix.com")
+.then(function cbF(){
+    console.log("CB Netflix");
+});
+console.log("End");
+
+//MAP
+const arr = [2,3,4,5,6];
+console.log('First',arr);
+
+function double(x){
+    return x * 2;
+}
+
+function triple(x){
+    return x * 3;
+}
+
+
+const output = arr.map(function binary(x){
+    return x.toString(2);
+});
+console.log('output  ::',output);
+
+//With Arrow Function 
+const output1 = arr.map((x) => x.toString(2));
+console.log('output1  ::',output1);
+
+
+//Filter 
+const arr = [2,3,4,5,6];
+console.log('First',arr);
+
+function isOdd(x){
+    return x % 2;
+}
+function isEven(x){
+    return x % 2 === 0;
+}
+
+const output = arr.filter(function isGreaterthan(x){
+    return x > 4;
+});
+console.log('output  ::',output);
+//With Arrow Function 
+const output1 = arr.filter((x) => x > 4);
+console.log('output1  ::',output1);
+
+
+//Reduce 
+const arr = [2,3,4,5,6];
+console.log('First',arr);
+
+//Sum
+function findsum (arr){
+    let sum = 0;
+    for (let i = 0; i < arr.length; i++) { 
+        sum = sum + arr[i];
+        console.log('sum  ::',sum);
+    }
+    return sum;
+}
+
+console.log(findsum(arr));
+
+// reduce pass two parameter one is accumulator and current parameter
+const output = arr.reduce(function(acc,curr){
+     acc = acc + curr;
+     return acc;
+}, 0); //for sum inital value is 0
+console.log('output  Final',output);
+
+//max
+function findMax (arr){
+    let max = 0;
+    for (let i = 0; i < arr.length; i++) { 
+        if(arr[i] > max){
+            max = arr[i];
+            console.log('max  ::',max);
+        }
+    }
+    return max;
+}
+
+console.log(findMax(arr));
+
+// reduce pass two parameter one is accumulator and current parameter
+const output1 = arr.reduce(function (max, curr){
+    if(curr > max){
+        max = curr;
+    }
+    return max;
+},0);
+console.log('output 1 Final',output1);
+
+
+
+const users = [
+    { firstName : "John" , lastName : "Fighter" , age : 22},
+    { firstName : "Mike" , lastName : "Hussey" , age : 30},
+    { firstName : "David" , lastName : "Tim" , age : 30},
+    { firstName : "Eon" , lastName : "Musk" , age : 39}
+];
+console.log('users :: ',users);
+
+//Find List of Full Names 
+const output = users.map((x) => x.firstName +' '+ x.lastName);
+console.log(output);
+
+//Reduce how person are having same age
+// acc = {22 : 1 , 30 : 2 , 39 : 1}
+const output = users.reduce(function(acc,curr){
+
+    if(acc[curr.age]){
+        acc[curr.age] = ++acc[curr.age];
+    }
+    else{
+        acc[curr.age] = 1;
+    }
+    return acc;
+},{}); //{} --> empty object initaly
+
+console.log('output ::',output);
+
+//imp example for filter using map with it.
+const output1 = users.filter((x) => x.age >= 30).map((x) => x.firstName);
+console.log('output1  ::',output1);
+
+//Reduce
+const output2 = users.reduce(function(acc,curr){
+    if(curr.age >= 30)
+    {
+        acc.push(curr.firstName);
+    }
+    return acc;
+},[]);
+console.log('output2  ::',output2);
+
+
+
+console.log('Start');
+
+setTimeout(function (){
+    console.log('Javascript');
+},5000);
+
+console.log('End');
+
+
+//Callback issue with below example
+const Shoes = ["Nike","Puma","Luke"];
+
+api.createOrder(Shoes, function () {
+    
+    api.proceedToPayment(function (){
+        
+        api.showOrderSummary(
+            function (){
+            api.updateWallet()
+        })
+
+    })
+
+})
+
+//Promises
+// const cart = ["Shoes","Pant","Shirt"];
+// createOrder(cart , function(orderId){
+//     proceedToPayment(orderId);
+// } );
+
+// const promise = createOrder(cart); 
+//  //{data : undefined}
+//  console.log("promise",promise);
+
+// promise.then(function(orderId){
+//     proceedToPayment(orderId);
+// });
+
+// const GITHUB_API = "https://api.github.com/users/jay1898";
+// const user = fetch(GITHUB_API);
+// console.log(user);
+
+// user.then(function(data){
+//      console.log('data  ::: ',data);
+// });
+
+
+const cart = ["Shoes","Pant","Shirt"];
+createOrder(cart , function(orderId){
+    proceedToPayment(orderId, function(paymentInfo){
+        showOrderSummary(paymentInfo,function(){
+            updateWalletBalance();
+        });
+    });
+});
+
+//promise Chaining
+createOrder(cart)
+    .then((orderId)  => proceedToPayment(orderId))
+    .then((paymentInfo) => showOrderSummary(paymentInfo))
+    .then((paymentInfo) => updateWalletBalance(paymentInfo));
+
+
+const cart = ["Shoes", "Pant", "Shirt"];
+
+const promise = createOrder(cart); //orderId
+console.log(promise);
+
+createOrder(cart)
+.then(function (orderId) {
+    console.log(orderId);
+    return orderId;
+})
+.then(function (orderId){
+    return proceedToPayment(orderId);
+})
+.then(function (paymentInfo){
+    console.log(paymentInfo);
+})
+.catch(function (err){
+    console.log(err.message);
+});
+
+//producer
+function createOrder(cart) {
+
+  const pr = new Promise(function (resolve, reject) {
+    //createOrder
+    //validate
+    //orderId
+    if (!validateCart(cart)) {
+      const err = new Error("Cart is not Valid");
+      reject(err);
+    }
+    // logic for create order
+    const orderId = "123456";
+    if (orderId) {
+      setTimeout(function(){
+        resolve(orderId);
+      },5000)
+      
+    }
+  });
+
+  return pr;
+}
+
+function proceedToPayment(orderId){
+    return new Promise(function (resolve,reject){
+        resolve("Payment Successfull");
+    })
+}
+
+function validateCart(cart){
+    return true;
+}
+
+
+
+// async --> always return promise
+// async function getData() {
+//   return "Javascript";
+// }
+
+// const data = getData();
+// // console.log('data ::',data);
+// data.then(res => console.log(res));
+
+const p = new Promise((resolve,reject) =>{
+  setTimeout(() => {
+    resolve("Promise Resolved Value!!");
+  },5000)
+});
+
+
+const p1 = new Promise((resolve,reject) =>{
+  setTimeout(() => {
+    resolve("Promise Resolved Value!!");
+  },10000)
+});
+
+//await can only be used inside an async function
+async function handlePromise(){
+  //js engine was waiting for promise to resolved 
+  console.log('Start');
+  const val = await p;
+  console.log('JS');
+  console.log("val ::",val);
+
+  const val1 = await p1;
+  console.log('Java');
+  console.log("val1 ::",val1);
+}
+handlePromise();
+
+// function getData(){
+//   p.then((res) => console.log(res));
+// }
+// getData()
+
+
+//Try Catch hanndling using api 
+
+const API_URL = "https://api.github.com/users/jay1898";
+async function handlePromise() {
+  try {
+    const data = await fetch(API_URL);
+    const jsonValue = await data.json();
+    console.log(jsonValue);
+    console.log("jsonValue", JSON.stringify(jsonValue));
+  } catch (err) {
+    console.log(err);
+  }
+
+  // fetch() => Response.json() => jsonValue
+}
+handlePromise();
+
+
+//
+
+const API_URL = "https://invalidrandomurl";
+async function handlePromise() {
+    const data = await fetch(API_URL);
+    const jsonValue = await data.json();
+    console.log(jsonValue);
+    console.log("jsonValue", JSON.stringify(jsonValue));
+}
+// fetch() => Response.json() => jsonValue
+handlePromise().catch()((err) => console.log(err));
+
+
+//THIS KEYWORD
+
+//"use strict";
+//this in global space
+//"use strict";
+console.log(this);  //global object  (Window)
+
+//this inside a function 
+function x(){
+  // the value depends on strict / non strict mode
+  console.log(this);
+}
+
+//this in non-strict mode (this substitution)
+//if the value of this key word is undefined or null this keyword is replaced by global object.
+
+//this keyword value depends on how the function is called (window)
+x();
+window.x()
+//this inside a object's method 
+
+const student  = {
+  name : "Jay",
+  printName: function (){
+    // console.log(this);
+    console.log(this.name);
+  }
+};
+student.printName();
+
+const student2 = {
+  name : "John",
+};
+
+//call apply bind methods (sharing methods)
+student.printName.call(student2);  //value of this = student2
+
+//this inside arrow function
+
+const obj = {
+  a:20,
+  x: function (){
+    const y = () => {
+      console.log(this);
+    }
+  },
+};
+obj.x();
+ 
+//this inside html Dom elements => refrence to html element
