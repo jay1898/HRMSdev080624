@@ -1,0 +1,407 @@
+.clockInOutContainer {
+	margin: 15px;
+}
+.clockInOutInnerContainer{
+	padding: 20px;
+}
+/* Component CSS file 
+.custom-modal-right {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 50%; /* Adjust this value to control the width of the modal *-//
+    height: 100%;
+    background-color: #fff; /* Background color for the modal *-/
+    z-index: 1000;
+    overflow-y: auto; /* Allow vertical scrolling if content overflows the modal *-/
+}*/
+.wfhAndLeaveLabel{
+    text-align: justify;
+}
+/* .Box{
+    padding-left: 11px;
+    padding-right: 11px;
+} */
+.Body{
+    background-color: #FCFCFC;
+    border-radius: 20px;
+}
+.clock_Time{
+    text-align: center;
+}
+.Break{
+    font-size: 13px;
+    color: #9D9D9D;
+}
+.Break_Page{
+    background-color: #EAECF1;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.Timer{
+    font-size: 12px;
+    color: #194051;
+}
+.Days{
+    font-size: 12px;
+    color: #194051;
+}
+.Sincelogin{
+    font-size: 13px;
+    color: #9D9D9D;
+}
+.Timedifference{
+    font-size: 12px;
+    color: #00A129;
+}
+.clockinButtonStyle{
+    background-color: #00A129;
+    padding: 12px 0px;
+    border-radius: 50px;
+    border: 0px;
+    color: white;
+    width: 125px;
+    cursor: pointer;
+}
+.clockinButtonStyle.hover-grow {
+  transition: transform 0.6s;
+}
+.clockinButtonStyle.hover-grow:hover {
+  transform: scale(1.1);
+  /* This will increase the size by 10% on hover */
+}
+.clockoutButtonStyle{
+    background-color: rgb(186, 5, 23);
+    padding: 12px 0px;
+    border-radius: 50px;
+    border: 0px;
+    color: white;
+    width: 125px;
+    cursor: pointer;
+}
+.clockoutButtonStyle.hover-grow {
+  transition: transform 0.6s;
+}
+.clockoutButtonStyle.hover-grow:hover {
+  transform: scale(1.1);
+  /* This will increase the size by 10% on hover */
+}
+.clock_in_box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 11px;
+    /* padding: 0px 11px; */
+}
+.clockoutButtonDisable{
+    background-color: rgb(234, 236, 241);
+    padding: 12px 0px;
+    border-radius: 50px;
+    border: 0px;
+    color: white;
+    width: 125px;
+    cursor: pointer;
+}
+.clockoutButtonDisable.hover-grow {
+  transition: transform 0.6s;
+}
+.clockoutButtonDisable.hover-grow:hover {
+  transform: scale(1.1);
+  /* This will increase the size by 10% on hover */
+}
+/* @media (max-width:2560px) {
+  .Box{
+    width: 410px;
+    }
+} */
+.Workfromhome{
+    font-size: 22px;
+    /* text-align: left; */
+    color:#194051;
+    /* margin-top: 12px; */
+    text-align: center;
+}
+.startDate{
+    font-size: 16px;
+    color: #9D9D9D;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.endDate{
+    font-size: 16px;
+    color: #9D9D9D;
+    text-align: left;
+    margin-bottom: 10px;
+}
+.totalDays{
+    font-size: 16px;
+    color: #9D9D9D;
+    margin-top: 4px;
+}
+.totalDays1{
+    font-size: 16px;
+    color: #9D9D9D;
+    /* margin-top: 4px; */
+    text-align: left;
+    margin-bottom: 10px;
+    /* margin-left: 50px; */
+}
+.leaveType{
+    font-size: 16px;
+    color: #9D9D9D;
+    text-align: right;
+}
+.leaveDuration{
+    font-size: 16px;
+    color: #9D9D9D;
+    text-align: left;
+    margin-left: 13px;
+}
+.leaveDuration1{
+    font-size: 16px;
+    color: #9D9D9D;
+    text-align: right;
+    margin-right: 23px;
+}
+.total-days {
+    width: 100px;
+    text-align: center;
+    background: #EAECF1;
+    border: none !important;
+    font-size: 16px;
+    padding: 6px;
+    border-radius: 8px;
+    /* margin-left: 40px; */
+}
+.Days{
+    margin-top: -4px;
+}
+.textarea{
+    margin-bottom: 20px;
+}
+.apply_btn{
+    display: flex;
+    justify-content: end;
+}
+.canclebtn {
+  padding: 8px 10px;
+  background-color: #FCFCFC;
+  border: 2px solid #9D9D9D;
+  color: #9D9D9D;
+  border-radius: 40px;
+  cursor: pointer;
+  padding-left: 40px;
+  padding-right: 40px;
+  font-size: 18px;
+}
+.savebtn{
+  padding: 9px 10px;
+  background-color: #00A129;
+  border: 1px solid #FCFCFC;
+  color: #FCFCFC;
+  border-radius: 40px;
+  cursor: pointer;
+  padding-left: 46px;
+  padding-right: 46px;
+  font-size: 18px;
+}
+
+.lightning-input[name="ToDate"] {
+        background-color: #9D9D9D; /* Set the background color */
+        /* Add any other styling you need */
+}
+.reason{
+    font-size: 16px;
+    color: #9D9D9D;
+    text-align: left;
+
+}
+.title, .subtitle {
+	margin: 0.5em auto;
+	text-align: center;
+}
+.subquestion-title {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* .series {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+	background: #EAECF1;
+    border-radius: 10px;
+    max-width: 441px;
+    margin-bottom: 24px;
+    /* margin-top: 20px; 
+} */
+.series1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+	background: #EAECF1;
+    border-radius: 10px;
+    max-width: 441px;
+    margin-bottom: 24px;
+    /* margin-top: 20px; */
+}
+.series2 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+	background: #EAECF1;
+    border-radius: 10px;
+    max-width: 236px;
+    margin-bottom: 15px;
+    /* margin-top: 20px; */
+}
+
+
+article .subquestion-title {
+    margin-bottom: 0;
+    margin-top: 1.5em;
+    font-variant: small-caps;
+    letter-spacing: 0.25em;
+    font-weight: bold;
+}
+
+.switch-toggle {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 17px;
+}
+
+.switch-toggle label {
+	color: #ffffff36;
+	background: transparent;
+	display: flex;
+	justify-content: center;
+	align-content: center;
+	height: 100%;
+	padding: 0.25em;
+	cursor: pointer;
+}
+
+.switch-toggle label {
+    border-radius: 10px;
+    color: #9D9D9D;
+    padding: 8px 16px;
+}
+
+
+/* .slider {
+position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 33.33333333333333%;
+    background: #194051;
+    border-radius: 10px;
+    box-shadow: -3px -3px 3px -3px inset black, -5px -5px 30px -10px inset black, 3px 3px 3px -3px inset white, 5px 5px 30px -10px inset white;
+    -webkit-transition: .4s;
+    transition: .4s;
+} */
+.slider {
+    display: none;
+}
+.slider {
+    background-color: hsla(208, 91%, 92%, 1);
+    box-shadow: 0 0 30px;
+}
+
+
+.switch-toggle input {
+  display: none;
+}
+input:checked + label {
+	color: #FCFCFC;
+	background-color: #194051;
+    padding: 5px 16px;
+}
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+}
+.slds-box {
+    border-radius: 8.74px 8.74px 8.74px 8.74px;
+    padding: 0px;
+    border: 1.64px solid rgba(126, 144, 154, 1);
+    width: fit-content;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.boxes {
+    padding: 0px 7PX;
+}
+.OnTimeBox{
+    background: rgba(241, 241, 241, 1);
+    height: 100%;
+    border-radius: 10px;
+    padding: 8PX 10px;
+}
+  .onTimeDate{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10PX;
+    
+  }
+  .textBox{
+    background: rgba(241, 241, 241, 1);
+    margin: 0PX;
+    padding: 10PX;
+    border-radius: 4px;
+  }
+.colTwo{
+    margin: 0PX;
+    justify-content: space-between;
+    height: 65PX;
+}
+.colTwoLeft{
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+.on-time {
+    color: #00A129;
+}
+
+.late {
+    color: red;
+}
+
+@media screen and (max-width: 480px){
+    .clock_in_box {
+        justify-content: space-around;
+        padding-top: 10px;
+        padding-bottom: 5px;
+    }
+
+    .onTimeDate{
+        margin-bottom: 0px;
+    }
+
+    .boxes {
+        padding: 0px;
+        padding-left: 7px;
+    }
+
+    .OnTimeBox{
+        padding: 8px;
+    }
+}
